@@ -1,0 +1,42 @@
+.dd-form.login-form {
+  margin-top: 200px;
+
+  .secondary-login-options {
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > * {
+      flex-basis: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .remember-label:after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid $primary_dark;
+      margin-left: 10px;
+    }
+
+    #remember:checked + .remember-label:after {
+      background: $primary_dark;
+    }
+
+    #remember {
+      display: none;
+    }
+
+
+
+  }
+
+  .login-button {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

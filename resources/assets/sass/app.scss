@@ -1,4 +1,3 @@
-
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
@@ -7,3 +6,16 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "admin/partials/buttons";
+@import "admin/partials/forms";
+@import "admin/partials/gallery";
+@import "admin/partials/modals";
+@import "admin/partials/modalvue";
+@import "admin/partials/pageheader";
+@import "admin/partials/singleupload";
+@import "admin/partials/spinner";
+@import "admin/partials/toggleswitch";
+@import "admin/partials/loginpage";
+@import "admin/partials/passwordresetrequest";
+

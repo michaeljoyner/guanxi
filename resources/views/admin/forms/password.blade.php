@@ -3,7 +3,7 @@
     @include('errors')
     <div class="form-group">
         <label for="current_password">Current password: </label>
-        <input type="password" name="current_password" class="form-control">
+        <input type="password" value="{{ $model->password or old('password') }}" name="current_password" class="form-control">
     </div>
     <div class="form-group">
         <label for="password">New Password: </label>

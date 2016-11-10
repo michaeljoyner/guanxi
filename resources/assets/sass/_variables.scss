@@ -1,6 +1,6 @@
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: transparent;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -24,6 +24,11 @@ $text-color: #636b6f;
 
 // Navbar
 $navbar-default-bg: rebeccapurple;
+$navbar-inverse-bg: rebeccapurple;
+$navbar-inverse-color: #fff;
+$navbar-inverse-link-active-color: #fff;
+$navbar-inverse-link-color: yellow;
+$navbar-border-radius: 0;
 
 // Buttons
 $btn-default-color: $text-color;
@@ -35,3 +40,14 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+//colours
+
+$primary_blue: #81CDBC;
+$primary_dark: #40333E;
+$soft_purple: #645258;
+$primary_red: #EF6060;
+$white: #ffffff;
+$danger: #ff4850;
+$text_grey: #888;
+$eggshell: #e2e2e2;
