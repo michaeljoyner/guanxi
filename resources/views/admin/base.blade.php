@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     @section('title')
-        <title>Buffalo Tools | Admin</title>
+        <title>Guanxi | Admin</title>
     @show
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}"/>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     @yield('head')
+    <script>
+        var Laravel = {
+            csrfToken: '{{ csrf_token() }}'
+        }
+    </script>
 </head>
 <body>
 @if(Auth::check())

@@ -14,17 +14,18 @@
 
 <script type="text/babel">
     module.exports = {
-        props: ['identifier', 'true-label', 'false-label', 'initial-state', 'toggle-url', 'toggle-attribute', 'current-status'],
+        props: ['identifier', 'true-label', 'false-label', 'initial-state', 'toggle-url', 'toggle-attribute'],
 
         data() {
             return {
+                currentStatus: null
             }
         },
 
-        ready() {
-            if(!this.currentStatus) {
+        mounted() {
+//            if(!this.currentStatus) {
                 this.currentStatus = this.initialState;
-            }
+//            }
         },
 
         computed: {

@@ -13,7 +13,7 @@
         @endif
         <div class="form-group">
             <label for="email">Email: </label>
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" autofocus>
         </div>
         <div class="form-group">
             <label for="password">Password: </label>

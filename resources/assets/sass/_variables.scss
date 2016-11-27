@@ -1,3 +1,16 @@
+//colours
+
+$primary_blue: #81CDBC;
+$primary_dark: #40333E;
+$soft_purple: #645258;
+$primary_red: #EF6060;
+$white: #ffffff;
+$danger: #ff4850;
+$eggshell: #edf0f2;
+
+$brand_purple: #803EA0;
+$brand_dark: #19191A;
+$text_grey: #6A6C6E;
 
 // Body
 $body-bg: transparent;
@@ -23,11 +36,11 @@ $line-height-base: 1.6;
 $text-color: #636b6f;
 
 // Navbar
-$navbar-default-bg: rebeccapurple;
-$navbar-inverse-bg: rebeccapurple;
-$navbar-inverse-color: #fff;
-$navbar-inverse-link-active-color: #fff;
-$navbar-inverse-link-color: yellow;
+$navbar-default-bg: $brand_purple;
+$navbar-inverse-bg: $brand_purple;
+$navbar-inverse-color: $white;
+$navbar-inverse-link-active-color: $white;
+$navbar-inverse-link-color: $eggshell;
 $navbar-border-radius: 0;
 
 // Buttons
@@ -41,13 +54,4 @@ $input-color-placeholder: lighten($text-color, 30%);
 // Panels
 $panel-default-heading-bg: #fff;
 
-//colours
 
-$primary_blue: #81CDBC;
-$primary_dark: #40333E;
-$soft_purple: #645258;
-$primary_red: #EF6060;
-$white: #ffffff;
-$danger: #ff4850;
-$text_grey: #888;
-$eggshell: #e2e2e2;

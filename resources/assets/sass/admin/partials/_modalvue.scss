@@ -25,6 +25,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
+  max-height: 95vh;
 
   &.wide {
     max-width: 900px;
@@ -34,10 +35,17 @@
 .modal-header h3 {
   margin-top: 0;
   color: $primary_blue;
+  max-height: 80px;
 }
 
 .modal-body {
   margin: 20px 0;
+  max-height: calc(85vh - 180px);
+  overflow-y: auto;
+}
+
+.modal-footer {
+  max-height: 100px;
 }
 
 .modal-default-button {

@@ -2,12 +2,17 @@
 
 namespace App;
 
+use App\Content\Article;
+use App\People\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -15,8 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,6 +32,34 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function($user) {
+           $user->createProfile();
+        });
+
+        static::deleted(function($user) {
+            $user->profile->delete();
+        });
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    protected function createProfile()
+    {
+        return $this->profile()->create([
+            'name' => $this->name,
+            'title' => ['en' => '', 'zh' => ''],
+            'intro' => ['en' => '', 'zh' => ''],
+            'bio' => ['en' => '', 'zh' => '']
+        ]);
+    }
 
     public function setPasswordAttribute($password)
     {
@@ -38,5 +72,11 @@ class User extends Authenticatable
     {
         $this->password = $newPassword;
         $this->save();
+    }
+
+    public function createArticle($title, $locale = 'en')
+    {
+        $articleTitle = $locale === 'en' ? ['en' => $title, 'zh' => ''] : ['en' => '', 'zh' => $title];
+        return $this->profile->articles()->create(['title' => $articleTitle]);
     }
 }

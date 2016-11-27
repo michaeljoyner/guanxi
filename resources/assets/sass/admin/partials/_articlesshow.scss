@@ -1,0 +1,13 @@
+.article-language-card {
+  background: $eggshell;
+  border: 10px solid $white;
+
+  .card-actions {
+    text-align: right;
+    padding-bottom: 10px;
+
+    .btn.dd-btn {
+      transform: scale(.7);
+    }
+  }
+}

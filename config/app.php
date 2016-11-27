@@ -166,8 +166,9 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        Spatie\Translatable\TranslatableServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         /*
          * Application Service Providers...

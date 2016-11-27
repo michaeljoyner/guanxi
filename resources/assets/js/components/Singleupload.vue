@@ -3,19 +3,22 @@
 </style>
 
 <template>
-    <label for="profile-upload" class="single-upload-label">
-        <img :src="imageSrc" alt="" class="profile-image"
-             v-bind:class="{'processing' : uploading, 'large': size === 'large', 'round': shape === 'round', 'full': size === 'full' }"/>
-        <input v-on:change="processFile" type="file" id="profile-upload"/>
-    </label>
-    <div class="upload-progress-container" v-show="uploading">
+    <div>
+        <label for="profile-upload" class="single-upload-label">
+            <img :src="imageSrc" alt="" class="profile-image"
+                 v-bind:class="{'processing' : uploading, 'large': size === 'large', 'round': shape === 'round', 'full': size === 'full' }"/>
+            <input v-on:change="processFile" type="file" id="profile-upload"/>
+        </label>
+        <div class="upload-progress-container" v-show="uploading">
         <span class="upload-progress-bar"
               v-bind:style="{width: uploadPercentage + '%'}"></span>
+        </div>
+        <p class="upload-message"
+           v-bind:class="{'error': uploadStatus === 'error', 'success': uploadStatus === 'success'}"
+           v-show="uploadMsg !== ''">{{ uploadMsg }}
+        </p>
     </div>
-    <p class="upload-message"
-       v-bind:class="{'error': uploadStatus === 'error', 'success': uploadStatus === 'success'}"
-       v-show="uploadMsg !== ''">{{ uploadMsg }}
-    </p>
+
 </template>
 
 <script type="text/babel">
@@ -82,7 +85,7 @@
                 this.uploadMsg = "Uploaded successfully";
                 this.uploadStatus = 'success'
                 this.uploading = false;
-                this.$dispatch('singleuploadcomplete', res.json());
+                eventHub.$emit('singleuploadcomplete', res.json());
             },
 
             onUploadFailed(err) {

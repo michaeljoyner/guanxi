@@ -1,0 +1,20 @@
+.dd-checkbox-label:after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $primary_dark;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: bottom;
+  transition: .5s;
+  background: $white;
+}
+
+.dd-labelled-checkbox {
+  display: none;
+}
+
+.dd-labelled-checkbox:checked + .dd-checkbox-label:after {
+  background: $primary_dark;
+}

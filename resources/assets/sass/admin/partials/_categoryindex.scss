@@ -1,0 +1,21 @@
+.category-index-card {
+  display: inline-block;
+  width: 95%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+
+  img {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .category-name {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    color: $white;
+  }
+}

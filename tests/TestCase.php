@@ -28,8 +28,15 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     public function asLoggedInUser()
     {
         $user = factory(User::class)->create(['email' => 'joe@example.com', 'password' => 'password']);
+        $user->assignRole(\App\Role::superadmin());
         $this->actingAs($user);
 
         return $user;
+    }
+
+    public function assertSoftDeleted(\Illuminate\Database\Eloquent\Model $model)
+    {
+        $model = $model->withTrashed()->find($model->id);
+        $this->assertTrue($model->trashed());
     }
 }

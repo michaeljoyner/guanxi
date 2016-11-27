@@ -9,16 +9,16 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('images/chars.jpg') }}" alt="logo"/>
+{{--                <img src="{{ asset('images/chars.jpg') }}" alt="logo"/>--}}
             </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/admin/products/search">Products</a></li>
-                <li><a href="/admin/categories">Categories</a></li>
-                <li><a href="/admin/orders">Product Enquiries</a></li>
+                {{--<li><a href="/admin/products/search">Products</a></li>--}}
+                {{--<li><a href="/admin/categories">Categories</a></li>--}}
+                {{--<li><a href="/admin/orders">Product Enquiries</a></li>--}}
                 <li class="dropdown">
                     <a href="#"
                        class="dropdown-toggle"
@@ -26,13 +26,15 @@
                        role="button"
                        aria-haspopup="true"
                        aria-expanded="false"
-                    >Site Content <span class="caret"></span></a>
+                    >Content <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/slides">Banner Slides</a></li>
+                        <li><a href="/admin/content/articles">Articles</a></li>
+                        <li><a href="/admin/content/categories">Categories</a></li>
                     </ul>
                 </li>
-                <li><a href="/admin/blog/posts">News</a></li>
                 <li><a href="/admin/social">Social</a></li>
+                <li><a href="/admin/profiles">People</a></li>
+                <li><a href="/admin/affiliates">Affiliates</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -46,7 +48,8 @@
                        aria-expanded="false"
                     >{{ Auth::user()->email }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/users/password/reset">Reset Password</a></li>
+                        <li><a href="/admin/profiles/{{ \Illuminate\Support\Facades\Auth::user()->profile->id }}">My Profile</a></li>
+                        <li><a href="/admin/users/{{ \Illuminate\Support\Facades\Auth::user()->id }}/password/edit">Reset Password</a></li>
                         <li><a href="/admin/logout">Logout</a></li>
                     </ul>
                 </li>
