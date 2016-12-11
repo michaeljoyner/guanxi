@@ -47,6 +47,9 @@
             ></category-chooser>
         </div>
         <div class="row">
+            <tagger article-id="{{ $article->id }}"></tagger>
+        </div>
+        <div class="row">
             <article-author initial-name="{{ $article->author->name }}"
                             initial-thumbnail="{{ $article->author->avatar('thumb') }}"
                             initial-intro="{{ $article->author->getTranslation('intro', 'en') }}"

@@ -30,6 +30,20 @@
                     <ul class="dropdown-menu">
                         <li><a href="/admin/content/articles">Articles</a></li>
                         <li><a href="/admin/content/categories">Categories</a></li>
+                        <li><a href="/admin/content/tags">Tags</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                    >Media <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/media/photos">Photos</a></li>
+                        <li><a href="/admin/media/videos">Videos</a></li>
                     </ul>
                 </li>
                 <li><a href="/admin/social">Social</a></li>

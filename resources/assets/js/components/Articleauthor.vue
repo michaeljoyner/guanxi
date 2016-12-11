@@ -80,7 +80,7 @@
             fetchContributors() {
                 this.$http.get('/admin/api/profiles')
                         .then((res) => this.contributors = res.body)
-                        .catch((err) => console.log(err));
+                        .catch((err) => this.alertError('Unable to get list of possible authors. If you need to set the author, please refresh and try again.'));
             },
 
             setAuthor() {
@@ -100,7 +100,7 @@
             onFailure(err) {
                 this.saving = false;
                 this.modalOpen = false;
-              console.log(err);
+                this.alertError('Failed to save the articles author. Please refresh and try again.');
             },
 
             selectAuthor(person) {
@@ -122,6 +122,15 @@
                     intro: this.initialIntro,
                     thumbnail: this.initialThumbnail
                 };
+            },
+
+            alertError(message) {
+                eventHub.$emit('user-alert', {
+                    type: 'error',
+                    title: 'Oh dear! An error!',
+                    text: message,
+                    confirm: true
+                });
             }
         }
     }

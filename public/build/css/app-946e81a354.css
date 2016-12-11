@@ -7175,10 +7175,26 @@ body.stop-scrolling {
   transition: .5s;
   background: #ffffff; }
 
+.dd-checkbox-label-left:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #40333E;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: bottom;
+  -webkit-transition: .5s;
+  transition: .5s;
+  background: #ffffff; }
+
 .dd-labelled-checkbox {
   display: none; }
 
 .dd-labelled-checkbox:checked + .dd-checkbox-label:after {
+  background: #40333E; }
+
+.dd-labelled-checkbox:checked + .dd-checkbox-label-left:before {
   background: #40333E; }
 
 .users-listing {
@@ -7325,7 +7341,8 @@ body.stop-scrolling {
 .profile-intro-card {
   display: -webkit-box;
   display: flex;
-  max-width: 400px;
+  width: 400px;
+  max-width: 100%;
   border: 1px solid #edf0f2;
   padding: 15px; }
   .profile-intro-card .profile-intro-card-avatar-box {
@@ -7343,7 +7360,8 @@ body.stop-scrolling {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
-    padding-left: 30px; }
+    padding-left: 30px;
+    width: calc(100% - 100px); }
     .profile-intro-card .profile-intro-card-text-box .profile-intro-card-name {
       text-transform: uppercase; }
 
@@ -7371,6 +7389,83 @@ body.stop-scrolling {
     background: #dbc2e8; }
   .article-author-component .spinner > div {
     background: #6A6C6E; }
+
+.tagger-component {
+  background: #edf0f2;
+  border: 10px solid #ffffff;
+  padding: 0 15px 15px; }
+  .tagger-component .tagger-input {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 5px;
+    margin-left: 15px;
+    min-width: 300px; }
+  .tagger-component .suggestion-list {
+    max-width: 300px; }
+    .tagger-component .suggestion-list li.selected {
+      background: #f1e7f6; }
+  .tagger-component .added-tags {
+    min-height: 60px; }
+    .tagger-component .added-tags .tag {
+      display: inline-block;
+      margin: 15px;
+      height: 30px;
+      line-height: 32px;
+      text-transform: uppercase;
+      background: #803EA0;
+      color: #ffffff;
+      border-radius: 5px;
+      padding: 0 8px; }
+      .tagger-component .added-tags .tag .tag-delete-btn {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 15px;
+        width: 20px;
+        height: 20px;
+        background: #edf0f2;
+        color: #b079cb;
+        font-size: 30px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 50%;
+        cursor: default;
+        margin-bottom: 3px; }
+    .tagger-component .added-tags .tag.temp {
+      background: indianred; }
+
+.tag-manager-component {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .tag-manager-component .tag-actions {
+    margin: 50px 0; }
+    .tag-manager-component .tag-actions .dd-btn {
+      margin: 1em; }
+  .tag-manager-component .tags-list {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px; }
+    .tag-manager-component .tags-list div.highlight {
+      background: #f1e7f6; }
+    .tag-manager-component .tags-list .tag-name {
+      display: inline-block;
+      width: 200px; }
+      .tag-manager-component .tags-list .tag-name.in-use {
+        color: #803EA0; }
+    .tag-manager-component .tags-list .tag-row {
+      margin: 10px 0; }
+  .tag-manager-component .tag-search-input {
+    margin: 1em;
+    border: 1px solid #803EA0;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 200px; }
 
 a, a:hover, a:visited, a:focus {
   color: inherit;

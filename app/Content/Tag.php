@@ -14,4 +14,16 @@ class Tag extends Model
     {
         return $this->belongsToMany(Article::class);
     }
+
+    public function hasArticles()
+    {
+        return $this->articles->count() > 0;
+    }
+
+    public static function deleteBatch($ids)
+    {
+        collect($ids)->each(function($id) {
+           static::findOrFail($id)->delete();
+        });
+    }
 }

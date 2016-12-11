@@ -1,0 +1,176 @@
+AdminPasswordReset
+ [x] A logged in user can reset their password
+
+AffiliateImageController
+ [x] An uploaded image is properly stored on the affiliate
+
+AffiliatePublishingController
+ [x] An unpublished affiliate is properly published
+ [x] A published affiliate is properly retracted
+
+AffiliatesController
+ [x] An affiliate is correctly stored
+ [x] An affiliate is correctly updated
+ [x] An affiliate can be deleted
+ [x] An affiliates social links are properly updated
+
+Affiliates
+ [x] Affiliates exists
+ [x] An affiliate may be created with translations
+ [x] An affiliate can be updated with translations
+ [x] An affiliate can have an image attached to it
+ [x] An new affiliate has a default image src
+ [x] An affiliate can be published
+ [x] An affiliate can be retracted
+
+ApiArticleCategoriesController
+ [x] An articles categories are properly synced
+
+ApiArticlePublishController
+ [x] The unpublished article is published
+ [x] The published article is retracted
+
+ApiCategoriesController
+ [x] The index of categories is returned
+
+ApiProfiles
+ [x] A list of all profiles can be fetched
+
+ApiTagsController
+ [x] The index of available tags can be fetched as json
+
+ArticleAuthorController
+ [x] The articles author is correctly updated
+
+ArticleAuthors
+ [x] An article has a profile as the author
+ [x] An article can have its author set to a different profile
+
+ArticleBodyController
+ [x] The articles english body is saved and returned
+ [x] The articles chinese body is updated and returned
+
+ArticleImagesController
+ [x] A posted image is attached to the article
+
+ArticleImages
+ [x] An image can be attached to an article
+
+ArticleTagsController
+ [x] An articles tags are successfully fetched
+ [x] An article with no tags will result in empty array
+ [x] A new tag can be posted directly to an article
+ [x] An array of tags can be correctly synced to article by put request
+
+ArticleTags
+ [x] A tag can be attached to an article
+ [x] A tag can be detached from an article
+ [x] An array of tags can be synced with an article
+ [x] Tags can be synced by passing array of tag ids
+ [x] A tag can be created and then attached to an article
+ [x] Create and attach tag will not duplicate a tag but rather just attach to article
+
+ArticlesCategories
+ [x] Categories can be set on the article
+ [x] A single category id may be passed to set categories method
+ [x] A category has a relationship with its articles
+
+ArticlesController
+ [x] An article is created for the current user
+ [x] The article is updated correctly
+ [x] An article is properly deleted
+
+Articles
+ [x] An article with no published on date has never been published
+ [x] An article can be published
+ [x] A published article can be retracted
+ [x] An article that is yet to be published will have its slug updated
+ [x] An article that has been published wont have its slug updated
+ [x] The body of an article can be set
+ [x] The update meta method updates the articles titles and descriptions for en and zh
+
+Authentication
+ [x] A user can log in
+ [x] A logged in user can log out
+
+CategoriesController
+ [x] A category is stored
+ [x] A category is updated
+ [x] A category is properly deleted
+
+Categories
+ [x] Categories are a thang
+ [x] A category can be created with translated data
+ [x] A category can be updated with translations
+
+CategoryImagesController
+ [x] A posted image is attached to the category
+
+CategoryImages
+ [x] A category has a model image
+ [x] A category has a default image
+
+ProfileAvatarsController
+ [x] An uploaded image is stored on the profile
+
+ProfilePublishingController
+ [x] A profile is correctly marked as published
+ [x] A published profile is correctly retracted
+
+ProfileSocialLinks
+ [x] A social link can be added to a profile
+
+ProfilesController
+ [x] A profile is correctly stored
+ [x] A user may edit their profile
+ [x] A profiles social links are correctly updated
+
+Profiles
+ [x] Profiles are a thang
+ [x] A profile can be updated with translations
+ [x] A profile can have an avatar
+ [x] A new profile has a default avatar
+ [x] A profile can be published
+ [x] A published profile can be retracted
+ [x] A profiles social links can be mass updated
+ [x] A list of platforms can be removed from the profiles social links
+ [x] Updating social links will remove links not passed to method
+ [x] A profile can be created with translations and not belonging to a user
+
+Registration
+ [x] Only a logged in user may create a new user
+ [x] A new user may be registered as a writer
+ [x] A user may be registered as a super admin
+
+Roles
+ [x] A super admin role exists
+ [x] An editor role exists
+ [x] A writer role exists
+ [x] Only a single role exists in the db for a given type
+
+TagsRepository
+ [x] It can fetch all unused tags
+ [x] It can get a sorted list of of tags by popularity
+
+Tags
+ [x] Tags are a thing
+
+UserProfiles
+ [x] A profile is created for a new user
+ [x] Deleting a user deletes its profile
+
+UserRoles
+ [x] A user may be assigned a role
+ [x] A user may be assigned a role by passing a role id to assign role method
+
+UsersArticles
+ [x] A user can post an article with just a title in english or chinese
+ [x] A article belongs to a profile as opposed to a user
+
+UsersController
+ [x] A user can be deleted
+ [x] A users info is updated
+
+Users
+ [x] A blank test
+

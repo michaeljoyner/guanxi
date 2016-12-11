@@ -71,4 +71,52 @@ class ArticleTagsTest extends TestCase
             $this->assertTrue($collectedTags->contains($tag->id));
         });
     }
+
+    /**
+     *@test
+     */
+    public function a_tag_can_be_created_and_then_attached_to_an_article()
+    {
+        $article = factory(Article::class)->create();
+
+        $article->createAndAttachTag('zonda');
+        $article = $article->fresh();
+        $this->assertCount(1, $article->tags);
+        $this->assertEquals('zonda', $article->tags->first()->name);
+    }
+
+    /**
+     *@test
+     */
+    public function create_and_attach_tag_will_not_duplicate_a_tag_but_rather_just_attach_to_article()
+    {
+        $tag = factory(Tag::class)->create(['name' => 'zonda']);
+        $article = factory(Article::class)->create();
+        $article->addTag($tag);
+
+        $article->createAndAttachTag('zonda');
+        $this->assertCount(1, $article->tags, 'Should only have one tag');
+        $this->assertEquals('zonda', $article->tags->first()->name);
+        $this->assertCount(1, Tag::where('name', 'zonda')->get());
+    }
+
+    /**
+     *@test
+     */
+    public function deleting_a_tag_removes_any_records_of_it_from_the_article_tag_pivot()
+    {
+        $article1 = factory(Article::class)->create();
+        $article2 = factory(Article::class)->create();
+        $tag = factory(Tag::class)->create();
+
+        $article1->addTag($tag);
+        $article2->addTag($tag);
+
+        $tag->delete();
+        $this->notSeeInDatabase('tags', ['id' => $tag->id]);
+        $this->notSeeInDatabase('article_tag', ['tag_id', $tag->id]);
+
+        $this->assertCount(0, $article1->tags);
+        $this->assertCount(0, $article2->tags);
+    }
 }

@@ -79,4 +79,6 @@ class User extends Authenticatable
         $articleTitle = $locale === 'en' ? ['en' => $title, 'zh' => ''] : ['en' => '', 'zh' => $title];
         return $this->profile->articles()->create(['title' => $articleTitle]);
     }
+
+
 }

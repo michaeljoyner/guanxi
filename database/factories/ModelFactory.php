@@ -69,3 +69,23 @@ $factory->define(App\Affiliates\Affiliate::class, function (Faker\Generator $fak
         'published' => false
     ];
 });
+
+$factory->define(App\Media\Video::class, function (Faker\Generator $faker) {
+    return [
+        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
+        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
+        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
+        'video_url' => $faker->randomElement(['https://www.youtube.com/watch?v=Aw28-krO7ZM', 'https://vimeo.com/194481035']),
+        'embed_url' => $faker->randomElement(['https://www.youtube.com/watch?v=Aw28-krO7ZM', 'https://vimeo.com/194481035']),
+        'published' => false
+    ];
+});
+
+$factory->define(App\Media\Photo::class, function (Faker\Generator $faker) {
+    return [
+        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
+        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
+        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
+        'published' => false
+    ];
+});

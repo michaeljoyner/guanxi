@@ -20,6 +20,10 @@ Vue.component('category-chooser', require('./components/Categorychooser.vue'));
 Vue.component('publish-button', require('./components/Publishbutton.vue'));
 Vue.component('article-author', require('./components/Articleauthor.vue'));
 Vue.component('toggle-switch', require('./components/Toggleswitch.vue'));
+Vue.component('tagger', require('./components/Tagger.vue'));
+Vue.component('tag-manager', require('./components/Tagmanager.vue'));
+Vue.component('dropzone', require('./components/Dropzone.vue'));
+Vue.component('gallery-show', require('./components/Galleryshow.vue'));
 
 window.eventHub = new Vue();
 

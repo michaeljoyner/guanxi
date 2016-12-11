@@ -62,6 +62,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
     Route::post('content/articles/{article}/author/{profile}', 'ArticleAuthorController@update');
 
+    Route::get('content/articles/{article}/tags', 'ArticleTagsController@index');
+    Route::post('content/articles/{article}/tags', 'ArticleTagsController@store');
+    Route::put('content/articles/{article}/tags', 'ArticleTagsController@update');
+
     Route::get('content/categories', 'CategoriesController@index');
     Route::get('content/categories/{category}', 'CategoriesController@show');
     Route::get('content/categories/{category}/edit', 'CategoriesController@edit');
@@ -70,6 +74,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::delete('content/categories/{category}', 'CategoriesController@delete');
 
     Route::post('content/categories/{category}/image', 'CategoryImagesController@store');
+
+    Route::get('content/tags', 'TagsController@index');
 
     Route::get('affiliates', 'AffiliatesController@index');
     Route::get('affiliates/{affiliate}', 'AffiliatesController@show');
@@ -81,6 +87,28 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('affiliates/{affiliate}/publish', 'AffiliatePublishingController@update');
     Route::post('affiliates/{affiliate}/image', 'AffiliateImageController@store');
 
+    Route::get('media/videos', 'VideosController@index');
+    Route::get('media/videos/{video}', 'VideosController@show');
+    Route::post('media/videos/{video}', 'VideosController@update');
+    Route::delete('media/videos/{video}', 'VideosController@delete');
+    Route::get('media/videos/{video}/edit', 'VideosController@edit');
+    Route::post('media/videos', 'VideosController@store');
+
+    Route::post('media/videos/{video}/publish', 'VideoPublishingController@update');
+
+    Route::get('media/photos', 'PhotosController@index');
+    Route::get('media/photos/{photo}', 'PhotosController@show');
+    Route::get('media/photos/{photo}/edit', 'PhotosController@edit');
+    Route::post('media/photos', 'PhotosController@store');
+    Route::post('media/photos/{photo}', 'PhotosController@update');
+    Route::delete('media/photos/{photo}', 'PhotosController@delete');
+
+    Route::post('media/photos/{photo}/publish', 'PhotoPublishingController@update');
+
+    Route::post('media/photos/{photo}/mainimage', 'PhotoMainImageController@store');
+    Route::get('media/photos/{photo}/gallery', 'PhotoGalleriesController@show');
+
+
     Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         // admin api routes
         Route::get('content/categories', 'CategoriesController@index');
@@ -88,6 +116,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
         Route::post('content/articles/{article}/publish', 'ArticlePublishController@update');
 
         Route::get('profiles', 'ProfilesController@index');
+
+        Route::get('tags', 'TagsController@index');
+        Route::delete('tags', 'TagsController@delete');
+
+        Route::get('media/photos/{photo}/gallery/images', 'PhotoGalleryImagesController@index');
+        Route::post('media/photos/{photo}/gallery/images', 'PhotoGalleryImagesController@store');
+        Route::delete('media/photos/{photo}/gallery/images/{media}', 'PhotoGalleryImagesController@delete');
     });
 
 });

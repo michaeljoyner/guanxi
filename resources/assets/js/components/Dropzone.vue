@@ -55,10 +55,10 @@
                 this.$http.post(this.url, this.makeFormData(file), this.makeUploadOptions(upload))
                         .then((res) => {
                             upload.setStatus('success');
-                            this.uploads.$remove(upload);
-                            this.alertParent(res.data);
+                            this.uploads.splice(this.uploads.indexOf(this.uploads.find(up => up.name === upload.name)[0]));
+                            this.alertParent(res.body);
                         })
-                        .catch(() => upload.setStatus('failed'));
+                        .catch((err) => {console.log(err); upload.setStatus('failed');});
                 this.uploads.push(upload);
             },
 
@@ -75,7 +75,7 @@
             },
 
             alertParent: function (image) {
-                this.$dispatch('image-added', image);
+                eventHub.$emit('image-added', image);
             }
 
 

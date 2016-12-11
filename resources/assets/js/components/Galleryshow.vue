@@ -17,28 +17,30 @@
 <script type="text/babel">
     module.exports = {
 
-        props:['geturl', 'gallery', 'delete-url'],
+        props: ['geturl', 'gallery', 'delete-url'],
 
-        data: function() {
+        data() {
             return {
                 images: []
             }
         },
 
-        ready: function() {
+        mounted() {
 
             this.fetchImages();
 
-            this.$on('add-image', function(image) {
-                this.addImage(image);
-            });
+//            this.$on('add-image', function(image) {
+//                this.addImage(image);
+//            });
+
+            eventHub.$on('image-added', (image) => this.addImage(image));
         },
 
         methods: {
 
             fetchImages() {
                 this.$http.get(this.geturl)
-                        .then((res) =>  this.$set('images', res.data))
+                        .then((res) => this.images = res.body)
                         .catch((res) => console.log(res));
             },
 
@@ -48,7 +50,9 @@
 
             removeImage(image) {
                 this.$http.delete(this.deleteUrl + image.image_id)
-                        .then(() => this.images.$remove(image))
+                        .then(() => {
+                            this.images.splice(this.images.indexOf(this.images.find(img => img.image_id === image.image_id), 1))
+                        })
                         .catch(() => {
                             swal({
                                 type: "error",

@@ -3,6 +3,7 @@
 namespace App\Affiliates;
 
 use App\HasModelImage;
+use App\IsPublishable;
 use App\Social\HasSocialLinks;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -11,7 +12,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Affiliate extends Model implements HasMediaConversions
 {
-    use HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage;
+    use HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage, IsPublishable;
 
     const DEFAULT_IMAGE_SRC = '/images/default_category.jpg';
 
@@ -71,21 +72,5 @@ class Affiliate extends Model implements HasMediaConversions
         return $src ? $src : static::DEFAULT_IMAGE_SRC;
     }
 
-    public function publish()
-    {
-        return $this->setPublishedStatus(true);
-    }
 
-    public function retract()
-    {
-        return $this->setPublishedStatus(false);
-    }
-
-    protected function setPublishedStatus($toPublish)
-    {
-        $this->published = $toPublish;
-        $this->save();
-
-        return $this->published;
-    }
 }

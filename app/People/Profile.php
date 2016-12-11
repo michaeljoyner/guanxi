@@ -4,6 +4,7 @@ namespace App\People;
 
 use App\Content\Article;
 use App\HasModelImage;
+use App\Media\Video;
 use App\Social\HasSocialLinks;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,11 @@ class Profile extends Model implements HasMediaConversions
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
     }
 
     public function updateWithTranslations($data)

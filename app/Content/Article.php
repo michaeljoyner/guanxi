@@ -153,5 +153,16 @@ class Article extends Model implements HasMediaConversions
         $this->tags()->sync($tags);
     }
 
+    public function createAndAttachTag($tagName)
+    {
+        $tag = Tag::firstOrCreate(['name' => $tagName]);
+
+        if(!$this->tags->contains($tag)) {
+            $this->addTag($tag);
+        }
+
+        return $tag;
+    }
+
 
 }

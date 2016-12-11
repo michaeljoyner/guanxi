@@ -1,6 +1,7 @@
 .profile-intro-card {
   display: flex;
-  max-width: 400px;
+  width: 400px;
+  max-width: 100%;
   border: 1px solid $eggshell;
   padding: 15px;
 
@@ -22,6 +23,7 @@
     flex-shrink: 1;
     flex-basis: auto;
     padding-left: 30px;
+    width: calc(100% - 100px);
 
     .profile-intro-card-name {
       text-transform: uppercase;
