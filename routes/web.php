@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home')->middleware('locale');
 
 Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::post('/admin/login', 'Auth\LoginController@login');
@@ -108,6 +106,20 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('media/photos/{photo}/mainimage', 'PhotoMainImageController@store');
     Route::get('media/photos/{photo}/gallery', 'PhotoGalleriesController@show');
 
+    Route::get('media/artworks', 'ArtworksController@index');
+    Route::get('media/artworks/{artwork}', 'ArtworksController@show');
+    Route::get('media/artworks/{artwork}/edit', 'ArtworksController@edit');
+    Route::post('media/artworks', 'ArtworksController@store');
+    Route::post('media/artworks/{artwork}', 'ArtworksController@update');
+    Route::delete('media/artworks/{artwork}', 'ArtworksController@delete');
+
+    Route::get('media/artworks/{artwork}/gallery', 'ArtworksGalleryController@show');
+
+    Route::post('media/artworks/{artwork}/mainimage', 'ArtworkImagesController@store');
+
+    Route::post('media/artworks/{artwork}/publish', 'ArtworkPublishingController@update');
+
+
 
     Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         // admin api routes
@@ -123,6 +135,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
         Route::get('media/photos/{photo}/gallery/images', 'PhotoGalleryImagesController@index');
         Route::post('media/photos/{photo}/gallery/images', 'PhotoGalleryImagesController@store');
         Route::delete('media/photos/{photo}/gallery/images/{media}', 'PhotoGalleryImagesController@delete');
+
+        Route::get('media/artworks/{artwork}/gallery/images', 'ArtworkGalleryImagesController@index');
+        Route::post('media/artworks/{artwork}/gallery/images', 'ArtworkGalleryImagesController@store');
+        Route::delete('media/artworks/{artwork}/gallery/images/{media}', 'ArtworkGalleryImagesController@delete');
     });
 
 });

@@ -51,7 +51,7 @@
             removeImage(image) {
                 this.$http.delete(this.deleteUrl + image.image_id)
                         .then(() => {
-                            this.images.splice(this.images.indexOf(this.images.find(img => img.image_id === image.image_id), 1))
+                            this.images.splice(this.images.indexOf(this.images.find(img => img.image_id === image.image_id)), 1)
                         })
                         .catch(() => {
                             swal({

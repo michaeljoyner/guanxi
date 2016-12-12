@@ -89,3 +89,12 @@ $factory->define(App\Media\Photo::class, function (Faker\Generator $faker) {
         'published' => false
     ];
 });
+
+$factory->define(App\Media\Artwork::class, function (Faker\Generator $faker) {
+    return [
+        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
+        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
+        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
+        'published' => false
+    ];
+});

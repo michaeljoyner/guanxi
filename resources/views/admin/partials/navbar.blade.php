@@ -43,6 +43,7 @@
                     >Media <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/admin/media/photos">Photos</a></li>
+                        <li><a href="/admin/media/artworks">Art</a></li>
                         <li><a href="/admin/media/videos">Videos</a></li>
                     </ul>
                 </li>

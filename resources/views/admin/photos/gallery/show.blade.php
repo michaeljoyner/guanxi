@@ -8,7 +8,7 @@
         </div>
     </section>
     <section class="photo-show-gallery gallery-container">
-        <dropzone url="/admin/media/photos/{{ $photo->id }}/gallery/images">
+        <dropzone url="/admin/api/media/photos/{{ $photo->id }}/gallery/images">
         </dropzone>
         <gallery-show gallery="{{ $photo->id }}"
                       geturl="/admin/api/media/photos/{{ $photo->id }}/gallery/images"

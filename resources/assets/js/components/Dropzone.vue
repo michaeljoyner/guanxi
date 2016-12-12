@@ -55,7 +55,7 @@
                 this.$http.post(this.url, this.makeFormData(file), this.makeUploadOptions(upload))
                         .then((res) => {
                             upload.setStatus('success');
-                            this.uploads.splice(this.uploads.indexOf(this.uploads.find(up => up.name === upload.name)[0]));
+                            this.uploads.splice(this.uploads.indexOf(upload), 1);
                             this.alertParent(res.body);
                         })
                         .catch((err) => {console.log(err); upload.setStatus('failed');});

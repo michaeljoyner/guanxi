@@ -4,19 +4,18 @@ namespace App\Media;
 
 use App\HasModelImage;
 use App\IsPublishable;
-use App\People\Profile;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\Translatable\HasTranslations;
 
-class Photo extends Model implements HasMediaConversions
+class Artwork extends Model implements HasMediaConversions
 {
-    use HasTranslations, HasMediaTrait, HasModelImage, IsPublishable, HasContributor, HasMainImage, HasGalleryImages;
+    use HasTranslations, HasContributor, HasMainImage, HasModelImage, HasMediaTrait, HasGalleryImages, IsPublishable;
 
     const DEFAULT_IMG_SRC = '/images/photo_default.jpeg';
 
-    protected $table = 'photos';
+    protected $table = 'artworks';
 
     protected $fillable = ['title', 'description'];
 
@@ -45,17 +44,17 @@ class Photo extends Model implements HasMediaConversions
 
     public static function createWithTranslations($data, $profile = null)
     {
-        $photo = static::create([
+        $artwork = static::create([
             'title'       => ['en' => $data['title'], 'zh' => $data['zh_title']],
             'description' => ['en' => $data['description'], 'zh' => $data['zh_description']]
         ]);
 
         if ($profile) {
-            $photo->profile_id = $profile->id;
-            $photo->save();
+            $artwork->profile_id = $profile->id;
+            $artwork->save();
         }
 
-        return $photo;
+        return $artwork;
     }
 
     public function updateWithTranslations($data)
