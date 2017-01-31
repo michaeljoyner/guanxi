@@ -1,0 +1,25 @@
+.article-index-card {
+  width: 250px;
+  margin: 1em 2em;
+
+  .article-index-card-category {
+    color: $brand-purple;
+    margin: 0 0 4px 0;
+  }
+
+  .article-index-card-headline {
+    margin: 4px 0 0;
+  }
+
+  .article-index-card-author {
+    margin: 0 0 4px;
+    //color: $text_grey;
+    //font-style: italic;
+  }
+
+  .article-index-card-description {
+    color: $text_grey;
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+}

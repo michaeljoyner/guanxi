@@ -1,0 +1,16 @@
+.profile-social-links {
+
+  .social-link {
+    border: 2px solid $brand_purple;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    //padding-top: 5px;
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

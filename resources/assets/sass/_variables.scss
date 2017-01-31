@@ -1,3 +1,10 @@
+//dimensions
+$nav_height: 60px;
+
+//typography
+$heavy_text: 'Oswald', sans-serif;
+$serif: 'Noto Serif', serif;
+$body_text: 'Noto Serif', sans-serif;
 //colours
 
 $primary_blue: #81CDBC;
@@ -9,8 +16,12 @@ $danger: #ff4850;
 $eggshell: #edf0f2;
 
 $brand_purple: #803EA0;
-$brand_dark: #19191A;
+$brand_soft_purple: #B574D5;
+$brand_super_soft_purple: #D0AEE2;
+$brand_dark_purple: #430064;
+$brand_dark: #27363B;
 $text_grey: #6A6C6E;
+$light_grey: #C3C6C9;
 
 // Body
 $body-bg: transparent;

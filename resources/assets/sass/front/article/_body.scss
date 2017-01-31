@@ -1,0 +1,41 @@
+.article-container .article-body {
+  max-width: 800px;
+  padding: 40px 15px 15px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  line-height: 1.8;
+
+  img {
+    max-width: 100%;
+  }
+
+  blockquote {
+    font-size: 1.2em;
+    color: $light_grey;
+    position: relative;
+    padding: 30px 0 30px 35px;
+    font-style: italic;
+
+
+    &:before {
+      content: '';
+      background: url(../../images/quotes.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 30px;
+      left: -10px;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+    }
+
+  }
+
+
+}
+
+.article-container {
+  .dd-block-btn-group {
+    margin-bottom: 50px;
+  }
+}

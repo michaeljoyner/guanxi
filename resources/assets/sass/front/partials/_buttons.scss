@@ -1,0 +1,32 @@
+.dd-btn {
+  border: 2px solid;
+  font-family: $heavy_text;
+  font-weight: 700;
+  width: 200px;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 5px 15px;
+  transition: .2s;
+  background: transparent;
+  font-size: 1em;
+
+  &:hover {
+    color: $brand_soft_purple;
+    transform: scale(1.05);
+  }
+}
+
+.dd-btn.block {
+  display: block;
+  margin: 1em auto;
+}
+
+
+.dd-block-btn-group {
+  text-align: center;
+  padding: 50px 0;
+
+  .dd-btn {
+    margin: 1em;
+  }
+}

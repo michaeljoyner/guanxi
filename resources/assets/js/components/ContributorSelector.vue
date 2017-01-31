@@ -2,7 +2,7 @@
 
 <template>
     <div class="article-author-component clearfix">
-        <p class="h6 text-uppercase">Author</p>
+        <p class="h6 text-uppercase">Contributor</p>
         <div class="profile-intro-card">
             <div class="profile-intro-card-avatar-box">
                 <img :src="current_author.thumbnail" :alt="current_author.name">
@@ -17,7 +17,7 @@
         </div>
         <modal :show="modalOpen" :wider="true">
             <div slot="header">
-                <h3>Select the author of this article</h3>
+                <h3>Who contributed this content?</h3>
             </div>
             <div slot="body">
                 <div v-for="person in contributors"
@@ -42,7 +42,7 @@
                     Cancel
                 </button>
                 <button class="btn dd-btn btn-dark" v-on:click="setAuthor">
-                    <span v-show="!saving">Set as Author</span>
+                    <span v-show="!saving">Set Contributor</span>
                     <div class="spinner" v-show="saving">
                         <div class="bounce1"></div>
                         <div class="bounce2"></div>
@@ -57,7 +57,7 @@
 <script type="text/babel">
     module.exports = {
 
-        props: ['initial-thumbnail', 'initial-name', 'initial-intro', 'can-update', 'article-id'],
+        props: ['initial-thumbnail', 'initial-name', 'initial-intro', 'can-update', 'article-id', 'url-base'],
 
         data() {
             return {
@@ -85,7 +85,7 @@
 
             setAuthor() {
                 this.saving = true;
-                this.$http.post('/admin/content/articles/' + this.articleId + '/author/' + this.current_author.id)
+                this.$http.post(this.urlBase + this.current_author.id)
                         .then((res) => this.onSuccess(res))
                         .catch((err) => this.onFailure(err));
             },
@@ -100,7 +100,7 @@
             onFailure(err) {
                 this.saving = false;
                 this.modalOpen = false;
-                this.alertError('Failed to save the articles author. Please refresh and try again.');
+                this.alertError('Failed to set the contributor of this content. Please refresh and try again.');
             },
 
             selectAuthor(person) {
@@ -109,7 +109,7 @@
 
             cancelAction() {
                 this.modalOpen = false;
-                if(this.last_known_selected) {
+                if (this.last_known_selected) {
                     return this.current_author = this.last_known_selected;
                 }
 

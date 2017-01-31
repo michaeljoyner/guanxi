@@ -1,0 +1,19 @@
+.media-image-card {
+  width: 200px;
+  margin: 1em;
+
+  img {
+    max-width: 100%;
+  }
+
+  .media-image-card-title {
+    margin: 4px;
+  }
+
+  .media-image-card-contributor {
+    margin: 4px;
+    color: $brand-purple;
+    font-style: italic;
+  }
+
+}

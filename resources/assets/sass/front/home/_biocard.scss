@@ -1,0 +1,50 @@
+.bio-card {
+  width: 200px;
+  margin: 3em 2em;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  &:nth-child(2) {
+    margin-top: 0;
+  }
+  &:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .card-image-holder {
+    width: 80%;
+    padding-bottom: 80%;
+    margin: 0 auto 20px;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: .2s;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  .bio-card-name {
+    margin: 4px 0 0;
+  }
+
+  .bio-card-contributor-title {
+    margin: 0;
+    color: $brand_purple;
+    font-style: italic;
+    text-transform: capitalize;
+  }
+
+  .bio-card-bio {
+    color: $text_grey;
+    margin-top: 5px;
+  }
+}

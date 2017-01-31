@@ -1,0 +1,14 @@
+.photo-listing {
+  display: flex;
+  flex-wrap: wrap;
+
+  .photo-index-card {
+    max-width: 200px;
+    margin: 1em;
+    display: inline-block;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

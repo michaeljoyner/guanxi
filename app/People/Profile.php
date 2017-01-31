@@ -4,9 +4,12 @@ namespace App\People;
 
 use App\Content\Article;
 use App\HasModelImage;
+use App\Media\Artwork;
+use App\Media\Photo;
 use App\Media\Video;
 use App\Social\HasSocialLinks;
 use App\User;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -14,7 +17,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Profile extends Model implements HasMediaConversions
 {
-    use HasTranslations, HasMediaTrait, HasModelImage, HasSocialLinks;
+    use HasTranslations, HasMediaTrait, HasModelImage, HasSocialLinks, Sluggable;
 
     const DEFAULT_AVATAR_SRC = '/images/default_avatar.png';
 
@@ -26,13 +29,22 @@ class Profile extends Model implements HasMediaConversions
 
     protected $casts = ['published' => 'boolean'];
 
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
+
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
             ->setManipulations(['w' => 300, 'h' => 300, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 600, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
+            ->setManipulations(['w' => 600, 'h' => 600, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 
@@ -54,6 +66,16 @@ class Profile extends Model implements HasMediaConversions
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    public function artworks()
+    {
+        return $this->hasMany(Artwork::class);
     }
 
     public function videos()

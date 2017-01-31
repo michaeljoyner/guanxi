@@ -22,6 +22,7 @@
             </tbody>
 
         </table>
+        {!! $articles->links() !!}
     </section>
     @include('admin.forms.modals.createarticlemodal')
 @endsection

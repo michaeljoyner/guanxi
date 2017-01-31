@@ -27,6 +27,13 @@
                 <p>{{ $artwork->getTranslation('title', 'en') }}</p>
                 <p class="field-label">Chinese Title</p>
                 <p>{{ $artwork->getTranslation('title', 'zh') }}</p>
+                <contributor-selector initial-name="{{ $artwork->contributor->name }}"
+                                      initial-thumbnail="{{ $artwork->contributor->avatar('thumb') }}"
+                                      initial-intro="{{ $artwork->contributor->getTranslation('intro', 'en') }}"
+                                      :can-update="true"
+                                      article-id="{{ $artwork->id }}"
+                                      url-base="/admin/media/artworks/{{ $artwork->id }}/contributors/"
+                ></contributor-selector>
             </div>
             <div class="col-md-6">
                 <div class="single-image-uploader-box">

@@ -110,4 +110,42 @@ class ArticlesTest extends TestCase
         $this->assertEquals('A descriptive thing', $article->getTranslation('description', 'en'));
         $this->assertEquals('I have forgotten how to say describe', $article->getTranslation('description', 'zh'));
     }
+
+    /**
+     *@test
+     */
+    public function an_article_can_be_marked_as_featured()
+    {
+        $article = factory(Article::class)->create();
+
+        $article->feature();
+
+        $this->assertTrue($article->is_featured);
+    }
+
+    /**
+     *@test
+     */
+    public function an_article_can_be_unfeatured()
+    {
+        $article = factory(Article::class)->create(['is_featured' => true, 'published' => true]);
+
+        $article->unfeature();
+
+        $this->assertFalse($article->fresh()->is_featured);
+    }
+
+    /**
+     *@test
+     */
+    public function only_one_article_is_featured_at_a_given_time()
+    {
+        $article = factory(Article::class)->create();
+        $article2 = factory(Article::class)->create();
+        $article->feature();
+        $article2->feature();
+
+        $this->assertCount(1, Article::where('is_featured', 1)->get());
+
+    }
 }

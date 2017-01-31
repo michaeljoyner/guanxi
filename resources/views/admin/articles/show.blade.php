@@ -7,6 +7,7 @@
     <section class="dd-page-header clearfix">
         <h1 class="pull-left"></h1>
         <div class="header-actions pull-right">
+            <a href="/admin/content/articles/{{ $article->id }}/images/featured/edit" class="btn btn-light dd-btn">Set Featured Image</a>
             <publish-button :virgin="{{ $article->hasBeenPublished() ? 'false' : 'true' }}"
                             url="/admin/api/content/articles/{{ $article->id }}/publish"
                             :published="{{ $article->published ? 'true' : 'false' }}"
@@ -47,15 +48,19 @@
             ></category-chooser>
         </div>
         <div class="row">
+            <featured-toggle :article-id="{{ $article->id }}" :initially-featured="{{ $article->is_featured ? 'true' : 'false' }}"></featured-toggle>
+        </div>
+        <div class="row">
             <tagger article-id="{{ $article->id }}"></tagger>
         </div>
         <div class="row">
-            <article-author initial-name="{{ $article->author->name }}"
+            <contributor-selector initial-name="{{ $article->author->name }}"
                             initial-thumbnail="{{ $article->author->avatar('thumb') }}"
                             initial-intro="{{ $article->author->getTranslation('intro', 'en') }}"
                             :can-update="true"
                             article-id="{{ $article->id }}"
-            ></article-author>
+                            url-base="/admin/content/articles/{{ $article->id }}/author/"
+            ></contributor-selector>
         </div>
 
         <p class="sub-little-heading">Article Link</p>

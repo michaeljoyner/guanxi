@@ -23,4 +23,9 @@ trait IsPublishable
 
         return $this->published;
     }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', 1);
+    }
 }

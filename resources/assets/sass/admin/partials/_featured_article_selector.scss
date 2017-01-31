@@ -1,0 +1,17 @@
+.featured-article-selector {
+
+  .component-title {
+    margin-bottom: 30px;
+  }
+
+  .toggle-switch {
+
+    .toggle-switch-label {
+      background: $text_grey;
+    }
+
+    .switch-status-label {
+      color: $text_grey;
+    }
+  }
+}

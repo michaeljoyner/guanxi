@@ -26,3 +26,10 @@
     margin: 0 auto;
   }
 }
+
+.char-counting-input {
+
+  .usage-count.warn {
+    background: $danger;
+  }
+}

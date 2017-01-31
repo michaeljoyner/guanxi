@@ -16,6 +16,7 @@
                 @endif
                 <input type="text" name="location" value="{{ old('location') ?? $affiliate->getTranslation('location', 'en') }}" class="form-control">
             </div>
+
             <div class="form-group{{ $errors->has('zh_location') ? ' has-error' : '' }}">
                 <label for="zh_location">Chinese address: </label>
                 @if($errors->has('zh_location'))

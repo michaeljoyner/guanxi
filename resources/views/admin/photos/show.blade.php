@@ -27,6 +27,13 @@
                 <p>{{ $photo->getTranslation('title', 'en') }}</p>
                 <p class="field-label">Chinese Title</p>
                 <p>{{ $photo->getTranslation('title', 'zh') }}</p>
+                <contributor-selector initial-name="{{ $photo->contributor->name }}"
+                                initial-thumbnail="{{ $photo->contributor->avatar('thumb') }}"
+                                initial-intro="{{ $photo->contributor->getTranslation('intro', 'en') }}"
+                                :can-update="true"
+                                article-id="{{ $photo->id }}"
+                                url-base="/admin/media/photos/{{ $photo->id }}/contributors/"
+                ></contributor-selector>
             </div>
             <div class="col-md-6">
                 <div class="single-image-uploader-box">

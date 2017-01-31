@@ -169,6 +169,7 @@ return [
         Spatie\Translatable\TranslatableServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -178,7 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\ViewComposerServiceProvider::class,
     ],
 
     /*
@@ -226,6 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Localization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],
 

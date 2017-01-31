@@ -52,7 +52,8 @@ class VimeoVideosTest extends TestCase
             'description' => 'What a wonderful description of this fake video data',
             'zh_description' => '',
             'video_url' => 'http://vimeo.com/670190233',
-            'embed_url' => 'https://player.vimeo.com/video/670190233'
+            'embed_url' => 'https://player.vimeo.com/video/670190233',
+            'thumbnail' => 'https://i.vimeocdn.com/video/197468868_295x166.webp'
         ];
 
         $this->assertEquals($expectedData, $video->attributes());

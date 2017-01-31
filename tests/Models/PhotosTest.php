@@ -93,6 +93,23 @@ class PhotosTest extends TestCase
         $this->assertEquals(Photo::DEFAULT_IMG_SRC, $photo->mainImageSrc());
     }
 
+    /**
+     *@test
+     */
+    public function a_photos_contributor_can_be_reset()
+    {
+        $photo = factory(Photo::class)->create();
+        $profile = factory(Profile::class)->create();
+        $this->assertNotEquals($photo->contributor->id, $profile);
+
+        $photo->contributedBy($profile);
+
+        $photo = $photo->fresh();
+        $profile = $profile->fresh();
+
+        $this->assertEquals($photo->contributor->id, $profile->id);
+    }
+
     protected function assertModelHasTestAttributes($photo)
     {
         $this->assertInstanceOf(Photo::class, $photo);

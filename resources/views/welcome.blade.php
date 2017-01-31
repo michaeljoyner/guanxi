@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ trans('homepage.welcome') }}
                 </div>
 
                 <div class="links">

@@ -34,7 +34,8 @@ class VimeoVideo implements EmbeddedVideo
             'description' => $data->description ?? 'Description not provided',
             'zh_description' => '',
             'video_url' => $this->link,
-            'embed_url' => 'https://player.vimeo.com/video/' . $data->video_id
+            'embed_url' => 'https://player.vimeo.com/video/' . $data->video_id,
+            'thumbnail' => $data->thumbnail_url ?? null
         ];
     }
 }

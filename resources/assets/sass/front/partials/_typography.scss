@@ -1,0 +1,50 @@
+.heavy-heading {
+  font-family: $heavy_text;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heavy-text {
+  font-family: $heavy_text;
+  font-weight: 700;
+}
+
+.light-heading {
+  font-family: $heavy_text;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.body-text {
+  font-family: $body_text;
+}
+
+.serif-text {
+  font-family: $serif;
+}
+
+.white-text {
+  color: $white;
+}
+
+.purple-text {
+  color: $brand_purple;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.page-intro {
+  text-align: center;
+  font-family: $serif;
+  font-size: 2em;
+  max-width: 800px;
+  margin: 80px auto;
+
+}
+
+.constrained-text {
+  max-width: 800px;
+  margin: 1em auto;
+}

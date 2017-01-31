@@ -32,7 +32,8 @@ class YoutubeVideo implements EmbeddedVideo
             'description'    => $data->items[0]->snippet->description,
             'zh_description' => '',
             'video_url'      => $this->link,
-            'embed_url' => 'https://youtube.com/embed/' . $data->items[0]->id
+            'embed_url' => 'https://youtube.com/embed/' . $data->items[0]->id,
+            'thumbnail' => $data->items[0]->snippet->thumbnails->standard->url
         ];
     }
 

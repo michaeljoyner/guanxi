@@ -1,0 +1,23 @@
+.large-affiliate-card {
+  width: 400px;
+  margin: 2em 1em;
+
+  .affiliate-name {
+    margin: 0;
+  }
+
+  .affiliate-address {
+    margin: 4px 0;
+    color: $text_grey;
+  }
+
+  .affiliate-website {
+    font-family: $heavy_text;
+    font-weight: 700;
+    margin: 0;
+
+    &:hover {
+      color: $brand_soft_purple;
+    }
+  }
+}

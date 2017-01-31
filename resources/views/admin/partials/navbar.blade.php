@@ -47,7 +47,7 @@
                         <li><a href="/admin/media/videos">Videos</a></li>
                     </ul>
                 </li>
-                <li><a href="/admin/social">Social</a></li>
+                {{--<li><a href="/admin/social">Social</a></li>--}}
                 <li><a href="/admin/profiles">People</a></li>
                 <li><a href="/admin/affiliates">Affiliates</a></li>
             </ul>

@@ -14,6 +14,7 @@
             <a href="/admin/media/artworks/{{ $artwork->id }}">
                 <div class="photo-index-card">
                     <img src="{{ $artwork->mainImageSrc('thumb') }}" alt="">
+                    <p>{{ $artwork->title }}</p>
                 </div>
             </a>
         @endforeach

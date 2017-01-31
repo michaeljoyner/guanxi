@@ -1,0 +1,30 @@
+.affiliate-page {
+  width: 95%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  .affiliate-name {
+    margin-top: 80px;
+  }
+
+  .affiliate-address {
+    color: $text_grey;
+  }
+
+  //.affiliate-writeup {
+  //  max-width: 800px;
+  //  margin: 0 auto;
+  //}
+
+  .affiliate-website {
+    a:hover {
+      color: $brand_soft_purple;
+    }
+  }
+
+  .affiliate-main-image {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

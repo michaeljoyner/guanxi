@@ -22,6 +22,7 @@ class CreateArticlesTable extends Migration
             $table->text('body')->nullable();
             $table->date('published_on')->nullable();
             $table->boolean('published')->default(0);
+            $table->boolean('is_featured')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

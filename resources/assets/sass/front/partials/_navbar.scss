@@ -1,0 +1,203 @@
+.main-navbar  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav_height;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $brand_purple;
+  z-index: 1000;
+  background: $white;
+
+
+  .branding {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100px;
+    align-items: flex-start;
+
+    svg {
+      display: block;
+      height: 85px;
+      padding-left: 25px;
+      padding-top: 15px;
+      z-index: 200;
+
+      //&:hover path {
+      //    fill: $brand_purple;
+      //}
+      //
+      //path {
+      //  fill: lighten($brand_purple, 20%);
+      //
+      //
+      //  @include respond-to(phone) { fill: $white; }
+      //}
+
+    }
+  }
+
+  .menu-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @include respond-to(phone) {background: $brand_purple;}
+
+  .nav-trigger-icon {
+    display: none;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: 50px;
+    order: 2;
+
+    @include respond-to(phone) { display: block; }
+  }
+
+  #nav-trigger {
+    display: none;
+    font-size: 0;
+    width: 0;
+  }
+
+  #nav-trigger:checked + .main-nav-list {
+    transform: translate3d(0,0,0);
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item {
+    animation-name: slideIn;
+    animation-duration: .3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(3) {
+    animation-delay: .3s;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(4) {
+    animation-delay: .4s;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(5) {
+    animation-delay: .5s;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(6) {
+    animation-delay: .6s;
+  }
+
+  #nav-trigger:checked + .main-nav-list .nav-item:nth-child(7) {
+    animation-delay: .7s;
+  }
+
+  .main-nav-list {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    order: 1;
+    //width: 100%;
+    height: $nav_height;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin: 0;
+
+    @include respond-to(phone) {
+      position: absolute;
+      display: block;
+      top: $nav_height;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 20px;
+      //background: rgba(0,0,0,.7);
+      background: lighten($brand_purple, 20%);
+      transition-duration: .3s;
+      transition-timing-function: ease;
+      transform: translate3d(-110vw,0,0);
+    }
+
+    .nav-item {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      padding: 0 15px;
+      color: $text_grey;
+      text-transform: uppercase;
+      height: $nav_height;
+      display: flex;
+      align-items: center;
+
+      .nav-caret {
+        display: flex;
+        align-items: center;
+        padding-left: 8px;
+
+        @include respond-to(phone) { display: none;}
+      }
+    }
+  }
+
+  .nav-item:hover .secondary-nav-list {
+      transform: rotateX(0deg);
+      top: $nav_height;
+  }
+
+  .secondary-nav-list {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: -80px;
+    width: 100vw;
+    height: $nav_height;
+    transition: transform .2s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    background: $white;
+    z-index: -1;
+
+    @include respond-to(phone) { display: none;}
+
+    .secondary-nav-item {
+      padding: 0 20px;
+    }
+  }
+}
+
+@keyframes slideIn {
+  0% {transform: translate3d(0,100px,0); opacity: 0;}
+  20% {transform: translate3d(0,80px,0);}
+  40% {transform: translate3d(0,60px,0);}
+  60% {transform: translate3d(0,40px,0);}
+  80% {transform: translate3d(0,20px,0); opacity: 1;}
+  100% {transform: translate3d(0,0,0);}
+}
+
+//@keyframes slideIn {
+//  0% {transform: translate3d(-150px,0,0); opacity: 0;}
+//  20% {transform: translate3d(-120px, 0, 0);}
+//  40% {transform: translate3d(-90px, 0, 0);}
+//  60% {transform: translate3d(-60px, 0, 0);}
+//  80% {transform: translate3d(-30px, 0, 0); opacity: 1;}
+//  100% {transform: translate3d(0,0,0);}
+//}

@@ -12,4 +12,12 @@ trait HasContributor
     {
         return $this->belongsTo(Profile::class, 'profile_id');
     }
+
+    public function contributedBy(Profile $profile)
+    {
+        $this->profile_id = $profile->id;
+        $this->save();
+
+        return $this->contributor;
+    }
 }

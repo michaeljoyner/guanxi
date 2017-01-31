@@ -5,6 +5,7 @@ namespace App\Affiliates;
 use App\HasModelImage;
 use App\IsPublishable;
 use App\Social\HasSocialLinks;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -12,7 +13,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Affiliate extends Model implements HasMediaConversions
 {
-    use HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage, IsPublishable;
+    use Sluggable, HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage, IsPublishable;
 
     const DEFAULT_IMAGE_SRC = '/images/default_category.jpg';
 
@@ -29,6 +30,15 @@ class Affiliate extends Model implements HasMediaConversions
     protected $casts = ['published' => 'boolean'];
 
     public $translatable = ['location', 'writeup'];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ]
+        ];
+    }
 
     public function registerMediaConversions()
     {

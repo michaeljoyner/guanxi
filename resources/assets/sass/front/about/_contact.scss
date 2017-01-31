@@ -1,0 +1,97 @@
+.contact-section {
+
+  .contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      display: inline-block;
+      width: 100%;
+      font-size: 1em;
+      font-family: $body_text;
+      border: 1px solid $text_grey;
+    }
+
+    input {
+      height: 32px;
+      padding-left: 5px;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+      padding: 5px;
+    }
+
+    label {
+      font-family: $heavy_text;
+      font-style: italic;
+      color: $brand_purple;
+    }
+
+    .success-panel {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transition: .3s ease-in;
+      transform: translate3d(0,-100%,0);
+      background: $white;
+      color: $brand_purple;
+
+      p {
+        padding: 80px 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .contact-form.spent {
+    .success-panel {
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  .submit-group {
+    height: 50px;
+    position: relative;
+
+    .sending-message {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active for <2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+  .fade-in-enter-active {
+    transition: all .7s ease;
+    transition-delay: 1s;
+  }
+  .fade-in-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .fade-in-enter, .fade-in-leave-to, .fade-in-leave-active
+    /* .slide-fade-leave-active for <2.1.8 */ {
+    opacity: 0;
+  }
+}

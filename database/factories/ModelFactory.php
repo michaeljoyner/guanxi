@@ -23,78 +23,99 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\People\Profile::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'name'  => $faker->name,
-        'title' => ['en' => 'Contributor', 'zh' => 'Xie ren'],
-        'intro' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'bio'   => ['en' => $faker->paragraphs(3, true), 'zh' => $faker->paragraphs(3, true)],
+        'name'      => $faker->name,
+        'title'     => ['en' => 'Contributor', 'zh' => $zh_faker->title],
+        'intro'     => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(100)],
+        'bio'       => ['en' => $faker->paragraphs(3, true), 'zh' => $zh_faker->realText(500)],
         'published' => false
     ];
 });
 
 $factory->define(App\Content\Article::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'profile_id'      => function () {
+        'profile_id'   => function () {
             return factory(\App\People\Profile::class)->create()->id;
         },
-        'title'        => ['en' => $faker->sentence, 'zh' => $faker->sentence],
-        'description'  => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'body'         => ['en' => $faker->paragraph(20), 'zh' => $faker->paragraph(20)],
+        'title'        => ['en' => $faker->sentence, 'zh' => $zh_faker->realText(11)],
+        'description'  => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(30)],
+        'body'         => ['en' => $faker->paragraph(20), 'zh' => $zh_faker->realText(600)],
         'published_on' => null,
         'published'    => false,
+        'is_featured'  => false
     ];
 });
 
 $factory->define(App\Content\Category::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'name'        => ['en' => $faker->sentence, 'zh' => $faker->sentence],
-        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'writeup'     => ['en' => $faker->paragraph(5), 'zh' => $faker->paragraph(5)],
+        'name'        => ['en' => $faker->sentence, 'zh' => $zh_faker->realText(10)],
+        'description' => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(30)],
+        'writeup'     => ['en' => $faker->paragraph(5), 'zh' => $zh_faker->realText(100)],
     ];
 });
 
 $factory->define(App\Content\Tag::class, function (Faker\Generator $faker) {
     return [
-        'name'        => $faker->word
+        'name' => $faker->word
     ];
 });
 
 $factory->define(App\Affiliates\Affiliate::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'name'        => $faker->word,
-        'location' => ['en' => $faker->address, 'zh' => $faker->address],
-        'writeup' => ['en' => $faker->paragraphs(3, true), 'zh' => $faker->paragraphs(3, true)],
-        'phone' => $faker->phoneNumber,
-        'website' => $faker->domainName,
+        'name'      => $faker->word,
+        'location'  => ['en' => $faker->address, 'zh' => $zh_faker->address],
+        'writeup'   => ['en' => $faker->paragraphs(3, true), 'zh' => $zh_faker->realText(300)],
+        'phone'     => $faker->phoneNumber,
+        'website'   => $faker->domainName,
         'published' => false
     ];
 });
 
 $factory->define(App\Media\Video::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
-        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
-        'video_url' => $faker->randomElement(['https://www.youtube.com/watch?v=Aw28-krO7ZM', 'https://vimeo.com/194481035']),
-        'embed_url' => $faker->randomElement(['https://www.youtube.com/watch?v=Aw28-krO7ZM', 'https://vimeo.com/194481035']),
-        'published' => false
+        'title'       => ['en' => $faker->sentence, 'zh' => $zh_faker->realText(10)],
+        'description' => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(150)],
+        'profile_id'  => function () {
+            return factory(\App\People\Profile::class)->create()->id;
+        },
+        'video_url'   => $faker->randomElement([
+            'https://www.youtube.com/watch?v=Aw28-krO7ZM',
+            'https://vimeo.com/194481035'
+        ]),
+        'embed_url'   => $faker->randomElement([
+            'https://www.youtube.com/watch?v=Aw28-krO7ZM',
+            'https://vimeo.com/194481035'
+        ]),
+        'published'   => false,
+        'thumbnail' => $faker->imageUrl(400, 300, 'abstract')
     ];
 });
 
 $factory->define(App\Media\Photo::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
-        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
-        'published' => false
+        'title'       => ['en' => $faker->sentence, 'zh' => $zh_faker->realText(10)],
+        'description' => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(150)],
+        'profile_id'  => function () {
+            return factory(\App\People\Profile::class)->create()->id;
+        },
+        'published'   => false
     ];
 });
 
 $factory->define(App\Media\Artwork::class, function (Faker\Generator $faker) {
+    $zh_faker = Faker\Factory::create('zh_TW');
     return [
-        'title' => ['en' => $faker->sentence, 'zh' => $faker->sentence],
-        'description' => ['en' => $faker->paragraph, 'zh' => $faker->paragraph],
-        'profile_id' => function() { return factory(\App\People\Profile::class)->create()->id; },
-        'published' => false
+        'title'       => ['en' => $faker->sentence, 'zh' => $zh_faker->realText(10)],
+        'description' => ['en' => $faker->paragraph, 'zh' => $zh_faker->realText(150)],
+        'profile_id'  => function () {
+            return factory(\App\People\Profile::class)->create()->id;
+        },
+        'published'   => false
     ];
 });

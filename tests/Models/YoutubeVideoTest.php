@@ -46,7 +46,8 @@ class YoutubeVideoTest extends TestCase
             'description' => 'This is the modified description to make testing a better nightmare',
             'zh_description' => '',
             'video_url' => 'http://www.youtube.com/watch?v=NLqAFTWOVbY',
-            'embed_url' => 'https://youtube.com/embed/NLqAFTWOVbY'
+            'embed_url' => 'https://youtube.com/embed/NLqAFTWOVbY',
+            'thumbnail' => 'https://i.ytimg.com/vi/-7TDVld3Mbg/sddefault.jpg'
         ];
 
         $this->assertEquals($expectedData, $video->attributes());

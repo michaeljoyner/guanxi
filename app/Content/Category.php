@@ -3,6 +3,7 @@
 namespace App\Content;
 
 use App\HasModelImage;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -11,7 +12,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Category extends Model implements HasMediaConversions
 {
-    use HasTranslations, SoftDeletes, HasMediaTrait, HasModelImage;
+    use HasTranslations, SoftDeletes, HasMediaTrait, HasModelImage, Sluggable;
 
     const DEFAULT_IMAGE_SRC = '/images/default_category.jpg';
 
@@ -26,6 +27,15 @@ class Category extends Model implements HasMediaConversions
     protected $dates = ['deleted_at'];
 
     public $translatable = ['name', 'description', 'writeup'];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function registerMediaConversions()
     {

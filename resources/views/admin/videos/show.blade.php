@@ -26,10 +26,19 @@
                 <p>{{ $video->getTranslation('title', 'en') }}</p>
                 <p class="field-label">Chinese Title</p>
                 <p>{{ $video->getTranslation('title', 'zh') }}</p>
-
+                <contributor-selector initial-name="{{ $video->contributor->name }}"
+                                      initial-thumbnail="{{ $video->contributor->avatar('thumb') }}"
+                                      initial-intro="{{ $video->contributor->getTranslation('intro', 'en') }}"
+                                      :can-update="true"
+                                      article-id="{{ $video->id }}"
+                                      url-base="/admin/media/videos/{{ $video->id }}/contributors/"
+                ></contributor-selector>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 video-embed-container">
                 {!! $video->embedHtml() !!}
+                <div class="video-poster">
+                    <img src="{{ $video->thumbnail }}" alt="" class="video-thumbnail">
+                </div>
             </div>
         </div>
         <hr>

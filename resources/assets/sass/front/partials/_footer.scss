@@ -1,0 +1,80 @@
+.main-footer {
+  width: 100%;
+  display: flex;
+  min-height: 400px;
+  background: $brand_dark;
+  margin-top: 100px;
+  padding: 40px 0;
+
+  p {
+    color: $brand_super_soft_purple;
+  }
+
+  .footer-header {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: $heavy_text;
+    color: $brand_soft_purple;
+  }
+
+  .footer-column {
+    width: 33%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .footer-column-block {
+      text-align: center;
+      min-height: 250px;
+    }
+  }
+
+  .branding-column {
+
+    svg {
+      max-width: 80%;
+      height: 90px;
+      margin-top: 40px;
+    }
+
+    .footer-definition {
+      color: $brand_super_soft_purple;
+      border: 2px solid;
+      padding: 20px;
+      max-width: 80%;
+      margin: 50px 0;
+    }
+
+  }
+
+  .footer-links-list {
+    color: $brand_super_soft_purple;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-align: center;
+
+    li {
+      text-transform: uppercase;
+      font-family: $heavy_text;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  .footer-social-icons a svg path {
+    fill: $brand_soft_purple;
+
+  }
+
+  .footer-social-icons a:hover svg path {
+    fill: $white;
+  }
+}

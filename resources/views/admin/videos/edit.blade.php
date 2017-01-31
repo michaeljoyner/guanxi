@@ -9,7 +9,7 @@
     </section>
     <section class="edit-video-container">
         <div class="row">
-            <div class="col-md-6 video-holder">
+            <div class="col-md-6 video-embed-container">
                 {!! $video->embedHtml() !!}
             </div>
             <div class="col-md-6 form-holder">

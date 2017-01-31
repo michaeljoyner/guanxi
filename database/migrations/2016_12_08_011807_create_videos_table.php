@@ -15,9 +15,11 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->unsignedInteger('profile_id')->nullable();
             $table->string('video_url');
             $table->string('embed_url');
+            $table->string('thumbnail')->nullable();
             $table->text('title');
             $table->text('description');
             $table->boolean('published')->default(0);

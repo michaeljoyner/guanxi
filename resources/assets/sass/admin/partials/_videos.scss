@@ -1,0 +1,13 @@
+.video-embed-container {
+  padding-top: 60px;
+
+  iframe {
+    max-width: 100%;
+  }
+
+  .video-thumbnail {
+    max-width: 200px;
+    display: block;
+    margin: 40px auto;
+  }
+}

@@ -4,13 +4,14 @@ namespace App\Media;
 
 use App\IsPublishable;
 use App\People\Profile;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Translatable\HasTranslations;
 
 class Video extends Model
 {
-    use HasTranslations, IsPublishable;
+    use Sluggable, HasTranslations, IsPublishable, HasContributor;
 
     const PLATFORM_YOUTUBE = 'youtube';
     const PLATFORM_VIMEO = 'vimeo';
@@ -18,16 +19,21 @@ class Video extends Model
 
     protected $table = 'videos';
 
-    protected $fillable = ['title', 'description', 'video_url', 'embed_url'];
+    protected $fillable = ['title', 'description', 'video_url', 'embed_url', 'thumbnail'];
 
     protected $casts = ['published' => 'boolean'];
 
     public $translatable = ['title', 'description'];
 
-    public function contributor()
+    public function sluggable()
     {
-        return $this->belongsTo(Profile::class, 'profile_id');
+        return [
+            'slug' => [
+                'source' => 'title',
+            ]
+        ];
     }
+
 
     public static function createWithTranslations($data, $contributor = null)
     {
@@ -35,7 +41,8 @@ class Video extends Model
             'title'       => ['en' => $data['title'], 'zh' => $data['zh_title']],
             'description' => ['en' => $data['description'], 'zh' => $data['zh_description']],
             'video_url'   => $data['video_url'],
-            'embed_url' => $data['embed_url']
+            'embed_url' => $data['embed_url'],
+            'thumbnail' => $data['thumbnail'] ?? null
         ]);
 
         if($contributor) {
@@ -62,6 +69,6 @@ class Video extends Model
 
     public function embedHtml()
     {
-        return sprintf('<iframe src="%s" width="500" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', $this->embed_url);
+        return sprintf('<iframe src="%s" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', $this->embed_url);
     }
 }

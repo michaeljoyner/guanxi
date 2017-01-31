@@ -10,11 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Article extends Model implements HasMediaConversions
 {
-    use Sluggable, HasTranslations, SoftDeletes, HasMediaTrait;
+    use Sluggable, HasTranslations, SoftDeletes, HasMediaTrait, HasTags;
 
     protected $table = 'articles';
 
@@ -27,16 +28,20 @@ class Article extends Model implements HasMediaConversions
 
     protected $dates = ['published_on', 'deleted_at'];
 
-    protected $casts = ['published' => 'boolean'];
+    protected $casts = ['published' => 'boolean', 'is_featured' => 'boolean'];
 
     public $translatable = ['title', 'description', 'body'];
+
+    protected $defaultTitleImages = [
+        '/images/pizza.jpg'
+    ];
 
     public function sluggable()
     {
         return [
             'slug' => [
-                'source' => 'title',
-                'onUpdate' => ! $this->hasBeenPublished()
+                'source'   => 'title',
+                'onUpdate' => !$this->hasBeenPublished()
             ]
         ];
     }
@@ -48,6 +53,9 @@ class Article extends Model implements HasMediaConversions
             ->performOnCollections('default');
         $this->addMediaConversion('web')
             ->setManipulations(['w' => 800, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
+            ->performOnCollections('default');
+        $this->addMediaConversion('large')
+            ->setManipulations(['w' => 1400, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 
@@ -76,20 +84,26 @@ class Article extends Model implements HasMediaConversions
 
     public function setCategories($category_ids)
     {
-        if(! is_array($category_ids)) {
+        if (!is_array($category_ids)) {
             $category_ids = [intval($category_ids)];
         }
+
         return $this->categories()->sync($category_ids);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', 1);
     }
 
     public function hasBeenPublished()
     {
-        return ! is_null($this->published_on);
+        return !is_null($this->published_on);
     }
 
     public function publish()
     {
-        if(!$this->hasBeenPublished()) {
+        if (!$this->hasBeenPublished()) {
             $this->published_on = Carbon::now();
         }
         $this->published = true;
@@ -119,10 +133,51 @@ class Article extends Model implements HasMediaConversions
         return $this->addMedia($file)->preservingOriginal()->toMediaLibrary();
     }
 
+    public function setFeaturedImage(Media $image)
+    {
+        if ($this->doesNotOwnImage($image)) {
+            throw new \Exception('Image must belong to post to be set as featured.');
+        }
+        $this->resetPreviousFeaturedToFalse();
+        $image->setCustomProperty('is_feature', true);
+        $image->save();
+    }
+
+    protected function doesNotOwnImage($image)
+    {
+        return ($image->model_type !== static::class) || (intval($image->model_id) !== $this->id);
+    }
+
+    protected function resetPreviousFeaturedToFalse()
+    {
+        $this->getMedia()->filter(function ($media) {
+            return $media->getCustomProperty('is_feature');
+        })->each(function ($media) {
+            $media->setCustomProperty('is_feature', false);
+            $media->save();
+        });
+    }
+
+    public function featuredImage()
+    {
+        return $this->getMedia()->first(function ($media) {
+            return $media->getCustomProperty('is_feature');
+        });
+    }
+
+    public function titleImg($conversion = '')
+    {
+        $featured = $this->featuredImage();
+        $titleImg = $featured ? $featured->getUrl($conversion) : $this->getFirstMediaUrl('default', $conversion);
+
+        return $titleImg ?: collect($this->defaultTitleImages)->random();
+    }
+
+
     public function updateMeta($data)
     {
         $this->update([
-            'title' => [
+            'title'       => [
                 'en' => $data['title'],
                 'zh' => $data['zh_title']
             ],
@@ -133,36 +188,31 @@ class Article extends Model implements HasMediaConversions
         ]);
     }
 
-    public function tags()
+    public function feature()
     {
-        return $this->belongsToMany(Tag::class);
+        $this->clearAllFeaturedArticles();
+        $this->is_featured = true;
+        $this->save();
+
+        return $this->is_featured;
     }
 
-    public function addTag(Tag $tag)
+    protected function clearAllFeaturedArticles()
     {
-        $this->tags()->attach($tag->id);
+        static::where('is_featured', 1)->get()->each(function($article) {
+            $article->unfeature();
+        });
     }
 
-    public function removeTag(Tag $tag)
+    public function unfeature()
     {
-        $this->tags()->detach($tag->id);
+        $this->is_featured = false;
+        $this->save();
+
+        return $this->is_featured;
     }
 
-    public function syncTags($tags)
-    {
-        $this->tags()->sync($tags);
-    }
 
-    public function createAndAttachTag($tagName)
-    {
-        $tag = Tag::firstOrCreate(['name' => $tagName]);
-
-        if(!$this->tags->contains($tag)) {
-            $this->addTag($tag);
-        }
-
-        return $tag;
-    }
 
 
 }

@@ -16,6 +16,7 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "jsonlylightbox": "^0.5.3",
     "sweetalert": "^1.1.3"
   }
 }

@@ -60,6 +60,8 @@ return [
         'name' => 'Example',
     ],
 
+    'receiver_address' => ['Guanxi Magazine' => 'gaunxi@guanxi.com'],
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
