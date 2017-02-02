@@ -14,13 +14,6 @@
         @endif
         <input type="text" name="zh_title" value="{{ old('zh_title') ?? $article->getTranslation('title', 'zh') }}" class="form-control">
     </div>
-    {{--<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">--}}
-        {{--<label for="description">Description: </label>--}}
-        {{--@if($errors->has('description'))--}}
-        {{--<span class="error-message">{{ $errors->first('description') }}</span>--}}
-        {{--@endif--}}
-        {{--<textarea name="description" class="form-control">{{ old('description') ?? $article->getTranslation('description', 'en')}}</textarea>--}}
-    {{--</div>--}}
     <counting-textarea :char_limit="180"
                        :has-error="{{ $errors->has('description') ? 'true' : 'false' }}"
                        label="Description"

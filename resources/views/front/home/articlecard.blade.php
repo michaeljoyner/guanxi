@@ -1,5 +1,10 @@
 <div class="article-index-card">
-    <p class="article-index-card-category heavy-heading">{{ $article->categories->count() ? $article->categories->random()->name : ''}}</p>
+    <p class="article-index-card-category heavy-heading">
+        @if($article->categories->count())
+            <a href="{{ localUrl('/categories/' . $article->categories->first()->slug) }}">
+                {{ $article->categories->first()->name }}
+            </a></p>
+        @endif
     <a href="/articles/{{ $article->slug }}">
         <div class="card-image-holder">
             <img src="{{ $article->titleImg('thumb') }}" width="250" height="200" alt="{{ $article->getTranslation('title', Localization::getCurrentLocale()) }}">
