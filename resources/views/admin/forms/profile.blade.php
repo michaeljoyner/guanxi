@@ -23,13 +23,20 @@
                 @endif
                 <input type="text" name="zh_title" value="{{ old('zh_title') ?? $profile->getTranslation('title', 'zh') }}" class="form-control">
             </div>
-            <div class="form-group{{ $errors->has('intro') ? ' has-error' : '' }}">
-                <label for="intro">Intro: </label>
-                @if($errors->has('intro'))
-                    <span class="error-message">{{ $errors->first('intro') }}</span>
-                @endif
-                <textarea name="intro" class="form-control">{{ old('intro') ?? $profile->getTranslation('intro', 'en') }}</textarea>
-            </div>
+            {{--<div class="form-group{{ $errors->has('intro') ? ' has-error' : '' }}">--}}
+                {{--<label for="intro">Intro: </label>--}}
+                {{--@if($errors->has('intro'))--}}
+                    {{--<span class="error-message">{{ $errors->first('intro') }}</span>--}}
+                {{--@endif--}}
+                {{--<textarea name="intro" class="form-control">{{ old('intro') ?? $profile->getTranslation('intro', 'en') }}</textarea>--}}
+            {{--</div>--}}
+            <counting-textarea :char_limit="180"
+                               :has-error="{{ $errors->has('description') ? 'true' : 'false' }}"
+                               label="Intro"
+                               initial-value="{{ old('intro') ?? $profile->getTranslation('intro', 'en')}}"
+                               field-name="intro"
+                               error-message="{{ $errors->first('intro') }}"
+            ></counting-textarea>
             <div class="form-group{{ $errors->has('zh_intro') ? ' has-error' : '' }}">
                 <label for="zh_intro">Chinese intro: </label>
                 @if($errors->has('zh_intro'))
