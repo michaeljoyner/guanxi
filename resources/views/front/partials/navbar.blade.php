@@ -14,6 +14,9 @@
                         <a href="{{ localUrl('/about#marketing') }}">{{ trans('navbar.marketing') }}</a>
                     </li>
                     <li class="secondary-nav-item">
+                        <a href="{{ localUrl('/about#events') }}">{{ trans('navbar.events') }}</a>
+                    </li>
+                    <li class="secondary-nav-item">
                         <a href="{{ localUrl('/about#story') }}">{{ trans('navbar.ourstory') }}</a>
                     </li>
                     <li class="secondary-nav-item">
@@ -56,10 +59,6 @@
             <li class="nav-item">
                 <a href="{{ localUrl('/affiliates') }}">{{ trans('navbar.affiliates') }}</a>
             </li>
-
-            {{--<li class="nav-item">--}}
-                {{--<a href="{{ localUrl('/contact') }}">{{ trans('navbar.contact') }}</a>--}}
-            {{--</li>--}}
             @foreach(Localization::getSupportedLocales() as $localeCode => $properties)
                 @if($localeCode !== Localization::getCurrentLocale())
                     <li class="nav-item">

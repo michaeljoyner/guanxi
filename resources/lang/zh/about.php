@@ -7,6 +7,9 @@ return [
     'marketing' => [
         'heading' => '淤失雌姿'
     ],
+    'events' => [
+        'heading' => '恩誒斯'
+    ],
     'story' => [
         'heading' => '恩誒斯'
     ],

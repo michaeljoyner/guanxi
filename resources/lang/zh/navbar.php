@@ -11,6 +11,7 @@ return [
     'video' => '雌誒',
     'art' => '私誒斯',
     'marketing'  => '雌凹',
+    'events'     => '粗誒恩',
     'ourstory'   => '誒誒',
     'contribute' => '鎢絲',
     'contact'    => '雌雞絲凹恩'

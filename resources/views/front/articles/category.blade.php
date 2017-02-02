@@ -1,7 +1,16 @@
 @extends('front.base')
 
+@section('head')
+    <style>
+        .categories-articles-banner {
+            background: url({{ $category->imageSrc('large') }});
+            background-size: cover;
+        }
+    </style>
+@endsection
+
 @section('content')
-    <header class="top-page-header articles-banner">
+    <header class="top-page-header categories-articles-banner">
         <h1 class="page-header-title heavy-heading">{{ $category->name }}</h1>
     </header>
     <section class="articles-listing">

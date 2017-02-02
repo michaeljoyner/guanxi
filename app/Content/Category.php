@@ -46,7 +46,7 @@ class Category extends Model implements HasMediaConversions
             ->setManipulations(['w' => 800, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 1400, 'h' => 600, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 1400, 'h' => 420, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 

@@ -3,7 +3,7 @@
 </style>
 
 <template>
-    <div class="dd-lightbox" :class="{'open': open}">
+    <div class="dd-lightbox card-image-holder" :class="{'open': open}">
         <div class="close-lightbox-btn" @click="open = false">&times;</div>
         <div class="lightbox-content">
             <p class="light-heading white-text lightbox-title" v-show="open">{{ title }}</p>
@@ -17,6 +17,7 @@
             <div class="lightbox-nav-arrow dd-prev-arrow" @click="showPrev" v-show="open && (galleryImages.length > 1)">&larr;</div>
             <div class="dd-next-arrow lightbox-nav-arrow" @click="showNext" v-show="open && (galleryImages.length > 1)">&rarr;</div>
         </div>
+        <p class="hover-action-indicator" @click="open = true">View</p>
     </div>
 </template>
 

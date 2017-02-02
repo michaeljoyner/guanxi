@@ -7,6 +7,9 @@
     <section id="marketing" class="page-section marketing-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('about.marketing.heading') }}</h1>
     </section>
+    <section id="events" class="page-section events-section">
+        <h1 class="section-heading heavy-heading centered-text">{{ trans('about.events.heading') }}</h1>
+    </section>
     <section id="story" class="page-section story-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('about.story.heading') }}</h1>
     </section>

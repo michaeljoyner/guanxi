@@ -9,6 +9,9 @@ body {
   padding: 0;
   margin: 0; }
 
+.spaced {
+  margin: 50px auto; }
+
 body.stop-scrolling {
   height: 100%;
   overflow: hidden; }
@@ -1381,8 +1384,8 @@ a, a:visited, a:focus, a:hover {
   .card-image-holder .hover-action-indicator {
     position: absolute;
     top: 50%;
-    -webkit-transition: .2s;
-    transition: .2s;
+    -webkit-transition: .4s;
+    transition: .4s;
     -webkit-transform: translateY(-50%) scale(6);
     transform: translateY(-50%) scale(6);
     opacity: 0;
@@ -1512,6 +1515,8 @@ a, a:visited, a:focus, a:hover {
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     z-index: 10000; }
+    .dd-lightbox.open .hover-action-indicator {
+      display: none; }
     .dd-lightbox.open .close-lightbox-btn {
       display: block; }
     .dd-lightbox.open img {
