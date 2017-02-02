@@ -7581,6 +7581,9 @@ body.stop-scrolling {
     .photo-listing .photo-index-card img {
       max-width: 100%; }
 
+.main-footer {
+  min-height: 80px; }
+
 a, a:hover, a:visited, a:focus {
   color: inherit;
   text-decoration: none; }

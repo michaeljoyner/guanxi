@@ -166,7 +166,7 @@
     top: -80px;
     width: 100vw;
     height: $nav_height;
-    transition: transform .2s ease-out;
+    transition: transform .7s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,6 +175,7 @@
     transform: rotateX(90deg);
     background: $white;
     z-index: -1;
+    border-bottom: 1px solid $brand_purple;
 
     @include respond-to(phone) { display: none;}
 

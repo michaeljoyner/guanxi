@@ -17,14 +17,14 @@
                class="form-control">
     </div>
     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-        <label for="description">Description: </label>
+        <label for="description">SEO Description: </label>
         @if($errors->has('description'))
             <span class="error-message">{{ $errors->first('description') }}</span>
         @endif
         <textarea name="description" class="form-control">{{ old('description') ?? $category->getTranslation('description', 'en') }}</textarea>
     </div>
     <div class="form-group{{ $errors->has('zh_description') ? ' has-error' : '' }}">
-        <label for="zh_description">Chinese description: </label>
+        <label for="zh_description">Chinese SEO description: </label>
         @if($errors->has('zh_description'))
             <span class="error-message">{{ $errors->first('zh_description') }}</span>
         @endif

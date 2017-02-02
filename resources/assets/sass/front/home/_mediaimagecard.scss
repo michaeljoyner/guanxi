@@ -8,10 +8,12 @@
 
   .media-image-card-title {
     margin: 4px;
+    margin-bottom: 0;
   }
 
   .media-image-card-contributor {
     margin: 4px;
+    margin-top: 0;
     color: $brand-purple;
     font-style: italic;
   }

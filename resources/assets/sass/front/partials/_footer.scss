@@ -10,12 +10,17 @@
     color: $brand_super_soft_purple;
   }
 
+  .contact-detail {
+    margin: 0;
+  }
+
   .footer-header {
     text-transform: uppercase;
     font-size: 2em;
     font-weight: 700;
     font-family: $heavy_text;
     color: $brand_soft_purple;
+    margin-bottom: 0;
   }
 
   .footer-column {
@@ -60,8 +65,8 @@
     text-align: center;
 
     li {
-      text-transform: uppercase;
-      font-family: $heavy_text;
+      //text-transform: uppercase;
+      font-family: $serif;
 
       &:hover {
         color: $white;

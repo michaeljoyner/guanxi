@@ -7,12 +7,12 @@
     <section class="dd-page-header clearfix">
         <h1 class="pull-left"></h1>
         <div class="header-actions pull-right">
+            <a href="/admin/content/articles/{{ $article->id }}/edit" class="btn btn-light dd-btn">Edit Article Info</a>
             <a href="/admin/content/articles/{{ $article->id }}/images/featured/edit" class="btn btn-light dd-btn">Set Featured Image</a>
             <publish-button :virgin="{{ $article->hasBeenPublished() ? 'false' : 'true' }}"
                             url="/admin/api/content/articles/{{ $article->id }}/publish"
                             :published="{{ $article->published ? 'true' : 'false' }}"
             ></publish-button>
-            <a href="/admin/content/articles/{{ $article->id }}/edit" class="btn btn-light dd-btn">Edit Meta Info</a>
             @include('admin.partials.deletebutton', [
                 'objectName' => $article->title,
                 'deleteFormAction' => '/admin/content/articles/' . $article->id
@@ -28,7 +28,7 @@
                 <p class="lead">{{ $article->description }}</p>
                 <div class="card-actions">
                     <a href="/admin/content/articles/{{ $article->id }}/body/en/edit" class="btn dd-btn btn-dark">Edit
-                        Content</a>
+                        Article</a>
                 </div>
             </div>
             <div class="col-md-6 article-language-card">
@@ -38,7 +38,7 @@
                 <p class="lead">{{ $article->getTranslation('description', 'zh') }}</p>
                 <div class="card-actions">
                     <a href="/admin/content/articles/{{ $article->id }}/body/zh/edit" class="btn dd-btn btn-dark">Edit
-                        Content</a>
+                        Article</a>
                 </div>
             </div>
         </div>

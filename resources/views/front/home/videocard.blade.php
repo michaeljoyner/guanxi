@@ -5,7 +5,7 @@
         </a>
     </div>
     <p class="video-card-title heavy-heading">{{ $video->title }}</p>
-    <p class="media-image-card-contributor purple-text light-heading">
+    <p class="video-card-contributor media-image-card-contributor purple-text light-heading">
         <a href="{{ localUrl("/bios/" . $video->contributor->slug) }}">{{ $video->contributor->name }}</a>
     </p>
 </div>

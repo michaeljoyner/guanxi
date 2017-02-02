@@ -14,7 +14,7 @@
         <div class="profile-index-card">
             <a href="/admin/profiles/{{ $profile->id }}">
                 <p class="h5 text-uppercase text-center">{{ $profile->name }}</p>
-                <img src="{{ $profile->avatar() }}" alt="" class="img-circle">
+                <img src="{{ $profile->avatar('thumb') }}" alt="" class="img-circle">
             </a>
             <p class="h6 text-uppercase text-center">{{ $profile->title ? $profile->title : '?' }}</p>
             <toggle-switch identifier="{{ $profile->id }}"
