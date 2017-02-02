@@ -6,7 +6,7 @@
         <label for="nav-trigger" class="nav-trigger-icon">@include('svgicons.menu')</label>
         <input type="checkbox" id="nav-trigger">
         <ul class="main-nav-list">
-            <li class="nav-item">
+            <li class="nav-item @activenav('about')">
                 <a href="{{ localUrl('/about') }}">{{ trans('navbar.about') }}</a>
                 <span class="nav-caret"> @include('svgicons.downcaret')</span>
                 <ul class="secondary-nav-list">
@@ -24,7 +24,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @activenav('articles')">
                 <a href="{{ localUrl('/articles') }}">{{ trans('navbar.articles') }}</a>
                 <span class="nav-caret"> @include('svgicons.downcaret')</span>
                 <ul class="secondary-nav-list">
@@ -35,7 +35,7 @@
                     @endforeach
                 </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @activenav('galleries')">
                 <a href="{{ localUrl('/galleries') }}">{{ trans('navbar.gallery') }}</a>
                 <span class="nav-caret"> @include('svgicons.downcaret')</span>
                 <ul class="secondary-nav-list">
@@ -50,7 +50,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @activenav('bios')">
                 <a href="{{ localUrl('/bios') }}">{{ trans('navbar.bios') }}</a>
             </li>
             <li class="nav-item">

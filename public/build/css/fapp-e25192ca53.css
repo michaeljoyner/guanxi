@@ -1021,7 +1021,8 @@ body.stop-scrolling {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: end;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    padding-right: 20px; }
   @media only screen and (max-width: 719px) {
     .main-navbar {
       background: #803EA0; } }
@@ -1120,6 +1121,16 @@ body.stop-scrolling {
       display: flex;
       -webkit-box-align: center;
       align-items: center; }
+      .main-navbar .main-nav-list .nav-item.active {
+        color: #803EA0; }
+      .main-navbar .main-nav-list .nav-item:hover {
+        color: #27363B; }
+      @media only screen and (max-width: 719px) {
+        .main-navbar .main-nav-list .nav-item {
+          display: block;
+          height: auto;
+          margin-top: 10px;
+          color: #27363B; } }
       .main-navbar .main-nav-list .nav-item .nav-caret {
         display: -webkit-box;
         display: flex;
@@ -1131,20 +1142,17 @@ body.stop-scrolling {
             display: none; } }
   .main-navbar .nav-item:hover .secondary-nav-list {
     -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    top: 60px; }
+    transform: rotateX(0deg); }
   .main-navbar .secondary-nav-list {
     position: absolute;
     padding: 0;
     margin: 0;
     left: 0;
-    top: -80px;
+    top: 60px;
     width: 100vw;
     height: 60px;
-    -webkit-transition: -webkit-transform .7s ease-out;
-    transition: -webkit-transform .7s ease-out;
-    transition: transform .7s ease-out;
-    transition: transform .7s ease-out, -webkit-transform .7s ease-out;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
@@ -1161,9 +1169,18 @@ body.stop-scrolling {
     border-bottom: 1px solid #803EA0; }
     @media only screen and (max-width: 719px) {
       .main-navbar .secondary-nav-list {
-        display: none; } }
+        display: block;
+        position: static;
+        height: auto;
+        -webkit-transform: none;
+        transform: none;
+        background: transparent;
+        border-bottom: none; } }
     .main-navbar .secondary-nav-list .secondary-nav-item {
       padding: 0 20px; }
+      @media only screen and (max-width: 719px) {
+        .main-navbar .secondary-nav-list .secondary-nav-item {
+          margin: 5px 0; } }
 
 @-webkit-keyframes slideIn {
   0% {

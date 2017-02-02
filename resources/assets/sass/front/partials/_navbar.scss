@@ -1,4 +1,4 @@
-.main-navbar  {
+.main-navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,6 @@
   border-bottom: 1px solid $brand_purple;
   z-index: 1000;
   background: $white;
-
 
   .branding {
     display: flex;
@@ -45,9 +44,13 @@
     flex-basis: auto;
     display: flex;
     justify-content: flex-end;
+    padding-right: 20px;
+
   }
 
-  @include respond-to(phone) {background: $brand_purple;}
+  @include respond-to(phone) {
+    background: $brand_purple;
+  }
 
   .nav-trigger-icon {
     display: none;
@@ -57,7 +60,9 @@
     width: 50px;
     order: 2;
 
-    @include respond-to(phone) { display: block; }
+    @include respond-to(phone) {
+      display: block;
+    }
   }
 
   #nav-trigger {
@@ -67,7 +72,7 @@
   }
 
   #nav-trigger:checked + .main-nav-list {
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
 
   #nav-trigger:checked + .main-nav-list .nav-item {
@@ -129,7 +134,7 @@
       background: lighten($brand_purple, 20%);
       transition-duration: .3s;
       transition-timing-function: ease;
-      transform: translate3d(-110vw,0,0);
+      transform: translate3d(-110vw, 0, 0);
     }
 
     .nav-item {
@@ -143,19 +148,36 @@
       display: flex;
       align-items: center;
 
+      &.active {
+        color: $brand_purple;
+      }
+
+      &:hover {
+        color: $brand_dark;
+      }
+
+      @include respond-to(phone) {
+        display: block;
+        height: auto;
+        margin-top: 10px;
+        color: $brand_dark;
+      }
+
       .nav-caret {
         display: flex;
         align-items: center;
         padding-left: 8px;
 
-        @include respond-to(phone) { display: none;}
+        @include respond-to(phone) {
+          display: none;
+        }
       }
     }
   }
 
   .nav-item:hover .secondary-nav-list {
-      transform: rotateX(0deg);
-      top: $nav_height;
+    transform: rotateX(0deg);
+    //top: $nav_height;
   }
 
   .secondary-nav-list {
@@ -163,10 +185,10 @@
     padding: 0;
     margin: 0;
     left: 0;
-    top: -80px;
+    top: $nav_height;
     width: 100vw;
     height: $nav_height;
-    transition: transform .7s ease-out;
+    transition: all .5s linear;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,21 +199,44 @@
     z-index: -1;
     border-bottom: 1px solid $brand_purple;
 
-    @include respond-to(phone) { display: none;}
+    @include respond-to(phone) {
+      display: block;
+      position: static;
+      height: auto;
+      transform: none;
+      background: transparent;
+      border-bottom: none;
+    }
 
     .secondary-nav-item {
       padding: 0 20px;
+
+      @include respond-to(phone) {margin: 5px 0;}
     }
   }
 }
 
 @keyframes slideIn {
-  0% {transform: translate3d(0,100px,0); opacity: 0;}
-  20% {transform: translate3d(0,80px,0);}
-  40% {transform: translate3d(0,60px,0);}
-  60% {transform: translate3d(0,40px,0);}
-  80% {transform: translate3d(0,20px,0); opacity: 1;}
-  100% {transform: translate3d(0,0,0);}
+  0% {
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate3d(0, 80px, 0);
+  }
+  40% {
+    transform: translate3d(0, 60px, 0);
+  }
+  60% {
+    transform: translate3d(0, 40px, 0);
+  }
+  80% {
+    transform: translate3d(0, 20px, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 //@keyframes slideIn {
