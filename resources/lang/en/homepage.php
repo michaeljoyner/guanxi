@@ -6,26 +6,26 @@ return [
     ],
     'articles' => [
         'heading' => 'Articles',
-        'button' => 'Show more',
-        'hover_text' => 'Read'
+        'button' => 'View all Articles',
+        'hover_text' => 'View'
     ],
     'photos' => [
         'heading' => 'Photos and Artworks',
-        'button' => 'More Artwork',
+        'button' => 'View all Artwork',
         'hover_text' => 'View'
     ],
     'videos' => [
         'heading' => 'Videos',
-        'button' => 'More videos'
+        'button' => 'View all Videos'
     ],
     'contributors' => [
         'heading' => 'Contributors',
-        'button' => 'See All Bios',
-        'hover_text' => 'Stalk'
+        'button' => 'View All Bios',
+        'hover_text' => 'View'
     ],
     'affiliates' => [
         'heading' => 'Affiliates',
-        'button' => 'See All Affiliates',
-        'hover_text' => 'Go'
+        'button' => 'View All Affiliates',
+        'hover_text' => 'View'
     ]
 ];

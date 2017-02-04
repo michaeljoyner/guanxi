@@ -13,7 +13,7 @@ class Artwork extends Model implements HasMediaConversions
 {
     use HasTranslations, HasContributor, HasMainImage, HasModelImage, HasMediaTrait, HasGalleryImages, IsPublishable;
 
-    const DEFAULT_IMG_SRC = '/images/photo_default.jpeg';
+    const DEFAULT_IMG_SRC = '/images/photo_default.jpg';
 
     protected $table = 'artworks';
 

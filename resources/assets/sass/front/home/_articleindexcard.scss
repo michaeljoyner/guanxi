@@ -5,6 +5,10 @@
   .article-index-card-category {
     color: $brand-purple;
     margin: 0 0 4px 0;
+
+    &:hover {
+      color: $brand_soft_purple;
+    }
   }
 
   .article-index-card-headline {
@@ -13,8 +17,10 @@
 
   .article-index-card-author {
     margin: 0 0 4px;
-    //color: $text_grey;
-    //font-style: italic;
+
+    &:hover {
+      color: $brand_soft_purple;
+    }
   }
 
   .article-index-card-description {

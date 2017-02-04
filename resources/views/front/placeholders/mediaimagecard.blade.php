@@ -1,10 +1,10 @@
 <div class="media-image-card">
     <dd-lightbox :open="false"
                  title="A day Down in Mexico"
-                 main-src="{{ collect(["/images/photo_default.jpeg", "/images/gallery.jpg"])->random() }}"
+                 main-src="{{ collect(["/images/photo_default.jpg", "/images/gallery.jpg"])->random() }}"
                  :gallery-images='{{
                  collect([
-                 '[{src: "/images/photo_default.jpeg"}, {src: "/images/banners/about.jpeg"}, {src: "/images/pizza.jpg"}]',
+                 '[{src: "/images/photo_default.jpg"}, {src: "/images/banners/about.jpeg"}, {src: "/images/pizza.jpg"}]',
                  '[{src: "/images/poolside.jpg"}, {src: "/images/banners/lifestyle.jpeg"}, {src: "/images/banners/gallery.jpg"}]',
                  '[{src: "/images/banners/articles.jpg"}, {src: "/images/banners/affiliates.jpg"}, {src: "/images/gallery.jpg"}]'])->random()
                  }}'

@@ -16,9 +16,10 @@ section.cover-splash {
     position: absolute;
     top: 10%;
     left: 100px;
-    width: 5em;
-    font-size: 5em;
+    width: 8em;
+    font-size: 4em;
     margin: 0;
+    line-height: 1.4;
   }
 
   .cover-link {
@@ -33,5 +34,10 @@ section.cover-splash {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
+    transition: .5s;
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
   }
 }

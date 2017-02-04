@@ -6,13 +6,13 @@
   text-transform: capitalize;
   text-align: center;
   padding: 5px 15px;
-  transition: .2s;
+  transition: .5s;
   background: transparent;
   font-size: 1em;
   text-transform: uppercase;
 
   &:hover {
-    color: $brand_soft_purple;
+    color: $brand_purple;
     transform: scale(1.05);
   }
 }

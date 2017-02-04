@@ -18,7 +18,7 @@
             </div>
             <div class="single-image-uploader-box">
                 <single-upload :url="'/admin/api/content/articles/' + postId + '/images/featured'"
-                               default="/images/photo_default.jpeg"
+                               default="/images/photo_default.jpg"
                                shape="square"
                                size="large"
                                v-on:singleuploadcomplete="addUploadedFeaturedImage"

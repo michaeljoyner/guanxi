@@ -14,7 +14,7 @@ class Photo extends Model implements HasMediaConversions
 {
     use HasTranslations, HasMediaTrait, HasModelImage, IsPublishable, HasContributor, HasMainImage, HasGalleryImages;
 
-    const DEFAULT_IMG_SRC = '/images/photo_default.jpeg';
+    const DEFAULT_IMG_SRC = '/images/photo_default.jpg';
 
     protected $table = 'photos';
 

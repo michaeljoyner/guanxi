@@ -1379,17 +1379,20 @@ a, a:visited, a:focus, a:hover {
     width: 100%;
     top: 0;
     left: 0;
-    -webkit-transition: .2s;
-    transition: .2s; }
+    -webkit-transition: .4s;
+    transition: .4s; }
   .card-image-holder .hover-action-indicator {
     position: absolute;
     top: 50%;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .7s;
+    transition: .7s;
     -webkit-transform: translateY(-50%) scale(6);
     transform: translateY(-50%) scale(6);
     opacity: 0;
     color: #ffffff;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
     padding: 6px 0;
     font-size: 1.2em;
     border: 2px solid #ffffff;
@@ -1446,13 +1449,13 @@ a, a:visited, a:focus, a:hover {
   text-transform: capitalize;
   text-align: center;
   padding: 5px 15px;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: .5s;
+  transition: .5s;
   background: transparent;
   font-size: 1em;
   text-transform: uppercase; }
   .dd-btn:hover {
-    color: #B574D5;
+    color: #803EA0;
     -webkit-transform: scale(1.05);
     transform: scale(1.05); }
 
@@ -1517,6 +1520,9 @@ a, a:visited, a:focus, a:hover {
     z-index: 10000; }
     .dd-lightbox.open .hover-action-indicator {
       display: none; }
+    .dd-lightbox.open img {
+      -webkit-filter: none;
+      filter: none; }
     .dd-lightbox.open .close-lightbox-btn {
       display: block; }
     .dd-lightbox.open img {
@@ -1589,9 +1595,10 @@ section.cover-splash {
     position: absolute;
     top: 10%;
     left: 100px;
-    width: 5em;
-    font-size: 5em;
-    margin: 0; }
+    width: 8em;
+    font-size: 4em;
+    margin: 0;
+    line-height: 1.4; }
   section.cover-splash .cover-link {
     position: absolute;
     left: 50%;
@@ -1604,7 +1611,12 @@ section.cover-splash {
     font-family: "Oswald", sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    -webkit-transition: .5s;
+    transition: .5s; }
+    section.cover-splash .cover-link:hover {
+      -webkit-transform: translateX(-50%) scale(1.1);
+      transform: translateX(-50%) scale(1.1); }
 
 .article-index-card {
   width: 250px;
@@ -1612,10 +1624,14 @@ section.cover-splash {
   .article-index-card .article-index-card-category {
     color: #803EA0;
     margin: 0 0 4px 0; }
+    .article-index-card .article-index-card-category:hover {
+      color: #B574D5; }
   .article-index-card .article-index-card-headline {
     margin: 4px 0 0; }
   .article-index-card .article-index-card-author {
     margin: 0 0 4px; }
+    .article-index-card .article-index-card-author:hover {
+      color: #B574D5; }
   .article-index-card .article-index-card-description {
     color: #6A6C6E;
     line-height: 1.4;
@@ -1761,6 +1777,9 @@ section.cover-splash {
 .articles-banner {
   background: url(../../images/banners/articles.jpg);
   background-size: cover; }
+
+.article-index-card:last-of-type {
+  margin-right: auto; }
 
 .bio-main-section {
   display: -webkit-box;
