@@ -18,10 +18,11 @@ class ArticlesController extends Controller
         return view('front.articles.index')->with(compact('articles'));
     }
 
-    public function show($slug)
+    public function show($slug, ArticlesRepository $repository)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
+        $nextArticle = $repository->nextInLineAfter($article);
 
-        return view('front.articles.page')->with(compact('article'));
+        return view('front.articles.page')->with(compact('article', 'nextArticle'));
     }
 }

@@ -58,4 +58,51 @@ class ArticlesRepositoryTest extends TestCase
 
         $this->assertEquals($article->id, $featured->id);
     }
+
+    /**
+     *@test
+     */
+    public function it_can_get_the_next_article_in_chronological_order_given_an_article()
+    {
+        $article = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2017-01-1'
+        ]);
+        $article2 = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2016-12-1'
+        ]);
+        $article3 = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2016-12-15'
+        ]);
+
+        $next = $this->repo->nextInLineAfter($article3);
+
+        $this->assertEquals($article2->id, $next->id);
+
+    }
+
+    /**
+     *@test
+     */
+    public function the_next_in_line_for_the_most_oldest_article_is_the_most_recent()
+    {
+        $article = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2017-01-1'
+        ]);
+        $article2 = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2016-12-1'
+        ]);
+        $article3 = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2016-12-15'
+        ]);
+
+        $next = $this->repo->nextInLineAfter($article2);
+
+        $this->assertEquals($article->id, $next->id);
+    }
 }

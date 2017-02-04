@@ -24,16 +24,27 @@ class ArticlesRepository
 
     public function paginatedArticles($pagesize = 9)
     {
-        return Article::published()->latest()->paginate($pagesize);
+        return Article::published()->latest('published_on')->paginate($pagesize);
     }
 
     public function paginatedCategoryArticles($category, $pageSize = 9)
     {
-        return $category->articles()->published()->latest()->paginate($pageSize);
+        return $category->articles()->published()->latest('published_on')->paginate($pageSize);
     }
 
     public function paginatedProfileArticles($profile, $pageSize = 3)
     {
-        return $profile->articles()->published()->latest()->paginate($pageSize);
+        return $profile->articles()->published()->latest('published_on')->paginate($pageSize);
+    }
+
+    public function nextInLineAfter($article)
+    {
+        $next = Article::published()->where('published_on', '<', $article->published_on)->orderBy('published_on', 'desc')->first();
+
+        if(! $next) {
+            return Article::published()->latest('published_on')->first();
+        }
+
+        return $next;
     }
 }
