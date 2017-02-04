@@ -1,5 +1,7 @@
 @extends('front.base')
 
+@section('bodyclass') novue @endsection
+
 @section('content')
     <div class="video-header article-header">
         <h1 class="heavy-heading centered-text article-header-title">{{ $video->title }}</h1>

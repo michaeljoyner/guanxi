@@ -21,38 +21,41 @@ Vue.component('media-list', require('./components/StaticMedialist.vue'));
 
 window.eventHub = new Vue();
 
-const app = new Vue({
-    el: '#app',
+if(document.body.classList.contains('scripted')) {
+    const app = new Vue({
+        el: '#app',
 
-    data: {
-        keycodes: {
-            27: 'escaped',
-            37: 'keyed:left',
-            39: 'keyed:right'
-        }
-    },
-
-    created() {
-        eventHub.$on('user-alert', this.showAlert);
-        document.addEventListener('keydown', ev => this.emitKeyedEvent(ev.keyCode));
-    },
-
-    methods: {
-        showAlert(message) {
-            console.log(message);
-            swal({
-                type: message.type,
-                title: message.title,
-                text: message.text,
-                showConfirmButton: message.confirm
-            });
+        data: {
+            keycodes: {
+                27: 'escaped',
+                37: 'keyed:left',
+                39: 'keyed:right'
+            }
         },
 
-        emitKeyedEvent(keyCode) {
-            if(this.keycodes.hasOwnProperty(keyCode)) {
-                return eventHub.$emit(this.keycodes[keyCode]);
+        created() {
+            eventHub.$on('user-alert', this.showAlert);
+            document.addEventListener('keydown', ev => this.emitKeyedEvent(ev.keyCode));
+        },
+
+        methods: {
+            showAlert(message) {
+                console.log(message);
+                swal({
+                    type: message.type,
+                    title: message.title,
+                    text: message.text,
+                    showConfirmButton: message.confirm
+                });
+            },
+
+            emitKeyedEvent(keyCode) {
+                if(this.keycodes.hasOwnProperty(keyCode)) {
+                    return eventHub.$emit(this.keycodes[keyCode]);
+                }
             }
         }
-    }
-});
+    });
+}
+
 

@@ -15,7 +15,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Oswald:300,700" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
