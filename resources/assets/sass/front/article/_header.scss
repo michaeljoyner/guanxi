@@ -20,23 +20,25 @@
     text-align: center;
 
     svg {
+      height: 50px;
+      width: 50px;
 
       &:hover {
-        .colour-in {
-          fill: $brand_purple;
+        .colour-stroke {
+          stroke: $brand_soft_purple;
         }
 
-        path {
-          stroke: $brand_purple;
+        .colour-fill {
+          fill: $brand_soft_purple;
         }
       }
 
-      .colour-in {
-        fill: lighten($brand_purple, 30%);
+      .colour-stroke {
+        stroke: $brand_purple;
       }
 
-      path {
-        stroke: lighten($brand_purple, 30%);
+      .colour-fill {
+        fill: $brand_purple;
       }
     }
   }

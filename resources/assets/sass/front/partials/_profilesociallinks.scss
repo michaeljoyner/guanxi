@@ -1,16 +1,39 @@
 .profile-social-links {
 
   .social-link {
-    border: 2px solid $brand_purple;
-    border-radius: 50%;
     width: 30px;
     height: 30px;
-    display: inline-block;
-    text-align: center;
-    //padding-top: 5px;
+    transition: .4s;
+
     svg {
       width: 26px;
       height: 26px;
+      transition: .4s;
+
+      .colour-stroke {
+        stroke: $brand_purple;
+      }
+
+      .colour-fill {
+        fill: $brand_purple;
+      }
+    }
+
+    &:hover {
+
+
+      svg {
+        transform: rotate(360deg);
+
+        .colour-stroke {
+          stroke: $brand_soft_purple;
+        }
+
+        .colour-fill {
+          fill: $brand_soft_purple;
+        }
+      }
+
     }
   }
 }

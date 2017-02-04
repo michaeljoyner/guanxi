@@ -74,12 +74,29 @@
     }
   }
 
-  .footer-social-icons a svg path {
-    fill: $brand_soft_purple;
-
+  .footer-social-icons {
+    padding-top: 20px;
   }
 
-  .footer-social-icons a:hover svg path {
+  .footer-social-icons a svg {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+  }
+
+  .footer-social-icons a svg .colour-fill {
+    fill: $brand_soft_purple;
+  }
+
+  .footer-social-icons a svg .colour-stroke {
+    stroke: $brand_soft_purple;
+  }
+
+  .footer-social-icons a:hover svg .colour-fill {
     fill: $white;
+  }
+
+  .footer-social-icons a:hover svg .colour-stroke {
+    stroke: $white;
   }
 }
