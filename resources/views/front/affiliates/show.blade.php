@@ -18,8 +18,8 @@
             @endforeach
         </section>
         <div class="dd-block-btn-group">
-            <a href="#" class="dd-btn">{{ trans('affiliates.page.backbutton') }}</a>
-            <a href="#" class="dd-btn">{{ trans('affiliates.page.nextbutton') }}</a>
+            <a href="{{ localUrl('/affiliates') }}" class="dd-btn">{{ trans('affiliates.page.backbutton') }}</a>
+            <a href="{{ localUrl('/affiliates/' . $nextAffiliate->slug) }}" class="dd-btn">{{ trans('affiliates.page.nextbutton') }}</a>
         </div>
     </section>
 @endsection

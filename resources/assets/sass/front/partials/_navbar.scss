@@ -24,16 +24,9 @@
       padding-top: 15px;
       z-index: 200;
 
-      //&:hover path {
-      //    fill: $brand_purple;
-      //}
-      //
-      //path {
-      //  fill: lighten($brand_purple, 20%);
-      //
-      //
-      //  @include respond-to(phone) { fill: $white; }
-      //}
+      &:hover .coloured {
+        fill: $brand_soft_purple;
+      }
 
     }
   }

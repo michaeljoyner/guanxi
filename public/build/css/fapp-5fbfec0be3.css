@@ -1016,6 +1016,8 @@ body.stop-scrolling {
       padding-left: 25px;
       padding-top: 15px;
       z-index: 200; }
+      .main-navbar .branding svg:hover .coloured {
+        fill: #B574D5; }
   .main-navbar .menu-container {
     -webkit-box-flex: 1;
     flex-grow: 1;
@@ -1702,7 +1704,7 @@ section.cover-splash {
 
 .bio-card {
   width: 200px;
-  margin: 3em 2em; }
+  margin: 3em 2em 0; }
   .bio-card:nth-child(1) {
     margin-top: 0; }
   .bio-card:nth-child(2) {
@@ -1759,8 +1761,9 @@ section.cover-splash {
   .article-header .social-sharing-icons {
     text-align: center; }
     .article-header .social-sharing-icons svg {
-      height: 50px;
-      width: 50px; }
+      height: 40px;
+      width: 40px;
+      margin: 5px; }
       .article-header .social-sharing-icons svg:hover .colour-stroke {
         stroke: #B574D5; }
       .article-header .social-sharing-icons svg:hover .colour-fill {
