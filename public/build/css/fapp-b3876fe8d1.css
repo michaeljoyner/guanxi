@@ -1671,6 +1671,8 @@ section.cover-splash {
 .media-image-card {
   width: 200px;
   margin: 1em; }
+  .media-image-card:last-of-type {
+    margin-right: auto; }
   .media-image-card img {
     max-width: 100%; }
   .media-image-card .media-image-card-title {

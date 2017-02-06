@@ -1,6 +1,11 @@
 @extends('front.base')
 
 @section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => 'Guanxi Magazine',
+        'ogDescription' => ''
+    ])
     @if($featured)
     <style>
         .cover-splash {
