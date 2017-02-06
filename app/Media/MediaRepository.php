@@ -69,6 +69,17 @@ class MediaRepository
         return $profile->videos()->published()->latest()->paginate($pageSize);
     }
 
+    public function nextInLineAfter($video)
+    {
+        $next = Video::published()->where('created_at', '<', $video->created_at)->latest()->first();
+
+        if(! $next) {
+            return Video::published()->latest()->first();
+        }
+
+        return $next;
+    }
+
     protected function makePaginator($request, $items, $perPage = 18)
     {
         $page = $request->get('page', 1);

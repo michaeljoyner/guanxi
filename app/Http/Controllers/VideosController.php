@@ -20,8 +20,9 @@ class VideosController extends Controller
     public function show($slug, MediaRepository $repository)
     {
         $video = $repository->videoBySlug($slug);
+        $nextVideo = $repository->nextInLineAfter($video);
         $otherVideos = $repository->recentVideosWithout($video);
 
-        return view('front.videos.show')->with(compact('video', 'otherVideos'));
+        return view('front.videos.show')->with(compact('video', 'nextVideo', 'otherVideos'));
     }
 }

@@ -6,6 +6,8 @@ return [
                 'intro' => '見検烈焼化茶更転知有俳判停初覧鈴物昌車。開描給読務外善境迷代役否変処要。'
         ],
         'show' => [
-            'other_videos' => '見検烈焼化茶'
+            'other_videos' => '見検烈焼化茶',
+            'back_button' => '雌嗚嗚喔茲',
+            'next_button' => '誒一喔恩痾凹'
         ]
 ];

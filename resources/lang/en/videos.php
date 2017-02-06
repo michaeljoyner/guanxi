@@ -6,6 +6,8 @@ return [
         'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.'
     ],
     'show' => [
-        'other_videos' => 'You may also enjoy'
+        'other_videos' => 'You may also enjoy',
+        'back_button' => 'Back to Videos',
+        'next_button' => 'Next Video'
     ]
 ];

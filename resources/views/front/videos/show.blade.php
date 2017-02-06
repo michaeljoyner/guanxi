@@ -24,6 +24,10 @@
         {!! $video->embedHtml() !!}
     </div>
     <p class="body-text constrained-text video-description">{!! nl2br($video->description) !!}</p>
+    <div class="dd-block-btn-group">
+        <a href="{{ localUrl('/galleries/videos') }}" class="dd-btn">{{ trans('videos.show.back_button') }}</a>
+        <a href="{{ localUrl('/videos/' . $nextVideo->slug) }}" class="dd-btn">{{ trans('videos.show.next_button') }}</a>
+    </div>
     <section class="contributor-section">
         @include('front.partials.contributorcard', ['contributor' => $video->contributor])
     </section>
