@@ -23,9 +23,6 @@
   }
 
   &:hover {
-    //img {
-    //  filter: brightness(60%);
-    //}
 
     .hover-action-indicator {
       transform: translateY(-50%) scale(1);
@@ -53,7 +50,7 @@
     font-weight: 700;
     padding: 6px 0;
     font-size: 1.2em;
-    border: 2px solid $white;
+    //border: 2px solid $white;
     width: 70%;
     display: block;
     margin: 0 15%;
