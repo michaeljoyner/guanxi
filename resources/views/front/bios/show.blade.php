@@ -25,8 +25,8 @@
     </div>
     @if($articles->count())
     <hr class="page-divider">
-    <section class="bio-article-listing">
-        <p class="heavy-heading centered-text section-title purple-text">{{ $bio->name }}'s {{ trans('bios.contributions.title') }}</p>
+    <p class="heavy-heading centered-text section-title purple-text">{{ $bio->name }}'s {{ trans('bios.contributions.title') }}</p>
+    <section class="bio-article-listing contributions-listing">
         <p class="heavy-heading centered-text section-title">{{ trans('bios.contributions.articles') }}</p>
         <div class="bio-cards card-grid" id="articles">
             @foreach($articles as $article)
@@ -41,7 +41,7 @@
     </section>
     @endif
     @if($staticMedia->count())
-    <section class="bio-media-listing">
+    <section class="bio-media-listing contributions-listing">
         <p class="heavy-heading centered-text section-title">{{ trans('bios.contributions.media') }}</p>
         <div class="galleries card-grid" id="media-box">
             @foreach($staticMedia as $gallery)
@@ -55,7 +55,7 @@
     </section>
     @endif
     @if($videos->count())
-        <section class="bio-videos-listing">
+        <section class="bio-videos-listing contributions-listing">
             <p class="heavy-heading centered-text section-title">{{ trans('bios.contributions.videos') }}</p>
             <div class="galleries card-grid" id="videos-grid">
                 @foreach($videos as $video)

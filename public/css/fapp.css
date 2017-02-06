@@ -1903,6 +1903,12 @@ section.cover-splash {
   background: url(../../images/poolside.jpg);
   background-size: cover; }
 
+.contributions-listing {
+  margin-bottom: 80px; }
+
+.bio-article-listing .section-title {
+  margin: 0 auto; }
+
 .large-affiliate-card {
   width: 400px;
   margin: 2em 1em; }
