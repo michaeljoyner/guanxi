@@ -31,5 +31,9 @@
     margin-top: 0;
     color: $brand-purple;
     font-style: italic;
+
+    &:hover {
+      color: $brand_soft_purple;
+    }
   }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Content\ArticlesRepository;
 use App\Media\MediaRepository;
+use App\People\BiosRepository;
 use App\People\Profile;
 use Illuminate\Http\Request;
 
@@ -18,13 +19,14 @@ class BiosController extends Controller
         return view('front.bios.index')->with(compact('bios'));
     }
 
-    public function show($slug, ArticlesRepository $articlesRepository, MediaRepository $mediaRepository)
+    public function show($slug, BiosRepository $repository, ArticlesRepository $articlesRepository, MediaRepository $mediaRepository)
     {
-        $bio = Profile::where('slug', $slug)->firstOrFail();
-        $articles = $articlesRepository->paginatedProfileArticles($bio);
-        $staticMedia = $mediaRepository->paginatedProfileStaticMedia($bio, request());
-        $videos = $mediaRepository->paginatedProfileVideos($bio);
+        $bio = $repository->bySlug($slug);
+        $nextBio = $repository->nextInLineAfter($bio);
+        $articles = $repository->paginatedArticlesFor($bio);
+        $staticMedia = $repository->paginatedStaticMediaFor($bio, request());
+        $videos = $repository->paginatedVideoFor($bio);
 
-        return view('front.bios.show')->with(compact('bio', 'articles', 'staticMedia', 'videos'));
+        return view('front.bios.show')->with(compact('bio', 'articles', 'staticMedia', 'videos', 'nextBio'));
     }
 }

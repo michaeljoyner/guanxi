@@ -4,6 +4,7 @@ namespace App\People;
 
 use App\Content\Article;
 use App\HasModelImage;
+use App\IsPublishable;
 use App\Media\Artwork;
 use App\Media\Photo;
 use App\Media\Video;
@@ -17,7 +18,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Profile extends Model implements HasMediaConversions
 {
-    use HasTranslations, HasMediaTrait, HasModelImage, HasSocialLinks, Sluggable;
+    use HasTranslations, HasMediaTrait, HasModelImage, HasSocialLinks, Sluggable, IsPublishable;
 
     const DEFAULT_AVATAR_SRC = '/images/default_avatar.png';
 
@@ -104,24 +105,4 @@ class Profile extends Model implements HasMediaConversions
 
         return $src ? $src : static::DEFAULT_AVATAR_SRC;
     }
-
-    public function publish()
-    {
-        return $this->setPublishedStatus(true);
-    }
-
-    public function retract()
-    {
-        return $this->setPublishedStatus(false);
-    }
-
-    protected function setPublishedStatus($isPublished)
-    {
-        $this->published = $isPublished;
-        $this->save();
-
-        return $this->published;
-    }
-
-
 }

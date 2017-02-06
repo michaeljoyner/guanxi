@@ -1519,13 +1519,10 @@ a, a:visited, a:focus, a:hover {
       stroke: #803EA0; }
     .profile-social-links .social-link svg .colour-fill {
       fill: #803EA0; }
-  .profile-social-links .social-link:hover svg {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); }
-    .profile-social-links .social-link:hover svg .colour-stroke {
-      stroke: #B574D5; }
-    .profile-social-links .social-link:hover svg .colour-fill {
-      fill: #B574D5; }
+  .profile-social-links .social-link:hover svg .colour-stroke {
+    stroke: #B574D5; }
+  .profile-social-links .social-link:hover svg .colour-fill {
+    fill: #B574D5; }
 
 .dd-lightbox {
   position: relative;
@@ -1713,6 +1710,8 @@ section.cover-splash {
     margin-top: 0;
     color: #803EA0;
     font-style: italic; }
+    .video-card .video-card-contributor:hover {
+      color: #B574D5; }
 
 .bio-card {
   width: 200px;
@@ -1888,6 +1887,10 @@ section.cover-splash {
     text-align: center;
     display: inline-block;
     margin: 5px; }
+    .bio-social-links .bio-social-link:hover svg .colour-fill {
+      fill: #B574D5; }
+    .bio-social-links .bio-social-link:hover svg .colour-stroke {
+      stroke: #B574D5; }
     .bio-social-links .bio-social-link svg {
       width: 30px;
       height: 30px; }

@@ -20,8 +20,8 @@
         @endforeach
     </section>
     <div class="dd-block-btn-group">
-        <a href="#" class="dd-btn">{{ trans('bios.page.backbutton') }}</a>
-        <a href="#" class="dd-btn">{{ trans('bios.page.nextbutton') }}</a>
+        <a href="{{ localUrl('/bios') }}" class="dd-btn">{{ trans('bios.page.backbutton') }}</a>
+        <a href="{{ localUrl('/bios/' . $nextBio->slug) }}" class="dd-btn">{{ trans('bios.page.nextbutton') }}</a>
     </div>
     @if($articles->count())
     <hr class="page-divider">

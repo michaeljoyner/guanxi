@@ -30,7 +30,7 @@ class ApiArticlePagesControllerTest extends TestCase
 
         $html = json_decode($this->response->getContent(), true)['content_html'];
 
-        foreach(range(9,16) as $item) {
+        foreach(range(10,18) as $item) {
             $this->assertContains('Title number ' . $item, $html);
         }
     }
@@ -40,7 +40,7 @@ class ApiArticlePagesControllerTest extends TestCase
      */
     public function the_correct_values_for_page_and_remaining_are_returned()
     {
-        foreach(range(1,20) as $item) {
+        foreach(range(1,24) as $item) {
             factory(\App\Content\Article::class)->create([
                 'title' => [
                     'en' => 'Title number ' . $item,
@@ -57,7 +57,7 @@ class ApiArticlePagesControllerTest extends TestCase
 
         $html = json_decode($this->response->getContent(), true)['content_html'];
 
-        foreach(range(17,20) as $item) {
+        foreach(range(19,24) as $item) {
             $this->assertContains('Title number ' . $item, $html);
         }
     }

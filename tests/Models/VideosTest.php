@@ -107,7 +107,7 @@ class VideosTest extends TestCase
     public function a_video_can_supply_its_own_embed_html()
     {
         $video = factory(Video::class)->create(['embed_url' => 'https://player.vimeo.com/video/12345']);
-        $expected = '<iframe src="https://player.vimeo.com/video/12345" width="500" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+        $expected = '<iframe src="https://player.vimeo.com/video/12345" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
         $this->assertEquals($expected, $video->embedHtml());
 
