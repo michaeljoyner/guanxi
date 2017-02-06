@@ -1379,9 +1379,18 @@ a, a:visited, a:focus, a:hover {
   padding-bottom: 80%;
   position: relative;
   overflow: hidden; }
-  .card-image-holder:hover img {
-    -webkit-filter: brightness(60%);
-    filter: brightness(60%); }
+  .card-image-holder.rounded:hover::after {
+    border-radius: 50%; }
+  .card-image-holder:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    background: #803EA0;
+    opacity: .8;
+    pointer-events: none; }
   .card-image-holder:hover .hover-action-indicator {
     -webkit-transform: translateY(-50%) scale(1);
     transform: translateY(-50%) scale(1);
@@ -1411,7 +1420,8 @@ a, a:visited, a:focus, a:hover {
     width: 70%;
     display: block;
     margin: 0 15%;
-    text-align: center; }
+    text-align: center;
+    z-index: 9999; }
 
 .contributor-card {
   display: -webkit-box;
@@ -1542,6 +1552,8 @@ a, a:visited, a:focus, a:hover {
     background: rgba(0, 0, 0, 0.8);
     z-index: 10000; }
     .dd-lightbox.open .hover-action-indicator {
+      display: none; }
+    .dd-lightbox.open.card-image-holder:hover::after {
       display: none; }
     .dd-lightbox.open img {
       -webkit-filter: none;
