@@ -1984,8 +1984,8 @@ section.cover-splash {
     padding: 5px; }
   .contact-section .contact-form label {
     font-family: "Oswald", sans-serif;
-    font-style: italic;
-    color: #803EA0; }
+    color: #803EA0;
+    font-weight: 700; }
   .contact-section .contact-form .success-panel {
     position: absolute;
     width: 100%;
@@ -2041,5 +2041,23 @@ section.cover-splash {
 
 .contact-section .fade-in-enter, .contact-section .fade-in-leave-to, .contact-section .fade-in-leave-active {
   opacity: 0; }
+
+.about-page-section.page-section {
+  border-bottom: none;
+  padding-bottom: 0; }
+
+.about-page-section .about-section {
+  font-family: "Noto Serif", sans-serif;
+  max-width: 800px;
+  width: 95%;
+  margin: 0 auto; }
+
+.about-page-section .section-divider {
+  height: 0;
+  border: 0;
+  border-top: 1px solid #D0AEE2;
+  margin: 100px auto 50px;
+  max-width: 600px;
+  width: 80%; }
 
 /*# sourceMappingURL=fapp.css.map */

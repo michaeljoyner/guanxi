@@ -5,7 +5,7 @@
                 {{ $article->categories->first()->name }}
             </a></p>
         @endif
-    <a href="/articles/{{ $article->slug }}">
+    <a href="{{ localUrl('/articles/' . $article->slug) }}">
         <div class="card-image-holder">
             <img src="{{ $article->titleImg('thumb') }}" width="250" height="200" alt="{{ $article->getTranslation('title', Localization::getCurrentLocale()) }}">
             <p class="hover-action-indicator">{{ trans('homepage.articles.hover_text') }}</p>
