@@ -1,7 +1,8 @@
 @extends('admin.base')
 
 @section('content')
-    <h2>Hello, {{ Auth::user()->profile->name }}</h2>
+    <img src="{{ Auth::user()->profile->avatar('thumb') }}" alt="" width="60" height="64" class="img-circle dashboard-profile-pic">
+    <h2 class="text-center">Hello, {{ Auth::user()->profile->name }}</h2>
     <div class="text-center">
         @foreach($weatherLocations as $location)
             <div class="weather-card">

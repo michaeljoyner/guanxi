@@ -7587,6 +7587,10 @@ body.stop-scrolling {
 .main-footer {
   min-height: 80px; }
 
+.dashboard-profile-pic {
+  display: block;
+  margin: 1em auto; }
+
 .weather-card {
   display: inline-block;
   width: 200px;
