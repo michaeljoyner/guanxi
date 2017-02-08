@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\JsonPayload;
+use App\Weather\WeatherService;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(WeatherService::class, function($app) {
+            return new WeatherService(env('WEATHER_API_KEY'), config('weather.locations'), $app->make(JsonPayload::class));
+        });
     }
 }

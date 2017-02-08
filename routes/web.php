@@ -170,6 +170,18 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
     Route::post('media/artworks/{artwork}/contributors/{profile}', 'ArtworkContributorsController@update');
 
+    Route::get('pages/about', 'AboutPagesController@show');
+    Route::get('pages/about/story/edit', 'AboutPagesController@editStory');
+    Route::get('pages/about/marketing/edit', 'AboutPagesController@editMarketing');
+    Route::get('pages/about/events/edit', 'AboutPagesController@editEvents');
+    Route::get('pages/about/contribute/edit', 'AboutPagesController@editContribute');
+    Route::get('pages/about/contact/edit', 'AboutPagesController@editContact');
+    Route::post('pages/about/story', 'AboutPagesController@setStory');
+    Route::post('pages/about/marketing', 'AboutPagesController@setMarketing');
+    Route::post('pages/about/events', 'AboutPagesController@setEvents');
+    Route::post('pages/about/contribute', 'AboutPagesController@setContribute');
+    Route::post('pages/about/contact', 'AboutPagesController@setContact');
+
     Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         // admin api routes
         Route::get('content/categories', 'CategoriesController@index');

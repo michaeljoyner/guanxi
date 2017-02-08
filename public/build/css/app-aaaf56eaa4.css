@@ -7587,6 +7587,46 @@ body.stop-scrolling {
 .main-footer {
   min-height: 80px; }
 
+.weather-card {
+  display: inline-block;
+  width: 200px;
+  margin: 1em; }
+  .weather-card .location-name {
+    text-align: center;
+    text-transform: uppercase;
+    color: #803EA0; }
+  .weather-card img {
+    display: inline-block;
+    width: 30px;
+    vertical-align: middle; }
+  .weather-card .temperature {
+    font-size: 48px;
+    text-align: center; }
+  .weather-card .weather-status {
+    color: #6A6C6E;
+    display: inline-block;
+    padding-left: 10px;
+    vertical-align: middle; }
+
+.about-show-story {
+  padding-bottom: 50px; }
+  .about-show-story .col-md-6 {
+    text-align: center; }
+  .about-show-story .section-divider {
+    display: block;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-color: #D0AEE2; }
+  .about-show-story .about-edit-button {
+    display: block;
+    width: 8em;
+    text-align: center;
+    margin: 0 auto 3em;
+    color: #803EA0; }
+    .about-show-story .about-edit-button:hover {
+      color: #B574D5; }
+
 a, a:hover, a:visited, a:focus {
   color: inherit;
   text-decoration: none; }

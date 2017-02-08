@@ -19,7 +19,7 @@ class BiosController extends Controller
         return view('front.bios.index')->with(compact('bios'));
     }
 
-    public function show($slug, BiosRepository $repository, ArticlesRepository $articlesRepository, MediaRepository $mediaRepository)
+    public function show($slug, BiosRepository $repository)
     {
         $bio = $repository->bySlug($slug);
         $nextBio = $repository->nextInLineAfter($bio);

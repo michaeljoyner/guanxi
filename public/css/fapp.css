@@ -999,7 +999,7 @@ body.stop-scrolling {
   -webkit-box-align: center;
   align-items: center;
   border-bottom: 1px solid #803EA0;
-  z-index: 1000;
+  z-index: 99000;
   background: #ffffff; }
   .main-navbar .branding {
     display: -webkit-box;
@@ -1672,7 +1672,8 @@ section.cover-splash {
   width: 200px;
   margin: 1em; }
   .media-image-card:last-of-type {
-    margin-right: auto; }
+    margin-right: auto;
+    margin-left: calc((960px - (800px + 5em)) / 3); }
   .media-image-card img {
     max-width: 100%; }
   .media-image-card .media-image-card-title {

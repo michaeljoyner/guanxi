@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ $bio->name }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => $bio->name,
+        'ogDescription' => $bio->intro
+    ])
+@endsection
+
 @section('content')
     <section class="bio-main-section">
         <div class="profile-pic-box">
@@ -50,6 +62,7 @@
         </div>
         <media-list url="/api/profiles/{{ $bio->slug }}/contributions/media?page="
                     lang-code="{{ Localization::getCurrentLocale() }}"
+                    :has-more="{{ $staticMedia->hasMorePages() ? 'true' : 'false' }}"
                     button-text="{{ trans('buttons.more.media') }}"
         ></media-list>
     </section>

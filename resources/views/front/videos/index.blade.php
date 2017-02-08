@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ trans('meta.videos.title') }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => trans('meta.videos.title'),
+        'ogDescription' => trans('meta.videos.description')
+    ])
+@endsection
+
 @section('content')
     <header class="top-page-header videos-banner">
         <h1 class="page-header-title heavy-heading white-text">{{ trans('videos.page.title') }}</h1>

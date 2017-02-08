@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ $affiliate->name . ' | ' . trans('meta.about.title') }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => $affiliate->name . ' | ' . trans('meta.about.title'),
+        'ogDescription' => trans('meta.affiliates.description')
+    ])
+@endsection
+
 @section('content')
     <section class="affiliate-page">
         <h1 class="heavy-heading purple-text centered-text affiliate-name">{{ $affiliate->name }}</h1>

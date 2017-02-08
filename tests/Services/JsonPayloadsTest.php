@@ -29,8 +29,6 @@ class JsonPayloadsTest extends TestCase
 
         $this->expectException(JsonIrretrievableException::class);
         $payload = (new JsonPayload())->fetch($url);
-
-
     }
 
     /**

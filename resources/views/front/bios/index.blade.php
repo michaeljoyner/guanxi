@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ trans('meta.bios.title') }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => trans('meta.bios.title'),
+        'ogDescription' => trans('meta.bios.description')
+    ])
+@endsection
+
 @section('content')
     <header class="top-page-header bios-banner">
         <h1 class="page-header-title heavy-heading">{{ trans('bios.page.title') }}</h1>

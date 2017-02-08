@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Affiliates\Affiliate;
 use App\Content\ArticlesRepository;
 use App\Media\MediaRepository;
+use App\Pages\AboutPage;
 use App\People\Profile;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class PagesController extends Controller
 
     public function about()
     {
-        return view('front.about.page');
+        return view('front.about.page')->with(AboutPage::getContent());
     }
 
 }

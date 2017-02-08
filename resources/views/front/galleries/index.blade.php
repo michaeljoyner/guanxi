@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ trans('meta.gallery.title') }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => trans('meta.gallery.title'),
+        'ogDescription' => trans('meta.gallery.description')
+    ])
+@endsection
+
 @section('content')
     <header class="top-page-header gallery-banner">
         <h1 class="page-header-title heavy-heading white-text">{{ trans('galleries.page.title') }}</h1>

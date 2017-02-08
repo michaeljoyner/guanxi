@@ -1,6 +1,15 @@
 @extends('front.base')
 
+@section('title')
+    {{ $category->name . ' | ' . trans('meta.articles.title') }}
+@endsection
+
 @section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => $category->name . ' | ' . trans('meta.about.title'),
+        'ogDescription' => $category->description
+    ])
     <style>
         .categories-articles-banner {
             background: url({{ $category->imageSrc('large') }});

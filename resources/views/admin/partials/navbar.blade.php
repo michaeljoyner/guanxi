@@ -50,6 +50,7 @@
                 {{--<li><a href="/admin/social">Social</a></li>--}}
                 <li><a href="/admin/profiles">People</a></li>
                 <li><a href="/admin/affiliates">Affiliates</a></li>
+                <li><a href="/admin/pages/about">About Page</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

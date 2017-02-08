@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ $video->title }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url(''),
+        'ogTitle' => $video->title,
+        'ogDescription' => $video->description
+    ])
+@endsection
+
 @section('bodyclass') novue @endsection
 
 @section('content')

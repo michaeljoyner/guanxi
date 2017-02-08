@@ -27,7 +27,7 @@
 <script type="text/babel">
     export default {
 
-        props: ['lang-code', 'url', 'button-text'],
+        props: ['lang-code', 'url', 'button-text', 'has-more'],
 
         data() {
             return {
@@ -39,7 +39,7 @@
         },
 
         mounted() {
-
+            this.remaining = !! this.hasMore;
         },
 
         methods: {

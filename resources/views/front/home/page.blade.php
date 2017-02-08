@@ -3,8 +3,8 @@
 @section('head')
     @include('front.partials.ogmeta', [
         'ogImage' => url(''),
-        'ogTitle' => 'Guanxi Magazine',
-        'ogDescription' => ''
+        'ogTitle' => trans('meta.home.title'),
+        'ogDescription' => trans('meta.home.description')
     ])
     @if($featured)
     <style>
