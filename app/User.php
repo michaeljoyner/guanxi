@@ -2,13 +2,9 @@
 
 namespace App;
 
-use App\Content\Article;
 use App\People\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
-use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable
 {
