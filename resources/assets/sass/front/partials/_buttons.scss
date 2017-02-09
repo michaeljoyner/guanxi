@@ -11,7 +11,7 @@
   font-size: 1em;
   text-transform: uppercase;
 
-  &:hover {
+  &:hover, &.alt-state {
     color: $brand_purple;
     transform: scale(1.05);
   }

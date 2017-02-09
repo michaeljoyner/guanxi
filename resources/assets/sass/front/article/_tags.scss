@@ -1,0 +1,26 @@
+.article-tags {
+
+  .tag-icon {
+    transform: rotate(-45deg) translateY(10px);
+    path.colour {
+      fill: $brand_purple;
+    }
+  }
+
+  .tag-list {
+    width: 95%;
+    max-width: 800px;
+    margin: 1em auto;
+
+    .tag-link {
+      color: $brand_soft_purple;
+      margin: 0 1em;
+      vertical-align: middle;
+    }
+  }
+}
+
+.tag-articles-banner {
+  background: url(../../images/banners/about.jpeg);
+  background-size: cover;
+}

@@ -2,7 +2,7 @@
 
 <template>
     <div class="loaded-content">
-        <button @click="fetchContent" v-show="remaining" class="dd-btn block">
+        <button @click="fetchContent" v-show="remaining" class="dd-btn block" :class="{'alt-state': fetching}">
             <span v-show="!fetching">{{ buttonText }}</span>
             <div class="spinner" v-show="fetching">
                 <div class="bounce1"></div>

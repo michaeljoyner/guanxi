@@ -18,6 +18,10 @@
     img {
       width: 100%;
       border-radius: 50%;
+
+      &:hover {
+        border: 1px solid $brand_soft_purple;
+      }
     }
   }
 
@@ -29,6 +33,10 @@
 
     .contributor-name {
       margin: 5px 0 0 0;
+
+      &:hover {
+        color: $brand_soft_purple;
+      }
     }
 
     p {

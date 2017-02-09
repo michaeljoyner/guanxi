@@ -105,4 +105,26 @@ class ArticlesRepositoryTest extends TestCase
 
         $this->assertEquals($article->id, $next->id);
     }
+
+    /**
+     *@test
+     */
+    public function it_fetches_articles_with_a_given_tag()
+    {
+        $article1 = factory(Article::class)->create();
+        $article2 = factory(Article::class)->create();
+        $article3 = factory(Article::class)->create();
+
+        $tag = $article1->createAndAttachTag('fetch');
+        $article2->createAndAttachTag('fetch');
+        $article3->createAndAttachTag('dont fetch');
+
+        $result = $this->repo->withTag($tag);
+
+        $this->assertCount(2, $result);
+
+        $this->assertTrue($result->contains($article1));
+        $this->assertTrue($result->contains($article2));
+        $this->assertFalse($result->contains($article3));
+    }
 }

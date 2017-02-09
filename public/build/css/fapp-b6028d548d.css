@@ -1012,10 +1012,10 @@ body.stop-scrolling {
     align-items: flex-start; }
     .main-navbar .branding svg {
       display: block;
-      height: 85px;
-      padding-left: 25px;
-      padding-top: 15px;
-      z-index: 200; }
+      height: 60px;
+      z-index: 999999;
+      position: fixed;
+      top: 10px; }
       .main-navbar .branding svg:hover .coloured {
         fill: #B574D5; }
   .main-navbar .menu-container {
@@ -1147,7 +1147,8 @@ body.stop-scrolling {
             display: none; } }
   .main-navbar .nav-item:hover .secondary-nav-list {
     -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg); }
+    transform: rotateX(0deg);
+    z-index: 100; }
   .main-navbar .secondary-nav-list {
     position: absolute;
     padding: 0;
@@ -1156,8 +1157,10 @@ body.stop-scrolling {
     top: 60px;
     width: 100vw;
     height: 60px;
-    -webkit-transition: all .5s linear;
-    transition: all .5s linear;
+    -webkit-transition: -webkit-transform .5s linear;
+    transition: -webkit-transform .5s linear;
+    transition: transform .5s linear;
+    transition: transform .5s linear, -webkit-transform .5s linear;
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
@@ -1442,6 +1445,8 @@ a, a:visited, a:focus, a:hover {
     .contributor-card .contributor-card-profile-pic-box img {
       width: 100%;
       border-radius: 50%; }
+      .contributor-card .contributor-card-profile-pic-box img:hover {
+        border: 1px solid #B574D5; }
   .contributor-card .contributor-card-name-and-title {
     padding: 0 25px;
     -webkit-box-flex: 0;
@@ -1450,6 +1455,8 @@ a, a:visited, a:focus, a:hover {
     flex-basis: auto; }
     .contributor-card .contributor-card-name-and-title .contributor-name {
       margin: 5px 0 0 0; }
+      .contributor-card .contributor-card-name-and-title .contributor-name:hover {
+        color: #B574D5; }
     .contributor-card .contributor-card-name-and-title p {
       margin: 0; }
   .contributor-card .contributor-card-intro {
@@ -1475,7 +1482,7 @@ a, a:visited, a:focus, a:hover {
   background: transparent;
   font-size: 1em;
   text-transform: uppercase; }
-  .dd-btn:hover {
+  .dd-btn:hover, .dd-btn.alt-state {
     color: #803EA0;
     -webkit-transform: scale(1.05);
     transform: scale(1.05); }
@@ -1607,6 +1614,10 @@ a, a:visited, a:focus, a:hover {
 
 .spinner > div {
   background: #B574D5; }
+
+.loaded-content .dd-btn > span {
+  -webkit-transition: 0;
+  transition: 0; }
 
 section.cover-splash {
   width: 100%;
@@ -1820,6 +1831,25 @@ section.cover-splash {
 
 .article-index-card:last-of-type {
   margin-right: auto; }
+
+.article-tags .tag-icon {
+  -webkit-transform: rotate(-45deg) translateY(10px);
+  transform: rotate(-45deg) translateY(10px); }
+  .article-tags .tag-icon path.colour {
+    fill: #803EA0; }
+
+.article-tags .tag-list {
+  width: 95%;
+  max-width: 800px;
+  margin: 1em auto; }
+  .article-tags .tag-list .tag-link {
+    color: #B574D5;
+    margin: 0 1em;
+    vertical-align: middle; }
+
+.tag-articles-banner {
+  background: url(../../images/banners/about.jpeg);
+  background-size: cover; }
 
 .bio-main-section {
   display: -webkit-box;

@@ -1,7 +1,7 @@
 <style></style>
 
 <template>
-    <div class="card-grid">
+    <div class="card-grid loaded-content">
         <div class="media-image-card" v-for="album in albums">
             <dd-lightbox :open="false"
                          :title="album.title"
@@ -13,7 +13,7 @@
                 <a :href="album.contributor.link">{{ album.contributor.name }}</a>
             </p>
         </div>
-        <button @click="fetchAlbums" v-show="remaining" class="dd-btn block">
+        <button @click="fetchAlbums" v-show="remaining" class="dd-btn block" :class="{'alt-state': fetching}">
             <span v-show="!fetching">{{ buttonText }}</span>
             <div class="spinner" v-show="fetching">
                 <div class="bounce1"></div>

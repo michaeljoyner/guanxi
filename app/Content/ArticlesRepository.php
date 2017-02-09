@@ -47,4 +47,9 @@ class ArticlesRepository
 
         return $next;
     }
+
+    public function withTag($tag)
+    {
+        return $tag->articles()->paginate('18');
+    }
 }

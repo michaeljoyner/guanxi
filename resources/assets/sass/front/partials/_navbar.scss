@@ -19,10 +19,13 @@
 
     svg {
       display: block;
-      height: 85px;
-      padding-left: 25px;
-      padding-top: 15px;
-      z-index: 200;
+      height: 60px;
+      //padding-left: 25px;
+      //padding-top: 15px;
+      z-index: 999999;
+      position: fixed;
+      top: 10px;
+
 
       &:hover .coloured {
         fill: $brand_soft_purple;
@@ -170,6 +173,7 @@
 
   .nav-item:hover .secondary-nav-list {
     transform: rotateX(0deg);
+    z-index: 100;
     //top: $nav_height;
   }
 
@@ -181,7 +185,7 @@
     top: $nav_height;
     width: 100vw;
     height: $nav_height;
-    transition: all .5s linear;
+    transition: transform .5s linear;
     display: flex;
     justify-content: center;
     align-items: center;

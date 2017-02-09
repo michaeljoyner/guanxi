@@ -35,5 +35,16 @@ class TagsTest extends TestCase
         });
     }
 
+    /**
+     *@test
+     */
+    public function a_tag_has_a_slug()
+    {
+        $tag = factory(Tag::class)->create(['name' => 'has slug']);
+
+        $this->assertEquals('has-slug', $tag->fresh()->slug);
+
+    }
+
 
 }

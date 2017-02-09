@@ -39,6 +39,13 @@
         <section class="article-body">
             {!! $article->getTranslation('body', Localization::getCurrentLocale()) !!}
         </section>
+        <section class="article-tags">
+            <p class="tag-list">@include('svgicons.tags')
+            @foreach($article->tags as $tag)
+                <a class="tag-link" href="{{ localUrl('/articles/tags/' . $tag->slug) }}">{{ $tag->name }}</a>
+            @endforeach
+            </p>
+        </section>
         <div class="dd-block-btn-group">
             <a href="/articles" class="dd-btn">{{ trans('article.page.backbutton') }}</a>
             <a href="/articles/{{ $nextArticle->slug }}" class="dd-btn">{{ trans('article.page.nextbutton') }}</a>

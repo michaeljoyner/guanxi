@@ -1,3 +1,9 @@
 .spinner > div {
   background: $brand_soft_purple;
 }
+
+.loaded-content {
+  .dd-btn > span {
+    transition: 0;
+  }
+}
