@@ -42,6 +42,7 @@ Route::group(['prefix' => Localization::setLocale()], function()
     Route::post('contact', 'ContactController@sendMessage');
 
     Route::get('api/content/articles', 'Api\ArticlesController@index');
+    Route::get('api/content/articles/tags/{slug}', 'Api\TagArticlesController@index');
     Route::get('api/galleries', 'Api\GalleriesController@index');
     Route::get('api/galleries/photos', 'Api\GalleriesController@photos');
     Route::get('api/galleries/art', 'Api\GalleriesController@art');

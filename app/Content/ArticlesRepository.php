@@ -48,8 +48,8 @@ class ArticlesRepository
         return $next;
     }
 
-    public function withTag($tag)
+    public function withTag($tag, $pageSize = 9)
     {
-        return $tag->articles()->paginate('18');
+        return $tag->articles()->paginate($pageSize);
     }
 }

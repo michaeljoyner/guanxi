@@ -10,12 +10,6 @@
         'ogTitle' => $tag->name . ' | ' . trans('meta.about.title'),
         'ogDescription' => 'Read all Guanxi Magazine articles that have been tagged as ' . $tag->name
     ])
-    {{--<style>--}}
-        {{--.categories-articles-banner {--}}
-            {{--background: url({{ $category->imageSrc('large') }});--}}
-            {{--background-size: cover;--}}
-        {{--}--}}
-    {{--</style>--}}
 @endsection
 
 @section('content')
@@ -30,7 +24,7 @@
             @endforeach
         </div>
         <content-loader container-id="articles"
-                        url="{{ localUrl('/api/content/articles') }}"
+                        url="{{ localUrl('/api/content/articles/tags/' . $tag->slug) }}"
                         :has-more="{{ $articles->hasMorePages() ? 'true' : 'false' }}"
                         button-text="{{ trans('buttons.more.articles') }}"
         ></content-loader>
