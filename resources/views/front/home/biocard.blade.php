@@ -1,5 +1,5 @@
 <div class="bio-card">
-    <a href="/bios/{{ $profile->slug }}">
+    <a href="/bios/{{ $profile->slug }}" class="bio-image-and-link">
         <div class="card-image-holder rounded">
             <img src="{{ $profile->avatar('thumb') }}" width="200" height="200" alt="">
             <p class="hover-action-indicator">{{ trans('homepage.contributors.hover_text') }}</p>

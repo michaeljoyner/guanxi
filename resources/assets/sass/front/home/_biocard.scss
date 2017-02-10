@@ -1,6 +1,50 @@
 .bio-card {
   width: 200px;
   margin: 3em 2em 0;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(phone) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 2em auto;
+
+    .bio-card-name {
+      order: 1;
+      width: 100%;
+      flex-basis: 100%;
+    }
+
+    p.bio-card-contributor-title {
+      order: 2;
+      width: 100%;
+      flex-basis: 100%;
+      margin: 0 0 20px 0;
+    }
+
+    .bio-image-and-link {
+      order: 3;
+      width: 25%;
+      flex-basis: 25%;
+    }
+
+    .bio-card-bio {
+      order: 4;
+      width: 74%;
+      flex-basis: 74%;
+    }
+
+    .profile-social-links {
+      width: 100%;
+      flex-basis: 100%;
+    }
+  }
+
+  & > * {
+    flex: 1;
+    order: 5;
+  }
 
   &:nth-child(1) {
     margin-top: 0;
