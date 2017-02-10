@@ -1016,6 +1016,11 @@ body.stop-scrolling {
       z-index: 999999;
       position: fixed;
       top: 10px; }
+      @media only screen and (max-width: 719px) {
+        .main-navbar .branding svg {
+          width: 100px;
+          height: 40px;
+          left: 10px; } }
       .main-navbar .branding svg:hover .coloured {
         fill: #B574D5; }
   .main-navbar .menu-container {
