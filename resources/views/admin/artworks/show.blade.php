@@ -40,7 +40,9 @@
                     <single-upload default="{{ $artwork->mainImageSrc('thumb') }}"
                                    url="/admin/media/artworks/{{ $artwork->id }}/mainimage"
                                    shape="square"
-                                   size="large"
+                                   size="preview"
+                                   :preview-width="250"
+                                   :preview-height="200"
                     ></single-upload>
                 </div>
             </div>

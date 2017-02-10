@@ -15,7 +15,7 @@
 @section('content')
     <section class="bio-main-section">
         <div class="profile-pic-box">
-            <img src="{{ $bio->avatar('web') }}" alt="{{ $bio->name }}">
+            <img src="{{ $bio->avatar('thumb') }}" alt="{{ $bio->name }}">
         </div>
         <div class="bio-info-box">
             <h1 class="profile-name heavy-heading">{{ $bio->name }}</h1>

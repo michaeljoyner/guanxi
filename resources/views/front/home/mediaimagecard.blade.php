@@ -3,7 +3,7 @@
                  title="{{ $media->title }}"
                  main-src="{{ $media->mainImageSrc('thumb') }}"
                  :gallery-images='{{
-                 json_encode($media->galleryImages()->map(function($image) { return ['src' => $image->getUrl()]; })->toArray())
+                 json_encode($media->galleryImages()->map(function($image) { return ['src' => $image->getUrl('web')]; })->toArray())
                  }}'
     ></dd-lightbox>
     <p class="media-image-card-title heavy-heading">{{ $media->getTranslation('title', Localization::getCurrentLocale()) }}</p>

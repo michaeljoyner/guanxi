@@ -1,7 +1,7 @@
 .featured-images {
 
   .featured-image-selecter {
-    display: flex;
+    display: block;
 
     &.busy {
       opacity: .5;
@@ -9,17 +9,11 @@
     }
 
     .current-images {
-      width: 60%;
-      flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: auto;
+      width: 100%;
+      margin-bottom: 50px;
     }
 
     .single-image-uploader-box {
-      width: 40%;
-      flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: auto;
     }
   }
 

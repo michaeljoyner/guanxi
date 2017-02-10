@@ -7478,23 +7478,13 @@ body.stop-scrolling {
     width: 200px; }
 
 .featured-images .featured-image-selecter {
-  display: -webkit-box;
-  display: flex; }
+  display: block; }
   .featured-images .featured-image-selecter.busy {
     opacity: .5;
     pointer-events: none; }
   .featured-images .featured-image-selecter .current-images {
-    width: 60%;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto; }
-  .featured-images .featured-image-selecter .single-image-uploader-box {
-    width: 40%;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto; }
+    width: 100%;
+    margin-bottom: 50px; }
 
 .featured-images .current-images {
   display: -webkit-box;

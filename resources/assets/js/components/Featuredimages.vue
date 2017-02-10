@@ -3,7 +3,7 @@
 <template>
     <div class="featured-images">
         <p v-show="postImages.length" class="lead">
-            Click on a thumbnail image on the left to select a featured image, or upload a new image on the right.
+            Click on a thumbnail image on the left to select a featured image from the article, or upload a new image below.
         </p>
         <p v-show="!postImages.length" class="lead">Upload an image to get started.</p>
         <div class="featured-image-selecter" :class="{'busy': syncing}">
@@ -17,10 +17,13 @@
                 </div>
             </div>
             <div class="single-image-uploader-box">
+                <p class="lead">The ideal dimensions for a featured image is 1400 &times; 560px, so try use an image of at least 1400px wide and if you do not want the image cropped the height should be 40% of the width.</p>
                 <single-upload :url="'/admin/api/content/articles/' + postId + '/images/featured'"
                                default="/images/photo_default.jpg"
                                shape="square"
-                               size="large"
+                               size="preview"
+                               :preview-width="900"
+                               :preview-height="360"
                                v-on:singleuploadcomplete="addUploadedFeaturedImage"
                                ref="uploader"
                 ></single-upload>

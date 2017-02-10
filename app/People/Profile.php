@@ -42,10 +42,7 @@ class Profile extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 300, 'h' => 300, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
-        $this->addMediaConversion('web')
-            ->setManipulations(['w' => 600, 'h' => 600, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 400, 'h' => 400, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 

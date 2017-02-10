@@ -13,7 +13,7 @@
         @foreach($categories as $category)
             <a href="/admin/content/categories/{{ $category->id }}">
                 <div class="category-index-card">
-                    <img src="{{ $category->imageSrc('web') }}" alt="">
+                    <img src="{{ $category->imageSrc('thumb') }}" alt="">
                     <h3 class="category-name">{{ $category->name }}</h3>
                 </div>
             </a>

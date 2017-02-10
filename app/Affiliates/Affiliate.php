@@ -43,13 +43,13 @@ class Affiliate extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 300, 'h' => 300, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 200, 'h' => 160, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 800, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
+            ->setManipulations(['w' => 500, 'h' => 400, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 1400, 'h' => 600, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 960, 'h' => 400, 'fit' => 'max', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 

@@ -12,7 +12,7 @@ trait TransformsMedia
             'title'       => $media->title,
             'thumbnail'   => $media->mainImageSrc('thumb'),
             'gallery'     => $media->galleryImages()->map(function ($image) {
-                return ['src' => $image->getUrl()];
+                return ['src' => $image->getUrl('web')];
             })->toArray(),
             'contributor' => [
                 'name' => $media->contributor->name,
