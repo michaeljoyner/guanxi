@@ -112,7 +112,6 @@
     flex-shrink: 0;
     flex-basis: auto;
     order: 1;
-    //width: 100%;
     height: $nav_height;
     display: flex;
     justify-content: flex-end;
@@ -130,8 +129,7 @@
       width: 100vw;
       height: 100vh;
       padding-top: 20px;
-      //background: rgba(0,0,0,.7);
-      background: lighten($brand_purple, 20%);
+      background: $brand_super_soft_purple;
       transition-duration: .3s;
       transition-timing-function: ease;
       transform: translate3d(-110vw, 0, 0);

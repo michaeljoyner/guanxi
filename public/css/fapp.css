@@ -1111,7 +1111,7 @@ body.stop-scrolling {
         width: 100vw;
         height: 100vh;
         padding-top: 20px;
-        background: #b079cb;
+        background: #D0AEE2;
         -webkit-transition-duration: .3s;
         transition-duration: .3s;
         -webkit-transition-timing-function: ease;
@@ -1320,6 +1320,9 @@ a, a:visited, a:focus, a:hover {
   background: #27363B;
   margin-top: 100px;
   padding: 40px 0; }
+  @media only screen and (max-width: 719px) {
+    .main-footer {
+      flex-wrap: wrap; } }
   .main-footer p {
     color: #D0AEE2; }
   .main-footer .contact-detail {
@@ -1337,6 +1340,8 @@ a, a:visited, a:focus, a:hover {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
+    -webkit-box-ordinal-group: 4;
+    order: 3;
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -1347,6 +1352,9 @@ a, a:visited, a:focus, a:hover {
     .main-footer .footer-column .footer-column-block {
       text-align: center;
       min-height: 250px; }
+    @media only screen and (max-width: 719px) {
+      .main-footer .footer-column {
+        width: 100%; } }
   .main-footer .branding-column svg {
     max-width: 80%;
     height: 90px;
@@ -1357,6 +1365,14 @@ a, a:visited, a:focus, a:hover {
     padding: 20px;
     max-width: 80%;
     margin: 50px 0; }
+  @media only screen and (max-width: 719px) {
+    .main-footer .contact-column {
+      -webkit-box-ordinal-group: 2;
+      order: 1; } }
+  @media only screen and (max-width: 719px) {
+    .main-footer .quicklinks-column {
+      -webkit-box-ordinal-group: 3;
+      order: 2; } }
   .main-footer .footer-links-list {
     color: #D0AEE2;
     padding: 0;
@@ -1629,6 +1645,9 @@ section.cover-splash {
   height: 40vw;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 719px) {
+    section.cover-splash {
+      height: 100vw; } }
   section.cover-splash img {
     width: 100%;
     max-height: 100%;
@@ -1646,6 +1665,13 @@ section.cover-splash {
     font-size: 4em;
     margin: 0;
     line-height: 1.4; }
+    @media only screen and (max-width: 719px) {
+      section.cover-splash .cover-headline {
+        font-size: 3em;
+        left: 15px;
+        width: 95%;
+        margin: 0 auto;
+        position: static; } }
   section.cover-splash .cover-link {
     position: absolute;
     left: 50%;

@@ -3,7 +3,7 @@
         @include('svg.logo_noborder')
         <p class="footer-definition">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, corporis nostrum. Amet architecto aut cupiditate delectus doloremque eaque, facere impedit laborum obcaecati quas quos reiciendis sequi vel veniam vero vitae!</p>
     </div>
-    <div class="footer-column">
+    <div class="footer-column contact-column">
         <div class="footer-column-block">
             <p class="footer-header">Contact</p>
             <p class="contact-detail">+886 (0) 989 654 345</p>
@@ -30,7 +30,7 @@
             </ul>
         </div>
     </div>
-    <div class="footer-column">
+    <div class="footer-column quicklinks-column">
         <div class="footer-column-block">
             <p class="footer-header">Quicklinks</p>
             <ul class="footer-links-list">
