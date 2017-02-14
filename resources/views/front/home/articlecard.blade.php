@@ -11,7 +11,7 @@
             <p class="hover-action-indicator">{{ trans('homepage.articles.hover_text') }}</p>
         </div>
     </a>
-    <p class="article-index-card-headline heavy-heading">{{ $article->getTranslation('title', Localization::getCurrentLocale()) }}</p>
+    <p class="article-index-card-headline heavy-heading"><a href="{{ localUrl('/articles/' . $article->slug) }}">{{ $article->getTranslation('title', Localization::getCurrentLocale()) }}</a></p>
     <p class="article-index-card-author purple-text light-heading"><a
                 href="{{ localUrl("/bios/" . $article->author->slug) }}">{{ $article->author->name }}</a></p>
     <p class="article-index-card-description">{{ trunc($article->getTranslation('description', Localization::getCurrentLocale()), 180) }}</p>
