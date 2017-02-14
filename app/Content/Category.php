@@ -14,7 +14,7 @@ class Category extends Model implements HasMediaConversions
 {
     use HasTranslations, SoftDeletes, HasMediaTrait, HasModelImage, Sluggable;
 
-    const DEFAULT_IMAGE_SRC = '/images/default_category.jpg';
+    const DEFAULT_IMAGE_SRC = '/images/defaults/default_1400x420.jpg';
 
     protected $table = 'categories';
 

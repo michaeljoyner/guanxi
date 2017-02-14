@@ -37,3 +37,34 @@
     //text-align: center;
   }
 }
+
+.dash-nav-actions {
+  display: flex;
+  justify-content: space-around;
+
+  .nav-action-box {
+    width: 100px;
+    margin: 1em;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.05);
+
+      p {
+        color: $brand_purple;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+}

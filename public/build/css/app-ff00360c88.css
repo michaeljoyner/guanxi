@@ -7602,6 +7602,29 @@ body.stop-scrolling {
     padding-left: 10px;
     vertical-align: middle; }
 
+.dash-nav-actions {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around; }
+  .dash-nav-actions .nav-action-box {
+    width: 100px;
+    margin: 1em;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    -webkit-transition: .3s;
+    transition: .3s; }
+    .dash-nav-actions .nav-action-box:hover {
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05); }
+      .dash-nav-actions .nav-action-box:hover p {
+        color: #803EA0; }
+    .dash-nav-actions .nav-action-box img {
+      width: 100%; }
+    .dash-nav-actions .nav-action-box p {
+      text-align: center; }
+
 .about-show-story {
   padding-bottom: 50px; }
   .about-show-story .col-md-6 {

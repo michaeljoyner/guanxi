@@ -20,7 +20,7 @@ class Profile extends Model implements HasMediaConversions
 {
     use HasTranslations, HasMediaTrait, HasModelImage, HasSocialLinks, Sluggable, IsPublishable;
 
-    const DEFAULT_AVATAR_SRC = '/images/default_avatar.png';
+    const DEFAULT_AVATAR_SRC = '/images/defaults/default_500x500.jpg';
 
     protected $table = 'profiles';
 

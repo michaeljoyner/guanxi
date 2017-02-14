@@ -14,7 +14,7 @@
     </section>
     <section class="profile-show-page">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <p class="field-label">Address</p>
                 <p>{{ $affiliate->getTranslation('location', 'en') }}</p>
                 <p class="field-label">Chinese Address</p>
@@ -24,7 +24,7 @@
                 <p class="field-label">Phone number</p>
                 <p>{{ $affiliate->phone ?? 'Not Given' }}</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <p class="lead">Should this be public?</p>
                 <toggle-switch identifier="1"
                                true-label="yes"
@@ -37,7 +37,9 @@
                     <single-upload default="{{ $affiliate->imageSrc('thumb') }}"
                                    url="/admin/affiliates/{{ $affiliate->id }}/image"
                                    shape="square"
-                                   size="large"
+                                   size="preview"
+                                   :preview-width="500"
+                                   :preview-height="200"
                     ></single-upload>
                 </div>
             </div>

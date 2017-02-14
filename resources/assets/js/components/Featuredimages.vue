@@ -19,7 +19,7 @@
             <div class="single-image-uploader-box">
                 <p class="lead">The ideal dimensions for a featured image is 1400 &times; 560px, so try use an image of at least 1400px wide and if you do not want the image cropped the height should be 40% of the width.</p>
                 <single-upload :url="'/admin/api/content/articles/' + postId + '/images/featured'"
-                               default="/images/photo_default.jpg"
+                               default="/images/defaults/default_1400x560.jpg"
                                shape="square"
                                size="preview"
                                :preview-width="900"

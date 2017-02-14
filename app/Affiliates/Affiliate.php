@@ -15,7 +15,7 @@ class Affiliate extends Model implements HasMediaConversions
 {
     use Sluggable, HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage, IsPublishable;
 
-    const DEFAULT_IMAGE_SRC = '/images/default_category.jpg';
+    const DEFAULT_IMAGE_SRC = '/images/defaults/default_1400x560.jpg';
 
     protected $table = 'affiliates';
 
@@ -49,7 +49,7 @@ class Affiliate extends Model implements HasMediaConversions
             ->setManipulations(['w' => 500, 'h' => 400, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 960, 'h' => 400, 'fit' => 'max', 'fm' => 'src'])
+            ->setManipulations(['w' => 960, 'h' => 384, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 
