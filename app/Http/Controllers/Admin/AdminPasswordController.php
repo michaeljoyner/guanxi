@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Http\Requests\PasswordResetFormRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminPasswordController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
+
     public function edit(User $user)
     {
         return view('admin.users.passwords.edit')->with(compact('user'));
@@ -25,6 +37,8 @@ class AdminPasswordController extends Controller
         }
 
         $user->resetPassword($request->password);
+
+        $this->flasher->success('Password Changed!', 'Safety first. Good on you.');
 
         return redirect('/admin');
     }

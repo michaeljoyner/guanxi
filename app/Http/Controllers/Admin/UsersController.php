@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -11,6 +12,17 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
+
     public function index()
     {
         $roles = collect([Role::superadmin(), Role::editor(), Role::writer()]);
@@ -44,12 +56,16 @@ class UsersController extends Controller
 
         $user->assignRole(Role::findOrFail($request->role_id));
 
+        $this->flasher->success('User Info Updated', 'Changes have been saved.');
+
         return redirect('admin/users/' . $user->id);
     }
 
     public function delete(User $user)
     {
         $user->delete();
+
+        $this->flasher->success('User Deleted', 'The user has been removed from the system');
 
         return redirect('admin/users');
     }

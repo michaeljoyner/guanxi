@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Http\Requests\PhotoForm;
 use App\Media\Photo;
 use Illuminate\Http\Request;
@@ -11,6 +12,16 @@ use App\Http\Controllers\Controller;
 
 class PhotosController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
 
     public function index()
     {
@@ -28,6 +39,8 @@ class PhotosController extends Controller
     {
         $photo = Photo::createWithTranslations($request->requiredFields(), $request->user()->profile);
 
+        $this->flasher->success('Gallery Created', 'Gallery successfully added. Feel free to add more photos.');
+
         return redirect('admin/media/photos/' . $photo->id);
     }
 
@@ -40,12 +53,16 @@ class PhotosController extends Controller
     {
         $photo->updateWithTranslations($request->requiredFields());
 
+        $this->flasher->success('Success!', 'Gallery info updated');
+
         return redirect('admin/media/photos/' . $photo->id);
     }
 
     public function delete(Photo $photo)
     {
         $photo->delete();
+
+        $this->flasher->success('Gallery Deleted', 'Photo gallery has been deleted');
 
         return redirect('admin/media/photos');
     }

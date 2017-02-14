@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Http\Requests\PhotoForm;
 use App\Media\Artwork;
 use Illuminate\Http\Request;
@@ -11,6 +12,16 @@ use App\Http\Controllers\Controller;
 
 class ArtworksController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
 
     public function index()
     {
@@ -28,6 +39,8 @@ class ArtworksController extends Controller
     {
         $artwork = Artwork::createWithTranslations($request->requiredFields(), $request->user()->profile);
 
+        $this->flasher->success('Album Created', 'Your art gallery has been created. Go wild.');
+
         return redirect('admin/media/artworks/' . $artwork->id);
     }
 
@@ -40,12 +53,16 @@ class ArtworksController extends Controller
     {
         $artwork->updateWithTranslations($request->requiredFields());
 
+        $this->flasher->success('Info Updated', 'Your changes have been saved');
+
         return redirect('admin/media/artworks/' . $artwork->id);
     }
 
     public function delete(Artwork $artwork)
     {
         $artwork->delete();
+
+        $this->flasher->success('Success', 'The album has been deleted');
 
         return redirect('admin/media/artworks');
     }

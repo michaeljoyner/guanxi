@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Http\Requests\UpdateProfileForm;
 use App\People\Profile;
 use Illuminate\Http\Request;
@@ -11,6 +12,16 @@ use App\Http\Controllers\Controller;
 
 class ProfilesController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
 
     public function index()
     {
@@ -33,6 +44,8 @@ class ProfilesController extends Controller
     {
         $profile = Profile::createWithTranslations($request->requiredFields());
 
+        $this->flasher->success('Bio Added', 'Let us welcome them to the team.');
+
         return redirect('admin/profiles/' . $profile->id);
     }
 
@@ -41,6 +54,8 @@ class ProfilesController extends Controller
         $profile->updateWithTranslations($request->requiredFields());
 
         $profile->updateSocialLinks($request->socialLinkFields());
+
+        $this->flasher->success('Info Updated', 'Changes have been saved');
 
         return redirect('/admin/profiles/' . $profile->id);
     }

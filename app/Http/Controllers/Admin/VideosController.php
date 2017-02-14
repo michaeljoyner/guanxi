@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\FlashMessaging\Flasher;
 use App\Media\UnknownPlatformException;
 use App\Media\Video;
 use App\Media\VideoFactory;
@@ -12,6 +13,17 @@ use App\Http\Controllers\Controller;
 
 class VideosController extends Controller
 {
+
+    /**
+     * @var Flasher
+     */
+    private $flasher;
+
+    public function __construct(Flasher $flasher)
+    {
+        $this->flasher = $flasher;
+    }
+
     public function index()
     {
         $videos = Video::latest()->get();
@@ -31,14 +43,16 @@ class VideosController extends Controller
         try {
             $attributes = $video->attributes();
         } catch( UnknownPlatformException $unknown) {
-            dd($unknown);
+            $this->flasher->error('Unknown Platform', 'Currently only Youtube and Vimeo are supported');
             return redirect()->back();
         } catch ( \Exception $e) {
-            dd($e);
+            $this->flasher->error('Oh dear, an error', 'There was an error trying to create the video');
             return redirect()->back();
         }
 
         $videoModel = Video::createWithTranslations($attributes, $request->user()->profile);
+
+        $this->flasher->success('Video Added', 'Remember to add your translations');
 
         return redirect('admin/media/videos/' . $videoModel->id . '/edit');
     }
@@ -59,12 +73,16 @@ class VideosController extends Controller
             'zh_description' => $request->zh_description ?: ''
         ]);
 
+        $this->flasher->success('Success', 'Changes have been saved');
+
         return redirect('admin/media/videos/' . $video->id);
     }
 
     public function delete(Video $video)
     {
         $video->delete();
+
+        $this->flasher->success('Video Deleted', 'The video has been removed');
 
         return redirect('admin/media/videos');
     }
