@@ -1694,12 +1694,12 @@ section.cover-splash {
 .article-index-card {
   width: 250px;
   margin: 1em 2em; }
-  .article-index-card:not(.leading) {
-    width: 100%;
-    border-top: 1px solid #B574D5;
-    border-bottom: 1px solid #B574D5;
-    padding: 10px 0; }
-    @media only screen and (max-width: 719px) {
+  @media only screen and (max-width: 719px) {
+    .article-index-card:not(.leading) {
+      width: 100%;
+      border-top: 1px solid #B574D5;
+      border-bottom: 1px solid #B574D5;
+      padding: 10px 0; }
       .article-index-card:not(.leading) .article-index-card-description {
         display: none; }
       .article-index-card:not(.leading) .card-image-holder {
