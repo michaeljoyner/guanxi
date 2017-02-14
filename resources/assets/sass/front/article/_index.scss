@@ -4,5 +4,7 @@
 }
 
 .article-index-card:last-of-type {
+
+  @include respond-to(phone) { margin-right: 2em; }
   margin-right: auto;
 }
