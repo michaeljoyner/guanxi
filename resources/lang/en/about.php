@@ -20,7 +20,7 @@ return [
         'heading' => 'Contact Us',
         'name_label' => 'Name',
         'email_label' => 'Email',
-        'enquiry_label' => 'Enquiry',
+        'enquiry_label' => 'Your message',
         'send_label' => 'Send',
         'thanks' => 'Message received! Thanks for getting in touch, we will get back to you ASAP.',
         'reset' => 'Send another message',

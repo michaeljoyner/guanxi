@@ -13,6 +13,5 @@ return [
     'marketing'  => 'marketing',
     'events'     => 'events',
     'ourstory'   => 'our story',
-    'contribute' => 'contribute',
-    'contact'    => 'contact'
+    'contribute' => 'contribute'
 ];
