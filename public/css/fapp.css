@@ -1694,6 +1694,20 @@ section.cover-splash {
 .article-index-card {
   width: 250px;
   margin: 1em 2em; }
+  .article-index-card:not(.leading) {
+    width: 100%;
+    border-top: 1px solid #B574D5;
+    border-bottom: 1px solid #B574D5;
+    padding: 10px 0; }
+    @media only screen and (max-width: 719px) {
+      .article-index-card:not(.leading) .article-index-card-description {
+        display: none; }
+      .article-index-card:not(.leading) .card-image-holder {
+        display: none; } }
+  @media only screen and (max-width: 719px) {
+    .article-index-card.leading {
+      width: 40%;
+      margin: 1em auto; } }
   .article-index-card .article-index-card-category {
     color: #803EA0;
     margin: 0 0 4px 0; }
@@ -1709,6 +1723,9 @@ section.cover-splash {
     color: #6A6C6E;
     line-height: 1.4;
     margin-top: 8px; }
+    @media only screen and (max-width: 719px) {
+      .article-index-card .article-index-card-description {
+        display: none; } }
 
 .media-image-card {
   width: 200px;

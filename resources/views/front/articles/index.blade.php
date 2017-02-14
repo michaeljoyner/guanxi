@@ -20,7 +20,7 @@
         <p class="page-intro">{{ trans('articles.page.intro') }}</p>
         <div class="bio-cards card-grid" id="articles">
             @foreach($articles as $article)
-                @include('front.home.articlecard')
+                @include('front.home.articlecard', ['withPics' => true])
             @endforeach
         </div>
         <content-loader container-id="articles"

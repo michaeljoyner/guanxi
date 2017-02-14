@@ -1,4 +1,4 @@
-<div class="article-index-card">
+<div class="article-index-card @if($loop->iteration < 5 or ($withPics ?? false)) leading @endif">
     <p class="article-index-card-category heavy-heading">
         @if($article->categories->count())
             <a href="{{ localUrl('/categories/' . $article->categories->first()->slug) }}">
