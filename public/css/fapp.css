@@ -1279,6 +1279,9 @@ a, a:visited, a:focus, a:hover {
 .purple-text {
   color: #803EA0; }
 
+.soft-purple-text {
+  color: #B574D5; }
+
 .centered-text {
   text-align: center; }
 
@@ -1423,14 +1426,14 @@ a, a:visited, a:focus, a:hover {
     position: absolute;
     width: 100%;
     top: 0;
-    left: 0;
-    -webkit-transition: .4s;
-    transition: .4s; }
+    left: 0; }
   .card-image-holder .hover-action-indicator {
     position: absolute;
     top: 50%;
     -webkit-transition: .7s;
     transition: .7s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
     -webkit-transform: translateY(-50%) scale(6);
     transform: translateY(-50%) scale(6);
     opacity: 0;
@@ -1439,7 +1442,7 @@ a, a:visited, a:focus, a:hover {
     text-transform: uppercase;
     font-weight: 700;
     padding: 6px 0;
-    font-size: 1.2em;
+    font-size: 2em;
     width: 70%;
     display: block;
     margin: 0 15%;
@@ -1787,23 +1790,23 @@ section.cover-splash {
   flex-direction: column; }
   @media only screen and (max-width: 719px) {
     .bio-card {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      flex-direction: row;
-      flex-wrap: wrap;
       width: 95%;
-      margin: 2em auto; }
+      margin: 2em auto;
+      -webkit-box-align: center;
+      align-items: center; }
       .bio-card .bio-card-name {
         -webkit-box-ordinal-group: 2;
         order: 1;
         width: 100%;
-        flex-basis: 100%; }
+        flex-basis: 100%;
+        text-align: center; }
       .bio-card p.bio-card-contributor-title {
         -webkit-box-ordinal-group: 3;
         order: 2;
         width: 100%;
         flex-basis: 100%;
-        margin: 0 0 20px 0; }
+        margin: 0 0 20px 0;
+        text-align: center; }
       .bio-card .bio-image-and-link {
         -webkit-box-ordinal-group: 4;
         order: 3;
@@ -1812,11 +1815,13 @@ section.cover-splash {
       .bio-card .bio-card-bio {
         -webkit-box-ordinal-group: 5;
         order: 4;
-        width: 74%;
-        flex-basis: 74%; }
+        width: 95%;
+        flex-basis: 95%;
+        text-align: center; }
       .bio-card .profile-social-links {
         width: 100%;
-        flex-basis: 100%; } }
+        flex-basis: 100%;
+        text-align: center; } }
   .bio-card > * {
     -webkit-box-flex: 1;
     flex: 1;
@@ -2189,5 +2194,12 @@ section.cover-splash {
   margin: 100px auto 50px;
   max-width: 600px;
   width: 80%; }
+
+@media only screen and (max-width: 719px) {
+  .about-page-section {
+    width: 90%;
+    margin-left: 5%; }
+    .about-page-section p {
+      text-align: left; } }
 
 /*# sourceMappingURL=fapp.css.map */

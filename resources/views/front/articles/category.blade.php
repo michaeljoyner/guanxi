@@ -20,7 +20,7 @@
 
 @section('content')
     <header class="top-page-header categories-articles-banner">
-        <h1 class="page-header-title heavy-heading">{{ $category->name }}</h1>
+        <h1 class="page-header-title heavy-heading soft-purple-text">{{ $category->name }}</h1>
     </header>
     <section class="articles-listing">
         <p class="page-intro">{{ $category->writeup }}</p>

@@ -5,15 +5,17 @@
   flex-direction: column;
 
   @include respond-to(phone) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    //flex-direction: row;
+    //flex-wrap: wrap;
     width: 95%;
     margin: 2em auto;
+    align-items: center;
 
     .bio-card-name {
       order: 1;
       width: 100%;
       flex-basis: 100%;
+      text-align: center;
     }
 
     p.bio-card-contributor-title {
@@ -21,6 +23,7 @@
       width: 100%;
       flex-basis: 100%;
       margin: 0 0 20px 0;
+      text-align: center;
     }
 
     .bio-image-and-link {
@@ -31,13 +34,15 @@
 
     .bio-card-bio {
       order: 4;
-      width: 74%;
-      flex-basis: 74%;
+      width: 95%;
+      flex-basis: 95%;
+      text-align: center;
     }
 
     .profile-social-links {
       width: 100%;
       flex-basis: 100%;
+      text-align: center;
     }
   }
 

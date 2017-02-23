@@ -20,4 +20,13 @@
     max-width: 600px;
     width: 80%;
   }
+
+  @include respond-to(phone) {
+    width: 90%;
+    margin-left: 5%;
+
+    p {
+      text-align: left;
+    }
+  }
 }

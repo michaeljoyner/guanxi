@@ -35,13 +35,13 @@
     width: 100%;
     top: 0;
     left: 0;
-    transition: .4s;
   }
 
   .hover-action-indicator {
     position: absolute;
     top: 50%;
     transition: .7s;
+    transition-timing-function: ease-out;
     transform: translateY(-50%) scale(6);
     opacity: 0;
     color: $white;
@@ -49,7 +49,7 @@
     text-transform: uppercase;
     font-weight: 700;
     padding: 6px 0;
-    font-size: 1.2em;
+    font-size: 2em;
     //border: 2px solid $white;
     width: 70%;
     display: block;
