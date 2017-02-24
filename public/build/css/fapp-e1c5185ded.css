@@ -1154,6 +1154,9 @@ body.stop-scrolling {
         color: #803EA0; }
       .main-navbar .main-nav-list .nav-item:hover {
         color: #27363B; }
+        @media only screen and (max-width: 719px) {
+          .main-navbar .main-nav-list .nav-item:hover {
+            color: #B574D5; } }
       @media only screen and (max-width: 719px) {
         .main-navbar .main-nav-list .nav-item {
           display: block;

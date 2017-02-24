@@ -190,6 +190,10 @@
 
       &:hover {
         color: $brand_dark;
+
+        @include respond-to(phone) {
+          color: $brand_soft_purple;
+        }
       }
 
       @include respond-to(phone) {
