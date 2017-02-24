@@ -13,3 +13,7 @@ body {
 .spaced {
   margin: 50px auto;
 }
+
+body.overlaid {
+  overflow-y: hidden;
+}

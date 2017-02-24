@@ -58,4 +58,7 @@ if(document.body.classList.contains('scripted')) {
     });
 }
 
+import menuAssist from './components/Menuassistant.js';
 
+window.menuAssist = menuAssist;
+window.menuAssist.init();

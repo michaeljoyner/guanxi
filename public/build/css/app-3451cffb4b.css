@@ -5779,6 +5779,9 @@ body {
 .spaced {
   margin: 50px auto; }
 
+body.overlaid {
+  overflow-y: hidden; }
+
 .btn.dd-btn {
   display: inline-block;
   border-radius: 0;
