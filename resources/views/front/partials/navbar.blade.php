@@ -6,6 +6,7 @@
         <label for="nav-trigger" class="nav-trigger-icon">@include('svgicons.menu')</label>
         <input type="checkbox" id="nav-trigger">
         <ul class="main-nav-list">
+            <label for="nav-trigger" class="nav-trigger-close-icon">&times;</label>
             <li class="nav-item @activenav('about')">
                 <a href="{{ localUrl('/about') }}">{{ trans('navbar.about') }}</a>
                 <span class="nav-caret"> @include('svgicons.downcaret')</span>
