@@ -2119,6 +2119,8 @@ section.cover-splash {
   display: block;
   margin: 50px auto;
   text-align: center; }
+  .video-show-main-block iframe {
+    max-width: 100%; }
 
 .video-description {
   margin-bottom: 50px; }
