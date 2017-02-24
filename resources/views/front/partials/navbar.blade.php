@@ -2,9 +2,9 @@
     <div class="branding">
         <a href="/">@include('svg.logo_purple')</a>
     </div>
+    <label for="nav-trigger" class="nav-trigger-icon">@include('svgicons.menu')</label>
+    <input type="checkbox" id="nav-trigger">
     <div class="menu-container">
-        <label for="nav-trigger" class="nav-trigger-icon">@include('svgicons.menu')</label>
-        <input type="checkbox" id="nav-trigger">
         <ul class="main-nav-list">
             <label for="nav-trigger" class="nav-trigger-close-icon">&times;</label>
             <li class="nav-item @activenav('about')">

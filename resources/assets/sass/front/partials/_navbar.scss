@@ -10,6 +10,8 @@
   z-index: 99000;
   background: $white;
 
+  @include respond-to(phone) { flex-direction: row-reverse; justify-content: space-between; padding: 0 20px; }
+
   .branding {
     display: flex;
     flex-grow: 0;
@@ -49,9 +51,19 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 20px;
+    transition: .2s;
 
-    @include respond-to(phone) { justify-content: flex-start; padding-left: 15px; }
-
+    @include respond-to(phone) {
+      justify-content: flex-start; padding-left: 15px;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+      background: rgba(0,0,0,.5);
+      transform: translate3d(-110vw,0,0);
+    }
   }
 
   @include respond-to(phone) {
@@ -91,8 +103,12 @@
     }
   }
 
-  #nav-trigger:checked + .main-nav-list {
+  #nav-trigger:checked + .menu-container {
     transform: translate3d(0, 0, 0);
+
+    .main-nav-list {
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   //#nav-trigger:checked + .main-nav-list .nav-item {
@@ -150,7 +166,8 @@
       height: 100vh;
       overflow-y: scroll;
       padding-top: 60px;
-      background: $brand_super_soft_purple;
+      padding-bottom: 60px;
+      background: $brand_dark;
       transition-duration: .3s;
       transition-timing-function: ease;
       transform: translate3d(-110vw, 0, 0);
@@ -179,7 +196,7 @@
         display: block;
         height: auto;
         margin-top: 20px;
-        color: $brand_dark;
+        color: $brand_soft_purple;
         font-size: 1.2em;
       }
 
