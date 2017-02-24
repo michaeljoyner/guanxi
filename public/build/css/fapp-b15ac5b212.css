@@ -2123,7 +2123,10 @@ section.cover-splash {
     max-width: 100%; }
 
 .video-description {
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .contact-section .contact-form {
   max-width: 700px;
