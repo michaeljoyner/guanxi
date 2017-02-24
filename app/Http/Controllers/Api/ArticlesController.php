@@ -14,7 +14,6 @@ class ArticlesController extends Controller
 {
     public function index(Request $request, ArticlesRepository $repository)
     {
-        sleep(5);
         $page = intval($request->page ?? 1);
 
         $articles = $repository->paginatedArticles();
