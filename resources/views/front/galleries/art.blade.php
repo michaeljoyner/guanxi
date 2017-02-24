@@ -26,6 +26,7 @@
         <media-list url="/api/galleries/art?page="
                     lang-code="{{ Localization::getCurrentLocale() }}"
                     button-text="{{ trans('buttons.more.media') }}"
+                    :has-more="{{ $artworks->hasMorePages() ? 'true' : 'false' }}"
         ></media-list>
     </section>
 @endsection

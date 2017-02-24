@@ -26,6 +26,7 @@
         <media-list url="/api/galleries?page="
                     lang-code="{{ Localization::getCurrentLocale() }}"
                     button-text="{{ trans('buttons.more.media') }}"
+                    :has-more="{{ $galleries->hasMorePages() ? 'true' : 'false' }}"
         ></media-list>
     </section>
     <section class="gallery-video-grid page-section">

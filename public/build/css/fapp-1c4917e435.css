@@ -1131,6 +1131,7 @@ body.stop-scrolling {
         width: 300px;
         height: 100vh;
         overflow-y: scroll;
+        overflow-x: hidden;
         padding-top: 60px;
         padding-bottom: 60px;
         background: #27363B;
@@ -1166,7 +1167,8 @@ body.stop-scrolling {
           height: auto;
           margin-top: 20px;
           color: #B574D5;
-          font-size: 1.2em; } }
+          font-size: 1.2em;
+          font-weight: 700; } }
       .main-navbar .main-nav-list .nav-item .nav-caret {
         display: -webkit-box;
         display: flex;
@@ -1219,7 +1221,8 @@ body.stop-scrolling {
       padding: 0 20px; }
       @media only screen and (max-width: 719px) {
         .main-navbar .secondary-nav-list .secondary-nav-item {
-          margin: 10px 0; } }
+          margin: 10px 0;
+          font-weight: 400; } }
 
 @-webkit-keyframes slideIn {
   0% {

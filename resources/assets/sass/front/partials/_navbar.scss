@@ -165,6 +165,7 @@
       width: 300px;
       height: 100vh;
       overflow-y: scroll;
+      overflow-x: hidden;
       padding-top: 60px;
       padding-bottom: 60px;
       background: $brand_dark;
@@ -202,6 +203,7 @@
         margin-top: 20px;
         color: $brand_soft_purple;
         font-size: 1.2em;
+        font-weight: 700;
       }
 
       .nav-caret {
@@ -253,7 +255,7 @@
     .secondary-nav-item {
       padding: 0 20px;
 
-      @include respond-to(phone) {margin: 10px 0;}
+      @include respond-to(phone) {margin: 10px 0; font-weight: 400;}
     }
   }
 }

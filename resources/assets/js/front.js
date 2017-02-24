@@ -19,6 +19,11 @@ Vue.component('contact-form', require('./components/Contactform.vue'));
 Vue.component('content-loader', require('./components/Contentloader.vue'));
 Vue.component('media-list', require('./components/StaticMedialist.vue'));
 
+import menuAssist from './components/Menuassistant.js';
+
+window.menuAssist = menuAssist;
+window.menuAssist.init();
+
 window.eventHub = new Vue();
 
 if(document.body.classList.contains('scripted')) {
@@ -58,7 +63,4 @@ if(document.body.classList.contains('scripted')) {
     });
 }
 
-import menuAssist from './components/Menuassistant.js';
 
-window.menuAssist = menuAssist;
-window.menuAssist.init();
