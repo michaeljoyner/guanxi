@@ -26,7 +26,7 @@
             <div class="single-image-uploader-box col-md-12 spaced">
                 <p class="h6 text-uppercase">Banner Image</p>
                 <p>Add a banner image to be used on the category page. Use an image at least 1400px wide and the ideal ratio is 10:3</p>
-                <p>Please use an image with a background that will allow the purple text of the category name to be clearly seen.</p>
+                <p>Please bear in mind that this banner image will have the name of the category centered on the image in purple text, try to use an image that allows the text to be readable.</p>
                 <single-upload default="{{ $category->imageSrc('large') }}"
                                url="/admin/content/categories/{{ $category->id }}/image"
                                shape="square"
