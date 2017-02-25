@@ -39,6 +39,7 @@
     <section id="contact" class="page-section about-page-section contact-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('about.contact.heading') }}</h1>
         <div class="about-section centered-text">{!! $page->contact !!}</div>
+
         <div class="contact-form-section">
             @include('front.about.contactform')
         </div>

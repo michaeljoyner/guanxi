@@ -1,5 +1,6 @@
 <contact-form inline-template>
     <form action="" v-on:submit.prevent="submitForm" class="contact-form" :class="{'spent': spent}">
+        <p class="contact-title-sentence body-text centered-text">Or just send us a message from here.</p>
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             <label for="name">{{ trans('about.contact.name_label') }}</label>
             @if($errors->has('name'))
