@@ -41,6 +41,8 @@
     .footer-column-block {
       text-align: center;
       min-height: 250px;
+
+      @include respond-to(phone) { min-height: 0; }
     }
 
     @include respond-to(phone) {
