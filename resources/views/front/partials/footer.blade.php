@@ -23,10 +23,9 @@
         <div class="footer-column-block">
             <p class="footer-header">Trending</p>
             <ul class="footer-links-list">
-                <li><a href="#">Why is Taiwan the shit?</a></li>
-                <li><a href="#">Top 10 Haunted Houses</a></li>
-                <li><a href="#">How to eat a tea egg</a></li>
-                <li><a href="#">LGBT Bars</a></li>
+                @foreach($trendingArticles as $trending)
+                    <li><a href="{{ localUrl('/articles/' . $trending->slug) }}">{{ $trending->title }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>

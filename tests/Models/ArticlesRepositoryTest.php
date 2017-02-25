@@ -127,4 +127,27 @@ class ArticlesRepositoryTest extends TestCase
         $this->assertTrue($result->contains($article2));
         $this->assertFalse($result->contains($article3));
     }
+
+    /**
+     *@test
+     */
+    public function it_can_fetch_the_latest_public_articles()
+    {
+        $articles = [];
+        foreach(range(0,9) as $index) {
+            $articles[] = factory(Article::class)->create([
+                'created_at' => \Carbon\Carbon::parse('-' . $index . ' days'),
+                'published_on' => \Carbon\Carbon::parse('-' . $index . ' days'),
+                'published' => $index !== 2
+            ]);
+        }
+
+        $latest = $this->repo->latestPublished(4);
+
+        $this->assertCount(4, $latest);
+        $this->assertEquals($latest[0]->id, $articles[0]->id);
+        $this->assertEquals($latest[1]->id, $articles[1]->id);
+        $this->assertEquals($latest[2]->id, $articles[3]->id);
+        $this->assertEquals($latest[3]->id, $articles[4]->id);
+    }
 }

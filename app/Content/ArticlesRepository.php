@@ -19,7 +19,12 @@ class ArticlesRepository
 
     public function homePageArticles()
     {
-        return Article::published()->latest()->limit(9)->get();
+        return $this->latestPublished(9);
+    }
+
+    public function latestPublished($count = 4)
+    {
+        return Article::published()->latest()->limit($count)->get();
     }
 
     public function paginatedArticles($pagesize = 9)

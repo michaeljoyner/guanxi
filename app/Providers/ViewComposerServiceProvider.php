@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Content\ArticlesRepository;
 use App\Content\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -21,6 +22,12 @@ class ViewComposerServiceProvider extends ServiceProvider
             });
 
             return $view->with(compact('navCategories'));
+        });
+
+        View::composer('front.partials.footer', function($view) {
+            $trendingArticles = (new ArticlesRepository())->latestPublished();
+
+            return $view->with(compact('trendingArticles'));
         });
     }
 
