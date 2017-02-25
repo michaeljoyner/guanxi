@@ -1189,11 +1189,7 @@ body.stop-scrolling {
     left: 0;
     top: 60px;
     width: 100vw;
-    height: 60px;
-    -webkit-transition: -webkit-transform .5s linear;
-    transition: -webkit-transform .5s linear;
-    transition: transform .5s linear;
-    transition: transform .5s linear, -webkit-transform .5s linear;
+    height: calc(60px * 1.5);
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;

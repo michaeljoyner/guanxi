@@ -221,7 +221,6 @@
   .nav-item:hover .secondary-nav-list {
     transform: rotateX(0deg);
     z-index: 100;
-    //top: $nav_height;
   }
 
   .secondary-nav-list {
@@ -231,8 +230,7 @@
     left: 0;
     top: $nav_height;
     width: 100vw;
-    height: $nav_height;
-    transition: transform .5s linear;
+    height: calc(#{$nav_height} * 1.5);
     display: flex;
     justify-content: center;
     align-items: center;
