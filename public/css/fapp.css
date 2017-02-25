@@ -1560,7 +1560,8 @@ a, a:visited, a:focus, a:hover {
     top: 50%;
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%); }
+    transform: translateX(-50%) translateY(-50%);
+    color: #803EA0; }
 
 .profile-social-links .social-link {
   width: 30px;
