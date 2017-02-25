@@ -39,6 +39,7 @@
         <section class="article-body">
             {!! $article->getTranslation('body', Localization::getCurrentLocale()) !!}
         </section>
+        @if($article->tags->count())
         <section class="article-tags">
             <p class="tag-list">@include('svgicons.tags')
             @foreach($article->tags as $tag)
@@ -46,6 +47,7 @@
             @endforeach
             </p>
         </section>
+        @endif
         <div class="dd-block-btn-group">
             <a href="/articles" class="dd-btn">{{ trans('article.page.backbutton') }}</a>
             <a href="/articles/{{ $nextArticle->slug }}" class="dd-btn">{{ trans('article.page.nextbutton') }}</a>
