@@ -2229,4 +2229,8 @@ section.cover-splash {
     .about-page-section p {
       text-align: left; } }
 
+.about-banner {
+  background: url(../../images/banners/affiliates.jpg);
+  background-size: cover; }
+
 /*# sourceMappingURL=fapp.css.map */

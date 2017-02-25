@@ -13,7 +13,9 @@
 @endsection
 
 @section('content')
-    <h1 class="section-heading heavy-heading centered-text">{{ trans('about.page.title') }}</h1>
+    <header class="top-page-header gallery-banner">
+        <h1 class="page-header-title heavy-heading">{{ trans('about.page.title') }}</h1>
+    </header>
     <section id="marketing" class="page-section about-page-section marketing-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('about.marketing.heading') }}</h1>
         <div class="about-section centered-text">{!! $page->marketing !!}</div>
