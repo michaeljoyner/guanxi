@@ -1448,8 +1448,6 @@ a, a:visited, a:focus, a:hover {
     opacity: .8;
     pointer-events: none; }
   .card-image-holder:hover .hover-action-indicator {
-    -webkit-transform: translateY(-50%) scale(1);
-    transform: translateY(-50%) scale(1);
     opacity: 1; }
   .card-image-holder img {
     position: absolute;
@@ -1463,9 +1461,9 @@ a, a:visited, a:focus, a:hover {
     transition: .7s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-    -webkit-transform: translateY(-50%) scale(6);
-    transform: translateY(-50%) scale(6);
     opacity: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
     color: #ffffff;
     font-family: "Oswald", sans-serif;
     text-transform: uppercase;
