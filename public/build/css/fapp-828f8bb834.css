@@ -1332,7 +1332,11 @@ a, a:visited, a:focus, a:hover {
   font-family: "Noto Serif", serif;
   font-size: 2em;
   max-width: 800px;
-  margin: 80px auto; }
+  margin: 80px auto;
+  width: 90%; }
+  @media only screen and (max-width: 719px) {
+    .page-intro {
+      font-size: 1.1em; } }
 
 .constrained-text {
   max-width: 800px;
@@ -1578,6 +1582,9 @@ a, a:visited, a:focus, a:hover {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     color: #803EA0; }
+    @media only screen and (max-width: 719px) {
+      .top-page-header h1 {
+        font-size: 2em; } }
 
 .profile-social-links .social-link {
   width: 30px;
@@ -1966,7 +1973,8 @@ section.cover-splash {
 
 .articles-banner {
   background: url(../../images/banners/articles.jpg);
-  background-size: cover; }
+  background-size: cover;
+  background-position-y: 70%; }
 
 .article-index-card:last-of-type {
   margin-right: auto; }
@@ -1990,7 +1998,7 @@ section.cover-splash {
     vertical-align: middle; }
 
 .tag-articles-banner {
-  background: url(../../images/banners/about.jpeg);
+  background: url(../../images/banners/mnts_1400.jpg);
   background-size: cover; }
 
 .bio-main-section {
@@ -2075,7 +2083,7 @@ section.cover-splash {
     margin: 90px 0 60px; }
 
 .bios-banner {
-  background: url(../../images/poolside.jpg);
+  background: url(../../images/banners/bio.jpg);
   background-size: cover; }
 
 .contributions-listing {
@@ -2122,6 +2130,15 @@ section.cover-splash {
 .gallery-banner {
   background: url(../../images/banners/gallery.jpg);
   background-size: cover; }
+
+.artworks-banner {
+  background: url(../../images/banners/artworks.jpg);
+  background-size: cover; }
+
+.photos-banner {
+  background: url(../../images/banners/photos.jpg);
+  background-size: cover;
+  background-position-y: 70%; }
 
 .videos-banner {
   background: url(../../images/banners/gallery.jpg);
@@ -2246,7 +2263,8 @@ section.cover-splash {
       text-align: left; } }
 
 .about-banner {
-  background: url(../../images/banners/affiliates.jpg);
-  background-size: cover; }
+  background: url(../../images/banners/about.jpg);
+  background-size: cover;
+  background-position-y: 50%; }
 
 /*# sourceMappingURL=fapp.css.map */

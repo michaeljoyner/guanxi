@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header gallery-banner">
+    <header class="top-page-header about-banner">
         <h1 class="page-header-title heavy-heading">{{ trans('about.page.title') }}</h1>
     </header>
     <section id="marketing" class="page-section about-page-section marketing-section">

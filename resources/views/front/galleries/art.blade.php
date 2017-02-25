@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header gallery-banner">
+    <header class="top-page-header artworks-banner">
         <h1 class="page-header-title heavy-heading">{{ trans('galleries.artpage.title') }}</h1>
     </header>
     <section class="gallery-main-grid">

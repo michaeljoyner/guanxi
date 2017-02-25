@@ -45,6 +45,9 @@
   font-size: 2em;
   max-width: 800px;
   margin: 80px auto;
+  width: 90%;
+
+  @include respond-to(phone) { font-size: 1.1em; }
 
 }
 
