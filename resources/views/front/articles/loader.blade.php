@@ -1,3 +1,3 @@
 @foreach($articles as $article)
-    @include('front.home.articlecard', ['withPics' => true])
+    @include('front.home.articlecard')
 @endforeach

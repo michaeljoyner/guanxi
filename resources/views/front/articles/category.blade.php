@@ -26,7 +26,7 @@
         <p class="page-intro">{{ $category->writeup }}</p>
         <div class="bio-cards card-grid" id="articles">
             @foreach($articles as $article)
-                @include('front.home.articlecard', ['withPics' => true])
+                @include('front.home.articlecard')
             @endforeach
         </div>
         <content-loader container-id="articles"

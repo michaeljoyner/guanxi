@@ -29,7 +29,7 @@
         <h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.articles.heading') }}</h1>
         <div class="articles-list card-grid">
             @foreach($articles as $article)
-                @include('front.home.articlecard')
+                @include('front.home.articlecard', ['limitAmount' => true])
             @endforeach
         </div>
         <a href="{{ localUrl('/articles') }}" class="section-cta dd-btn block">{{ trans('homepage.articles.button') }}</a>

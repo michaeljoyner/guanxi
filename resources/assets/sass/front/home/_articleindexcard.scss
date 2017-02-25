@@ -4,28 +4,30 @@
 
   &:not(.leading) {
 
-
-    @include respond-to(phone) {
-      width: 100%;
-      border-top: 1px solid $brand_soft_purple;
-      border-bottom: 1px solid $brand_soft_purple;
-      padding: 10px 0;
-
-      .article-index-card-description {
-        display: none;
-      }
-
-      .card-image-holder {
-        display: none;
-      }
-    }
+    //@include respond-to(phone) {
+    //  width: 100%;
+    //  border-top: 1px solid $brand_soft_purple;
+    //  border-bottom: 1px solid $brand_soft_purple;
+    //  padding: 10px 0;
+    //
+    //  .article-index-card-description {
+    //    display: none;
+    //  }
+    //
+    //  .card-image-holder {
+    //    display: none;
+    //  }
+    //}
   }
 
-
-  &.leading {
-    @include respond-to(phone) { width: 40%; margin: 1em auto; }
+  &.far-from-top {
+    @include respond-to(phone) {display: none;}
   }
 
+  @include respond-to(phone) {
+    width: 40%;
+    margin: 1em auto;
+  }
 
   .article-index-card-category {
     color: $brand-purple;
@@ -53,6 +55,8 @@
     line-height: 1.4;
     margin-top: 8px;
 
-    @include respond-to(phone) { display: none; }
+    @include respond-to(phone) {
+      display: none;
+    }
   }
 }
