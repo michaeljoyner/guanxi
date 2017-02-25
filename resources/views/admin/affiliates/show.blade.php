@@ -38,8 +38,8 @@
                                    url="/admin/affiliates/{{ $affiliate->id }}/image"
                                    shape="square"
                                    size="preview"
-                                   :preview-width="500"
-                                   :preview-height="200"
+                                   :preview-width="400"
+                                   :preview-height="320"
                     ></single-upload>
                 </div>
             </div>

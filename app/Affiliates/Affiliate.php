@@ -49,7 +49,7 @@ class Affiliate extends Model implements HasMediaConversions
             ->setManipulations(['w' => 500, 'h' => 400, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 960, 'h' => 384, 'fit' => 'crop', 'fm' => 'src'])
+            ->setManipulations(['w' => 300, 'h' => 300, 'fit' => 'crop', 'fm' => 'src'])
             ->performOnCollections('default');
     }
 

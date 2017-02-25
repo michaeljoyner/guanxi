@@ -2092,15 +2092,16 @@ section.cover-splash {
   max-width: 960px;
   margin: 0 auto; }
   .affiliate-page .affiliate-name {
-    margin-top: 80px; }
+    margin-top: 30px; }
   .affiliate-page .affiliate-address {
     color: #6A6C6E; }
   .affiliate-page .affiliate-website a:hover {
     color: #B574D5; }
   .affiliate-page .affiliate-main-image {
     display: block;
-    max-width: 100%;
-    margin: 0 auto; }
+    max-width: 250px;
+    border-radius: 50%;
+    margin: 50px auto 0; }
 
 .gallery-banner {
   background: url(../../images/banners/gallery.jpg);
