@@ -178,12 +178,19 @@
       flex-grow: 0;
       flex-shrink: 1;
       flex-basis: auto;
+      order: 8;
       padding: 0 15px 0 20px;
       color: $text_grey;
       text-transform: uppercase;
       height: $nav_height;
       display: flex;
       align-items: center;
+
+      &.about-nav { order: 1; }
+      &.articles-nav { order: 2; }
+      &.gallery-nav { order: 3; }
+      &.bios-nav { order: 4; }
+      &.affiliates-nav { order: 5; }
 
       &.active {
         color: $brand_purple;

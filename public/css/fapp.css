@@ -1146,6 +1146,8 @@ body.stop-scrolling {
       flex-grow: 0;
       flex-shrink: 1;
       flex-basis: auto;
+      -webkit-box-ordinal-group: 9;
+      order: 8;
       padding: 0 15px 0 20px;
       color: #6A6C6E;
       text-transform: uppercase;
@@ -1154,6 +1156,21 @@ body.stop-scrolling {
       display: flex;
       -webkit-box-align: center;
       align-items: center; }
+      .main-navbar .main-nav-list .nav-item.about-nav {
+        -webkit-box-ordinal-group: 2;
+        order: 1; }
+      .main-navbar .main-nav-list .nav-item.articles-nav {
+        -webkit-box-ordinal-group: 3;
+        order: 2; }
+      .main-navbar .main-nav-list .nav-item.gallery-nav {
+        -webkit-box-ordinal-group: 4;
+        order: 3; }
+      .main-navbar .main-nav-list .nav-item.bios-nav {
+        -webkit-box-ordinal-group: 5;
+        order: 4; }
+      .main-navbar .main-nav-list .nav-item.affiliates-nav {
+        -webkit-box-ordinal-group: 6;
+        order: 5; }
       .main-navbar .main-nav-list .nav-item.active {
         color: #803EA0; }
       .main-navbar .main-nav-list .nav-item:hover {
