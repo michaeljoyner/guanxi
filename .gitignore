@@ -10,3 +10,6 @@ Homestead.yaml
 .DS_Store
 workspace.xml
 /public/media/**/*
+/public/js/**/*
+/public/css/**/*
+/public/build
