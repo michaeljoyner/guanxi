@@ -34,6 +34,9 @@
                 <a href="mailto:?&subject=Read&body={{ Request::url() }}">
                     @include('svgicons.social.email')
                 </a>
+                <a href="http://line.me/R/msg/text/?{{ urlencode(Request::url()) }}">
+                    @include('svgicons.social.line')
+                </a>
             </div>
         </header>
         <section class="article-body">
