@@ -15,7 +15,12 @@
                 <h3>Ready to publish</h3>
             </div>
             <div slot="body">
-                <p class="lead">You are about to publish this article for the first time, which will automatically share to social media. This only happens this once, so now is a good time to check if the article is complete and has a featured image.</p>
+                <p class="lead">You are about to publish this article for the first time. This is probably a good time to check the following:</p>
+                <ul class="list-group">
+                    <li>You have added a decent featured image.</li>
+                    <li>The article is complete for both Chinese and English versions.</li>
+                    <li>The article has a decent description for SEO, etc.</li>
+                </ul>
             </div>
             <div slot="footer">
                 <button class="btn dd-btn btn-grey"
