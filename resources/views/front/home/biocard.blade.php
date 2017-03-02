@@ -1,4 +1,4 @@
-<div class="bio-card">
+<div class="bio-card three-piece">
     <a href="/bios/{{ $profile->slug }}" class="bio-image-and-link">
         <div class="card-image-holder rounded">
             <img src="{{ $profile->avatar('thumb') }}" width="200" height="200" alt="">

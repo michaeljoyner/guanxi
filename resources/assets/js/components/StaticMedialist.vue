@@ -2,7 +2,7 @@
 
 <template>
     <div class="card-grid loaded-content">
-        <div class="media-image-card" v-for="album in albums">
+        <div class="media-image-card four-piece" v-for="album in albums">
             <dd-lightbox :open="false"
                          :title="album.title"
                          :main-src="album.thumbnail"

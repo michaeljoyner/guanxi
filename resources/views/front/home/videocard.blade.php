@@ -1,4 +1,4 @@
-<div class="video-card">
+<div class="video-card two-piece">
     <div class="video-aspect-container">
         <a href="{{ localUrl('/videos/' . $video->slug) }}">
             <img src="{{ $video->thumbnail }}" alt="{{ $video->title }}">

@@ -1,4 +1,4 @@
-<div class="media-image-card">
+<div class="media-image-card four-piece">
     <dd-lightbox :open="false"
                  title="{{ $media->title }}"
                  main-src="{{ $media->mainImageSrc('thumb') }}"

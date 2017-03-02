@@ -1,4 +1,4 @@
-<div class="affiliate-card">
+<div class="affiliate-card four-piece">
     <a href="{{ localUrl('/affiliates/' . $affiliate->slug) }}">
         <div class="card-image-holder">
             <img src="{{ $affiliate->imageSrc('thumb') }}" width="150" height="150" alt="">

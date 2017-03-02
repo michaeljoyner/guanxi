@@ -1,4 +1,4 @@
-<div class="article-index-card @if($loop->iteration > 6 and ($limitAmount ?? false)) far-from-top @endif">
+<div class="article-index-card three-piece @if($loop->iteration > 6 and ($limitAmount ?? false)) far-from-top @endif">
     <p class="article-index-card-category heavy-heading">
         @if($article->categories->count())
             <a href="{{ localUrl('/categories/' . $article->categories->first()->slug) }}">

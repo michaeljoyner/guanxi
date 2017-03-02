@@ -1,4 +1,4 @@
-<div class="large-affiliate-card">
+<div class="large-affiliate-card two-piece">
     <p class="affiliate-name purple-text heavy-heading">{{ $affiliate->name }}</p>
     <a href="{{ localUrl('/affiliates/' . $affiliate->slug) }}">
         <div class="card-image-holder">
