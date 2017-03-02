@@ -4,6 +4,11 @@
   text-transform: uppercase;
 }
 
+.plain-strong-text {
+  font-family: $heavy_text;
+  font-weight: 300;
+}
+
 .heavy-text {
   font-family: $heavy_text;
   font-weight: 700;

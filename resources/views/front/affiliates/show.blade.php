@@ -16,9 +16,8 @@
     <section class="affiliate-page">
         <img src="{{ $affiliate->imageSrc('large') }}" alt="{{ $affiliate->name }}" class="affiliate-main-image">
         <h1 class="heavy-heading purple-text centered-text affiliate-name">{{ $affiliate->name }}</h1>
-        {{--<img src="{{ $affiliate->imageSrc('large') }}" alt="{{ $affiliate->name }}" class="affiliate-main-image">--}}
-        <p class="affiliate-address light-heading centered-text">{{ $affiliate->location }}</p>
-        <p class="affiliate-phone light-heading centered-text">Tel: {{ $affiliate->phone }}</p>
+        <p class="affiliate-address plain-strong-text  centered-text">{{ $affiliate->location }}</p>
+        <p class="affiliate-phone plain-strong-text centered-text">{{ $affiliate->phone }}</p>
         <p class="affiliate-website heavy-text centered-text"><a href="{{ $affiliate->website }}">{{ $affiliate->website }}</a></p>
         <div class="affiliate-writeup">
             {!! nl2br($affiliate->writeup) !!}
