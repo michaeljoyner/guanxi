@@ -11,6 +11,11 @@
     margin: 1em 2%;
     display: inline-block;
     vertical-align: top;
+
+    @include respond-to(phone) {
+      width: 40%;
+      margin: 1em 4%;
+    }
   }
 
   & > .three-piece {
@@ -18,6 +23,11 @@
     margin: 1em 3%;
     display: inline-block;
     vertical-align: top;
+
+    @include respond-to(phone) {
+      width: 40%;
+      margin: 1em 4%;
+    }
   }
 
   & > .two-piece {
@@ -25,7 +35,11 @@
     margin: 1em 4%;
     display: inline-block;
     vertical-align: top;
-  }
 
+    @include respond-to(phone) {
+      width: 100%;
+      margin: 1em 4%;
+    }
+  }
 
 }
