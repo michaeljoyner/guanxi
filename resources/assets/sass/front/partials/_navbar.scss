@@ -11,6 +11,7 @@
   background: $white;
 
   @include respond-to(phone) { flex-direction: row-reverse; justify-content: space-between; padding: 0 20px; }
+  @include respond-to(largetablet) { flex-direction: row-reverse; justify-content: space-between; padding: 0 20px; }
 
   .branding {
     display: flex;
@@ -20,6 +21,7 @@
     align-items: flex-start;
 
     @include respond-to(phone) { order: 2; }
+    @include respond-to(largetablet) { order: 2; }
 
     svg {
       display: block;
@@ -29,6 +31,14 @@
       top: 10px;
 
       @include respond-to(phone) {
+        width: 100px;
+        height: 40px;
+        left: 10px;
+        position: static;
+        padding-right: 15px;
+      }
+
+      @include respond-to(largetablet) {
         width: 100px;
         height: 40px;
         left: 10px;
@@ -64,9 +74,24 @@
       background: rgba(0,0,0,.5);
       transform: translate3d(-110vw,0,0);
     }
+
+    @include respond-to(largetablet) {
+      justify-content: flex-start; padding-left: 15px;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+      background: rgba(0,0,0,.5);
+      transform: translate3d(-110vw,0,0);
+    }
   }
 
   @include respond-to(phone) {
+    background: $brand_purple;
+  }
+  @include respond-to(largetablet) {
     background: $brand_purple;
   }
 
@@ -79,6 +104,10 @@
     order: 2;
 
     @include respond-to(phone) {
+      display: block;
+    }
+
+    @include respond-to(largetablet) {
       display: block;
     }
   }
@@ -101,6 +130,9 @@
     @include respond-to(phone) {
       display: block;
     }
+    @include respond-to(largetablet) {
+      display: block;
+    }
   }
 
   #nav-trigger:checked + .menu-container {
@@ -110,38 +142,6 @@
       transform: translate3d(0, 0, 0);
     }
   }
-
-  //#nav-trigger:checked + .main-nav-list .nav-item {
-  //  animation-name: slideIn;
-  //  animation-duration: .3s;
-  //  animation-timing-function: linear;
-  //  animation-iteration-count: 1;
-  //  animation-fill-mode: both;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(2) {
-  //  animation-delay: .2s;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(3) {
-  //  animation-delay: .3s;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(4) {
-  //  animation-delay: .4s;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(5) {
-  //  animation-delay: .5s;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(6) {
-  //  animation-delay: .6s;
-  //}
-  //
-  //#nav-trigger:checked + .main-nav-list .nav-item:nth-child(7) {
-  //  animation-delay: .7s;
-  //}
 
   .main-nav-list {
     flex-grow: 1;
@@ -158,6 +158,23 @@
     margin: 0;
 
     @include respond-to(phone) {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      background: $brand_dark;
+      transition-duration: .3s;
+      transition-timing-function: ease;
+      transform: translate3d(-110vw, 0, 0);
+    }
+
+    @include respond-to(largetablet) {
       position: absolute;
       display: block;
       top: 0;
@@ -202,9 +219,22 @@
         @include respond-to(phone) {
           color: $brand_soft_purple;
         }
+
+        @include respond-to(largetablet) {
+          color: $brand_soft_purple;
+        }
       }
 
       @include respond-to(phone) {
+        display: block;
+        height: auto;
+        margin-top: 20px;
+        color: $brand_soft_purple;
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+
+      @include respond-to(largetablet) {
         display: block;
         height: auto;
         margin-top: 20px;
@@ -219,6 +249,10 @@
         padding-left: 8px;
 
         @include respond-to(phone) {
+          display: none;
+        }
+
+        @include respond-to(largetablet) {
           display: none;
         }
       }
@@ -257,10 +291,20 @@
       border-bottom: none;
     }
 
+    @include respond-to(largetablet) {
+      display: block;
+      position: static;
+      height: auto;
+      transform: none;
+      background: transparent;
+      border-bottom: none;
+    }
+
     .secondary-nav-item {
       padding: 0 20px;
 
       @include respond-to(phone) {margin: 10px 0; font-weight: 400;}
+      @include respond-to(largetablet) {margin: 10px 0; font-weight: 400;}
     }
   }
 }
@@ -288,11 +332,3 @@
   }
 }
 
-//@keyframes slideIn {
-//  0% {transform: translate3d(-150px,0,0); opacity: 0;}
-//  20% {transform: translate3d(-120px, 0, 0);}
-//  40% {transform: translate3d(-90px, 0, 0);}
-//  60% {transform: translate3d(-60px, 0, 0);}
-//  80% {transform: translate3d(-30px, 0, 0); opacity: 1;}
-//  100% {transform: translate3d(0,0,0);}
-//}
