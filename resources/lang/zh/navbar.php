@@ -1,18 +1,17 @@
 <?php
 
 return [
-    'articles' => '誒',
-    'gallery' => '唷',
-    'bios' => '伊茲恩',
-    'affiliates' => '資誒',
-    'about' => '誒ㄊ',
-    'contact' => 'ㄙ喔恩',
-    'photos' => '誒',
-    'video' => '雌誒',
-    'art' => '私誒斯',
-    'marketing'  => '雌凹',
-    'events'     => '粗誒恩',
-    'ourstory'   => '誒誒',
-    'contribute' => '鎢絲',
-    'contact'    => '雌雞絲凹恩'
+    'articles' => '文章',
+    'gallery' => '文章',
+    'bios' => '人物簡介',
+    'affiliates' => '關係協力商家',
+    'about' => '關於',
+    'contact' => '聯絡我們',
+    'photos' => '攝影作品',
+    'video' => '影片',
+    'art' => '藝術作品',
+    'marketing'  => '行銷',
+    'events'     => '活動',
+    'ourstory'   => '關係故事',
+    'contribute' => '投稿',
 ];

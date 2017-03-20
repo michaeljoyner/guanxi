@@ -4,7 +4,7 @@ return [
     'articles'   => 'articles',
     'gallery'    => 'gallery',
     'bios'       => 'bios',
-    'affiliates' => 'affiliates',
+    'affiliates' => 'associates',
     'about'      => 'about',
     'contact'    => 'contact',
     'photos'     => 'photos',
