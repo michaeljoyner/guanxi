@@ -3,7 +3,7 @@
 return [
     'page' => [
         'title' => 'Bios',
-        'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.',
+        'intro' => 'An introduction to our talented writers, photographers, and artists.',
         'connect' => 'Connect with',
         'backbutton' => 'Back to Bios',
         'nextbutton' => 'See Next Bio'

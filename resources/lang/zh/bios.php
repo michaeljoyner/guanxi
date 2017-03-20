@@ -2,16 +2,16 @@
 
 return [
     'page' => [
-        'title' => '雌醫',
-        'intro' => '見検烈焼化茶更転知有俳判停初覧鈴物昌車。開描給読務外善境迷代役否変処要。',
-        'connect' => '施雌一凹誒恩',
-        'backbutton' => '雌喔瘀',
-        'nextbutton' => '嗚吃喔喔'
+        'title' => '人物簡介',
+        'intro' => '介紹關係世界裡, 才華洋溢的作家, 攝影師',
+        'connect' => '連結',
+        'backbutton' => '回到人物簡介首頁',
+        'nextbutton' => '下一位人物簡介'
     ],
     'contributions' => [
-        'title' => ' 見検烈見検',
-        'articles' => '更転',
-        'media' => '初覧鈴物昌',
-        'videos' => '読務外'
+        'title' => ' 近期提供',
+        'articles' => '文章',
+        'media' => '攝影作品及藝術作品',
+        'videos' => '影片'
     ]
 ];
