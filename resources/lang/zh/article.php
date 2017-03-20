@@ -2,7 +2,7 @@
 
 return [
     'page' => [
-        'backbutton' => '施痾恩喔',
-        'nextbutton' => '嗚吃喔喔'
+        'backbutton' => '回到文章首頁',
+        'nextbutton' => '下一篇文章'
     ]
 ];
