@@ -2,12 +2,12 @@
 
 return [
         'page' => [
-                'title' => '失一恩瘀',
-                'intro' => '見検烈焼化茶更転知有俳判停初覧鈴物昌車。開描給読務外善境迷代役否変処要。'
+                'title' => '影片',
+                'intro' => '觀賞關於台灣富教育性及有趣的影片'
         ],
         'show' => [
-            'other_videos' => '見検烈焼化茶',
-            'back_button' => '雌嗚嗚喔茲',
-            'next_button' => '誒一喔恩痾凹'
+            'other_videos' => '你可能會喜歡',
+            'back_button' => '回到影片首頁',
+            'next_button' => '下一個影片'
         ]
 ];

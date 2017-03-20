@@ -3,7 +3,7 @@
 return [
     'page' => [
         'title' => 'Videos',
-        'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.'
+        'intro' => 'Watch enlightening and entertaining videos about Taiwan.'
     ],
     'show' => [
         'other_videos' => 'You may also enjoy',

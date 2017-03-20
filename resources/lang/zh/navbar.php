@@ -2,7 +2,7 @@
 
 return [
     'articles' => '文章',
-    'gallery' => '文章',
+    'gallery' => '藝廊',
     'bios' => '人物簡介',
     'affiliates' => '關係協力商家',
     'about' => '關於',
