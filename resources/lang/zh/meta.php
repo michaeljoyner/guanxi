@@ -2,39 +2,39 @@
 
 return [
     'home' => [
-        'title' => 'Guanxi Magazine',
-        'description' => 'Guanxi magazine publishes unique and original content about Taiwan and the world, lifestyle and culture'
+        'title' => '關係雜誌',
+        'description' => '關係雜誌出版發行關於台灣及世界獨特並原創的文化, 生活, 與政治等相關議題文章'
     ],
     'about' => [
-        'title' => 'All About Guanxi Magazine',
-        'description' => 'Discover our story, what we set out to do and how we plan on doing it. Also catch up on some events and find out how to get in contact'
+        'title' => '關於關係雜誌',
+        'description' => '了解關係的故事, 我們的目標, 及我們的願景。與台灣大小事接軌, 並與我們聯繫'
     ],
     'articles' => [
-        'title' => 'Articles | Guanxi Magazine',
-        'description' => 'Read our latest articles on lifestyle and culture in Taiwan, written by a diverse mix of great writers'
+        'title' => '文章 | 關係雜誌',
+        'description' => '閱讀才華洋溢的作家與記者撰寫關於台灣及世界在生活, 文化, 及政治等議題的文章'
     ],
     'gallery' => [
-        'title' => 'Gallery | Guanxi Magazine',
-        'description' => 'View some photography and artwork from our contributors, and also watch videos.'
+        'title' => '藝廊 | 關係雜誌',
+        'description' => '來自世界各地創作家所提供的攝影作品, 藝術作品, 及影片'
     ],
     'photos' => [
-        'title' => 'Photos | Galleries of Guanxi Magazine photography',
-        'description' => 'Some our featured and favorite photography and images'
+        'title' => '攝影作品 | 關係雜誌藝廊',
+        'description' => '展示攝影作品及其攝影師'
     ],
     'artworks' => [
-        'title' => 'Artwork | Guanxi Magazine loves art',
-        'description' => 'View some great artwork contributed by some of our incredibly talented artists.'
+        'title' => '藝術作品 | 關係雜誌喜愛藝術',
+        'description' => '展示藝術作品及其藝術家'
     ],
     'videos' => [
-        'title' => 'Videos | Videos by Guanxi Magazine',
-        'description' => 'Watch some videos that we find entertaining'
+        'title' => '影片 | 關係雜誌提供的影片',
+        'description' => '關於台灣的有趣影片'
     ],
     'bios' => [
-        'title' => 'Guanxi Contributors',
-        'description' => 'Who are the people contributing to our fantastic content? Find out here.'
+        'title' => '關係投稿者',
+        'description' => '認識為關係提供文章及藝術作品的投稿者'
     ],
     'affiliates' => [
-        'title' => 'Affiliates of Guanxi Magazine',
-        'description' => 'We are all about relationships here at Guanxi. Here are some of the local businesses we see eye to eye with.'
+        'title' => '關係協力商家',
+        'description' => '關係在關係雜誌裡相當重要, 這裏提供與關係雜誌互惠的商家與組織'
     ]
 ];
