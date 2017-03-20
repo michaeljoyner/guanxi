@@ -2,8 +2,8 @@
 
 return [
     'more' => [
-        'articles' => '茶俳判停初覧鈴',
-        'media' => '物昌車',
-        'videos' => '更転知有'
+        'articles' => '更多文章',
+        'media' => '顯示更多',
+        'videos' => '更多影片'
     ]
 ];
