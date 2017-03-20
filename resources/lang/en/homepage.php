@@ -16,7 +16,8 @@ return [
     ],
     'videos' => [
         'heading' => 'Videos',
-        'button' => 'View all Videos'
+        'button' => 'View all Videos',
+        'hover_text' => 'View'
     ],
     'contributors' => [
         'heading' => 'Contributors',
@@ -24,8 +25,8 @@ return [
         'hover_text' => 'View'
     ],
     'affiliates' => [
-        'heading' => 'Affiliates',
-        'button' => 'View All Affiliates',
+        'heading' => 'Associates',
+        'button' => 'View All Associates',
         'hover_text' => 'View'
     ]
 ];

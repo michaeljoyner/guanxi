@@ -2,31 +2,31 @@
 
 return [
     'splash' => [
-        'button' => '嗚喔誒雌'
+        'button' => '閱覽本文'
     ],
     'articles' => [
         'heading' => '文章',
-        'button' => '看更多．．．',
-        'hover_text' => '誒斯'
+        'button' => '閱覽所有文章',
+        'hover_text' => '閱覽'
     ],
     'photos' => [
-        'heading' => '照片跟藝術作品',
-        'button' => '更多作品',
-        'hover_text' => '誒斯'
+        'heading' => '攝影作品及藝術作品',
+        'button' => '瀏覽所有藝術作品',
+        'hover_text' => '觀看'
     ],
     'videos' => [
         'heading' => '影片',
-        'button' => '更多影片',
-        'hover_text' => '誒斯'
+        'button' => '觀看所有影片',
+        'hover_text' => '閱覽'
     ],
     'contributors' => [
-        'heading' => '創作者',
-        'button' => '看全部的創作者',
-        'hover_text' => '誒斯'
+        'heading' => '投稿者',
+        'button' => '閱覽所有人物簡介',
+        'hover_text' => '閱覽'
     ],
     'affiliates' => [
-        'heading' => '合作夥伴',
-        'button' => '看全部的合作夥伴',
-        'hover_text' => '雌喔'
+        'heading' => '關係協力商家',
+        'button' => '瀏覽所有關係協力商家',
+        'hover_text' => '瀏覽'
     ]
 ];
