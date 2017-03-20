@@ -2,28 +2,28 @@
 
 return [
     'page' => [
-        'title' => '巫醫喔痾'
+        'title' => '關於關係'
     ],
     'marketing' => [
-        'heading' => '淤失雌姿'
+        'heading' => '行銷'
     ],
     'events' => [
-        'heading' => '恩誒斯'
+        'heading' => '企劃與活動'
     ],
     'story' => [
-        'heading' => '恩誒斯'
+        'heading' => '關係故事'
     ],
     'contribute' => [
-        'heading' => '喔伊吃'
+        'heading' => '投稿'
     ],
     'contact' => [
-        'heading' => '雌一淤恩',
-        'name_label' => '嗚雌醫',
-        'email_label' => '恩烏斯',
-        'enquiry_label' => '恩斯瘀凹',
-        'send_label' => '吃瘀斯痾',
-        'thanks' => '新人提当裁子識辺備呼芸嫌隊同阪甲赤。吉提記府失無事端去仕摂付氏康価務。',
-        'reset' => '事端去仕',
-        'sending' => '事端去仕'
+        'heading' => '聯絡我們',
+        'name_label' => '姓名',
+        'email_label' => '電子信箱',
+        'enquiry_label' => '您的訊息',
+        'send_label' => '送出',
+        'thanks' => '您的訊息我們收到了！謝謝您與我們聯繫, 我們會盡快回覆您',
+        'reset' => '送出另一則訊息',
+        'sending' => '傳送中, 請稍候...'
     ]
 ];

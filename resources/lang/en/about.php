@@ -8,7 +8,7 @@ return [
         'heading' => 'Marketing'
     ],
     'events' => [
-        'heading' => 'Events and Things'
+        'heading' => 'Events and Projects'
     ],
     'story' => [
         'heading' => 'Our Story'
