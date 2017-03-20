@@ -3,17 +3,17 @@
 return [
     'page' => [
         'title' => 'Gallery',
-        'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.'
+        'intro' => 'A diverse collection of artworks, photos and videos.'
     ],
     'videos' => [
         'heading' => 'Videos'
     ],
     'photopage' => [
-        'title' => 'Photography',
-        'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.'
+        'title' => 'Photos',
+        'intro' => 'A dynamic collection of photography and photographers.'
     ],
     'artpage' => [
         'title' => 'Artworks',
-        'intro' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorem dolorum ducimus ea eveniet.'
+        'intro' => 'A captivating collection of talented artists and artworks from several genres.'
     ]
 ];
