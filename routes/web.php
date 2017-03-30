@@ -23,6 +23,8 @@ Route::group(['prefix' => Localization::setLocale()], function()
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/tags/{slug}', 'TagArticlesController@index');
     Route::get('articles/{slug}', 'ArticlesController@show');
+
+    Route::get('admin/preview/articles/{article}', 'Admin\ArticlesPreviewController@show')->middleware('auth');
     
     Route::get('categories/{slug}', 'CategoriesController@show');
 

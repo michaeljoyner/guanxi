@@ -15,9 +15,11 @@
 @section('content')
     <article class="article-container">
         <header class="article-header">
+            @if($article->categories->count())
             <p class="article-header-category heavy-heading purple-text centered-text">
                 {{ $article->categories()->first()->getTranslation('name', Localization::getCurrentLocale()) }}
             </p>
+            @endif
             <h1 class="heavy-heading centered-text article-header-title">
                 {{ $article->getTranslation('title', Localization::getCurrentLocale()) }}
             </h1>

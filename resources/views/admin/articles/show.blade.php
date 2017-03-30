@@ -17,6 +17,7 @@
                 'objectName' => $article->title,
                 'deleteFormAction' => '/admin/content/articles/' . $article->id
             ])
+            <a href="/admin/preview/articles/{{ $article->id }}" class="btn btn-light dd-btn" target="_blank">Preview</a>
         </div>
     </section>
     <section class="article-overview">
