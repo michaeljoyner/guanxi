@@ -27,16 +27,16 @@
                 {{ $article->created_at->toFormattedDateString() }} &middot; {{ $article->author->name }}
             </p>
             <div class="social-sharing-icons">
-                <a href="https://twitter.com/home?status={{ urlencode($article->title . ' ' . Request::url()) }}">
+                <a target="_blank" href="https://twitter.com/home?status={{ urlencode($article->title . ' ' . Request::url()) }}">
                     @include('svgicons.social.twitter')
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
                     @include('svgicons.social.facebook')
                 </a>
-                <a href="mailto:?&subject=Read&body={{ Request::url() }}">
+                <a target="_blank" href="mailto:?&subject=Read&body={{ Request::url() }}">
                     @include('svgicons.social.email')
                 </a>
-                <a href="http://line.me/R/msg/text/?{{ urlencode(Request::url()) }}">
+                <a target="_blank" href="http://line.me/R/msg/text/?{{ urlencode(Request::url()) }}">
                     @include('svgicons.social.line')
                 </a>
             </div>
