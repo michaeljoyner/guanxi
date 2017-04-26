@@ -21,9 +21,9 @@ section.cover-splash {
     top: 10%;
     left: 100px;
     width: 8em;
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.2;
 
     @include respond-to(phone) {
       font-size: 3em;
