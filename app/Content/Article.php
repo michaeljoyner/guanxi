@@ -2,6 +2,7 @@
 
 namespace App\Content;
 
+use App\CanHaveNullRelationships;
 use App\People\Profile;
 use App\User;
 use Carbon\Carbon;
@@ -15,7 +16,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Article extends Model implements HasMediaConversions
 {
-    use Sluggable, HasTranslations, SoftDeletes, HasMediaTrait, HasTags;
+    use Sluggable, HasTranslations, SoftDeletes, HasMediaTrait, HasTags, CanHaveNullRelationships;
 
     protected $table = 'articles';
 
@@ -66,7 +67,7 @@ class Article extends Model implements HasMediaConversions
 
     public function author()
     {
-        return $this->belongsTo(Profile::class, 'profile_id');
+        return $this->belongsToOrNull(Profile::class, 'profile_id');
     }
 
     public function setAuthor(Profile $author)
