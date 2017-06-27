@@ -77,7 +77,7 @@
 
         methods: {
             handleClick() {
-                if(this.virgin) {
+                if(this.virgin && this.is_virgin === null) {
                     return this.showModal = true;
                 }
 
