@@ -81,6 +81,4 @@ class Affiliate extends Model implements HasMediaConversions
 
         return $src ? $src : static::DEFAULT_IMAGE_SRC;
     }
-
-
 }

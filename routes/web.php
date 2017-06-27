@@ -79,10 +79,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::delete('users/{user}', 'UsersController@delete');
 
     Route::get('profiles', 'ProfilesController@index');
-    Route::post('profiles', 'ProfilesController@store');
+    Route::post('profiles', 'ProfilesController@store')->middleware('url.reformatter');
     Route::get('profiles/{profile}', 'ProfilesController@show');
     Route::get('profiles/{profile}/edit', 'ProfilesController@edit');
-    Route::post('profiles/{profile}', 'ProfilesController@update');
+    Route::post('profiles/{profile}', 'ProfilesController@update')->middleware('url.reformatter');
 
     Route::post('profiles/{profile}/avatar', 'ProfileAvatarsController@store');
 
@@ -128,8 +128,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::get('affiliates', 'AffiliatesController@index');
     Route::get('affiliates/{affiliate}', 'AffiliatesController@show');
     Route::get('affiliates/{affiliate}/edit', 'AffiliatesController@edit');
-    Route::post('affiliates', 'AffiliatesController@store');
-    Route::post('affiliates/{affiliate}', 'AffiliatesController@update');
+    Route::post('affiliates', 'AffiliatesController@store')->middleware('url.reformatter');
+    Route::post('affiliates/{affiliate}', 'AffiliatesController@update')->middleware('url.reformatter');
     Route::delete('affiliates/{affiliate}', 'AffiliatesController@delete');
 
     Route::post('affiliates/{affiliate}/publish', 'AffiliatePublishingController@update');
