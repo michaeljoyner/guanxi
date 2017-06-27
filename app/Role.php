@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     const SUPER_ADMIN = 'super admin';
-    const EDITOR = 'editor';
+    const EDITOR = 'contributor';
     const WRITER = 'writer';
 
     protected $table = 'roles';
