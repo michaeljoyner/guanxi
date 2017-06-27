@@ -19,7 +19,7 @@
         <p class="affiliate-address plain-strong-text  centered-text">{{ $affiliate->location }}</p>
         <p class="affiliate-phone plain-strong-text centered-text">{{ $affiliate->phone }}</p>
         <p class="affiliate-website heavy-text centered-text"><a href="{{ $affiliate->website }}">{{ $affiliate->website }}</a></p>
-        <div class="affiliate-writeup">
+        <div class="affiliate-writeup centered-text">
             {!! nl2br($affiliate->writeup) !!}
         </div>
 
