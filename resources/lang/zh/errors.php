@@ -1,5 +1,9 @@
 <?php
 
 return [
-    'fourohfour' => 'The zh page you want is not here.'
+    'fourohfour' => [
+        'status' => '404',
+        'subheading' => '你迷路了喔',
+        'message' => '你要尋找的網頁不在這裡'
+    ]
 ];

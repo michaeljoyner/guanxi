@@ -1,0 +1,36 @@
+.four-oh-four {
+  font-family: $heavy_text;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .status {
+    font-size: 112pt;
+    margin: 0;
+    font-weight: 700;
+    color: $brand_soft_purple;
+  }
+
+  .fof-subheading {
+    color: $brand_purple;
+    font-size: 3em;
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  .fof-message {
+    font-family: $body_text;
+    color: $brand_dark;
+    font-size: 2em;
+    margin: 15px auto;
+  }
+
+  img {
+    width: 500px;
+    max-width: 90%;
+    opacity: .5;
+    display: block;
+    margin-top: 50px;
+  }
+}

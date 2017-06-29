@@ -1,6 +1,10 @@
 @extends('front.base')
 
 @section('content')
-{{--    <h1>{{ trans('errors.fourohfour') }}</h1>--}}
-<img src="/images/404.jpg" alt="404 image" style="display: block; height: 55vh; margin: 50px auto;">
+    <div class="four-oh-four">
+        <h1 class="status">{{ trans('errors.fourohfour.status') }}</h1>
+        <p class="fof-subheading">{{ trans('errors.fourohfour.subheading') }}</p>
+        <p class="fof-message">{{ trans('errors.fourohfour.message') }}</p>
+        <img src="/images/logos/logo_purple.svg" alt="Guanxi logo">
+    </div>
 @endsection

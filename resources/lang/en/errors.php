@@ -1,5 +1,9 @@
 <?php
 
 return [
-    'fourohfour' => 'The page you want is not here.'
+    'fourohfour' => [
+        'status' => '404',
+        'subheading' => 'You\'re lost',
+        'message' => 'The page you are looking for is not here.'
+    ]
 ];
