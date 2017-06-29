@@ -58,7 +58,9 @@
             <a href="/articles/{{ $nextArticle->slug }}" class="dd-btn">{{ trans('article.page.nextbutton') }}</a>
         </div>
         <section class="contributor-section">
-            @include('front.partials.contributorcard', ['contributor' => $article->author])
+            @if($article->author->published)
+                @include('front.partials.contributorcard', ['contributor' => $article->author])
+            @endif
         </section>
 
     </article>

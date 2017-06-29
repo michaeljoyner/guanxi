@@ -34,4 +34,18 @@ class ArticleAuthorsTest extends TestCase
         $article = $article->fresh();
         $this->assertEquals($article->author->id, $profile->id);
     }
+
+    /**
+     *@test
+     */
+    public function an_article_with_an_unpublished_author_does_not_link_the_attribute()
+    {
+        $profile = factory(Profile::class)->create(['published' => false]);
+        $article = factory(Article::class)->create(['published' => true, 'published_on' => \Carbon\Carbon::now()]);
+        $article->setAuthor($profile);
+
+        $this->visit('/articles/' . $article->slug)
+            ->see($article->title)
+            ->dontSee('/bios/' . $profile->slug);
+    }
 }
