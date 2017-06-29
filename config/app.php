@@ -170,6 +170,7 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
         /*
          * Application Service Providers...

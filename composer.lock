@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "39e827e46d316dac00c5de7b92cce634",
-    "content-hash": "9eca4b1bb7f57d2317ec009b3862d712",
+    "hash": "e9e7a07ad6d1972e977a1df18f763c23",
+    "content-hash": "93c995a2bfd93207c3d2bbec8fbfb807",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1109,16 +1109,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.16",
+            "version": "v5.3.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9932861dee0fef30138f9839102fb00ddd6ddce1"
+                "reference": "e641e75fc5b26ad0ba8c19b7e83b08cad1d03b89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9932861dee0fef30138f9839102fb00ddd6ddce1",
-                "reference": "9932861dee0fef30138f9839102fb00ddd6ddce1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e641e75fc5b26ad0ba8c19b7e83b08cad1d03b89",
+                "reference": "e641e75fc5b26ad0ba8c19b7e83b08cad1d03b89",
                 "shasum": ""
             },
             "require": {
@@ -1133,9 +1133,9 @@
                 "nesbot/carbon": "~1.20",
                 "paragonie/random_compat": "~1.4|~2.0",
                 "php": ">=5.6.4",
-                "psy/psysh": "0.7.*",
+                "psy/psysh": "0.7.*|0.8.*",
                 "ramsey/uuid": "~3.0",
-                "swiftmailer/swiftmailer": "~5.1",
+                "swiftmailer/swiftmailer": "~5.4",
                 "symfony/console": "3.1.*",
                 "symfony/debug": "3.1.*",
                 "symfony/finder": "3.1.*",
@@ -1200,7 +1200,7 @@
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (3.1.*).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (3.1.*).",
-                "symfony/psr-http-message-bridge": "Required to psr7 bridging features (0.2.*)."
+                "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
             },
             "type": "library",
             "extra": {
@@ -1233,7 +1233,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-04 16:05:47"
+            "time": "2017-03-24 16:31:06"
         },
         {
             "name": "league/flysystem",
@@ -2005,16 +2005,16 @@
         },
         {
             "name": "spatie/db-dumper",
-            "version": "2.3.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "442009028f78e3aedde7af24f253bc2672aa390a"
+                "reference": "cbfb3679d0a91ec56caa63ed8de3052c6792376a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/442009028f78e3aedde7af24f253bc2672aa390a",
-                "reference": "442009028f78e3aedde7af24f253bc2672aa390a",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/cbfb3679d0a91ec56caa63ed8de3052c6792376a",
+                "reference": "cbfb3679d0a91ec56caa63ed8de3052c6792376a",
                 "shasum": ""
             },
             "require": {
@@ -2022,7 +2022,7 @@
                 "symfony/process": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.5"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "autoload": {
@@ -2051,45 +2051,51 @@
                 "mysqldump",
                 "spatie"
             ],
-            "time": "2016-11-22 15:14:26"
+            "time": "2017-05-25 20:43:25"
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "4.3.0",
+            "version": "4.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "122f1e534bb0ed7e4c91e76f404e252a5eaa6e5f"
+                "reference": "cf4d4207ae75d1c4adfc4310af77b63f07be6f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/122f1e534bb0ed7e4c91e76f404e252a5eaa6e5f",
-                "reference": "122f1e534bb0ed7e4c91e76f404e252a5eaa6e5f",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/cf4d4207ae75d1c4adfc4310af77b63f07be6f57",
+                "reference": "cf4d4207ae75d1c4adfc4310af77b63f07be6f57",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "~5.3.8",
-                "illuminate/contracts": "~5.3.8",
-                "illuminate/events": "~5.3.8",
-                "illuminate/filesystem": "~5.3.8",
-                "illuminate/notifications": "~5.3.8",
-                "illuminate/support": "~5.3.8",
+                "illuminate/console": "~5.3.28|~5.4.0",
+                "illuminate/contracts": "~5.3.28|~5.4.0",
+                "illuminate/events": "~5.3.28|~5.4.0",
+                "illuminate/filesystem": "~5.3.28|~5.4.0",
+                "illuminate/notifications": "~5.3.28|~5.4.0",
+                "illuminate/support": "~5.3.28|~5.4.0",
                 "league/flysystem": "^1.0.27",
                 "php": "^7.0",
-                "spatie/db-dumper": "^2.1",
+                "spatie/db-dumper": "^2.6",
+                "spatie/temporary-directory": "^1.1",
                 "symfony/finder": "^3.0"
             },
             "require-dev": {
-                "laravel/framework": "~5.3.8",
                 "mockery/mockery": "^0.9.5",
-                "orchestra/testbench": "^3.3.3",
-                "phpunit/phpunit": "^5.3.0",
-                "tightenco/mailthief": "^0.3.1"
+                "orchestra/testbench": "~3.3.3|~3.4.0",
+                "phpunit/phpunit": "^5.3.0"
             },
             "suggest": {
                 "guzzlehttp/guzzle": "Allows notifications to be sent via Slack"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Backup\\BackupServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Spatie\\Backup\\": "src"
@@ -2118,7 +2124,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2016-11-26 15:11:27"
+            "time": "2017-06-15 17:40:56"
         },
         {
             "name": "spatie/laravel-glide",
@@ -2397,6 +2403,52 @@
                 "string"
             ],
             "time": "2016-10-04 15:31:55"
+        },
+        {
+            "name": "spatie/temporary-directory",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/temporary-directory.git",
+                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/58e80a88c3fd463d502807614e88c1aec62e79dc",
+                "reference": "58e80a88c3fd463d502807614e88c1aec62e79dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TemporaryDirectory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The `temporary-directory` package allows you to easily create, use and destroy temporary directories.",
+            "homepage": "https://github.com/spatie/temporary-directory",
+            "keywords": [
+                "spatie",
+                "temporary-directory"
+            ],
+            "time": "2017-02-02 13:08:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3435,12 +3487,12 @@
             "version": "0.9.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/4db079511a283e5aba1b3c2fb19037c645e70fc2",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/4db079511a283e5aba1b3c2fb19037c645e70fc2",
                 "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2",
                 "shasum": ""
             },
