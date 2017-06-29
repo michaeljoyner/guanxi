@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'articles'   => 'articles',
+    'articles'   => 'particles',
     'gallery'    => 'gallery',
     'bios'       => 'bios',
     'affiliates' => 'associates',
