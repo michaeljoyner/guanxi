@@ -20,7 +20,7 @@
                 <p class="field-label">Chinese Address</p>
                 <p>{{ $affiliate->getTranslation('location', 'zh') }}</p>
                 <p class="field-label">Website</p>
-                <p>{{ $affiliate->website ?? 'Not Given' }}</p>
+                <p>{{ $affiliate->getSocialLink('website') ?? 'Not Given' }}</p>
                 <p class="field-label">Phone number</p>
                 <p>{{ $affiliate->phone ?? 'Not Given' }}</p>
             </div>
