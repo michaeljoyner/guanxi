@@ -6,6 +6,7 @@ return [
         'email',
         'twitter',
         'instagram',
-        'linkdin'
+        'linkdin',
+        'website'
     ]
 ];

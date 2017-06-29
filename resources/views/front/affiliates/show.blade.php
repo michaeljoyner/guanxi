@@ -18,7 +18,9 @@
         <h1 class="heavy-heading purple-text centered-text affiliate-name">{{ $affiliate->name }}</h1>
         <p class="affiliate-address plain-strong-text  centered-text">{{ $affiliate->location }}</p>
         <p class="affiliate-phone plain-strong-text centered-text">{{ $affiliate->phone }}</p>
-        <p class="affiliate-website heavy-text centered-text"><a href="{{ $affiliate->website }}">{{ $affiliate->website }}</a></p>
+        @if($affiliate->getSocialLink('website'))
+            <p class="affiliate-website heavy-text centered-text"><a href="{{ $affiliate->getSocialLink('website') }}">{{ $affiliate->getSocialLink('website') }}</a></p>
+        @endif
         <div class="affiliate-writeup centered-text">
             {!! nl2br($affiliate->writeup) !!}
         </div>

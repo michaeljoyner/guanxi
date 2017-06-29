@@ -24,13 +24,6 @@
                 @endif
                 <input type="text" name="zh_location" value="{{ old('zh_location') ?? $affiliate->getTranslation('location', 'zh') }}" class="form-control">
             </div>
-            <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
-                <label for="website">Website: </label>
-                @if($errors->has('website'))
-                <span class="error-message">{{ $errors->first('website') }}</span>
-                @endif
-                <input type="text" name="website" value="{{ old('website') ?? $affiliate->website }}" class="form-control">
-            </div>
             <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                 <label for="phone">Phone number: </label>
                 @if($errors->has('phone'))

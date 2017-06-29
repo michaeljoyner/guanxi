@@ -9,5 +9,7 @@
         </div>
     </a>
     <p class="affiliate-address light-heading">{{ $affiliate->location }}</p>
-    <p class="affiliate-website"><a href="{{ $affiliate->website }}">{{ $affiliate->website }}</a></p>
+    @if($affiliate->getSocialLink('website'))
+    <p class="affiliate-website"><a href="{{ $affiliate->getSocialLink('website') }}">{{ $affiliate->getSocialLink('website') }}</a></p>
+    @endif
 </div>
