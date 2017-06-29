@@ -11,6 +11,11 @@
     margin: 1em auto;
   }
 
+  figcaption {
+    font-family: $heavy_text;
+    text-align: center;
+  }
+
   a {
     color: $brand_purple;
   }
