@@ -11,7 +11,7 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    color: $brand_purple;
+    color: $white;
 
     @include respond-to(phone) { font-size: 2em; }
   }
