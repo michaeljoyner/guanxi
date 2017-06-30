@@ -24,7 +24,7 @@
         order: 2;
         width: 100%;
         flex-basis: 100%;
-        margin: 0 0 20px 0;
+        margin: 0 0 0 0;
         text-align: center;
       }
 
@@ -58,18 +58,33 @@
 
   &:nth-child(1) {
     margin-top: 0;
+
+    @include respond-to(phone) {
+      margin-top: 2em;
+    }
   }
   &:nth-child(2) {
     margin-top: 0;
+    @include respond-to(phone) {
+      margin-top: 2em;
+    }
   }
   &:nth-child(3) {
     margin-top: 0;
+    @include respond-to(phone) {
+      margin-top: 2em;
+    }
   }
 
   .card-image-holder {
     width: 65%;
     padding-bottom: 65%;
     margin: 0 auto 20px;
+
+    @include respond-to(phone) {
+      width: 80%;
+      padding-bottom: 80%;
+    }
 
     img {
       position: absolute;
