@@ -21,7 +21,7 @@ return [
     ],
     'contributors' => [
         'heading' => 'Contributors',
-        'button' => 'View All Bios',
+        'button' => 'View All Contributors',
         'hover_text' => 'View'
     ],
     'affiliates' => [

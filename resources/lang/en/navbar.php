@@ -3,7 +3,7 @@
 return [
     'articles'   => 'articles',
     'gallery'    => 'gallery',
-    'bios'       => 'bios',
+    'bios'       => 'contributors',
     'affiliates' => 'associates',
     'about'      => 'about',
     'contact'    => 'contact',

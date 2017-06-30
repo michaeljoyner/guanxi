@@ -2,11 +2,11 @@
 
 return [
     'page' => [
-        'title' => 'Bios',
+        'title' => 'Contributors',
         'intro' => 'An introduction to our talented writers, photographers, and artists.',
         'connect' => 'Connect with',
-        'backbutton' => 'Back to Bios',
-        'nextbutton' => 'See Next Bio'
+        'backbutton' => 'Back to Contributors',
+        'nextbutton' => 'See Next Contributor'
     ],
     'contributions' => [
         'title' => ' recent contributions',
