@@ -54,6 +54,29 @@ class AffiliatesRepositoryTest extends TestCase
     /**
      *@test
      */
+    public function it_wont_return_an_unpublished_affiliate_as_next_in_line()
+    {
+        $affiliateA = factory(Affiliate::class)->create([
+            'published'  => true,
+            'created_at' => \Carbon\Carbon::now()->subDays(5)
+        ]);
+        $affiliateB = factory(Affiliate::class)->create([
+            'published'  => false,
+            'created_at' => \Carbon\Carbon::now()->subDays(10)
+        ]);
+        $affiliateC = factory(Affiliate::class)->create([
+            'published'  => true,
+            'created_at' => \Carbon\Carbon::now()->subDays(15)
+        ]);
+
+        $result = $this->repo->getNextInLineAfter($affiliateA);
+
+        $this->assertEquals($affiliateC->id, $result->id);
+    }
+
+    /**
+     *@test
+     */
     public function the_next_in_line_affiliate_of_the_oldest_is_the_newest_affiliate()
     {
         $affiliateA = factory(Affiliate::class)->create([

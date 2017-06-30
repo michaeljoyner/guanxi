@@ -18,10 +18,10 @@ class AffiliatesRepository
 
     public function getNextInLineAfter($affiliate)
     {
-        $next = Affiliate::where('created_at', '<', $affiliate->created_at)->latest()->first();
+        $next = Affiliate::published()->where('created_at', '<', $affiliate->created_at)->latest()->first();
 
         if(! $next) {
-            return Affiliate::latest()->first();
+            return Affiliate::published()->latest()->first();
         }
 
         return $next;

@@ -54,8 +54,8 @@
         </section>
         @endif
         <div class="dd-block-btn-group">
-            <a href="/articles" class="dd-btn">{{ trans('article.page.backbutton') }}</a>
-            <a href="/articles/{{ $nextArticle->slug }}" class="dd-btn">{{ trans('article.page.nextbutton') }}</a>
+            <a href="{{ localUrl('/articles') }}" class="dd-btn">{{ trans('article.page.backbutton') }}</a>
+            <a href="{{ localUrl('/articles/' . $nextArticle->slug) }}" class="dd-btn">{{ trans('article.page.nextbutton') }}</a>
         </div>
         <section class="contributor-section">
             @if($article->author->published)

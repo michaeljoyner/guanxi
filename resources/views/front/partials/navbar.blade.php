@@ -1,6 +1,6 @@
 <nav class="main-navbar">
     <div class="branding">
-        <a href="/">@include('svg.logo_purple')</a>
+        <a href="{{ localUrl('/') }}">@include('svg.logo_purple')</a>
     </div>
     <label for="nav-trigger" class="nav-trigger-icon">@include('svgicons.menu')</label>
     <input type="checkbox" id="nav-trigger">

@@ -109,6 +109,29 @@ class ArticlesRepositoryTest extends TestCase
     /**
      *@test
      */
+    public function the_repository_will_not_return_an_unpublished_article_as_next_in_line()
+    {
+        $article = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2017-01-1'
+        ]);
+        $article2 = factory(Article::class)->create([
+            'published'    => false,
+            'published_on' => '2016-12-1'
+        ]);
+        $article3 = factory(Article::class)->create([
+            'published'    => true,
+            'published_on' => '2016-12-15'
+        ]);
+
+        $next = $this->repo->nextInLineAfter($article3);
+
+        $this->assertEquals($article->id, $next->id);
+    }
+
+    /**
+     *@test
+     */
     public function it_fetches_articles_with_a_given_tag()
     {
         $article1 = factory(Article::class)->create();

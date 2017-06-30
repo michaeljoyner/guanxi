@@ -10,6 +10,8 @@
   background: transparent;
   font-size: 1em;
   text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-block;
 
   &:hover, &.alt-state {
     color: $brand_purple;

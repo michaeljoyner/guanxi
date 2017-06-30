@@ -47,6 +47,20 @@ class BiosRepositoryTest extends TestCase
     /**
      *@test
      */
+    public function the_next_in_line_bio_should_not_be_unpublished()
+    {
+        $bioA = $this->createDatedProfile(Carbon::now()->subDays(5));
+        $bioB = $this->createDatedProfile(Carbon::now()->subDays(10), ['published' => false]);
+        $bioC = $this->createDatedProfile(Carbon::now()->subDays(15));
+
+        $result = $this->repo->nextInLineAfter($bioA);
+
+        $this->assertEquals($bioC->id, $result->id);
+    }
+
+    /**
+     *@test
+     */
     public function the_next_in_line_for_the_oldest_article_is_the_newest()
     {
         $bioA = $this->createDatedProfile(Carbon::now()->subDays(5));
@@ -58,11 +72,11 @@ class BiosRepositoryTest extends TestCase
         $this->assertEquals($bioA->id, $result->id);
     }
 
-    protected function createDatedProfile($date)
+    protected function createDatedProfile($date, $attributes = [])
     {
-        return factory(Profile::class)->create([
+        return factory(Profile::class)->create(array_merge([
             'published' => true,
             'created_at' => $date
-        ]);
+        ], $attributes));
     }
 }
