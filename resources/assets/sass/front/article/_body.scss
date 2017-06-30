@@ -5,6 +5,10 @@
   font-size: 1.2em;
   line-height: 1.8;
 
+  @include respond-to(phone) {
+    font-size: 1em;
+  }
+
   img {
     max-width: 100%;
     display: block;
@@ -14,6 +18,7 @@
   figcaption {
     font-family: $heavy_text;
     text-align: center;
+    font-size: 80%;
   }
 
   a {

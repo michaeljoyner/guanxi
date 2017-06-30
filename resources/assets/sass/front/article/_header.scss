@@ -6,9 +6,12 @@
 
   .article-header-title {
     font-size: 3em;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 95%;
+    margin: 15px auto;
+    width: 90%;
+
+    @include respond-to(phone) {
+      font-size: 2em;
+    }
   }
 
   .article-header-date-and-contributor {
