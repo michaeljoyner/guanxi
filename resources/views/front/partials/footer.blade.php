@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <div class="footer-column branding-column">
         @include('svg.logo_noborder')
-        <p class="footer-definition">Guan Xi Media provides compelling content and a platform for artists, writers, journalists, storytellers, photographers, explorers, entrepreneurs, activists, and philanthropists, from all around the globe.  We welcome all genres and voices, and encourage anyone who has tenacity and a desire to affect positive change in the world, to make moves and contribute.  Get some!</p>
+        <p class="footer-definition">{{ trans('footer.mission') }}</p>
     </div>
     <div class="footer-column contact-column">
         <div class="footer-column-block">
