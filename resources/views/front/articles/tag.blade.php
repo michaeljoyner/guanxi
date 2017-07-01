@@ -13,9 +13,9 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header tag-articles-banner">
-        <h1 class="page-header-title heavy-heading">#{{ $tag->name }}</h1>
-    </header>
+    {{--<header class="top-page-header tag-articles-banner">--}}
+        {{--<h1 class="page-header-title heavy-heading">#{{ $tag->name }}</h1>--}}
+    {{--</header>--}}
     <section class="articles-listing">
         <p class="page-intro">These are the articles tagged as "{{ $tag->name }}"</p>
         <div class="bio-cards card-grid" id="articles">
