@@ -171,6 +171,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class,
 
         /*
          * Application Service Providers...
