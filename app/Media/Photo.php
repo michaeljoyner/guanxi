@@ -30,7 +30,7 @@ class Photo extends Model implements HasMediaConversions
             ->setManipulations(['w' => 250, 'h' => 200, 'fit' => 'crop', 'fm' => 'src', 'q' => 80])
             ->performOnCollections('default');
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 1200, 'h' => 800, 'fit' => 'max', 'fm' => 'src'])
+            ->setManipulations(['w' => 1200, 'h' => 800, 'fit' => 'max', 'fm' => 'src', 'q' => 80])
             ->performOnCollections('default');
     }
 
