@@ -28,6 +28,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('weather:cache')->cron('0 */4 * * *');
+        $schedule->command('backup:clean')->daily()->at('01:00');
+        $schedule->command('backup:run')->daily()->at('02:00');
+        $schedule->command('sitemap:generate')->daily()->at('03:00');
     }
 
     /**
