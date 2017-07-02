@@ -14,6 +14,7 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Oswald:300,700" rel="stylesheet">
+    <meta name="google-site-verification" content="RJF0Jhe0QhWiDFeHN9rhO1UpEMG0RUXGATG7nfS8xFM" />
 </head>
 <body class="@yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>
