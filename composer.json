@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.2",
         "mcamara/laravel-localization": "^1.1",
         "doctrine/dbal": "^2.5",
-        "league/flysystem-aws-s3-v3": "~1.0"
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "spatie/laravel-sitemap": "2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
