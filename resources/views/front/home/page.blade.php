@@ -34,15 +34,15 @@
         </div>
         <a href="{{ localUrl('/articles') }}" class="section-cta dd-btn block">{{ trans('homepage.articles.button') }}</a>
     </section>
-    <section class="page-section photos-and-art-section">
-        <h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.photos.heading') }}</h1>
-        <div class="media-image-cards card-grid">
-            @foreach($medias as $media)
-                @include('front.home.mediaimagecard')
-            @endforeach
-        </div>
-        <a href="{{ localUrl('/galleries') }}" class="section-cta dd-btn block">{{ trans('homepage.photos.button') }}</a>
-    </section>
+    {{--<section class="page-section photos-and-art-section">--}}
+        {{--<h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.photos.heading') }}</h1>--}}
+        {{--<div class="media-image-cards card-grid">--}}
+            {{--@foreach($medias as $media)--}}
+                {{--@include('front.home.mediaimagecard')--}}
+            {{--@endforeach--}}
+        {{--</div>--}}
+        {{--<a href="{{ localUrl('/galleries') }}" class="section-cta dd-btn block">{{ trans('homepage.photos.button') }}</a>--}}
+    {{--</section>--}}
     <section class="page-section videos-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.videos.heading') }}</h1>
         <div class="video-cards card-grid">
