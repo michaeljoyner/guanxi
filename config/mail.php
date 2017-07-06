@@ -60,7 +60,7 @@ return [
         'name' => 'Example',
     ],
 
-    'receiver_address' => ['Guanxi Magazine' => 'gaunxi@guanxi.com'],
+    'receiver_address' => ['Michael @  Guanxi' => 'mike.gaunxi@gmail.com'],
 
     /*
     |--------------------------------------------------------------------------
