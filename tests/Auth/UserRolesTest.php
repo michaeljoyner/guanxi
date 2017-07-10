@@ -16,28 +16,15 @@ class UserRolesTest extends TestCase
     {
         $user = factory(User::class)->create();
         $user2 = factory(User::class)->create();
-        $user3 = factory(User::class)->create();
-        $user4 = factory(User::class)->create();
 
         $user->assignRole(Role::superadmin());
         $user2->assignRole(Role::editor());
-        $user3->assignRole(Role::writer());
 
         $this->assertTrue($user->isSuperAdmin());
         $this->assertFalse($user->isEditor());
-        $this->assertFalse($user->isWriter());
 
         $this->assertFalse($user2->isSuperAdmin());
         $this->assertTrue($user2->isEditor());
-        $this->assertFalse($user2->isWriter());
-
-        $this->assertFalse($user3->isSuperAdmin());
-        $this->assertFalse($user3->isEditor());
-        $this->assertTrue($user3->isWriter());
-
-        $this->assertFalse($user4->isSuperAdmin());
-        $this->assertFalse($user4->isEditor());
-        $this->assertFalse($user4->isWriter());
     }
 
     /**

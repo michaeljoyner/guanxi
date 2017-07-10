@@ -34,6 +34,15 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $user;
     }
 
+    public function asLoggedInContributor()
+    {
+        $user = factory(User::class)->create(['email' => 'mo@example.com', 'password' => 'password']);
+        $user->assignRole(\App\Role::editor());
+        $this->actingAs($user);
+
+        return $user;
+    }
+
     public function assertSoftDeleted(\Illuminate\Database\Eloquent\Model $model)
     {
         $model = $model->withTrashed()->find($model->id);

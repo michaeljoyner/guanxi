@@ -1,6 +1,7 @@
 <?php
 
 
+use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ProfilesControllerTest extends TestCase
@@ -69,15 +70,28 @@ class ProfilesControllerTest extends TestCase
         ])->assertResponseStatus(302)
             ->seeInDatabase('social_links', [
                 'sociable_id' => $user->profile->id,
-                'sociable_type' => \App\People\Profile::class,
+                'sociable_type' => Profile::class,
                 'platform'   => 'facebook',
                 'link'       => 'https://facebook.com'
             ])->seeInDatabase('social_links', [
                 'sociable_id' => $user->profile->id,
-                'sociable_type' => \App\People\Profile::class,
+                'sociable_type' => Profile::class,
                 'platform'   => 'twitter',
                 'link'       => 'https://twitter.com'
             ]);
+    }
+
+    /**
+     *@test
+     */
+    public function a_non_superadmin_user_can_only_see_their_profile()
+    {
+        $contributor = $this->asLoggedInContributor();
+        $other_profile = factory(Profile::class)->create();
+
+        $this->visit('/admin/profiles')
+            ->dontSee($other_profile->name)
+            ->see($contributor->profile->name);
     }
 
 

@@ -25,7 +25,11 @@ class ProfilesController extends Controller
 
     public function index()
     {
-        $profiles = Profile::all();
+        if(request()->user()->isSuperAdmin()) {
+            $profiles = Profile::all();
+        } else {
+            $profiles = collect([request()->user()->profile]);
+        }
         return view('admin.profiles.index')->with(compact('profiles'));
     }
 
