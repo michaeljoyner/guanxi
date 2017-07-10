@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Guanxi People</h1>
+        <h1 class="pull-left">Guanxi Contributors</h1>
         <div class="header-actions pull-right">
             <button type="button" class="btn dd-btn btn-dark" data-toggle="modal" data-target="#create-profile-modal">
-                Add Profile
+                Add Contributor
             </button>
         </div>
     </section>
