@@ -48,11 +48,16 @@
                 {{--<li><a href="/admin/social">Social</a></li>--}}
                 <li><a href="/admin/profiles">{{ Auth::user()->isSuperAdmin() ? 'Contributors' : 'My Profile' }}</a></li>
                 <li><a href="/admin/affiliates">Affiliates</a></li>
+                @if(Auth::user()->isSuperAdmin())
                 <li><a href="/admin/pages/about">About Page</a></li>
+                @endif
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::user()->isSuperAdmin())
                 <li><a href="/admin/users">Users</a></li>
+                @endif
                 <li class="dropdown">
                     <a href="#"
                        class="dropdown-toggle"
@@ -62,8 +67,8 @@
                        aria-expanded="false"
                     >{{ Auth::user()->email }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/profiles/{{ \Illuminate\Support\Facades\Auth::user()->profile->id }}">My Profile</a></li>
-                        <li><a href="/admin/users/{{ \Illuminate\Support\Facades\Auth::user()->id }}/password/edit">Reset Password</a></li>
+                        <li><a href="/admin/profiles/{{ Auth::user()->profile->id }}">My Profile</a></li>
+                        <li><a href="/admin/users/{{ Auth::user()->id }}/password/edit">Reset Password</a></li>
                         <li><a href="/admin/logout">Logout</a></li>
                     </ul>
                 </li>

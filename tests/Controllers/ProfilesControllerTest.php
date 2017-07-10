@@ -2,6 +2,7 @@
 
 
 use App\People\Profile;
+use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ProfilesControllerTest extends TestCase
@@ -92,6 +93,29 @@ class ProfilesControllerTest extends TestCase
         $this->visit('/admin/profiles')
             ->dontSee($other_profile->name)
             ->see($contributor->profile->name);
+    }
+
+    /**
+     *@test
+     */
+    public function a_non_superadmin_cannot_edit_another_users_profile()
+    {
+        $contributor = $this->asLoggedInContributor();
+        $other_user = factory(User::class)->create();
+
+        $this->post('/admin/profiles/' . $other_user->profile->id, [
+            'name'     => 'New Name',
+            'title'    => 'Contributor',
+            'zh_title' => 'Xie Ren',
+            'intro'    => 'The one, the only',
+            'zh_intro' => 'De yige ren',
+            'bio'      => 'Born in the USA',
+            'zh_bio'   => 'I have no idea'
+        ])->assertResponseStatus(403)
+            ->seeInDatabase('profiles', [
+                'id'    => $other_user->profile->id,
+                'name'  => $other_user->profile->name
+            ]);
     }
 
 

@@ -40,4 +40,17 @@ class UsersControllerTest extends TestCase
         $this->assertEquals('new@email.con', $user->email);
         $this->assertTrue($user->isEditor());
     }
+
+    /**
+     *@test
+     */
+    public function a_user_can_only_be_deleted_by_a_superadmin()
+    {
+        $non_super_admin = $this->asLoggedInContributor();
+        $user = factory(User::class)->create();
+
+        $this->delete('/admin/users/' . $user->id)
+            ->assertResponseStatus(403)
+            ->seeInDatabase('users', ['id' => $user->id]);
+    }
 }

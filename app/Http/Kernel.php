@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\ReformatsUrls;
+use App\Http\Middleware\SuperAdmin;
 use App\Http\Middleware\XFrameOption;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -54,6 +55,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'url.reformatter' => ReformatsUrls::class
+        'url.reformatter' => ReformatsUrls::class,
+        'superadmin' => SuperAdmin::class
     ];
 }

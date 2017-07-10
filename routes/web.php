@@ -72,11 +72,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::get('users/{user}/password/edit', 'AdminPasswordController@edit');
     Route::post('users/{user}/password', 'AdminPasswordController@update');
 
-    Route::get('users', 'UsersController@index');
-    Route::get('users/{user}', 'UsersController@show');
-    Route::get('users/{user}/edit', 'UsersController@edit');
-    Route::post('users/{user}', 'UsersController@update');
-    Route::delete('users/{user}', 'UsersController@delete');
+    Route::get('users', 'UsersController@index')->middleware('superadmin');
+    Route::get('users/{user}', 'UsersController@show')->middleware('superadmin');
+    Route::get('users/{user}/edit', 'UsersController@edit')->middleware('superadmin');
+    Route::post('users/{user}', 'UsersController@update')->middleware('superadmin');
+    Route::delete('users/{user}', 'UsersController@delete')->middleware('superadmin');
 
     Route::get('profiles', 'ProfilesController@index');
     Route::post('profiles', 'ProfilesController@store')->middleware('url.reformatter');
