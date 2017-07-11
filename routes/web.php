@@ -59,7 +59,7 @@ Route::get('/admin/login', 'Auth\LoginController@showLoginForm');
 Route::post('/admin/login', 'Auth\LoginController@login');
 Route::get('/admin/logout', 'Auth\LoginController@logout');
 
-Route::post('/admin/users', 'Auth\RegisterController@register');
+Route::post('/admin/users', 'Auth\RegisterController@register')->middleware('superadmin');
 
 Route::get('admin/password/show/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
