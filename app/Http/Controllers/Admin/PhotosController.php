@@ -25,7 +25,11 @@ class PhotosController extends Controller
 
     public function index()
     {
-        $photos = Photo::latest()->get();
+        if(request()->user()->isSuperAdmin()) {
+            $photos = Photo::latest()->get();
+        } else {
+            $photos = Photo::where('profile_id', request()->user()->profile->id)->latest()->get();
+        }
 
         return view('admin.photos.index')->with(compact('photos'));
     }

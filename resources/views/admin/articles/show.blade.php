@@ -49,7 +49,9 @@
             ></category-chooser>
         </div>
         <div class="row">
+            @if(Auth::user()->isSuperAdmin())
             <featured-toggle :article-id="{{ $article->id }}" :initially-featured="{{ $article->is_featured ? 'true' : 'false' }}"></featured-toggle>
+            @endif
         </div>
         <div class="row">
             <tagger article-id="{{ $article->id }}"></tagger>

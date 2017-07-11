@@ -26,7 +26,12 @@ class VideosController extends Controller
 
     public function index()
     {
-        $videos = Video::latest()->get();
+        if(request()->user()->isSuperAdmin()) {
+            $videos = Video::latest()->get();
+        } else {
+            $videos = Video::where('profile_id', request()->user()->profile->id)->latest()->get();
+        }
+
         return view('admin.videos.index')->with(compact('videos'));
     }
 

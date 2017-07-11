@@ -27,8 +27,10 @@
                     >Content <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/admin/content/articles">Articles</a></li>
+                        @if(Auth::user()->isSuperAdmin())
                         <li><a href="/admin/content/categories">Categories</a></li>
                         <li><a href="/admin/content/tags">Tags</a></li>
+                        @endif
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -47,9 +49,9 @@
                 </li>
                 {{--<li><a href="/admin/social">Social</a></li>--}}
                 <li><a href="/admin/profiles">{{ Auth::user()->isSuperAdmin() ? 'Contributors' : 'My Profile' }}</a></li>
-                <li><a href="/admin/affiliates">Affiliates</a></li>
                 @if(Auth::user()->isSuperAdmin())
-                <li><a href="/admin/pages/about">About Page</a></li>
+                    <li><a href="/admin/affiliates">Affiliates</a></li>
+                    <li><a href="/admin/pages/about">About Page</a></li>
                 @endif
 
             </ul>

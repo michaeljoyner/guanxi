@@ -25,7 +25,12 @@ class ArtworksController extends Controller
 
     public function index()
     {
-        $artworks = Artwork::latest()->get();
+        if(request()->user()->isSuperAdmin()) {
+            $artworks = Artwork::latest()->get();
+        } else {
+            $artworks = Artwork::where('profile_id', request()->user()->profile->id)->latest()->get();
+        }
+
 
         return view('admin.artworks.index')->with(compact('artworks'));
     }

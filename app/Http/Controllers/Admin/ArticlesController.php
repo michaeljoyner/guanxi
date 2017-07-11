@@ -25,7 +25,11 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $articles = Article::latest()->paginate(15);
+        if(request()->user()->isSuperAdmin()) {
+            $articles = Article::latest()->paginate(15);
+        } else {
+            $articles = request()->user()->profile->articles()->latest()->paginate(15);
+        }
 
         return view('admin.articles.index')->with(compact('articles'));
     }
