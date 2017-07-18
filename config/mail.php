@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => 'noreply@guanxi.com.tw',
+        'name' => 'Guanxi Media',
     ],
 
     'receiver_address' => ['Michael @  Guanxi' => 'mike.gaunxi@gmail.com'],
