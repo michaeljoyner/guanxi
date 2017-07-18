@@ -14,7 +14,7 @@ class UserProfilesTest extends TestCase
      */
     public function a_profile_is_created_for_a_new_user()
     {
-        $user = User::create(['name' => 'Neo', 'email' => 'neo@rabbithole.com', 'password' => 'password']);
+        $user = User::registerNew(['name' => 'Neo', 'email' => 'neo@rabbithole.com', 'password' => 'password']);
 
         $this->assertInstanceOf(Profile::class, $user->profile);
     }
@@ -25,6 +25,7 @@ class UserProfilesTest extends TestCase
     public function deleting_a_user_deletes_its_profile()
     {
         $user = User::create(['name' => 'Neo', 'email' => 'neo@rabbithole.com', 'password' => 'password']);
+        $user->createProfile();
         $profile_id = $user->profile->id;
 
         $user->delete();

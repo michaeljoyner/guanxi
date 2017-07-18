@@ -2,6 +2,7 @@
 
 
 use App\People\Profile;
+use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ProfilesTest extends TestCase
@@ -192,5 +193,30 @@ class ProfilesTest extends TestCase
         $this->assertEquals('Wo shi ling dan', $profile->getTranslation('intro', 'zh'));
         $this->assertEquals('', $profile->getTranslation('bio', 'en'));
         $this->assertEquals('', $profile->getTranslation('bio', 'zh'));
+    }
+
+    /**
+     *@test
+     */
+    public function a_profile_can_be_assigned_to_a_user()
+    {
+        $profile = factory(Profile::class)->create(['user_id' => null]);
+        $user = factory(User::class)->create();
+
+        $profile->assignTo($user);
+
+        $this->assertEquals($profile->fresh()->user_id, $user->id);
+    }
+
+    /**
+     *@test
+     */
+    public function a_profile_knows_if_it_has_a_user()
+    {
+        $non_user = factory(Profile::class)->create(['user_id' => null]);
+        $user_profile = factory(User::class)->create()->createProfile();
+
+        $this->assertTrue($user_profile->hasUser());
+        $this->assertFalse($non_user->hasUser());
     }
 }

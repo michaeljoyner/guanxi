@@ -25,7 +25,7 @@ class ArticleAuthorsTest extends TestCase
      */
     public function an_article_can_have_its_author_set_to_a_different_profile()
     {
-        $profile = factory(User::class)->create()->profile;
+        $profile = factory(User::class)->create()->createProfile();
         $article = factory(Article::class)->create();
         $this->assertNotEquals($article->author->id, $profile->id);
 

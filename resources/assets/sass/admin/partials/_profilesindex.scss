@@ -4,6 +4,19 @@
   padding: 20px;
   background: $eggshell;
   display: inline-block;
+  position: relative;
+
+  .profile-user-indicator {
+    color: $white;
+    background: $brand_soft_purple;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 70%;
+    text-transform: uppercase;
+  }
 
   img {
     max-width: 190px;

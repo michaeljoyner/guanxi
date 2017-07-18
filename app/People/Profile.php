@@ -61,6 +61,17 @@ class Profile extends Model implements HasMediaConversions
         return $this->belongsTo(User::class);
     }
 
+    public function assignTo(User $user)
+    {
+        $this->user_id = $user->id;
+        $this->save();
+    }
+
+    public function hasUser()
+    {
+        return ! is_null($this->user_id);
+    }
+
     public function articles()
     {
         return $this->hasMany(Article::class);

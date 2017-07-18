@@ -29,6 +29,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $user = factory(User::class)->create(['email' => 'joe@example.com', 'password' => 'password']);
         $user->assignRole(\App\Role::superadmin());
+        $user->createProfile();
         $this->actingAs($user);
 
         return $user;
@@ -38,6 +39,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $user = factory(User::class)->create(['email' => 'mo@example.com', 'password' => 'password']);
         $user->assignRole(\App\Role::editor());
+        $user->createProfile();
         $this->actingAs($user);
 
         return $user;

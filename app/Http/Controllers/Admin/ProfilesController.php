@@ -63,4 +63,18 @@ class ProfilesController extends Controller
 
         return redirect('/admin/profiles/' . $profile->id);
     }
+
+    public function delete(Profile $profile)
+    {
+        if(! $profile->hasUser()) {
+            $profile->delete();
+            $this->flasher->success('Profile deleted', 'That profile shall worry you no more.');
+
+            return redirect('/admin/profiles');
+        }
+
+        $this->flasher->error('No can do!', 'That profile belongs to an actual user. You can delete the whole user');
+
+        return redirect()->back();
+    }
 }

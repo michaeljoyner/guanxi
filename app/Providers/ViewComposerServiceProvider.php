@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Content\ArticlesRepository;
 use App\Content\Category;
+use App\Role;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +29,12 @@ class ViewComposerServiceProvider extends ServiceProvider
             $trendingArticles = (new ArticlesRepository())->latestPublished();
 
             return $view->with(compact('trendingArticles'));
+        });
+
+        View::composer('admin.forms.modals.usermodal', function($view) {
+            $roles = collect([Role::superadmin(), Role::editor()]);
+
+            return $view->with(compact('roles'));
         });
     }
 

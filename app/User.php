@@ -33,13 +33,28 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        static::created(function($user) {
-           $user->createProfile();
-        });
-
         static::deleted(function($user) {
             $user->profile->delete();
         });
+    }
+
+    public static function registerNew($user_attributes, $profile = null)
+    {
+        if($profile && $profile->user_id !== null) {
+            throw new \Exception('Profile already has a user');
+        }
+
+        $user = static::create($user_attributes);
+        $role_id = $user_attributes['role_id'] ?? Role::writer()->id;
+        $user->assignRole($role_id);
+
+        if($profile !== null) {
+            $profile->assignTo($user);
+        } else {
+            $user->createProfile();
+        }
+
+        return $user;
     }
 
     public function profile()
@@ -47,7 +62,7 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    protected function createProfile()
+    public function createProfile()
     {
         return $this->profile()->create([
             'name' => $this->name,

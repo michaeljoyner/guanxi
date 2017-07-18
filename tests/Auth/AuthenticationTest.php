@@ -15,6 +15,7 @@ class AuthenticationTest extends TestCase
     public function a_user_can_log_in()
     {
         $user = factory(User::class)->create(['email' => 'joe@example.com', 'password' => 'password']);
+        $user->createProfile();
 
         $this->visit('/admin/login')
             ->type('joe@example.com', 'email')

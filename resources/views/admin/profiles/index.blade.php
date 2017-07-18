@@ -12,6 +12,9 @@
     <section class="profiles-index">
     @foreach($profiles as $profile)
         <div class="profile-index-card">
+            @if($profile->hasUser())
+            <span class="profile-user-indicator">User</span>
+            @endif
             <a href="/admin/profiles/{{ $profile->id }}">
                 <p class="h5 text-uppercase text-center">{{ $profile->name }}</p>
                 <img src="{{ $profile->avatar('thumb') }}" alt="" class="img-circle">

@@ -4,6 +4,17 @@
     <section class="dd-page-header clearfix">
         <h1 class="pull-left">{{ $profile->name }}</h1>
         <div class="header-actions pull-right">
+            @if(! $profile->hasUser())
+            <button type="button" class="btn dd-btn btn-dark" data-toggle="modal" data-target="#create-user-modal">
+                Make into User
+            </button>
+                @include('admin.partials.deletebutton', [
+                'deleteFormAction' => '/admin/profiles/' . $profile->id,
+                'objectName' => $profile->name
+            ])
+            @else
+                <a href="/admin/users/{{ $profile->user_id }}" class="btn dd-btn btn-dark">User Page</a>
+            @endif
             <a href="/admin/profiles/{{ $profile->id }}/edit" class="btn dd-btn btn-light">Edit</a>
         </div>
     </section>
@@ -39,8 +50,13 @@
             </div>
         </div>
     </section>
-
+    @include('admin.forms.modals.usermodal', [
+            'profile_name' => $profile->name,
+            'form_action' => '/admin/profiles/' . $profile->id . '/user'
+    ])
+    @include('admin.partials.deletemodal')
 @endsection
 
 @section('bodyscripts')
+    @include('admin.partials.modalscript')
 @endsection

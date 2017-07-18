@@ -83,10 +83,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::get('profiles/{profile}', 'ProfilesController@show')->middleware('can:act,profile');
     Route::get('profiles/{profile}/edit', 'ProfilesController@edit')->middleware('can:act,profile');
     Route::post('profiles/{profile}', 'ProfilesController@update')->middleware(['can:act,profile','url.reformatter']);
+    Route::delete('profiles/{profile}', 'ProfilesController@delete')->middleware('superadmin');
 
     Route::post('profiles/{profile}/avatar', 'ProfileAvatarsController@store')->middleware('can:act,profile');
 
     Route::post('profiles/{profile}/publish', 'ProfilePublishingController@update')->middleware('can:act,profile');
+
+    Route::post('profiles/{profile}/user', 'ProfileUserController@store')->middleware('superadmin');
 
     //must be at top of articles
     Route::get('content/articles/featured', 'FeaturedArticleController@show');

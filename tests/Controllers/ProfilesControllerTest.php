@@ -102,6 +102,7 @@ class ProfilesControllerTest extends TestCase
     {
         $contributor = $this->asLoggedInContributor();
         $other_user = factory(User::class)->create();
+        $other_user->createProfile();
 
         $this->post('/admin/profiles/' . $other_user->profile->id, [
             'name'     => 'New Name',

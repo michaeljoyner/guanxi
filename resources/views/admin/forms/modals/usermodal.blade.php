@@ -6,7 +6,7 @@
                             aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Register a new User</h4>
             </div>
-            <form action="/admin/users" method="POST" class="modal-form dd-form form-horizontal">
+            <form action="{{ $form_action ?? "/admin/users" }}" method="POST" class="modal-form dd-form form-horizontal">
                 <div class="modal-body">
 
                     {!! csrf_field() !!}
@@ -15,7 +15,7 @@
                         @if($errors->has('name'))
                             <span class="error-message">{{ $errors->first('name') }}</span>
                         @endif
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control">
+                        <input type="text" name="name" value="{{ old('name') ?? $profile_name ?? '' }}" class="form-control">
                     </div>
                     <div class="form-group{{ $errors->has('zh_name') ? ' has-error' : '' }}">
                         <label for="zh_name"> Chinese Name: </label>

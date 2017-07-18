@@ -15,6 +15,7 @@ class UsersControllerTest extends TestCase
     {
         $this->asLoggedInUser();
         $user = factory(User::class)->create();
+        $user->createProfile();
 
         $this->delete('/admin/users/' . $user->id)
             ->assertRedirectedTo('/admin/users')
@@ -48,6 +49,7 @@ class UsersControllerTest extends TestCase
     {
         $non_super_admin = $this->asLoggedInContributor();
         $user = factory(User::class)->create();
+        $user->createProfile();
 
         $this->delete('/admin/users/' . $user->id)
             ->assertResponseStatus(403)
