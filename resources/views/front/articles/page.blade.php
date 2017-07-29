@@ -62,6 +62,8 @@
                 @include('front.partials.contributorcard', ['contributor' => $article->author])
             @endif
         </section>
-
+        <section class="article-comments">
+            @include('front.articles.disqussnippet')
+        </section>
     </article>
 @endsection
