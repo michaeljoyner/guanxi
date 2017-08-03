@@ -36,11 +36,8 @@
     </section>
     <section class="page-section photos-and-art-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.photos.heading') }}</h1>
-        <div class="media-image-cards card-grid">
-            @foreach($medias as $media)
-                @include('front.home.mediaimagecard')
-            @endforeach
-        </div>
+        <p class="body-text centered-text section-paragraph">{{ trans('homepage.photos.intro') }}</p>
+        <img src="/images/gallery_collage.jpg" alt="collage of Guanxi media images">
         <a href="{{ localUrl('/galleries') }}" class="section-cta dd-btn block">{{ trans('homepage.photos.button') }}</a>
     </section>
     <section class="page-section videos-section">

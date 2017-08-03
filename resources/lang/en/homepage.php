@@ -1,32 +1,33 @@
 <?php
 
 return [
-    'splash' => [
+    'splash'       => [
         'button' => 'Read Article'
     ],
-    'articles' => [
-        'heading' => 'Articles',
-        'button' => 'View all Articles',
+    'articles'     => [
+        'heading'    => 'Articles',
+        'button'     => 'View all Articles',
         'hover_text' => 'View'
     ],
-    'photos' => [
-        'heading' => 'Photos and Artworks',
-        'button' => 'View all Artwork',
+    'photos'       => [
+        'heading'    => 'Photos and Artworks',
+        'button'     => 'Take me to Gallery',
+        'intro'      => 'Guanxi Media showcases some of the best photography and artworks from our talented contributors in Taichung and around our beautiful island.',
         'hover_text' => 'View'
     ],
-    'videos' => [
-        'heading' => 'Videos',
-        'button' => 'View all Videos',
+    'videos'       => [
+        'heading'    => 'Videos',
+        'button'     => 'View all Videos',
         'hover_text' => 'View'
     ],
     'contributors' => [
-        'heading' => 'Contributors',
-        'button' => 'View All Contributors',
+        'heading'    => 'Contributors',
+        'button'     => 'View All Contributors',
         'hover_text' => 'View'
     ],
-    'affiliates' => [
-        'heading' => 'Associates',
-        'button' => 'View All Associates',
+    'affiliates'   => [
+        'heading'    => 'Associates',
+        'button'     => 'View All Associates',
         'hover_text' => 'View'
     ]
 ];
