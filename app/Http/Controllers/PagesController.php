@@ -10,8 +10,9 @@ use App\People\Profile;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+ 
 class PagesController extends Controller
+
 {
     public function home(ArticlesRepository $articles, MediaRepository $media)
     {

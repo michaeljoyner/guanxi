@@ -11,7 +11,7 @@ return [
     ],
     'photos'       => [
         'heading'    => 'Photos and Artworks',
-        'button'     => 'Take me to Gallery',
+        'button'     => 'Take me to the Gallery',
         'intro'      => 'Guanxi Media showcases some of the best photography and artworks from our talented contributors in Taichung and around our beautiful island.',
         'hover_text' => 'View'
     ],
