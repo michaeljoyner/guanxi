@@ -17,7 +17,6 @@ class PagesController extends Controller
     {
         $featured = $articles->getFeaturedArticle();
         $articles = $articles->homePageArticles();
-        $medias = $media->latestArtAndPhotos(8);
         $videos = $media->latestVideos();
         $profiles = Profile::where('published', 1)->latest()->limit(6)->get();
         $affiliates = Affiliate::where('published', 1)->latest()->limit(8)->get();
