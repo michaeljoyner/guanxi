@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ProfileAvatarsControllerTest extends TestCase
+class ProfileAvatarsControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

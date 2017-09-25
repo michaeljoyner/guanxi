@@ -5,7 +5,7 @@ use App\Media\EmbeddedVideo\VimeoVideo;
 use App\Services\JsonPayload;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class VimeoVideosTest extends TestCase
+class VimeoVideosTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

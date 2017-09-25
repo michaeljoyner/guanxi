@@ -4,7 +4,7 @@
 use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ApiProfilesTest extends TestCase
+class ApiProfilesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

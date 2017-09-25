@@ -4,7 +4,7 @@
 use App\Content\Tag;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ApiTagsControllerTest extends TestCase
+class ApiTagsControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

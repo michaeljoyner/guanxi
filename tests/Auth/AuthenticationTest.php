@@ -5,7 +5,7 @@ use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Auth;
 
-class AuthenticationTest extends TestCase
+class AuthenticationTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

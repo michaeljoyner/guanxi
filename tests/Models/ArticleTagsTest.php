@@ -5,7 +5,7 @@ use App\Content\Article;
 use App\Content\Tag;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArticleTagsTest extends TestCase
+class ArticleTagsTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

@@ -4,7 +4,7 @@
 use App\Role;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class RolesTest extends TestCase
+class RolesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
     

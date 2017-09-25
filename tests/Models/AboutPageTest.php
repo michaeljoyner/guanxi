@@ -4,7 +4,7 @@
 use App\Pages\AboutPage;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AboutPageTest extends TestCase
+class AboutPageTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

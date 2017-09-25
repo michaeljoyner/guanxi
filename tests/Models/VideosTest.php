@@ -4,7 +4,7 @@
 use App\Media\Video;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class VideosTest extends TestCase
+class VideosTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

@@ -3,7 +3,7 @@
 
 use App\Services\JsonPayload;
 
-class WeatherServiceTest extends TestCase
+class WeatherServiceTest extends BrowserKitTestCase
 {
     /**
      *@test

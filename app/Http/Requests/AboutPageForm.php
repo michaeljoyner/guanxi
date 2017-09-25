@@ -40,7 +40,7 @@ class AboutPageForm extends FormRequest
 
     public function eventsContent()
     {
-        return $this->attributeContent('events');
+        return $this->attributeContent('events_text');
     }
 
     public function contributeContent()

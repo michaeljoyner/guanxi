@@ -5,7 +5,7 @@ use App\Content\Article;
 use App\Content\ArticlesRepository;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArticlesRepositoryTest extends TestCase
+class ArticlesRepositoryTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

@@ -6,7 +6,7 @@ use App\Content\Tag;
 use App\Content\TagRepository;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class TagsRepositoryTest extends TestCase
+class TagsRepositoryTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

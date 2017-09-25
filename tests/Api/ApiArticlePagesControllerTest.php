@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ApiArticlePagesControllerTest extends TestCase
+class ApiArticlePagesControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 
@@ -12,6 +12,7 @@ class ApiArticlePagesControllerTest extends TestCase
      */
     public function the_correct_articles_are_returned()
     {
+        $this->disableExceptionHandling();
 //        $category = factory(\App\Content\Category::class)->create();
         foreach(range(1,20) as $item) {
             factory(\App\Content\Article::class)->create([

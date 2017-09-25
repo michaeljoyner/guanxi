@@ -4,7 +4,7 @@
 use App\Media\Artwork;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ApiArtworkGalleryImagesControllerTest extends TestCase
+class ApiArtworkGalleryImagesControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

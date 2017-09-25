@@ -5,7 +5,7 @@ use App\People\Profile;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ProfilesTest extends TestCase
+class ProfilesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

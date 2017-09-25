@@ -5,7 +5,7 @@ use App\Content\Article;
 use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArticleAuthorControllerTest extends TestCase
+class ArticleAuthorControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

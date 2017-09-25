@@ -3,7 +3,7 @@
 
 use App\FormattedUrl;
 
-class FormattedUrlTest extends TestCase
+class FormattedUrlTest extends BrowserKitTestCase
 {
     /**
      *@test

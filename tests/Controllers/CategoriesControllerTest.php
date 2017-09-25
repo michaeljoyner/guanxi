@@ -4,7 +4,7 @@
 use App\Content\Category;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class CategoriesControllerTest extends TestCase
+class CategoriesControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

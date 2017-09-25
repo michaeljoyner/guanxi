@@ -6,7 +6,7 @@ use App\Media\EmbeddedVideo\YoutubeVideo;
 use App\Media\UnknownPlatformException;
 use App\Media\VideoFactory;
 
-class VideoFactoryTest extends TestCase
+class VideoFactoryTest extends BrowserKitTestCase
 {
     /**
      * @test

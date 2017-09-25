@@ -6,7 +6,7 @@ use App\Media\HasMainImage;
 use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArtworksTest extends TestCase
+class ArtworksTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

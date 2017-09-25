@@ -5,7 +5,7 @@ use App\Media\Artwork;
 use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArtworkContributorsControllerTest extends TestCase
+class ArtworkContributorsControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

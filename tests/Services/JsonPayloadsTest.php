@@ -5,7 +5,7 @@ use App\Services\JsonInvalidException;
 use App\Services\JsonIrretrievableException;
 use App\Services\JsonPayload;
 
-class JsonPayloadsTest extends TestCase
+class JsonPayloadsTest extends BrowserKitTestCase
 {
     /**
      *@test

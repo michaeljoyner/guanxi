@@ -4,7 +4,7 @@
 use App\People\Profile;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ProfilePublishingControllerTest extends TestCase
+class ProfilePublishingControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

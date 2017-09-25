@@ -4,7 +4,7 @@
 use App\Media\EmbeddedVideo\YoutubeVideo;
 use App\Services\JsonPayload;
 
-class YoutubeVideoTest extends TestCase
+class YoutubeVideoTest extends BrowserKitTestCase
 {
     /**
      *@test

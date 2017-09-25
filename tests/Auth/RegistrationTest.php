@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class RegistrationTest extends TestCase
+class RegistrationTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

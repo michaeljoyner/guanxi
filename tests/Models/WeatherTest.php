@@ -3,7 +3,7 @@
 
 use App\Weather\Weather;
 
-class WeatherTest extends TestCase
+class WeatherTest extends BrowserKitTestCase
 {
     /**
      *@test

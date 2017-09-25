@@ -4,7 +4,7 @@
 use App\Affiliates\Affiliate;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AffiliatesTest extends TestCase
+class AffiliatesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

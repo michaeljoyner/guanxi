@@ -4,7 +4,7 @@
 use App\Content\Article;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ApiArticlePublishControllerTest extends TestCase
+class ApiArticlePublishControllerTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

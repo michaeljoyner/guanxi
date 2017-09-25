@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class AdminPasswordResetTest extends TestCase
+class AdminPasswordResetTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

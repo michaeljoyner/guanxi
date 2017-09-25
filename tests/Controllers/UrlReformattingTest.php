@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class UrlReformattingTest extends TestCase
+class UrlReformattingTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

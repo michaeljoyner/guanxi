@@ -5,7 +5,7 @@ use App\Media\Gallery;
 use App\Media\Photo;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class PhotosGalleriesTest extends TestCase
+class PhotosGalleriesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

@@ -5,7 +5,7 @@ use App\People\Profile;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class BiosRepositoryTest extends TestCase
+class BiosRepositoryTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

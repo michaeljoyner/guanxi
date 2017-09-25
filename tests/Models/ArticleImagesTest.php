@@ -3,7 +3,7 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ArticleImagesTest extends TestCase
+class ArticleImagesTest extends BrowserKitTestCase
 {
     use DatabaseMigrations, TestsImageUploads;
 

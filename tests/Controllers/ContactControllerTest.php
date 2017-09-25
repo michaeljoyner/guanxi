@@ -1,7 +1,7 @@
 <?php
 
 
-class ContactControllerTest extends TestCase
+class ContactControllerTest extends BrowserKitTestCase
 {
     /**
      *@test
@@ -16,6 +16,8 @@ class ContactControllerTest extends TestCase
             'enquiry' => 'How goes it Bob?'
         ]);
 
-        Mail::assertSentTo(config('mail.receiver_address'), \App\Mail\ContactMessage::class);
+        Mail::assertSent(\App\Mail\ContactMessage::class, function($mail) {
+            return $mail->hasTo(config('mail.receiver_address'));
+        });
     }
 }

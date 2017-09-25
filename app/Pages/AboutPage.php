@@ -13,7 +13,7 @@ class AboutPage extends Model
 
     protected $fillable = [];
 
-    protected $translatable = ['marketing', 'events', 'story', 'contribute', 'contact'];
+    protected $translatable = ['marketing', 'events_text', 'story', 'contribute', 'contact'];
 
     public static function setStory($story)
     {
@@ -37,12 +37,12 @@ class AboutPage extends Model
 
     public static function setEvents($content)
     {
-        return static::setSectionContent('events', $content);
+        return static::setSectionContent('events_text', $content);
     }
 
     public static function events($allTranslations = false)
     {
-        return static::getTranslatedSectionContent('events', $allTranslations);
+        return static::getTranslatedSectionContent('events_text', $allTranslations);
     }
 
     public static function setContribute($content)

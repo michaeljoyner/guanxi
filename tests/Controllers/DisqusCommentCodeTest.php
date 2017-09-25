@@ -5,7 +5,7 @@ use App\Content\Article;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class DisqusCommentCodeTest extends TestCase
+class DisqusCommentCodeTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 

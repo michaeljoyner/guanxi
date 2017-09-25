@@ -5,7 +5,7 @@ use App\People\Profile;
 use App\Social\SocialLink;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ProfileSocialLinksTest extends TestCase
+class ProfileSocialLinksTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 
