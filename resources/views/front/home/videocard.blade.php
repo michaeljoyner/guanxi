@@ -6,6 +6,8 @@
     </div>
     <p class="video-card-title heavy-heading">{{ $video->title }}</p>
     <p class="video-card-contributor media-image-card-contributor purple-text light-heading">
+        @if($video->contributor)
         <a href="{{ localUrl("/bios/" . $video->contributor->slug) }}">{{ $video->contributor->name }}</a>
+        @endif
     </p>
 </div>
