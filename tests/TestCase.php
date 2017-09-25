@@ -1,8 +1,10 @@
 <?php
 
+namespace Tests;
+
 use App\User;
 
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
     /**
      * The base URL to use while testing the application.
@@ -20,7 +22,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
     }
@@ -43,11 +45,5 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $this->actingAs($user);
 
         return $user;
-    }
-
-    public function assertSoftDeleted(\Illuminate\Database\Eloquent\Model $model)
-    {
-        $model = $model->withTrashed()->find($model->id);
-        $this->assertTrue($model->trashed());
     }
 }
