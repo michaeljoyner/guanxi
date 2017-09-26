@@ -3,8 +3,10 @@
 namespace App\Media;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 
 class Gallery extends Model implements HasMediaConversions
 {
@@ -12,14 +14,18 @@ class Gallery extends Model implements HasMediaConversions
 
     protected $table = 'galleries';
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 200, 'h' => 200, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 200, 200)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 1200, 'h' => 800, 'fit' => 'max', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_MAX, 1200, 800)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
     }
 
     public function galleryable()
@@ -29,6 +35,6 @@ class Gallery extends Model implements HasMediaConversions
 
     public function addImage($file)
     {
-        return $this->addMedia($file)->preservingOriginal()->toMediaLibrary();
+        return $this->addMedia($file)->preservingOriginal()->toMediaCollection();
     }
 }

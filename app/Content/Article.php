@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use Spatie\MediaLibrary\Media;
@@ -47,17 +48,22 @@ class Article extends Model implements HasMediaConversions
         ];
     }
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 250, 'h' => 200, 'fit' => 'crop', 'fm' => 'src', 'q' => 80])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 250, 200)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 800, 'h' => 600, 'fit' => 'max', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_MAX, 800, 600)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 1400, 'h' => 560, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 1400, 560)
+            ->keepOriginalImageFormat()
+            ->optimize();
     }
 
     public function shouldDeletePreservingMedia()
@@ -131,7 +137,7 @@ class Article extends Model implements HasMediaConversions
 
     public function addImage($file)
     {
-        return $this->addMedia($file)->preservingOriginal()->toMediaLibrary();
+        return $this->addMedia($file)->preservingOriginal()->toMediaCollection();
     }
 
     public function setFeaturedImage(Media $image)

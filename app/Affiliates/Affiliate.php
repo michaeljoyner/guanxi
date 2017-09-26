@@ -7,8 +7,10 @@ use App\IsPublishable;
 use App\Social\HasSocialLinks;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Affiliate extends Model implements HasMediaConversions
@@ -40,17 +42,22 @@ class Affiliate extends Model implements HasMediaConversions
         ];
     }
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 200, 'h' => 160, 'fit' => 'crop', 'fm' => 'src', 'q' => 80])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 200, 160)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 500, 'h' => 400, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 500, 400)
+            ->keepOriginalImageFormat()
+            ->optimize();
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 300, 'h' => 300, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 300, 300)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
     }
 
     public static function createWithTranslations($data)

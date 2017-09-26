@@ -12,8 +12,10 @@ use App\Social\HasSocialLinks;
 use App\User;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Profile extends Model implements HasMediaConversions
@@ -39,11 +41,12 @@ class Profile extends Model implements HasMediaConversions
         ];
     }
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 400, 'h' => 400, 'fit' => 'crop', 'fm' => 'src', 'q' => 80])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 400, 400)
+            ->keepOriginalImageFormat()
+            ->optimize();
     }
 
     public static function createWithTranslations($data)

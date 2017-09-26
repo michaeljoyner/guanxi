@@ -5,8 +5,10 @@ namespace App\Media;
 use App\HasModelImage;
 use App\IsPublishable;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Artwork extends Model implements HasMediaConversions
@@ -23,14 +25,18 @@ class Artwork extends Model implements HasMediaConversions
 
     protected $casts = ['published' => 'boolean'];
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 250, 'h' => 200, 'fit' => 'crop', 'fm' => 'src', 'q' => 80])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 250, 200)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('web')
-            ->setManipulations(['w' => 1200, 'h' => 800, 'fit' => 'max', 'fm' => 'src', 'q' => 80])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_MAX, 1200, 800)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
     }
 
     public static function boot()

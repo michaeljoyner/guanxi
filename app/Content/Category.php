@@ -6,8 +6,10 @@ use App\HasModelImage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Category extends Model implements HasMediaConversions
@@ -37,14 +39,17 @@ class Category extends Model implements HasMediaConversions
         ];
     }
 
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 400, 'h' => 320, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 400, 320)
+            ->keepOriginalImageFormat()
+            ->optimize();
+
         $this->addMediaConversion('large')
-            ->setManipulations(['w' => 1400, 'h' => 420, 'fit' => 'crop', 'fm' => 'src'])
-            ->performOnCollections('default');
+            ->fit(Manipulations::FIT_CROP, 1400, 420)
+            ->keepOriginalImageFormat()
+            ->optimize();
     }
 
     public static function createWithTranslations($data)
