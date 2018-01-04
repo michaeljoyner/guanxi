@@ -40,7 +40,7 @@ class AboutPage extends Model
         return static::setSectionContent('events_text', $content);
     }
 
-    public static function events($allTranslations = false)
+    public static function eventsText($allTranslations = false)
     {
         return static::getTranslatedSectionContent('events_text', $allTranslations);
     }

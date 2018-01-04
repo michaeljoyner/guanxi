@@ -23,7 +23,7 @@
     </section>
     <section id="events" class="page-section about-page-section events-section">
         <h1 class="section-heading heavy-heading centered-text">{{ trans('about.events.heading') }}</h1>
-        <div class="about-section centered-text">{!! $page->events !!}</div>
+        <div class="about-section centered-text">{!! $page->events_text !!}</div>
         <div class="section-divider"></div>
     </section>
     <section id="story" class="page-section about-page-section story-section">

@@ -56,10 +56,10 @@ class AboutPageTest extends BrowserKitTestCase
 
         AboutPage::setEvents($content);
         $this->app->setLocale('en');
-        $this->assertEquals('We love events', AboutPage::events());
+        $this->assertEquals('We love events', AboutPage::eventsText());
         $this->app->setLocale('zh');
-        $this->assertEquals('誒痾瘀屋ㄖㄠ', AboutPage::events());
-        $this->assertEquals($content, AboutPage::events(true));
+        $this->assertEquals('誒痾瘀屋ㄖㄠ', AboutPage::eventsText());
+        $this->assertEquals($content, AboutPage::eventsText(true));
     }
 
     /**
