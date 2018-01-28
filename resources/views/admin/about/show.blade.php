@@ -37,10 +37,10 @@
         <a href="/admin/pages/about/events/edit" class="about-edit-button">Edit</a>
         <div class="row">
             <div class="col-md-6">
-                {!! $page->getTranslation('events', 'en') !!}
+                {!! $page->getTranslation('events_text', 'en') !!}
             </div>
             <div class="col-md-6">
-                {!! $page->getTranslation('events', 'zh') !!}
+                {!! $page->getTranslation('events_text', 'zh') !!}
             </div>
         </div>
         <hr class="section-divider">
