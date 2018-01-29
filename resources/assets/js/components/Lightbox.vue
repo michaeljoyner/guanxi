@@ -9,7 +9,7 @@
             <p class="light-heading white-text lightbox-title" v-show="open">{{ title }}</p>
             <img :src="mainSrc" alt="" @click="open = true" v-show="!open">
             <div class="main-lightbox-gallery" v-show="open">
-                <transition v-for="(image, index) in galleryImages" name="slide-fade">
+                <transition v-for="(image, index) in galleryImages" :key="`image_${index}`" name="slide-fade">
                     <img :src="image.src" :alt="title + ' image'" v-show="current_pos == index">
                 </transition>
 
