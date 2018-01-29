@@ -51,6 +51,26 @@
                 </button>
             </div>
         </modal>
+        <modal :show="videoModalOpen" :wider="true">
+            <div slot="header">
+                <h5>Embed a YouTube or Vimeo Video</h5>
+            </div>
+            <div slot="body">
+
+            </div>
+            <div slot="footer">
+                <button class="btn dd-btn btn-grey"
+                        v-on:click="videoModalOpen = false">
+                    Cancel
+                </button>
+                <button class="btn dd-btn btn-light"
+                        v-on:click="embedVideo"
+                        :disabled="!canInsertImage"
+                >
+                    Insert
+                </button>
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -64,6 +84,7 @@
                 editor: null,
                 uploads: [],
                 modalOpen: false,
+                videoModalOpen: false,
                 hover: false,
                 insert_image_src: null,
                 insert_image_caption: '',
@@ -234,6 +255,10 @@
             flashSaveStatus() {
                 this.show_save_indicator = true;
                 window.setTimeout(() => this.show_save_indicator = false, 2000);
+            },
+
+            embedVideo() {
+
             }
         }
     }

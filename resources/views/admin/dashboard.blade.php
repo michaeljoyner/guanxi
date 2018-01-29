@@ -16,6 +16,7 @@
             </div>
         @endforeach
     </div>
+    @if(Auth::user()->isSuperAdmin())
     <h2 class="text-center">Where would you like to go?</h2>
     <div class="dash-nav-actions">
         <div class="nav-action-box">
@@ -55,5 +56,5 @@
             </a>
         </div>
     </div>
-
+    @endif
 @endsection

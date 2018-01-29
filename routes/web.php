@@ -67,7 +67,7 @@ Route::post('admin/password/email', 'Auth\ForgotPasswordController@sendResetLink
 Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    Route::get('/', 'DashboardController@home');
+    Route::get('/', 'DashboardController@home')->name('dashboard');
 
     Route::get('users/{user}/password/edit', 'AdminPasswordController@edit');
     Route::post('users/{user}/password', 'AdminPasswordController@update');
@@ -230,6 +230,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
         Route::get('media/artworks/{artwork}/gallery/images', 'ArtworkGalleryImagesController@index')->middleware('can:act,artwork');
         Route::post('media/artworks/{artwork}/gallery/images', 'ArtworkGalleryImagesController@store')->middleware('can:act,artwork');
         Route::delete('media/artworks/{artwork}/gallery/images/{media}', 'ArtworkGalleryImagesController@delete')->middleware('can:act,artwork');
+
+        Route::post('video/embed', 'VideoEmbedCodeController@store');
     });
 
 });

@@ -35,7 +35,7 @@ class ProfileControllerTest extends BrowserKitTestCase
 
         $this->delete('/admin/profiles/' . $profile->id);
 
-        $this->assertResponseStatus(403);
+        $this->assertResponseStatus(302);
         $this->seeInDatabase('profiles', ['id' => $profile->id]);
     }
 

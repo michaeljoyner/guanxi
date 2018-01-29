@@ -52,7 +52,7 @@ class UsersControllerTest extends BrowserKitTestCase
         $user->createProfile();
 
         $this->delete('/admin/users/' . $user->id)
-            ->assertResponseStatus(403)
+            ->assertResponseStatus(302)
             ->seeInDatabase('users', ['id' => $user->id]);
     }
 }
