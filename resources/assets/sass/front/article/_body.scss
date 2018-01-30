@@ -23,7 +23,10 @@
 
   .guanxi-article-video-embed iframe {
     max-width: 100%;
-    height: auto;
+
+    @include respond-to(phone) {
+      height: auto;
+    }
   }
 
   a {
