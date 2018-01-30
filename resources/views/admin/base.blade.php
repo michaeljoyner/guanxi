@@ -6,7 +6,8 @@
         <title>Guanxi | Admin</title>
     @show
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ elixir('css/app.css') }}"/>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     @yield('head')
     <script>
@@ -23,7 +24,7 @@
     @yield('content')
 </div>
 <div class="main-footer"></div>
-<script src="{{ elixir('js/app.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 @include('admin.partials.flash')
 @yield('bodyscripts')
 </body>

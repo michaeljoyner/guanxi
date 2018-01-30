@@ -34,16 +34,16 @@
 
             fetchContent() {
                 this.fetching = true;
-                this.$http.get(this.url + '?page=' + this.nextPage)
-                        .then(res => this.onSuccess(res))
+                axios.get(`${this.url}?page=${this.nextPage}`)
+                        .then(({data}) => this.onSuccess(data))
                         .catch(err => this.onFailure(err));
             },
 
-            onSuccess(res) {
+            onSuccess(data) {
                 this.fetching = false;
-                this.remaining = res.data.remaining;
+                this.remaining = data.remaining;
                 this.nextPage++;
-                this.addContent(res.data.content_html);
+                this.addContent(data.content_html);
             },
 
             onFailure(err) {

@@ -18,8 +18,8 @@
 
             submitForm() {
                 this.sending = true;
-                this.$http.post('/contact', this.messageObject())
-                        .then(res => this.onSuccess(res))
+                axios.post('/contact', this.messageObject())
+                        .then(this.onSuccess)
                         .catch(err => this.onFail(err));
             },
 

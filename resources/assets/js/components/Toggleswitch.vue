@@ -4,7 +4,7 @@
     <div class="toggle-switch">
         <span class="switch-status-label" :class="{'chosen': currentStatus}">{{ trueLabel }}</span>
         <label class="toggle-switch-label" :for="'toggle-switch-' + identifier">
-            <input type="checkbox" :id="'toggle-switch-' + identifier" v-on:change="toggleState"
+            <input type="checkbox" :id="'toggle-switch-' + identifier" @change="toggleState"
                    v-model="currentStatus">
             <div class="switch-bulb"></div>
         </label>
@@ -23,9 +23,7 @@
         },
 
         mounted() {
-//            if(!this.currentStatus) {
-                this.currentStatus = this.initialState;
-//            }
+            this.currentStatus = this.initialState;
         },
 
         computed: {
@@ -37,13 +35,13 @@
         methods: {
             toggleState: function () {
                 let initialState = !this.currentStatus;
-                this.$http.post(this.toggleUrl, this.makePayloadFor(this.currentStatus))
-                        .then((res) => this.onSuccess(res))
-                        .catch((res) => this.currentStatus = initialState);
+                axios.post(this.toggleUrl, this.makePayloadFor(this.currentStatus))
+                        .then(({data}) => this.onSuccess(data))
+                        .catch(() => this.currentStatus = initialState);
             },
 
-            onSuccess(res) {
-                this.currentStatus = res.data.new_state;
+            onSuccess(data) {
+                this.currentStatus = data.new_state;
                 this.$emit('changed-toggle-state', this.currentStatus);
             },
 

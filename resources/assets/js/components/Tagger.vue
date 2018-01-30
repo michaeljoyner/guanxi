@@ -4,14 +4,18 @@
     <div class="tagger-component">
         <p class="h6 text-uppercase">Tags</p>
         <div class="added-tags">
-            <div class="spinner" v-show="!ready">
+            <div class="spinner"
+                 v-show="!ready">
                 <div class="bounce1"></div>
                 <div class="bounce2"></div>
                 <div class="bounce3"></div>
             </div>
-            <div v-for="(tag, index) in added_tags" class="tag" :class="{'temp': tag.id === null}">
+            <div v-for="(tag, index) in added_tags"
+                 class="tag"
+                 :class="{'temp': tag.id === null}">
                 {{ tag.name }}
-                <span class="tag-delete-btn" v-on:click="removeTag(index)">&times;</span>
+                <span class="tag-delete-btn"
+                      v-on:click="removeTag(index)">&times;</span>
             </div>
         </div>
         <div class="tag-input">
@@ -72,27 +76,34 @@
         methods: {
 
             fetchPossibleTags() {
-                this.$http.get('/admin/api/tags')
-                        .then((res) => this.choices = res.body)
-                        .catch((err) => this.alertError('Unable to fetch list of possible tags. Maybe refresh page if you need them'));
+                axios.get('/admin/api/tags')
+                     .then(({data}) => this.choices = data)
+                     .catch(() => this.alertError(
+                         'Unable to fetch list of possible tags. Maybe refresh page if you need them'
+                     ));
             },
 
             fetchArticleTags() {
-                this.$http.get('/admin/content/articles/' + this.articleId + '/tags')
-                        .then((res) => {this.added_tags = res.body; this.ready = true; })
-                        .catch((err) => this.alertError('Failed to retrieve the article tags. Please refresh the page if you need to work with tags.'));
+                axios.get(`/admin/content/articles/${this.articleId}/tags`)
+                    .then(({data}) => {
+                        this.added_tags = data;
+                        this.ready = true;
+                    })
+                    .catch(() => this.alertError(
+                        'Failed to retrieve the article tags. Please refresh the page if you need to work with tags.'
+                    ));
             },
 
             postTag(tagname) {
-                this.$http.post('/admin/content/articles/' + this.articleId + '/tags', {name: tagname})
-                        .then((res) => this.added_tags = res.body)
-                        .catch((err) => this.alertError('There was an issue saving the tag. Please refresh the page'));
+                axios.post(`/admin/content/articles/${this.articleId}/tags`, {name: tagname})
+                    .then(({data}) => this.added_tags = data)
+                    .catch(() => this.alertError('There was an issue saving the tag. Please refresh the page'));
             },
 
             syncAddedTags() {
-                this.$http.put('/admin/content/articles/' + this.articleId + '/tags', {tag_ids: this.getAddedTagIds()})
-                        .then((res) => this.added_tags = res.body)
-                        .catch((err) => this.alertError('There was an issue syncing the tag. Please refresh the page'));
+                axios.put(`/admin/content/articles/${this.articleId}/tags`, {tag_ids: this.getAddedTagIds()})
+                    .then(({data}) => this.added_tags = data)
+                    .catch(() => this.alertError('There was an issue syncing the tag. Please refresh the page'));
             },
 
             removeTag(index) {
@@ -101,7 +112,7 @@
             },
 
             getAddedTagIds() {
-              return this.added_tags.filter((tag) => tag.id).map((validTag) => validTag.id);
+                return this.added_tags.filter((tag) => tag.id).map((validTag) => validTag.id);
             },
 
             isCurrent(match) {
@@ -142,7 +153,7 @@
             },
 
             addQueryAsTag() {
-                if(this.query === '') {
+                if (this.query === '') {
                     return;
                 }
                 const tags = this.query.split(',');

@@ -40,8 +40,8 @@
 
         methods: {
             fetchCategories() {
-                this.$http.get('/admin/api/content/categories')
-                        .then((res) => this.setupChoices(res.body))
+                axios.get('/admin/api/content/categories')
+                        .then(({data}) => this.setupChoices(data))
                         .catch((err) => console.log('error occured'))
             },
 
@@ -52,9 +52,9 @@
 
             sync() {
                 this.syncing = true;
-                this.$http.post('/admin/api/content/articles/' + this.articleId + '/categories', {categories: this.selected_categories})
-                        .then((res) => this.syncSuccess(res.body.article_categories))
-                        .catch((err) => console.log('fucking errors'));
+                axios.post(`/admin/api/content/articles/${this.articleId}/categories`, {categories: this.selected_categories})
+                        .then(({data}) => this.syncSuccess(data.article_categories))
+                        .catch((err) => console.log(err));
             },
 
             syncSuccess(ids) {

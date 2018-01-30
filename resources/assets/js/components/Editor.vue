@@ -53,19 +53,25 @@
         </modal>
         <modal :show="videoModalOpen" :wider="true">
             <div slot="header">
-                <h5>Embed a YouTube or Vimeo Video</h5>
+                <h5><strong>Embed a YouTube or Vimeo Video</strong></h5>
             </div>
-            <div slot="body">
-
+            <div slot="body" class="video-embed-form">
+                <p>Enter the url for either a YouTube or a Vimeo video you would like to insert.</p>
+                <form action="" @submit.prevent="getEmbedCode">
+                    <input class="" type="text" v-model="video_url">
+                    <button class="" type="submit">Get</button>
+                </form>
+                <p class="text-success" v-show="video_embed_code">Embed is ready, you may insert it now.</p>
+                <p class="text-danger" v-show="embed_fetch_failed">Sorry, we were unable to fetch the embed code for that link. Double check that the url is for youtube or vimeo. Otherwise, refresh and try again. Thanks.</p>
             </div>
             <div slot="footer">
                 <button class="btn dd-btn btn-grey"
                         v-on:click="videoModalOpen = false">
                     Cancel
                 </button>
-                <button class="btn dd-btn btn-light"
+                <button class="btn dd-btn"
                         v-on:click="embedVideo"
-                        :disabled="!canInsertImage"
+                        :disabled="!video_embed_code"
                 >
                     Insert
                 </button>
@@ -91,7 +97,10 @@
                 save_status: '',
                 save_success: false,
                 show_save_indicator: false,
-                is_dirty: false
+                is_dirty: false,
+                video_embed_code: '',
+                video_url: '',
+                embed_fetch_failed: false
             }
         },
 
@@ -110,6 +119,7 @@
             };
             config.setup = (ed) => {
                 ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
+                ed.addButton('embed-video', this.makeButton('/images/assets/insert_video.svg', this.openVideoModal, ''));
                 ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
             }
             this.$nextTick(() => tinymce.init(config)
@@ -138,7 +148,7 @@
             },
 
             handleFiles(ev) {
-                var files = ev.target.files || ev.dataTransfer.files;
+                let files = ev.target.files || ev.dataTransfer.files;
                 if (files[0].type.indexOf('image') === -1) {
                     return this.rejectFile();
                 }
@@ -176,8 +186,8 @@
                 let formData = new FormData;
                 const uploadTag = this.getNextUploadTag();
                 formData.append('file', blobInfo.blob(), blobInfo.filename());
-                this.$http.post('/admin/content/articles/' + this.postId + '/images', formData)
-                        .then((res) => this.uploadSuccess(res.body, success, uploadTag))
+                axios.post(`/admin/content/articles/${this.postId}/images`, formData)
+                        .then(({data}) => this.uploadSuccess(data, success, uploadTag))
                         .catch((err) => this.uploadFailure(err, failure, uploadTag));
             },
 
@@ -234,9 +244,9 @@
                 }
                 const content = this.editor.getContent();
 
-                this.$http.post('/admin/content/articles/' + this.postId + '/body/' + this.contentLang, {article_body: content})
-                        .then((res) => this.saved(true))
-                        .catch((er) => this.saved(false));
+                axios.post(`/admin/content/articles/${this.postId}/body/${this.contentLang}`, {article_body: content})
+                        .then(() => this.saved(true))
+                        .catch(() => this.saved(false));
             },
 
             needsToSave() {
@@ -257,9 +267,53 @@
                 window.setTimeout(() => this.show_save_indicator = false, 2000);
             },
 
-            embedVideo() {
+            getEmbedCode() {
+                this.embed_fetch_failed = false;
+                axios.post('/admin/api/video/embed', {url: this.video_url})
+                    .then(({data}) => this.video_embed_code = data.embed)
+                    .catch(this.embedFetchFailure);
+            },
 
+            embedVideo() {
+                const embed = `<div class="guanxi-article-video-embed">${this.video_embed_code}</div>`
+                this.editor.insertContent(embed);
+                this.video_embed_code = '';
+                this.videoModalOpen = false;
+            },
+
+            embedFetchFailure() {
+                this.video_embed_code = '';
+                this.embed_fetch_failed = true;
+            },
+
+            openVideoModal() {
+                this.videoModalOpen = true;
             }
         }
     }
 </script>
+
+<style scoped lang="scss" type="text/css">
+    .video-embed-form form {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+
+        input {
+            flex: 1;
+        }
+
+        button {
+            width: 8em;
+            height: 32px;
+            border: 2px solid teal;
+            color: teal;
+
+            &:hover {
+                background-color: teal;
+                color: white;
+             }
+        }
+    }
+</style>

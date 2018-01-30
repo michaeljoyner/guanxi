@@ -78,20 +78,20 @@
         methods: {
 
             fetchContributors() {
-                this.$http.get('/admin/api/profiles')
-                        .then((res) => this.contributors = res.body)
+                axios.get('/admin/api/profiles')
+                        .then(({data}) => this.contributors = data)
                         .catch((err) => this.alertError('Unable to get list of possible authors. If you need to set the author, please refresh and try again.'));
             },
 
             setAuthor() {
                 this.saving = true;
-                this.$http.post(this.urlBase + this.current_author.id)
-                        .then((res) => this.onSuccess(res))
+                axios.post(this.urlBase + this.current_author.id)
+                        .then(({data}) => this.onSuccess(data))
                         .catch((err) => this.onFailure(err));
             },
 
-            onSuccess(res) {
-                const person = this.contributors.find((con) => con.id === res.body.id);
+            onSuccess(data) {
+                const person = this.contributors.find((con) => con.id === data.id);
                 this.last_known_selected = person;
                 this.saving = false;
                 this.modalOpen = false;

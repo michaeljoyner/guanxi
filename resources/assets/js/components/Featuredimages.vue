@@ -67,21 +67,21 @@
         methods: {
 
             fetchImages() {
-                this.$http.get('/admin/api/content/articles/' + this.postId + '/images/featured')
-                        .then((res) => this.setFetchedImages(res))
+                axios.get('/admin/api/content/articles/' + this.postId + '/images/featured')
+                        .then(({data}) => this.setFetchedImages(data))
                         .catch(() => console.log('failed'));
             },
 
-            setFetchedImages(res) {
+            setFetchedImages(data) {
                 this.syncing = false;
-                this.postImages = res.body;
+                this.postImages = data;
                 this.setNewFeaturedImage(this.featuredImage);
             },
 
             postNewFeaturedImage(img) {
                 this.syncing = true;
-                this.$http.patch('/admin/api/content/articles/' + this.postId + '/images/featured', {image_id: img.id})
-                        .then((res) => this.setNewFeaturedImage(img))
+                axios.patch(`/admin/api/content/articles/${this.postId}/images/featured`, {image_id: img.id})
+                        .then(() => this.setNewFeaturedImage(img))
                         .catch(() => console.log('unable to save'));
             },
 

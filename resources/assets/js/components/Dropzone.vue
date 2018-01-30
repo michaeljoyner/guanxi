@@ -52,11 +52,11 @@
 
             processFile(file) {
                 var upload = new Upload(file.name, 'pending');
-                this.$http.post(this.url, this.makeFormData(file), this.makeUploadOptions(upload))
-                        .then((res) => {
+                axios.post(this.url, this.makeFormData(file), this.makeUploadOptions(upload))
+                        .then(({data}) => {
                             upload.setStatus('success');
                             this.uploads.splice(this.uploads.indexOf(upload), 1);
-                            this.alertParent(res.body);
+                            this.alertParent(data);
                         })
                         .catch((err) => {console.log(err); upload.setStatus('failed');});
                 this.uploads.push(upload);
@@ -70,7 +70,7 @@
 
             makeUploadOptions(upload) {
                 return {
-                    progress: (ev) => upload.setProgress(parseInt(ev.loaded / ev.total * 100))
+                    onUploadProgress: (ev) => upload.setProgress(parseInt(ev.loaded / ev.total * 100))
                 }
             },
 

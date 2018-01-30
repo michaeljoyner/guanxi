@@ -24,7 +24,7 @@
 
 <script type="text/babel">
     import { generatePreview } from './PreviewGenerator.js';
-    module.exports = {
+    export default {
         props: {
             default: null,
             url: String,
@@ -87,8 +87,8 @@
             },
             uploadFile(file) {
                 this.uploading = true;
-                this.$http.post(this.url, this.prepareFormData(file), this.getUploadOptions())
-                        .then(res => this.onUploadSuccess(res))
+                axios.post(this.url, this.prepareFormData(file), this.getUploadOptions())
+                        .then(({data}) => this.onUploadSuccess(data))
                         .catch(err => this.onUploadFailed(err));
             },
             prepareFormData: function (file) {
@@ -98,9 +98,9 @@
             },
             onUploadSuccess(res) {
                 this.uploadMsg = "Uploaded successfully";
-                this.uploadStatus = 'success'
+                this.uploadStatus = 'success';
                 this.uploading = false;
-                eventHub.$emit('singleuploadcomplete', res.body);
+                eventHub.$emit('singleuploadcomplete', res);
             },
             onUploadFailed(err) {
                 this.uploadMsg = 'The upload failed';
@@ -109,7 +109,7 @@
             },
             getUploadOptions() {
                 return {
-                    progress: (ev) => this.showProgress(parseInt(ev.loaded / ev.total * 100))
+                    onUploadProgress: (ev) => this.showProgress(parseInt(ev.loaded / ev.total * 100))
                 }
             },
             showProgress(progress) {

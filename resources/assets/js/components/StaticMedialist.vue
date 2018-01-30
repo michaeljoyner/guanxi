@@ -44,15 +44,15 @@
 
         methods: {
             fetchAlbums() {
-                this.$http.get('/' + this.langCode + this.url + this.nextPage)
-                        .then(res => this.onSuccess(res))
+                axios.get('/' + this.langCode + this.url + this.nextPage)
+                        .then(({data}) => this.onSuccess(data))
                         .catch(err => this.onFailure(err));
             },
 
-            onSuccess(res) {
+            onSuccess(data) {
                 this.fetching = false;
-                res.data.albums.forEach(album => this.albums.push(album));
-                this.remaining = res.data.remaining;
+                data.albums.forEach(album => this.albums.push(album));
+                this.remaining = data.remaining;
                 this.nextPage++;
             },
 

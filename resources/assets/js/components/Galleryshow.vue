@@ -8,8 +8,8 @@
         <div class="gallery-item"
              v-for="image in images"
         >
-            <div v-on:click="removeImage(image)" class="gallery-item-delete-btn">&times;</div>
-            <img v-bind:src="image.thumb_src" alt="gallery image"/>
+            <div @click="removeImage(image)" class="gallery-item-delete-btn">&times;</div>
+            <img :src="image.thumb_src" alt="gallery image"/>
         </div>
     </div>
 </template>
@@ -26,22 +26,16 @@
         },
 
         mounted() {
-
             this.fetchImages();
-
-//            this.$on('add-image', function(image) {
-//                this.addImage(image);
-//            });
-
             eventHub.$on('image-added', (image) => this.addImage(image));
         },
 
         methods: {
 
             fetchImages() {
-                this.$http.get(this.geturl)
-                        .then((res) => this.images = res.body)
-                        .catch((res) => console.log(res));
+                axios.get(this.geturl)
+                        .then(({data}) => this.images = data)
+                        .catch((err) => console.log(err));
             },
 
             addImage(image) {
@@ -49,7 +43,7 @@
             },
 
             removeImage(image) {
-                this.$http.delete(this.deleteUrl + image.image_id)
+                axios.delete(this.deleteUrl + image.image_id)
                         .then(() => {
                             this.images.splice(this.images.indexOf(this.images.find(img => img.image_id === image.image_id)), 1)
                         })

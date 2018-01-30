@@ -26,6 +26,7 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "cross-env": "^5.1.3",
     "jsonlylightbox": "^0.5.3",
     "sweetalert": "^1.1.3"

@@ -3,13 +3,16 @@
 <template>
     <div class="tag-manager-component">
         <div class="tag-actions clearfix">
-            <button class="btn dd-btn btn-clear-danger pull-right" @click="deleteSelectedTags">
+            <button class="btn dd-btn btn-clear-danger pull-right"
+                    @click="deleteSelectedTags">
                 Delete Selected Tags
             </button>
-            <button class="btn dd-btn btn-light pull-right" @click="unselectAll">
+            <button class="btn dd-btn btn-light pull-right"
+                    @click="unselectAll">
                 Unselect All
             </button>
-            <button class="btn dd-btn pull-right" @click="selectAllUnusedTags">
+            <button class="btn dd-btn pull-right"
+                    @click="selectAllUnusedTags">
                 Select All Unused Tags
             </button>
             <input type="text"
@@ -24,10 +27,15 @@
                  class="tag-row"
                  :class="{'highlight': query !== '' && tag.name.indexOf(query) !== -1}"
             >
-                <input type="checkbox" :value="tag.id" :id="'tag_' + tag.id" v-model="selected"
+                <input type="checkbox"
+                       :value="tag.id"
+                       :id="'tag_' + tag.id"
+                       v-model="selected"
                        class="dd-labelled-checkbox">
-                <label :for="'tag_' + tag.id" class="dd-checkbox-label-left">
-                    <span class="tag-name" :class="{'in-use': tag.articles_count > 0}">{{ tag.name }}</span>
+                <label :for="'tag_' + tag.id"
+                       class="dd-checkbox-label-left">
+                    <span class="tag-name"
+                          :class="{'in-use': tag.articles_count > 0}">{{ tag.name }}</span>
                 </label>
                 <span class="">{{ tag.articles_count }}</span>
             </div>
@@ -53,9 +61,9 @@
         methods: {
 
             fetchAllTags() {
-                this.$http.get('/admin/api/tags')
-                        .then(res => this.tags = res.body)
-                        .catch(err => this.showError('Unable to fetch tags. Please refresh the page and try again.'));
+                axios.get('/admin/api/tags')
+                     .then(({data}) => this.tags = data)
+                     .catch(() => this.showError('Unable to fetch tags. Please refresh the page and try again.'));
             },
 
             removeSelectedTags: function () {
@@ -71,25 +79,28 @@
                 }
                 let self = this;
                 swal({
-                            title: "Are you sure?",
-                            text: "You are about to delete " + self.selected.length + " tags.",
-                            type: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#DD6B55",
-                            confirmButtonText: "Yes, do it!",
-                            closeOnConfirm: true
-                        },
-                        function () {
-                            self.sendDeleteRequest();
-                        });
+                        title: "Are you sure?",
+                        text: "You are about to delete " + self.selected.length + " tags.",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, do it!",
+                        closeOnConfirm: true
+                    },
+                    function () {
+                        self.sendDeleteRequest();
+                    });
 
 
             },
 
             sendDeleteRequest() {
-                this.$http.delete('/admin/api/tags', {body: {tags: this.selected}})
-                        .then(res => console.log(res.body))
-                        .catch(err => this.showError('Unable to successfully delete tags. Please refresh the page and try again.'));
+                axios.post('/admin/api/tags', {body: {tags: this.selected}})
+                     .then(() => {
+                     })
+                     .catch(() => this.showError(
+                         'Unable to successfully delete tags. Please refresh the page and try again.'
+                     ));
                 this.removeSelectedTags();
             },
 

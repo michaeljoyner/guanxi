@@ -87,19 +87,18 @@
             pushState() {
                 this.showModal = false;
                 this.syncing = true;
-                this.$http.post(this.url, {publish: !this.currently_published})
-                        .then((res) => this.onSuccess(res))
-                        .catch((res) => this.onFail());
+                axios.post(this.url, {publish: !this.currently_published})
+                        .then(({data}) => this.onSuccess(data))
+                        .catch(this.onFail);
                 this.is_virgin = false;
             },
 
-            onSuccess(res) {
-                console.log(res);
-                this.is_published = res.body.new_state;
+            onSuccess(data) {
+                this.is_published = data.new_state;
                 this.syncing = false;
             },
 
-            onFail(res) {
+            onFail() {
                 eventHub.$emit('user-alert', {
                     type: 'error',
                     title: 'Sorry, there was a problem',

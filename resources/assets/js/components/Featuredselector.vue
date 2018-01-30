@@ -51,8 +51,8 @@
         methods: {
 
             fetchCurrentFeatured() {
-                this.$http.get('/admin/content/articles/featured')
-                        .then(({body}) => this.current_featured = body)
+                axios.get('/admin/content/articles/featured')
+                        .then(({data}) => this.current_featured = data)
                         .catch(err => console.log(err));
             },
 

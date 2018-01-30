@@ -217,7 +217,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
         Route::get('profiles', 'ProfilesController@index');
 
         Route::get('tags', 'TagsController@index');
-        Route::delete('tags', 'TagsController@delete')
+        Route::post('tags/delete', 'TagsController@delete')
         ->middleware('superadmin');
 
         Route::get('media/photos/{photo}/gallery/images', 'PhotoGalleryImagesController@index')
