@@ -21,6 +21,11 @@
     font-size: 80%;
   }
 
+  .guanxi-article-video-embed iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
   a {
     color: $brand_purple;
   }
