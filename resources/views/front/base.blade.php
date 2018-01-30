@@ -5,14 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title', 'Guanxi Media')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ elixir('css/fapp.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/fapp.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('head')
-    <script>
-        var Laravel = {
-            csrfToken: '{{ csrf_token() }}'
-        }
-    </script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Oswald:300,700" rel="stylesheet">
     <meta name="google-site-verification" content="RJF0Jhe0QhWiDFeHN9rhO1UpEMG0RUXGATG7nfS8xFM" />
 </head>
@@ -25,7 +20,7 @@
     @yield('content')
     @include('front.partials.footer')
 </div>
-<script src="{{ elixir('js/front.js') }}"></script>
+<script src="{{ mix('js/front.js') }}"></script>
 @yield('bodyscripts')
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
