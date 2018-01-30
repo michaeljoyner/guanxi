@@ -14,3 +14,4 @@ workspace.xml
 /public/css/**/*
 /public/build
 /public/sitemap.xml
+/public/mix-manifest.json
