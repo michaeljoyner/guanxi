@@ -63,7 +63,11 @@
             @endif
         </section>
         <section class="article-comments">
-            @include('front.articles.disqussnippet')
+            <div id="disqus_thread"></div>
         </section>
     </article>
+@endsection
+
+@section('bodyscripts')
+    @include('front.articles.disqussnippet')
 @endsection
