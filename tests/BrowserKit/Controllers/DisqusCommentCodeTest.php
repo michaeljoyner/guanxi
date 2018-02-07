@@ -61,7 +61,7 @@ class DisqusCommentCodeTest extends BrowserKitTestCase
 
         $this->visit('/admin/preview/articles/' . $article->id)
             ->seePageIs('/admin/preview/articles/' . $article->id)
-            ->dontSee('<div id="disqus_thread">');
+            ->dontSee('var disqus_config');
     }
 
     /**

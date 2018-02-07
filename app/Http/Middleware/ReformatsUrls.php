@@ -21,7 +21,7 @@ class ReformatsUrls
         collect($url_fields)->reject(function($field) {
             return $field === 'email';
         })->each(function($field) use ($request) {
-            if($request->has($field)) {
+            if($request->has($field) && ($request->{$field} !== '')) {
                 $formatted =[$field => FormattedUrl::from($request->{$field}, $field !== 'website')];
                 $request->merge($formatted);
             }

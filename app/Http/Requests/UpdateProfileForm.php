@@ -24,7 +24,7 @@ class UpdateProfileForm extends FormRequest
     public function rules()
     {
         $social = collect(config('social.allowed_platforms'))->flatMap(function($platform) {
-            return $platform === 'email' ?  [$platform => 'email'] : [$platform => 'url'];
+            return $platform === 'email' ?  [$platform => 'email|nullable'] : [$platform => 'url|nullable'];
         })->toArray();
         return array_merge([
             'name' => 'required|max:255'
