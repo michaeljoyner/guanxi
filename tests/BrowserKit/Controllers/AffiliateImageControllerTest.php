@@ -13,6 +13,7 @@ class AffiliateImageControllerTest extends BrowserKitTestCase
      */
     public function an_uploaded_image_is_properly_stored_on_the_affiliate()
     {
+        $this->disableExceptionHandling();
         $this->asLoggedInUser();
         $affiliate = factory(Affiliate::class)->create();
 

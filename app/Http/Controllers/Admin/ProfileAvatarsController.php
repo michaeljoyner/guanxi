@@ -14,7 +14,5 @@ class ProfileAvatarsController extends Controller
     public function store(ImageUploadRequest $request, Profile $profile)
     {
         $image = $profile->setAvatar($request->file('file'));
-
-        return $image;
     }
 }

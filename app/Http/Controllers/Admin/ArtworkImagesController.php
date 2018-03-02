@@ -13,6 +13,6 @@ class ArtworkImagesController extends Controller
 {
     public function store(ImageUploadRequest $request, Artwork $artwork)
     {
-        return $artwork->setMainImage($request->file('file'));
+        $artwork->setMainImage($request->file('file'));
     }
 }

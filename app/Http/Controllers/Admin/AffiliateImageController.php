@@ -13,6 +13,6 @@ class AffiliateImageController extends Controller
 {
     public function store(ImageUploadRequest $request, Affiliate $affiliate)
     {
-        return $affiliate->setImage($request->file('file'));
+        $affiliate->setImage($request->file('file'));
     }
 }

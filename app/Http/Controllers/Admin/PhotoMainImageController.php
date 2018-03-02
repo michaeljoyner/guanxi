@@ -13,6 +13,6 @@ class PhotoMainImageController extends Controller
 {
     public function store(ImageUploadRequest $request, Photo $photo)
     {
-        return $photo->setMainImage($request->file('file'));
+        $photo->setMainImage($request->file('file'));
     }
 }

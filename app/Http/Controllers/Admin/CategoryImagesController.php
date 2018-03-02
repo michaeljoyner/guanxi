@@ -15,7 +15,5 @@ class CategoryImagesController extends Controller
         $this->validate($request, ['file' => 'required|image']);
 
         $image = $category->setImage($request->file('file'));
-
-        return $image;
     }
 }
