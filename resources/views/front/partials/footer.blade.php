@@ -9,10 +9,7 @@
             <p class="contact-detail">+886 (0) 989 654 345</p>
             <p class="contact-detail">email@guanxi.com</p>
             <div class="footer-social-icons">
-                <a href="https://twitter.com/home?status=">
-                    @include('svgicons.social.twitter')
-                </a>
-                <a href="https://www.facebook.com/">
+                <a href="https://www.facebook.com/GuanXiMedia/">
                     @include('svgicons.social.facebook')
                 </a>
                 <a href="">
