@@ -7,12 +7,12 @@ use App\IsPublishable;
 use App\People\Profile;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
-class Photo extends Model implements HasMediaConversions
+class Photo extends Model implements HasMedia
 {
     use HasTranslations, HasMediaTrait, HasModelImage, IsPublishable, HasContributor, HasMainImage, HasGalleryImages;
 
@@ -26,7 +26,7 @@ class Photo extends Model implements HasMediaConversions
 
     protected $casts = ['published' => 'boolean'];
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(?Media $media = null)
     {
         $this->addMediaConversion('thumb')
              ->fit(Manipulations::FIT_CROP, 250, 200)

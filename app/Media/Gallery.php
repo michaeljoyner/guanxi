@@ -4,17 +4,17 @@ namespace App\Media;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 
-class Gallery extends Model implements HasMediaConversions
+class Gallery extends Model implements HasMedia
 {
     use HasMediaTrait;
 
     protected $table = 'galleries';
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(?Media $media = null)
     {
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 200, 200)

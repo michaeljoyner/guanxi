@@ -8,12 +8,12 @@ use App\Social\HasSocialLinks;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
-use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
-class Affiliate extends Model implements HasMediaConversions
+class Affiliate extends Model implements HasMedia
 {
     use Sluggable, HasTranslations, HasSocialLinks, HasMediaTrait, HasModelImage, IsPublishable;
 
@@ -42,7 +42,7 @@ class Affiliate extends Model implements HasMediaConversions
         ];
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(?Media $media = null)
     {
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 200, 160)

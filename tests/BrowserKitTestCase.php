@@ -24,6 +24,8 @@ abstract class BrowserKitTestCase extends \Laravel\BrowserKitTesting\TestCase
 
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
+        \Illuminate\Support\Facades\Hash::setRounds(4);
+
         return $app;
     }
 
