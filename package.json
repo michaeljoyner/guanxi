@@ -17,7 +17,7 @@
     "jquery": "^3.1.0",
     "laravel-mix": "^2.0.0",
     "lodash": "^4.16.2",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.10",
     "sass-loader": "^6.0.6",
     "vue": "^2.5.13",
     "vue-loader": "^13.7.0",

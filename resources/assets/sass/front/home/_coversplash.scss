@@ -26,11 +26,14 @@ section.cover-splash {
     line-height: 1.2;
 
     @include respond-to(phone) {
-      font-size: 3em;
-      left: 15px;
-      width: 95%;
+      font-size: 2em;
+      left: 0;
+      width: 100%;
+      padding: 0 8px;
       margin: 0 auto;
-      position: static;
+      position: relative;
+      top: 10%;
+      text-align: center;
     }
   }
 
@@ -47,6 +50,10 @@ section.cover-splash {
     font-weight: 700;
     letter-spacing: 1px;
     transition: .5s;
+
+    @include respond-to(phone) {
+      font-size: 1rem;
+    }
 
     &:hover {
       transform: translateX(-50%) scale(1.1);
