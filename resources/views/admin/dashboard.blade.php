@@ -49,12 +49,12 @@
                 <p>Bios</p>
             </a>
         </div>
-        <div class="nav-action-box">
-            <a href="/admin/affiliates">
-                <img src="/images/icons/affiliate@2x.png" alt="">
-                <p>Affiliates</p>
-            </a>
-        </div>
+        {{--<div class="nav-action-box">--}}
+            {{--<a href="/admin/affiliates">--}}
+                {{--<img src="/images/icons/affiliate@2x.png" alt="">--}}
+                {{--<p>Affiliates</p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
     </div>
     @endif
 @endsection

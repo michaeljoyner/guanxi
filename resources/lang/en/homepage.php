@@ -2,6 +2,7 @@
 
 return [
     'splash'       => [
+        'featured_article' => 'Featured Article',
         'button' => 'Read Article'
     ],
     'articles'     => [

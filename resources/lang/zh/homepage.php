@@ -2,6 +2,7 @@
 
 return [
     'splash' => [
+        'featured_article' => 'Featured Article',
         'button' => '閱覽本文'
     ],
     'articles' => [

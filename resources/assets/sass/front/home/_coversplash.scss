@@ -1,11 +1,37 @@
 section.cover-splash {
+  display: flex;
   width: 100%;
-  height: 40vw;
+  min-height: 40vw;
   position: relative;
   overflow: hidden;
+  background: $brand_dark;
 
-  @include respond-to(phone) {
-    height: 100vw;
+
+
+
+
+  .cover-headline-container {
+    width: 40%;
+    padding: 2rem 2rem;
+    order: 1;
+
+    .title-holder {
+      margin-bottom: 2rem;
+    }
+
+    .title {
+      color: $brand_soft_purple;
+      text-transform: uppercase;
+      border-bottom: 4px solid $brand_soft_purple;
+      padding-bottom: 10px;
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  .cover-image-container {
+    width: 60%;
+    order: 2;
   }
 
   img {
@@ -17,34 +43,36 @@ section.cover-splash {
   }
 
   .cover-headline {
-    position: absolute;
-    top: 10%;
-    left: 100px;
-    width: 8em;
-    font-size: 3.5em;
-    margin: 0;
-    line-height: 1.2;
+    //position: absolute;
+    //top: 10%;
+    //left: 100px;
+    //width: 8em;
+    font-size: 2.75em;
+    //margin: 0;
+    //line-height: 1.2;
 
     @include respond-to(phone) {
       font-size: 2em;
       left: 0;
       width: 100%;
-      padding: 0 8px;
       margin: 0 auto;
-      position: relative;
-      top: 10%;
-      text-align: center;
+      //position: relative;
+      //top: 10%;
+      //text-align: center;
     }
   }
 
   .cover-link {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
-    border: 4px solid $white;
+    //position: absolute;
+    //left: 50%;
+    //transform: translateX(-50%);
+    //bottom: 30px;
+    margin-top: 2rem;
+    display: inline-block;
+    border: 4px solid $brand_soft_purple;
+    color: $brand_soft_purple;
     padding: 4px 8px;
-    font-size: 1.5em;
+    font-size: 1em;
     font-family: $heavy_text;
     text-transform: uppercase;
     font-weight: 700;
@@ -56,7 +84,36 @@ section.cover-splash {
     }
 
     &:hover {
-      transform: translateX(-50%) scale(1.1);
+      //transform: translateX(-50%) scale(1.1);
+      color: $brand_purple;
+      border-color: $brand_purple;
     }
   }
+}
+
+@media screen and (max-width: 800px) {
+  section.cover-splash {
+    background: none;
+    .cover-headline-container {
+      padding: 2rem 2rem;
+      order: 2;
+      margin: 2rem 1rem;
+      background: rgba(0,0,0,.7);
+      width: 100%;
+
+
+    }
+
+    .cover-image-container {
+      width: 100%;
+      order: 1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
 }

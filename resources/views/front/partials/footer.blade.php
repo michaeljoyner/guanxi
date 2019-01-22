@@ -6,14 +6,11 @@
     <div class="footer-column contact-column">
         <div class="footer-column-block">
             <p class="footer-header">Contact</p>
-            <p class="contact-detail">+886 (0) 989 654 345</p>
+            <p class="contact-detail">+886 (0) 958 715 550</p>
             <p class="contact-detail">email@guanxi.com</p>
             <div class="footer-social-icons">
                 <a href="https://www.facebook.com/GuanXiMedia/">
                     @include('svgicons.social.facebook')
-                </a>
-                <a href="">
-                    @include('svgicons.social.instagram')
                 </a>
             </div>
         </div>

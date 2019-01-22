@@ -50,7 +50,7 @@
                 {{--<li><a href="/admin/social">Social</a></li>--}}
                 <li><a href="/admin/profiles">{{ Auth::user()->isSuperAdmin() ? 'Contributors' : 'My Profile' }}</a></li>
                 @if(Auth::user()->isSuperAdmin())
-                    <li><a href="/admin/affiliates">Affiliates</a></li>
+                    {{--<li><a href="/admin/affiliates">Affiliates</a></li>--}}
                     <li><a href="/admin/pages/about">About Page</a></li>
                 @endif
 

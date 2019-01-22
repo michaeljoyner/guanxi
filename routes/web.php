@@ -31,9 +31,6 @@ Route::group(['prefix' => Localization::setLocale()], function()
     Route::get('bios', 'BiosController@index');
     Route::get('bios/{slug}', 'BiosController@show');
 
-    Route::get('affiliates', 'AffiliatesController@index');
-    Route::get('affiliates/{affiliate}', 'AffiliatesController@show');
-
     Route::get('galleries', 'GalleriesController@index');
     Route::get('galleries/photos', 'GalleriesController@photos');
     Route::get('galleries/art', 'GalleriesController@art');
@@ -132,16 +129,16 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
     Route::get('content/tags', 'TagsController@index')->middleware('superadmin');
 
-    Route::get('affiliates', 'AffiliatesController@index')->middleware('superadmin');
-    Route::get('affiliates/{affiliate}', 'AffiliatesController@show')->middleware('superadmin');
-    Route::get('affiliates/{affiliate}/edit', 'AffiliatesController@edit')->middleware('superadmin');
-    Route::post('affiliates', 'AffiliatesController@store')->middleware(['superadmin', 'url.reformatter']);
-    Route::post('affiliates/{affiliate}', 'AffiliatesController@update')
-        ->middleware(['superadmin', 'url.reformatter']);
-    Route::delete('affiliates/{affiliate}', 'AffiliatesController@delete')->middleware('superadmin');
-
-    Route::post('affiliates/{affiliate}/publish', 'AffiliatePublishingController@update');
-    Route::post('affiliates/{affiliate}/image', 'AffiliateImageController@store');
+//    Route::get('affiliates', 'AffiliatesController@index')->middleware('superadmin');
+//    Route::get('affiliates/{affiliate}', 'AffiliatesController@show')->middleware('superadmin');
+//    Route::get('affiliates/{affiliate}/edit', 'AffiliatesController@edit')->middleware('superadmin');
+//    Route::post('affiliates', 'AffiliatesController@store')->middleware(['superadmin', 'url.reformatter']);
+//    Route::post('affiliates/{affiliate}', 'AffiliatesController@update')
+//        ->middleware(['superadmin', 'url.reformatter']);
+//    Route::delete('affiliates/{affiliate}', 'AffiliatesController@delete')->middleware('superadmin');
+//
+//    Route::post('affiliates/{affiliate}/publish', 'AffiliatePublishingController@update');
+//    Route::post('affiliates/{affiliate}/image', 'AffiliateImageController@store');
 
     Route::get('media/videos', 'VideosController@index');
     Route::get('media/videos/{video}', 'VideosController@show')->middleware('can:act,video');

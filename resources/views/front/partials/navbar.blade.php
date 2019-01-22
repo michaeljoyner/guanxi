@@ -57,9 +57,9 @@
             <li class="bios-nav nav-item @activenav('bios')">
                 <a href="{{ localUrl('/bios') }}">{{ trans('navbar.bios') }}</a>
             </li>
-            <li class="affiliates-nav nav-item">
-                <a href="{{ localUrl('/affiliates') }}">{{ trans('navbar.affiliates') }}</a>
-            </li>
+            {{--<li class="affiliates-nav nav-item">--}}
+                {{--<a href="{{ localUrl('/affiliates') }}">{{ trans('navbar.affiliates') }}</a>--}}
+            {{--</li>--}}
             @foreach(Localization::getSupportedLocales() as $localeCode => $properties)
                 @if($localeCode !== Localization::getCurrentLocale())
                     <li class="nav-item">

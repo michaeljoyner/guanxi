@@ -8,7 +8,7 @@
     ])
     @if($featured)
     <style>
-        .cover-splash {
+        .cover-splash .cover-image-container {
             background: url({{ $featured->titleImg('large') }});
             background-size: cover;
             background-position: center;
@@ -19,10 +19,19 @@
 
 @section('content')
     <section class="cover-splash">
+        <div class="cover-headline-container">
+            <div class="title-holder">
+                <span class="heavy-text purple-text title">{{ trans('homepage.splash.featured_article') }}</span>
+            </div>
+            <h1 class="cover-headline heavy-heading white-text">{{ $featured->getTranslation('title', Localization::getCurrentLocale()) }}</h1>
+            <a href="{{ localUrl('/articles/' . $featured->slug) }}" class="cover-link"><span class="">{{ trans('homepage.splash.button') }}</span></a>
+        </div>
+        <div class="cover-image-container">
+
+        </div>
         @if($featured)
         {{--<img src="/images/coffee.jpg" alt="Cover image">--}}
-        <h1 class="cover-headline heavy-heading white-text">{{ $featured->getTranslation('title', Localization::getCurrentLocale()) }}</h1>
-        <a href="{{ localUrl('/articles/' . $featured->slug) }}" class="cover-link"><span class="white-text">{{ trans('homepage.splash.button') }}</span></a>
+
         @endif
     </section>
     <section class="page-section articles-section">
