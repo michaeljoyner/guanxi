@@ -2,7 +2,7 @@
 
 return [
     'splash' => [
-        'featured_article' => '專題文章',
+        'featured_article' => '精選文章',
         'button' => '閱覽本文'
     ],
     'articles' => [
