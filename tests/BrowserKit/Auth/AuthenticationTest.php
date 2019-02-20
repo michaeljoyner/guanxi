@@ -26,17 +26,5 @@ class AuthenticationTest extends BrowserKitTestCase
         $this->assertEquals(Auth::user()->id, $user->id);
     }
 
-    /**
-     *@test
-     */
-    public function a_logged_in_user_can_log_out()
-    {
-        $user = factory(User::class)->create(['email' => 'joe@example.com', 'password' => 'password']);
-        $this->actingAs($user);
 
-        $this->visit('/admin/logout')
-            ->seePageIs('/');
-
-        $this->assertFalse(Auth::check());
-    }
 }
