@@ -67,5 +67,5 @@
         </div>
         <a href="{{ localUrl('/bios') }}" class="section-cta dd-btn block">{{ trans('homepage.contributors.button') }}</a>
     </section>
-    
+
 @endsection
