@@ -67,13 +67,5 @@
         </div>
         <a href="{{ localUrl('/bios') }}" class="section-cta dd-btn block">{{ trans('homepage.contributors.button') }}</a>
     </section>
-    {{--<section class="page-section affiliates-section">--}}
-        {{--<h1 class="section-heading heavy-heading centered-text">{{ trans('homepage.affiliates.heading') }}</h1>--}}
-        {{--<div class="affiliate-cards card-grid">--}}
-            {{--@foreach($affiliates as $affiliate)--}}
-                {{--@include('front.home.affiliatecard')--}}
-            {{--@endforeach--}}
-        {{--</div>--}}
-        {{--<a href="{{ localUrl('/affiliates') }}" class="section-cta dd-btn block">{{ trans('homepage.affiliates.button') }}</a>--}}
-    {{--</section>--}}
+    
 @endsection
