@@ -20,8 +20,7 @@ class PagesController extends Controller
         $articles = $articles->homePageArticles();
         $videos = $media->latestVideos();
         $profiles = Profile::where('published', 1)->latest()->limit(6)->get();
-        $affiliates = Affiliate::where('published', 1)->latest()->limit(8)->get();
-        return view('front.home.page')->with(compact('featured', 'articles', 'medias', 'videos', 'profiles', 'affiliates'));
+        return view('front.home.page')->with(compact('featured', 'articles', 'videos', 'profiles'));
     }
 
     public function about()
