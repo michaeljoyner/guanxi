@@ -36,7 +36,7 @@ class WeatherService
             return $this->clearLocationFromCache($location);
         }
 
-        cache()->put('weather:' . strtolower($location), (array) $this->covertToArray($response->current), 245);
+        cache()->put('weather:' . strtolower($location), (array) $this->covertToArray($response->current), 24000);
     }
 
     protected function hasErrorResponse($response)
