@@ -4,11 +4,13 @@
 namespace App;
 
 
+use Illuminate\Support\Str;
+
 class FormattedUrl
 {
     public static function from($url, $secure = false)
     {
-        if(str_contains($url, '://')) {
+        if(Str::contains($url, '://')) {
             return $url;
         }
         return ($secure ? 'https://' : 'http://') . $url;

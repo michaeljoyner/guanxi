@@ -1,4 +1,4 @@
-@if(! str_contains(Request::path(), 'admin/preview/articles'))
+@if(! \Illuminate\Support\Str::contains(Request::path(), 'admin/preview/articles'))
 <script>
 
 

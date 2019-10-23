@@ -4,6 +4,8 @@
 namespace App\Media\EmbeddedVideo;
 
 
+use Illuminate\Support\Str;
+
 class YoutubeVideo implements EmbeddedVideo
 {
     private $link;
@@ -66,7 +68,7 @@ class YoutubeVideo implements EmbeddedVideo
 
     private function trimToVAttributeValue($urlPart)
     {
-        if (str_contains($urlPart, 'v=')) {
+        if (Str::contains($urlPart, 'v=')) {
             return substr($urlPart, strpos($urlPart, 'v=') + 2);
         }
 
