@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\CacheWeather;
 use App\Console\Commands\GenerateSiteMap;
+use App\Console\Commands\MergeLifestyleIntoCulture;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         CacheWeather::class,
-        GenerateSiteMap::class
+        GenerateSiteMap::class,
+        MergeLifestyleIntoCulture::class,
     ];
 
     /**
