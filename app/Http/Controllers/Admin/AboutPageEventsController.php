@@ -13,7 +13,7 @@ class AboutPageEventsController extends AboutPageContentController
 {
     public function edit()
     {
-        return $this->sectionEditingView(AboutPage::events(true), 'events');
+        return $this->sectionEditingView(AboutPage::eventsText(true), 'events');
     }
 
     public function update(AboutPageForm $request)
