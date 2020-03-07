@@ -8,6 +8,7 @@ Homestead.yaml
 .idea/
 .idea/workspace.xml
 .DS_Store
+.phpunit.result.cache
 workspace.xml
 /public/media/**/*
 /public/js/**/*
