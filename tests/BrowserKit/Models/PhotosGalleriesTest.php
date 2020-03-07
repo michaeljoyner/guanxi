@@ -64,7 +64,7 @@ class PhotosGalleriesTest extends BrowserKitTestCase
         $images = $photo->galleryImages();
 
         $this->assertCount(2, $images);
-        $this->assertContains('testpic1', $images->first()->getPath());
-        $this->assertContains('testpic2', $images->last()->getPath());
+        $this->assertStringContainsString('testpic1', $images->first()->getPath());
+        $this->assertStringContainsString('testpic2', $images->last()->getPath());
     }
 }

@@ -45,7 +45,7 @@ class ApiArticleFeaturedImageControllerTest extends BrowserKitTestCase
         $this->assertArrayHasKey('thumb', json_decode($response->getContent(), true));
 
         $article = $article->fresh();
-        $this->assertContains('featured.png', $article->featuredImage()->getPath());
+        $this->assertStringContainsString('featured.png', $article->featuredImage()->getPath());
         $article->clearMediaCollection();
     }
 

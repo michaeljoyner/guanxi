@@ -34,12 +34,12 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
         $this->app->instance(ExceptionHandler::class, new class extends Handler {
             public function __construct() {}
 
-            public function report(\Exception $e)
+            public function report(\Throwable $e)
             {
                 // no-op
             }
 
-            public function render($request, \Exception $e) {
+            public function render($request, \Throwable $e) {
                 throw $e;
             }
 

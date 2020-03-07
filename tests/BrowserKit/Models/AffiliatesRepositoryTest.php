@@ -8,7 +8,7 @@ class AffiliatesRepositoryTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

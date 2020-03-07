@@ -32,7 +32,7 @@ class ApiArticlePagesControllerTest extends BrowserKitTestCase
         $html = json_decode($this->response->getContent(), true)['content_html'];
 
         foreach(range(10,18) as $item) {
-            $this->assertContains('Title number ' . $item, $html);
+            $this->assertStringContainsString('Title number ' . $item, $html);
         }
     }
 
@@ -59,7 +59,7 @@ class ApiArticlePagesControllerTest extends BrowserKitTestCase
         $html = json_decode($this->response->getContent(), true)['content_html'];
 
         foreach(range(19,24) as $item) {
-            $this->assertContains('Title number ' . $item, $html);
+            $this->assertStringContainsString('Title number ' . $item, $html);
         }
     }
 }

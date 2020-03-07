@@ -11,7 +11,7 @@ class BiosRepositoryTest extends BrowserKitTestCase
 
     protected $repo;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

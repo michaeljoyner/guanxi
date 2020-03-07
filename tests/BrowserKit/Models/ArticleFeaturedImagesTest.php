@@ -22,7 +22,7 @@ class ArticleFeaturedImagesTest extends BrowserKitTestCase
         $article = $article->fresh();
 
         $this->assertEquals($image->id, $article->featuredImage()->id);
-        $this->assertContains('featured.png', $article->featuredImage()->getPath());
+        $this->assertStringContainsString('featured.png', $article->featuredImage()->getPath());
 
         $article->clearMediaCollection();
     }
