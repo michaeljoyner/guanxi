@@ -1,4 +1,4 @@
-module.exports = class Upload {
+export default class Upload {
 
     constructor(name, status) {
         this.name = name;

@@ -46,7 +46,7 @@ class ArtworksController extends Controller
 
         $this->flasher->success('Album Created', 'Your art gallery has been created. Go wild.');
 
-        return redirect('admin/media/artworks/' . $artwork->id);
+        return ['redirect' => '/admin/media/artworks/' . $artwork->id];
     }
 
     public function edit(Artwork $artwork)

@@ -1,30 +1,28 @@
 @extends('admin.base')
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">{{ $user->name }}</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/users/{{ $user->id }}" class="btn dd-btn btn-light">Back to User</a>
-        </div>
-    </section>
+    <x-page-header :title="$user->name">
+        <a href="/admin/users/{{ $user->id }}" class="btn dd-btn btn-light">Back to User</a>
+    </x-page-header>
+
     <section class="edit-user-form-container">
-        <form action="/admin/users/{{ $user->id }}" class="dd-form form-horizontal" method="POST">
+        <form action="/admin/users/{{ $user->id }}" class="max-w-md" method="POST">
             {!! csrf_field() !!}
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+            <div class="my-6{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name">Name: </label>
                 @if($errors->has('name'))
                 <span class="error-message">{{ $errors->first('name') }}</span>
                 @endif
-                <input type="text" name="name" value="{{ old('name') ?? $user->name }}" class="form-control">
+                <input type="text" name="name" value="{{ old('name') ?? $user->name }}" class="input-text">
             </div>
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <div class="my-6{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="email">Email: </label>
                 @if($errors->has('email'))
                 <span class="error-message">{{ $errors->first('email') }}</span>
                 @endif
-                <input type="email" name="email" value="{{ old('email') ?? $user->email }}" class="form-control">
+                <input type="email" name="email" value="{{ old('email') ?? $user->email }}" class="input-text">
             </div>
-            <div class="form-group">
+            <div class="my-6">
                 <label for="">User Role: </label>
                 <div class="user-roles">
                     @foreach($roles as $role)
@@ -41,7 +39,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="form-group">
+            <div class="my-6">
                 <button type="submit" class="btn dd-btn btn-dark">Save Changes</button>
             </div>
         </form>

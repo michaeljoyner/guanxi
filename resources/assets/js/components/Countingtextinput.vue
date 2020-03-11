@@ -1,12 +1,8 @@
-<style>
-
-</style>
-
 <template>
-    <div class="form-group char-counting-input" :class="{'has-error': hasError}">
+    <div>
         <label :for="fieldName">{{ label }}: </label>
         <span v-if="errorMessage" class="error-message">{{ errorMessage }}</span>
-        <textarea :name="fieldName" class="form-control" v-model="field_value"></textarea>
+        <textarea :name="fieldName" class="input-text h-32" :class="{'border-red': hasError}" v-model="field_value"/>
         <div class="usage-notification-bar">
             <p>
                 <strong>Character Usage: </strong>
@@ -14,12 +10,12 @@
                 {{ usageNote }}
             </p>
         </div>
-        <span class="char-count-bar-outer">
-            <span class="char-count-bar-inner"
-                  :class="{'lacking': tooShort, 'sweetspot': justRight, 'overkill': tooLong}"
+        <div class="h-4 w-48 relative">
+            <span class="absolute left-0 h-4 inset-y"
+                  :class="{'bg-darkorange': tooShort, 'bg-springgreen': justRight, 'bg-danger': tooLong}"
                   :style="{ width: usedWidth }"
-            ></span>
-        </span>
+            />
+        </div>
     </div>
 </template>
 

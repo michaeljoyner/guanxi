@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <template>
     <div class="dd-lightbox card-image-holder" :class="{'open': open}">
         <div class="close-lightbox-btn" @click="open = false">&times;</div>

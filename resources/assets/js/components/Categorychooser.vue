@@ -1,28 +1,20 @@
-<style></style>
-
 <template>
-    <div class="article-category-selector col-md-12">
-        <p class="h6 text-uppercase">Categories</p>
-        <div class="category-options">
-            <div v-for="category in categories" class="category-choice">
+    <div class="my-12 p-4 shadow">
+        <p class="text-sm uppercase text-brand-purple">Categories</p>
+        <div class="flex my-6">
+            <div v-for="category in categories" class="mr-6">
                 <input class="dd-labelled-checkbox" type="checkbox" v-on:change="sync" :value="category.id" :id="category.id" v-model="selected_categories">
                 <label class="dd-checkbox-label" :for="category.id">{{ category.name }}</label>
             </div>
         </div>
-        <div class="article-category-selector-footer">
-            <div class="syncing-indicator">
-                <div class="spinner" v-show="syncing">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </template>
 
 <script type="text/babel">
-    module.exports = {
+    import {alertError} from "../utils/alerts";
+
+    export default {
 
         props: ['current-categories', 'article-id'],
 
@@ -42,7 +34,7 @@
             fetchCategories() {
                 axios.get('/admin/api/content/categories')
                         .then(({data}) => this.setupChoices(data))
-                        .catch((err) => console.log('error occured'))
+                        .catch(() => alertError("Failed to fetch categories."))
             },
 
             setupChoices(categories) {
@@ -54,7 +46,7 @@
                 this.syncing = true;
                 axios.post(`/admin/api/content/articles/${this.articleId}/categories`, {categories: this.selected_categories})
                         .then(({data}) => this.syncSuccess(data.article_categories))
-                        .catch((err) => console.log(err));
+                        .catch(() => alertError("Failed to sync categories."));
             },
 
             syncSuccess(ids) {

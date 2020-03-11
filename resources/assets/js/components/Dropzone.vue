@@ -1,9 +1,5 @@
-<style>
-
-</style>
-
 <template>
-    <div class="drop-area"
+    <div class="drop-area h-40"
          v-on:drop.prevent="handleFiles"
          v-on:dragenter.prevent="hover=true"
          v-on:dragover.prevent="hover=true"
@@ -19,7 +15,7 @@
                             v-bind:class="{'failed': upload.status === 'failed'}"
                     >
                         <span class="upload-progress-bar"
-                              v-bind:style="{width: upload.progress + '%'}"></span>
+                              v-bind:style="{width: upload.progress + '%'}"/>
                         {{ upload.name }}
                     </p>
                 </li>
@@ -29,8 +25,9 @@
 </template>
 
 <script type="text/babel">
-    let Upload = require('./Upload.js');
-    module.exports = {
+    import Upload from "./Upload";
+
+    export default  {
 
         props: ['url'],
 

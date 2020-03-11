@@ -1,0 +1,44 @@
+.dd-btn {
+  @apply inline-block px-8 py-1 bg-brand-purple text-white rounded shadow;
+
+  &:hover {
+    @apply bg-brand-soft-purple;
+  }
+
+
+  &.btn-wide {
+    @apply w-full;
+  }
+}
+
+.dd-btn.btn-tiny {
+  @apply text-xs px-2 py-1 uppercase;
+}
+
+.dd-btn.btn-red {
+  @apply bg-primary-red text-white;
+}
+
+.dd-btn.btn-dark {
+  @apply bg-primary-dark text-white border border-primary-dark;
+
+  &:hover {
+    @apply bg-white text-primary-dark;
+  }
+}
+
+.dd-btn.btn-light {
+  @apply border border-primary-blue text-primary-blue bg-white;
+}
+
+.dd-btn.btn-grey {
+  @apply border border-text-grey text-text-grey bg-white;
+}
+
+.dd-btn.btn-clear-danger {
+  @apply border border-danger text-danger bg-white;
+}
+
+.dd-btn.btn-solid-danger {
+  @apply border border-danger text-white bg-danger;
+}

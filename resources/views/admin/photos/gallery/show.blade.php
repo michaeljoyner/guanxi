@@ -1,12 +1,10 @@
 @extends('admin.base')
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">{{ $photo->title }}</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/media/photos/{{ $photo->id }}" class="btn dd-btn btn-light">Back to Photo</a>
-        </div>
-    </section>
+    <x-page-header :title="$photo->title">
+        <a href="/admin/media/photos/{{ $photo->id }}" class="btn dd-btn btn-light">Back to Photo</a>
+    </x-page-header>
+
     <section class="photo-show-gallery gallery-container">
         <dropzone url="/admin/api/media/photos/{{ $photo->id }}/gallery/images">
         </dropzone>

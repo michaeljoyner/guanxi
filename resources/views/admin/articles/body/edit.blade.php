@@ -6,12 +6,10 @@
 @endsection
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">{{ $article->getTranslation('title', $lang) }}</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/content/articles/{{ $article->id }}" class="btn btn-light dd-btn">Article Overview</a>
-        </div>
-    </section>
+    <x-page-header :title="$article->title">
+        <a href="/admin/content/articles/{{ $article->id }}" class="btn-light dd-btn">Back to Article</a>
+    </x-page-header>
+
 
     <editor post-id="{{ $article->id }}"
             post-content='{{ in_array($lang, $article->getTranslatedLocales('body')) ? $article->getTranslation('body', $lang) : "" }}'

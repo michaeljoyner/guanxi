@@ -31,11 +31,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             return $view->with(compact('trendingArticles'));
         });
 
-        View::composer('admin.forms.modals.usermodal', function($view) {
-            $roles = collect([Role::superadmin(), Role::editor()]);
 
-            return $view->with(compact('roles'));
-        });
     }
 
     /**

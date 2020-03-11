@@ -1,5 +1,3 @@
-<style></style>
-
 <template>
     <div class="loaded-content">
         <button @click="fetchContent" v-show="remaining" class="dd-btn block" :class="{'alt-state': fetching}">

@@ -20,7 +20,10 @@ class TagsController extends Controller
 
     public function delete(Request $request)
     {
-        $this->validate($request, ['tags' => 'required|array', 'tags.*' => 'integer|exists:tags,id']);
+        request()->validate([
+            'tags' => ['required','array'],
+            'tags.*' => ['integer', 'exists:tags,id']
+        ]);
 
         Tag::deleteBatch($request->tags);
 

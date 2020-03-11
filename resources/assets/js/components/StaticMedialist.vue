@@ -1,5 +1,3 @@
-<style></style>
-
 <template>
     <div class="card-grid loaded-content">
         <div class="media-image-card four-piece" v-for="album in albums">

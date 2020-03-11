@@ -2,11 +2,9 @@
 
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Select a Featured Image</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/content/articles/{{ $article->id }}" class="btn dd-btn btn-dark">Back to Article</a>
-        </div>
-    </section>
-    <featured-images post-id="{{ $article->id }}"></featured-images>
+    <x-page-header title="Select the title image">
+        <a href="/admin/content/articles/{{ $article->id }}" class="dd-btn btn-light">Back to Article</a>
+    </x-page-header>
+
+    <featured-images article-title="{{ $article->title }}" post-id="{{ $article->id }}"></featured-images>
 @endsection

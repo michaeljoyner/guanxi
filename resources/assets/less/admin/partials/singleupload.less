@@ -1,0 +1,47 @@
+.single-image-uploader-box {
+
+  .profile-image {
+    @apply w-48 h-48 mx-auto block border-2 border-brand-soft-purple max-w-full;
+
+    &.processing {
+      filter: grayscale(100%);
+    }
+
+    &.large {
+      @apply w-80 h-80;
+    }
+
+    &.full {
+      @apply w-full h-auto;
+      min-height: 200px;
+    }
+
+    &.round {
+      @apply rounded-full;
+    }
+  }
+
+  .single-upload-label {
+    @apply block;
+  }
+
+  input[type=file] {
+    @apply hidden w-full;
+  }
+
+  .upload-message {
+    @apply text-primary-dark bg-eggshell py-1 px-2 rounded block max-w-full w-80 mx-auto text-center mt-2;
+
+    &.error {
+      @apply text-white bg-danger;
+    }
+  }
+
+  .upload-progress-container {
+    @apply w-64 max-w-full h-4 border border-primary-dark relative block mx-auto;
+
+    .upload-progress-bar {
+      @apply absolute inset-0 bg-primary-blue;
+    }
+  }
+}

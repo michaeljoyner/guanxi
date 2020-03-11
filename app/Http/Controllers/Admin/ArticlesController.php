@@ -53,7 +53,7 @@ class ArticlesController extends Controller
 
         $article = $request->user()->createArticle($request->title, $request->lang);
 
-        return redirect('/admin/content/articles/' . $article->id . '/body/' . $request->lang . '/edit');
+        return ['redirect' => '/admin/content/articles/' . $article->id . '/body/' . $request->lang . '/edit'];
     }
 
     public function update(UpdateArticleMetaInfoForm $request, Article $article)

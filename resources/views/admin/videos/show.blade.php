@@ -1,61 +1,59 @@
 @extends('admin.base')
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">{{ $video->title }}</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/media/videos/{{ $video->id }}/edit" class="btn dd-btn btn-light">Edit</a>
-            @include('admin.partials.deletebutton', [
-                'objectName' => $video->title,
-                'deleteFormAction' => '/admin/media/videos/' . $video->id
-            ])
-        </div>
-    </section>
-    <section class="video-show-page">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="lead">Should this be public?</p>
-                <toggle-switch identifier="1"
-                               true-label="yes"
-                               false-label="no"
-                               :initial-state="{{ $video->published ? 'true' : 'false' }}"
-                               toggle-url="/admin/media/videos/{{ $video->id }}/publish"
-                               toggle-attribute="publish"
-                ></toggle-switch>
-                <p class="field-label">Title</p>
-                <p>{{ $video->getTranslation('title', 'en') }}</p>
-                <p class="field-label">Chinese Title</p>
-                <p>{{ $video->getTranslation('title', 'zh') }}</p>
-                <contributor-selector initial-name="{{ $video->contributor->name }}"
-                                      initial-thumbnail="{{ $video->contributor->avatar('thumb') }}"
-                                      initial-intro="{{ $video->contributor->getTranslation('intro', 'en') }}"
-                                      :can-update="true"
-                                      article-id="{{ $video->id }}"
-                                      url-base="/admin/media/videos/{{ $video->id }}/contributors/"
-                ></contributor-selector>
-            </div>
-            <div class="col-md-6 video-embed-container">
-                {!! $video->embedHtml() !!}
-                <div class="video-poster">
-                    <img src="{{ $video->thumbnail }}" alt="" class="video-thumbnail">
+    <x-page-header :title="$video->title">
+        <a href="/admin/media/videos/{{ $video->id }}/edit" class="btn dd-btn btn-light mx-4">Edit</a>
+        <delete-modal delete-url="/admin/media/videos/{{ $video->id }}"
+                      item="{{ $video->title }}"></delete-modal>
+    </x-page-header>
+
+    <section class="">
+        <div class="flex justify-between mb-20">
+            <div class="w-1/2 px-6">
+                <div class="flex items-center">
+                    <p class="lead">Should this be public?</p>
+                    <toggle-switch identifier="1"
+                                   true-label="yes"
+                                   false-label="no"
+                                   :initial-state="{{ $video->published ? 'true' : 'false' }}"
+                                   toggle-url="/admin/media/videos/{{ $video->id }}/publish"
+                                   toggle-attribute="publish"
+                    ></toggle-switch>
                 </div>
+                <div class="my-8">
+                    <p class="text-sm uppercase text-brand-purple">Title</p>
+                    <p>{{ $video->getTranslation('title', 'en') }}</p>
+                    <p class="text-sm uppercase text-brand-purple">Chinese Title</p>
+                    <p>{{ $video->getTranslation('title', 'zh') }}</p>
+                </div>
+
+
+
+            </div>
+            <div class="w-1/2 px-6">
+                    <img src="{{ $video->thumbnail }}" alt="" class="block mx-auto max-w-full">
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-md-6">
-                <p class="field-label">Description</p>
+        <contributor-selector initial-name="{{ $video->contributor->name }}"
+                              initial-thumbnail="{{ $video->contributor->avatar('thumb') }}"
+                              initial-intro="{{ $video->contributor->getTranslation('intro', 'en') }}"
+                              :can-update="true"
+                              article-id="{{ $video->id }}"
+                              url-base="/admin/media/videos/{{ $video->id }}/contributors/"
+        ></contributor-selector>
+        <div class="flex my-12 justify-between">
+            <div class="w-1/2 px-6">
+                <p class="text-sm uppercase text-brand-purple">Description</p>
                 <p>{!! nl2br($video->getTranslation('description', 'en')) !!}</p>
             </div>
-            <div class="col-md-6">
-                <p class="field-label">Chinese Description</p>
+            <div class="w-1/2 px-6">
+                <p class="text-sm uppercase text-brand-purple">Chinese Description</p>
                 <p>{!! nl2br($video->getTranslation('description', 'zh')) !!}</p>
             </div>
         </div>
+        <div class="my-12 flex justify-center">
+                    {!! $video->embedHtml() !!}
+        </div>
     </section>
-    @include('admin.partials.deletemodal')
-@endsection
-
-@section('bodyscripts')
-    @include('admin.partials.modalscript')
 @endsection

@@ -12,12 +12,17 @@ require('./frontbootstrap');
  * the body of the page. From here, you may begin adding components to
  * the application, or feel free to tweak this setup for your needs.
  */
+import Modal from "@dymantic/modal";
+import Lightbox from "./components/Lightbox";
+import Contactform from "./components/Contactform";
+import Contentloader from "./components/Contentloader";
+import StaticMedialist from "./components/StaticMedialist";
 
-Vue.component('modal', require('./components/Modal.vue'));
-Vue.component('dd-lightbox', require('./components/Lightbox.vue'));
-Vue.component('contact-form', require('./components/Contactform.vue'));
-Vue.component('content-loader', require('./components/Contentloader.vue'));
-Vue.component('media-list', require('./components/StaticMedialist.vue'));
+Vue.component('modal', Modal);
+Vue.component('dd-lightbox', Lightbox);
+Vue.component('contact-form', Contactform);
+Vue.component('content-loader', Contentloader);
+Vue.component('media-list', StaticMedialist);
 
 
 

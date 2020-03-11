@@ -20,7 +20,7 @@ class CategoriesControllerTest extends BrowserKitTestCase
             'zh_name'        => '誒恩',
             'description'    => 'Content about our beloved island',
             'zh_description' => '施粗'
-        ])->assertResponseStatus(302)
+        ])->assertResponseStatus(200)
             ->seeInDatabase('categories', [
                 'name'        => json_encode(['en' => 'Taiwan', 'zh' => '誒恩']),
                 'description' => json_encode(['en' => 'Content about our beloved island', 'zh' => '施粗'])

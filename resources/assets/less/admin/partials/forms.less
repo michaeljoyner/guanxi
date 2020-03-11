@@ -1,0 +1,43 @@
+.dd-form {
+  @apply px-4;
+
+  label {
+    @apply text-soft-purple uppercase text-sm;
+  }
+
+  input[type=text], input[type=email], input[type=password], textarea {
+    @apply rounded-none;
+  }
+
+  textarea {
+    @apply resize-none;
+    max-height: 120px;
+  }
+
+  .dd-tall-textbox {
+    @apply h-64;
+  }
+
+  &.form-narrow {
+    @apply block max-w-sm mx-auto;
+  }
+}
+
+.char-counting-input {
+
+  .usage-count.warn {
+    @apply bg-danger;
+  }
+}
+
+.input-text {
+  @apply p-2 w-full block border rounded;
+}
+
+button:disabled {
+  @apply opacity-50;
+}
+
+.form-label {
+@apply text-soft-purple uppercase text-sm;
+}

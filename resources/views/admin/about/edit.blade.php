@@ -5,13 +5,11 @@
 @endsection
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Edit the {{ $section }} section</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/pages/about" class="btn dd-btn btn-light">Back to About</a>
-        </div>
-    </section>
-    <section class="edit-about-form-container">
+    <x-page-header :title="'Edit ' . $section">
+        <a href="/admin/pages/about" class="btn dd-btn btn-light">Back to About</a>
+    </x-page-header>
+
+    <section class="">
         @include('admin.forms.aboutsection', [
             'section' => $section,
             'enContent' => $content['en'] ?? '',

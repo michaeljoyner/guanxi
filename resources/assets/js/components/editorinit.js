@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     selector: '#post-body',
     plugins: ['link', 'image', 'paste', 'fullscreen'],
     menubar: false,

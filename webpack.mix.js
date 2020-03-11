@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let tailwindcss = require("tailwindcss");
 
 /*
  |--------------------------------------------------------------------------
@@ -13,13 +14,11 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/front.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .sass('resources/assets/sass/fapp.scss', 'public/css')
-   .webpackConfig({
-       resolve: {
-           alias: {
-               '@': path.resolve('resources/assets/sass')
-           }
-       }
+   .less('resources/assets/less/app.less', 'public/css')
+   .less('resources/assets/less/fapp.less', 'public/css')
+   .options({
+       postCss: [
+           tailwindcss('./tailwind.config.js'),
+       ]
    })
    .version();

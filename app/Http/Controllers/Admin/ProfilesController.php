@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\FlashMessaging\Flasher;
 use App\Http\Requests\UpdateProfileForm;
 use App\People\Profile;
+use App\Role;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -35,7 +36,11 @@ class ProfilesController extends Controller
 
     public function show(Profile $profile)
     {
-        return view('admin.profiles.show')->with(compact('profile'));
+        $roles = [
+            'superadmin' => Role::superadmin()->id,
+            'contributor' => Role::editor()->id
+        ];
+        return view('admin.profiles.show')->with(compact('profile', 'roles'));
     }
 
     public function edit(Profile $profile)

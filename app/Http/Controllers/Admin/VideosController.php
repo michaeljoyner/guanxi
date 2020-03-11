@@ -48,18 +48,17 @@ class VideosController extends Controller
         try {
             $attributes = $video->attributes();
         } catch( UnknownPlatformException $unknown) {
-            $this->flasher->error('Unknown Platform', 'Currently only Youtube and Vimeo are supported');
-            return redirect()->back();
+            return ['redirect' => "/admin/media/videos", 'message' => 'Currently only Youtube and Vimeo are supported'];
         } catch ( \Exception $e) {
-            $this->flasher->error('Oh dear, an error', 'There was an error trying to create the video');
-            return redirect()->back();
+            return ['redirect' => "/admin/media/videos", 'message' => 'There was an error trying to create the video'];
+
         }
 
         $videoModel = Video::createWithTranslations($attributes, $request->user()->profile);
 
         $this->flasher->success('Video Added', 'Remember to add your translations');
 
-        return redirect('admin/media/videos/' . $videoModel->id . '/edit');
+        return ['redirect' => "/admin/media/videos/{$videoModel->id}/edit"];
     }
 
     public function edit(Video $video)

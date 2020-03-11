@@ -5,7 +5,7 @@
     @section('title')
         <title>Guanxi | Admin</title>
     @show
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,13 +16,16 @@
         }
     </script>
 </head>
-<body>
-@if(Auth::check())
-    @include('admin.partials.navbar')
-@endif
-<div class="container" id="app">
-    @yield('content')
+<body class="font-sans antialiased text-primary-dark">
+<div id="app">
+    @if(Auth::check())
+        @include('admin.partials.navbar')
+    @endif
+    <div class="max-w-5xl px-6 mx-auto">
+        @yield('content')
+    </div>
 </div>
+
 <div class="main-footer"></div>
 <script src="{{ mix('js/app.js') }}"></script>
 @include('admin.partials.flash')

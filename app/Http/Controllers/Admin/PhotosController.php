@@ -45,7 +45,7 @@ class PhotosController extends Controller
 
         $this->flasher->success('Gallery Created', 'Gallery successfully added. Feel free to add more photos.');
 
-        return redirect('admin/media/photos/' . $photo->id);
+        return ['redirect' => '/admin/media/photos/' . $photo->id];
     }
 
     public function edit(Photo $photo)

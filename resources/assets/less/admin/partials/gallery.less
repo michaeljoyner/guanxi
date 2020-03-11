@@ -1,0 +1,36 @@
+.drop-area {
+  @apply border-2 border-eggshell w-full min-h-full;
+
+  ul {
+    @apply list-none pl-0;
+  }
+
+  label {
+    @apply block w-full h-full min-h-full;
+  }
+
+  .image-upload-info {
+    @apply w-full h-8 relative bg-eggshell text-white pl-3;
+    line-height: 32px;
+
+    &.failed {
+      @apply bg-danger;
+    }
+
+    .upload-progress-bar {
+      @apply bg-primary-blue absolute left-0 bottom-0;
+      top: 90%;
+    }
+  }
+}
+
+.drop-area.hovering {
+  @apply border-dashed;
+}
+
+.gallery-container {
+  @apply relative block;
+    img {
+      @apply max-w-full;
+    }
+}

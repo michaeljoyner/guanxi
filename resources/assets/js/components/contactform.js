@@ -76,6 +76,6 @@ AjaxContactForm.prototype = {
     clearErrors: function() {
         this.errorBox.innerHTML = '';
     }
-}
+};
 
-module.exports = AjaxContactForm;
+export default AjaxContactForm;

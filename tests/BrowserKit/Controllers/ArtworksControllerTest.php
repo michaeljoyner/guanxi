@@ -16,7 +16,7 @@ class ArtworksControllerTest extends BrowserKitTestCase
         $this->asLoggedInUser();
 
         $this->post('/admin/media/artworks', ['title' => 'The artful dodger'])
-            ->assertResponseStatus(302)
+            ->assertResponseStatus(200)
             ->seeInDatabase('artworks', [
                 'title' => json_encode(['en' => 'The artful dodger', 'zh' => '']),
                 'description' => json_encode(['en' => '', 'zh' => ''])

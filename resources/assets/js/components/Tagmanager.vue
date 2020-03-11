@@ -1,30 +1,38 @@
-<style></style>
-
 <template>
-    <div class="tag-manager-component">
-        <div class="tag-actions clearfix">
-            <button class="btn dd-btn btn-clear-danger pull-right"
-                    @click="deleteSelectedTags">
-                Delete Selected Tags
-            </button>
-            <button class="btn dd-btn btn-light pull-right"
-                    @click="unselectAll">
-                Unselect All
-            </button>
-            <button class="btn dd-btn pull-right"
-                    @click="selectAllUnusedTags">
-                Select All Unused Tags
-            </button>
-            <input type="text"
-                   v-model="query"
-                   @keydown.enter="selectHighlightedTags"
-                   class="tag-search-input pull-left"
-                   placeholder="search and select tags"
-            >
+    <div class="">
+        <div class="p-4 shadow flex justify-between items-center">
+                <div>
+                    <div class="w-64">
+                        <input type="text"
+                               v-model="query"
+                               @keydown.enter="selectHighlightedTags"
+                               class="input-text"
+                               placeholder="search and select tags"
+                        >
+                    </div>
+                </div>
+                <div>
+                    <button class="mx-4 "
+                            @click="unselectAll">
+                        Unselect All
+                    </button>
+                    <button class="mx-4 "
+                            @click="selectAllUnusedTags">
+                        Select All Unused Tags
+                    </button>
+                    <button class="mx-4 dd-btn btn-clear-danger"
+                            :disabled="selected.length < 1"
+                            @click="showDeleteConfirmation = true">
+                        Delete Selected Tags
+                    </button>
         </div>
-        <div class="tags-list">
+
+
+
+        </div>
+        <div class="flex flex-wrap my-20">
             <div v-for="tag in tags"
-                 class="tag-row"
+                 class="w-80"
                  :class="{'highlight': query !== '' && tag.name.indexOf(query) !== -1}"
             >
                 <input type="checkbox"
@@ -40,17 +48,30 @@
                 <span class="">{{ tag.articles_count }}</span>
             </div>
         </div>
+        <modal :show="showDeleteConfirmation" @close="showDeleteConfirmation = false">
+            <div class="p-4 w-screen max-w-md">
+                <p class="text-xl text-danger">Are you sure?</p>
+                <p>You are about to delete {{ selected.length }} tag(s). They will be removed from any articles if they are in use.</p>
+                <div class="mt-6 flex justify-end">
+                    <button class="dd-btn btn-grey" type="button" @click="showDeleteConfirmation = false">Cancel</button>
+                    <button @click="deleteSelectedTags" class="dd-btn btn-red ml-4">Yes, delete them.</button>
+                </div>
+            </div>
+        </modal>
     </div>
 </template>
 
 <script type="text/babel">
+    import {alertError, alertComplete} from "../utils/alerts";
+
     export default {
 
         data() {
             return {
                 tags: [],
                 selected: [],
-                query: ''
+                query: '',
+                showDeleteConfirmation: false,
             }
         },
 
@@ -77,31 +98,19 @@
                 if (this.selected.length === 0) {
                     return;
                 }
-                let self = this;
-                swal({
-                        title: "Are you sure?",
-                        text: "You are about to delete " + self.selected.length + " tags.",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, do it!",
-                        closeOnConfirm: true
-                    },
-                    function () {
-                        self.sendDeleteRequest();
-                    });
 
-
-            },
-
-            sendDeleteRequest() {
-                axios.post('/admin/api/tags', {body: {tags: this.selected}})
+                axios.post('/admin/api/tags/delete', {tags: this.selected})
                      .then(() => {
+                         this.showDeleteConfirmation = false;
+                         alertComplete('The tags have been removed.');
+                         this.removeSelectedTags();
                      })
-                     .catch(() => this.showError(
-                         'Unable to successfully delete tags. Please refresh the page and try again.'
-                     ));
-                this.removeSelectedTags();
+                     .catch(() => {
+                         this.showDeleteConfirmation = false;
+                         alertError("Unable to delete tags")
+                     });
+
+
             },
 
             selectAllUnusedTags() {
@@ -122,15 +131,6 @@
                 this.tags.filter(tag => tag.name.indexOf(this.query) !== -1).forEach(tag => this.addIdToSelected(tag.id));
                 this.query = '';
             },
-
-            showError(message) {
-                eventHub.$emit('user-alert', {
-                    type: 'error',
-                    title: 'An error has occurred.',
-                    text: message,
-                    confirm: true
-                });
-            }
         }
 
     };

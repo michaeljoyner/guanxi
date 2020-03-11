@@ -18,7 +18,7 @@ class PhotosControllerTest extends BrowserKitTestCase
 
         $this->post('/admin/media/photos', [
             'title' => 'Acme photo'
-        ])->assertResponseStatus(302)
+        ])->assertResponseStatus(200)
             ->seeInDatabase('photos', [
                 'title'       => json_encode(['en' => 'Acme photo', 'zh' => '']),
                 'description' => json_encode(['en' => '', 'zh' => '']),

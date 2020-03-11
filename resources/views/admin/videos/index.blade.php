@@ -1,31 +1,17 @@
 @extends('admin.base')
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Guanxi Videos</h1>
-        <div class="header-actions pull-right">
-            <button type="button" class="btn dd-btn btn-dark" data-toggle="modal" data-target="#create-video-modal">
-                New Video
-            </button>
-        </div>
-    </section>
-    <section class="video-listing">
-        <table class="table">
-            <tbody>
+    <x-page-header title="Guanxi Videos">
+        <new-video></new-video>
+    </x-page-header>
+
+    <section class="pb-32">
             @foreach($videos as $video)
-                <tr>
-                    <td><a href="/admin/media/videos/{{ $video->id }}">{{ $video->title }}</a></td>
-                    <td>{{ $video->contributor->name ?? 'Unknown' }}</td>
-                    <td>{{ $video->published ? 'Published' : 'Unpublished' }}</td>
-                </tr>
+                <div class="flex bg-gray-100 border-b border p-2">
+                    <span class="flex-1"><a href="/admin/media/videos/{{ $video->id }}">{{ $video->title }}</a></span>
+                    <span class="w-40 truncate">{{ $video->contributor->name ?? 'Unknown' }}</span>
+                    <span class="w-40 truncate">{{ $video->published ? 'Published' : 'Unpublished' }}</span>
+                </div>
             @endforeach
-            </tbody>
-
-        </table>
     </section>
-    @include('admin.forms.modals.video')
-@endsection
-
-@section('bodyscripts')
-
 @endsection

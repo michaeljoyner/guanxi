@@ -45,7 +45,7 @@ class CategoriesController extends Controller
 
         $this->flasher->success('Category Added', 'Time to get writing');
 
-        return redirect('/admin/content/categories/' . $category->id);
+        return ['redirect' => '/admin/content/categories/' . $category->id];
     }
 
     public function update(CategoryForm $request, Category $category)

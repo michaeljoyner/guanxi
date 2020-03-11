@@ -1,28 +1,11 @@
-<style></style>
-
 <template>
-    <div class="tagger-component">
-        <p class="h6 text-uppercase">Tags</p>
-        <div class="added-tags">
-            <div class="spinner"
-                 v-show="!ready">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-            <div v-for="(tag, index) in added_tags"
-                 class="tag"
-                 :class="{'temp': tag.id === null}">
-                {{ tag.name }}
-                <span class="tag-delete-btn"
-                      v-on:click="removeTag(index)">&times;</span>
-            </div>
-        </div>
-        <div class="tag-input">
+    <div class="">
+        <p class="text-sm uppercase text-brand-purple mb-6">Tags</p>
+        <div class="w-64 relative">
             <input type="text"
                    v-model="query"
                    autocomplete="off"
-                   class="tagger-input"
+                   class="input-text w-64"
                    placeholder="Enter a tag for this article"
                    :disabled="!ready"
                    v-on:keydown.down="down"
@@ -30,21 +13,34 @@
                    v-on:keydown.enter="hit"
                    v-on:keydown="letterPress($event)"
             >
-            <ul class="list-group suggestion-list">
+            <ul class="absolute z-50 left-0 w-full bg-white shadow" style="top: 2.5rem;">
                 <li v-for="match in matches"
                     v-on:mouseenter="setCurrent(match)"
                     v-on:mousedown="hit"
-                    :class="{'selected': isCurrent(match)}"
-                    class="list-group-item"
+                    :class="{'bg-brand-super-soft-purple': isCurrent(match)}"
+                    class="cursor-pointer hover:bg-gray-100 p-2"
                 >{{ match.name }}
                 </li>
             </ul>
         </div>
+        <div class="">
+
+            <div v-for="(tag, index) in added_tags"
+                 class="inline-flex flex-wrap text-white bg-brand-soft-purple px-2 rounded my-4 mr-4"
+                 :class="{'temp': tag.id === null}">
+                <span>{{ tag.name }}</span>
+                <span class="border-l border-brand-purple pl-1 ml-1 text-lg text-white cursor-pointer hover:text-brand-purple"
+                      v-on:click="removeTag(index)">&times;</span>
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script type="text/babel">
-    module.exports = {
+    import {alertError} from "../utils/alerts";
+
+    export default {
 
         props: ['article-id'],
 
@@ -78,9 +74,7 @@
             fetchPossibleTags() {
                 axios.get('/admin/api/tags')
                      .then(({data}) => this.choices = data)
-                     .catch(() => this.alertError(
-                         'Unable to fetch list of possible tags. Maybe refresh page if you need them'
-                     ));
+                     .catch(() => alertError('Unable to fetch list of possible tags.'));
             },
 
             fetchArticleTags() {
@@ -89,21 +83,19 @@
                         this.added_tags = data;
                         this.ready = true;
                     })
-                    .catch(() => this.alertError(
-                        'Failed to retrieve the article tags. Please refresh the page if you need to work with tags.'
-                    ));
+                    .catch(() => alertError('Failed to retrieve the article tags.'));
             },
 
             postTag(tagname) {
                 axios.post(`/admin/content/articles/${this.articleId}/tags`, {name: tagname})
                     .then(({data}) => this.added_tags = data)
-                    .catch(() => this.alertError('There was an issue saving the tag. Please refresh the page'));
+                    .catch(() => alertError('There was an issue saving the tag.'));
             },
 
             syncAddedTags() {
                 axios.put(`/admin/content/articles/${this.articleId}/tags`, {tag_ids: this.getAddedTagIds()})
                     .then(({data}) => this.added_tags = data)
-                    .catch(() => this.alertError('There was an issue syncing the tag. Please refresh the page'));
+                    .catch(() => alertError('There was an issue syncing the tags.'));
             },
 
             removeTag(index) {
@@ -194,15 +186,6 @@
                 }
 
                 return this.current_index -= 1;
-            },
-
-            alertError(message) {
-                eventHub.$emit('user-alert', {
-                    type: 'error',
-                    title: 'Oh dear! An error!',
-                    text: message,
-                    confirm: true
-                });
             }
         }
     };

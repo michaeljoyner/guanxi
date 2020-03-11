@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <template>
     <div>
         <label for="profile-upload" class="single-upload-label">
@@ -100,7 +96,7 @@
                 this.uploadMsg = "Uploaded successfully";
                 this.uploadStatus = 'success';
                 this.uploading = false;
-                eventHub.$emit('singleuploadcomplete', res);
+                this.$emit('singleuploadcomplete', res);
             },
             onUploadFailed(err) {
                 this.uploadMsg = 'The upload failed';

@@ -58,7 +58,7 @@ Route::get('/admin/logout', 'Auth\LoginController@logout');
 
 Route::post('/admin/users', 'Auth\RegisterController@register')->middleware('superadmin');
 
-Route::get('admin/password/show/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::get('admin/password/show/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('admin/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::post('admin/password/reset', 'Auth\ResetPasswordController@reset');
@@ -128,17 +128,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('content/categories/{category}/image', 'CategoryImagesController@store')->middleware('superadmin');
 
     Route::get('content/tags', 'TagsController@index')->middleware('superadmin');
-
-//    Route::get('affiliates', 'AffiliatesController@index')->middleware('superadmin');
-//    Route::get('affiliates/{affiliate}', 'AffiliatesController@show')->middleware('superadmin');
-//    Route::get('affiliates/{affiliate}/edit', 'AffiliatesController@edit')->middleware('superadmin');
-//    Route::post('affiliates', 'AffiliatesController@store')->middleware(['superadmin', 'url.reformatter']);
-//    Route::post('affiliates/{affiliate}', 'AffiliatesController@update')
-//        ->middleware(['superadmin', 'url.reformatter']);
-//    Route::delete('affiliates/{affiliate}', 'AffiliatesController@delete')->middleware('superadmin');
-//
-//    Route::post('affiliates/{affiliate}/publish', 'AffiliatePublishingController@update');
-//    Route::post('affiliates/{affiliate}/image', 'AffiliateImageController@store');
 
     Route::get('media/videos', 'VideosController@index');
     Route::get('media/videos/{video}', 'VideosController@show')->middleware('can:act,video');

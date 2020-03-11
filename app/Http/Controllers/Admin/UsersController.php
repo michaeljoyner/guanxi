@@ -25,7 +25,10 @@ class UsersController extends Controller
 
     public function index()
     {
-//        $roles = collect([Role::superadmin(), Role::editor()]);
+        $roles = [
+            'superadmin' => Role::superadmin()->id,
+            'contributor' => Role::editor()->id
+        ];
         $users = User::all();
         return view('admin.users.index')->with(compact('roles', 'users'));
     }

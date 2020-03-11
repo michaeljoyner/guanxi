@@ -1,61 +1,48 @@
-<style></style>
-
 <template>
-    <div class="article-author-component clearfix">
-        <p class="h6 text-uppercase">Contributor</p>
-        <div class="profile-intro-card">
-            <div class="profile-intro-card-avatar-box">
-                <img :src="current_author.thumbnail" :alt="current_author.name">
-            </div>
-            <div class="profile-intro-card-text-box">
+    <div class="bg-eggshell p-4">
+        <p class="text-sm text-brand-purple uppercase mb-2">Contributor</p>
+        <div class="flex">
+            <img :src="current_author.thumbnail" :alt="current_author.name" class="w-40 h-40 rounded-full">
+            <div class="pl-8">
                 <p class="profile-intro-card-name">{{ current_author.name }}</p>
                 <p class="profile-intro-card-intro">{{ current_author.intro }}</p>
             </div>
         </div>
-        <div class="component-actions pull-right" v-if="canUpdate">
-            <button class="btn dd-btn btn-light" v-on:click="modalOpen = true">Re-attribute</button>
+        <div class="flex justify-end" v-if="canUpdate">
+            <button class="btn dd-btn btn-light" @click="modalOpen = true">Re-attribute</button>
         </div>
-        <modal :show="modalOpen" :wider="true">
-            <div slot="header">
-                <h3>Who contributed this content?</h3>
-            </div>
-            <div slot="body">
-                <div v-for="person in contributors"
-                     v-on:click="selectAuthor(person)"
-                     :class="{'selected': current_author && current_author.id === person.id }"
-                     class="selectable-profile"
-                >
-                    <div class="profile-intro-card">
-                        <div class="profile-intro-card-avatar-box">
-                            <img :src="person.thumbnail" :alt="person.name">
-                        </div>
-                        <div class="profile-intro-card-text-box">
-                            <p class="profile-intro-card-name">{{ person.name }}</p>
-                            <p class="profile-intro-card-intro">{{ person.intro }}</p>
+        <modal :show="modalOpen" @close="modalOpen = false">
+            <div class="w-screen max-w-3xl p-4 bg-white">
+                <h3 class="text-xl mb-8">Who contributed this content?</h3>
+                <div class="overflow-y-auto flex justify-between flex-wrap" style="max-height: 70vh;">
+                    <div v-for="person in contributors"
+                         v-on:click="selectAuthor(person)"
+                         :class="{'bg-brand-super-soft-purple': current_author && current_author.id === person.id }"
+                         class="w-2/5 mb-3 cursor-pointer p-2"
+                    >
+                        <div class="flex items-center">
+                            <img :src="person.thumbnail" :alt="person.name" class="w-16 h-16 rounded-full">
+                            <p class="pl-8">{{ person.name }}</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="flex justify-end mt-6">
+                    <button class="btn dd-btn btn-grey" @click="cancelAction">
+                        Cancel
+                    </button>
+                    <button :disabled="saving" class="ml-4 btn dd-btn btn-dark" @click="setAuthor">
+                        Set Contributor
+                    </button>
+                </div>
             </div>
-            <div slot="footer">
-                <button class="btn dd-btn btn-grey"
-                        v-on:click="cancelAction">
-                    Cancel
-                </button>
-                <button class="btn dd-btn btn-dark" v-on:click="setAuthor">
-                    <span v-show="!saving">Set Contributor</span>
-                    <div class="spinner" v-show="saving">
-                        <div class="bounce1"></div>
-                        <div class="bounce2"></div>
-                        <div class="bounce3"></div>
-                    </div>
-                </button>
-            </div>
+
         </modal>
     </div>
 </template>
 
 <script type="text/babel">
-    module.exports = {
+    export default {
 
         props: ['initial-thumbnail', 'initial-name', 'initial-intro', 'can-update', 'article-id', 'url-base'],
 
@@ -91,8 +78,7 @@
             },
 
             onSuccess(data) {
-                const person = this.contributors.find((con) => con.id === data.id);
-                this.last_known_selected = person;
+                this.last_known_selected = this.contributors.find((con) => con.id === data.id);
                 this.saving = false;
                 this.modalOpen = false;
             },

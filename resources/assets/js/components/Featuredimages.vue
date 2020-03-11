@@ -1,48 +1,57 @@
-<style></style>
-
 <template>
-    <div class="featured-images">
-        <p v-show="postImages.length" class="lead">
-            Click on a thumbnail image on the left to select a featured image from the article, or upload a new image below.
-        </p>
-        <p v-show="!postImages.length" class="lead">Upload an image to get started.</p>
-        <div class="featured-image-selecter" :class="{'busy': syncing}">
-            <div class="current-images">
+    <div class="">
+        <div class="flex justify-between">
+            <div class="w-80 h-48 bg-gray-100">
+                <img :src="featuredImage.url" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="pl-8 flex-1">
+                <p class="text-5xl">{{ articleTitle}}</p>
+                <p v-if="postImages.length" class="my-6">To change the featured image, click on a thumbnail image below, or upload a new image below at the bottom of this page.</p>
+                <p v-else class="my-6">Upload an image below to set the title image.</p>
+            </div>
+        </div>
+
+        <div class="p-4 shadow my-12" :class="{'opacity-50': syncing}">
+            <p class="text-sm text-brand-purple uppercase mb-6">Select an existing image from this article</p>
+            <div class="flex flex-wrap">
                 <div v-for="postImage in postImages"
-                     class="post-image-box"
-                     :class="{'featured': postImage.is_feature}"
+                     class="w-40 h-32 m-2"
+                     :class="{'border-2 border-brand-purple': postImage.is_feature}"
                      v-on:click="postNewFeaturedImage(postImage)"
                 >
-                    <img :src="postImage.thumb" alt="">
+                    <img :src="postImage.thumb" alt="" class="h-full w-full object-cover">
                 </div>
             </div>
-            <div class="single-image-uploader-box">
-                <p class="lead">The ideal dimensions for a featured image is 1400 &times; 560px, so try use an image of at least 1400px wide and if you do not want the image cropped the height should be 40% of the width.</p>
-                <single-upload :url="'/admin/api/content/articles/' + postId + '/images/featured'"
-                               default="/images/defaults/default_1400x560.jpg"
-                               shape="square"
-                               size="preview"
-                               :preview-width="900"
-                               :preview-height="360"
-                               v-on:singleuploadcomplete="addUploadedFeaturedImage"
-                               ref="uploader"
-                ></single-upload>
+
+
+        </div>
+        <div class="p-4 my-12 shadow">
+            <p class="text-sm text-brand-purple uppercase mb-6">Upload an image</p>
+            <div class="flex justify-between">
+                <p class="px-6 w-1/3">The ideal dimensions for a featured image is 1400 &times; 560px, so try use an image of at least 1400px wide and if you do not want the image cropped the height should be 40% of the width.</p>
+                <div class="single-image-uploader-box w-1/2 px-6">
+                    <single-upload :url="'/admin/api/content/articles/' + postId + '/images/featured'"
+                                   default="/images/defaults/default_1400x560.jpg"
+                                   shape="square"
+                                   size="preview"
+                                   :preview-width="900"
+                                   :preview-height="360"
+                                   @singleuploadcomplete="addUploadedFeaturedImage"
+                                   ref="uploader"
+                    />
+                </div>
             </div>
         </div>
-        <div class="loader" v-show="syncing">
-            <div class="spinner">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-        </div>
+
     </div>
 </template>
 
 <script type="text/babel">
-    module.exports = {
+    import {alertError} from "../utils/alerts";
 
-        props: ['post-id'],
+    export default {
+
+        props: ['post-id', 'article-title'],
 
         data() {
             return {
@@ -69,7 +78,7 @@
             fetchImages() {
                 axios.get('/admin/api/content/articles/' + this.postId + '/images/featured')
                         .then(({data}) => this.setFetchedImages(data))
-                        .catch(() => console.log('failed'));
+                        .catch(() => alertError('Failed to fetch article images.'));
             },
 
             setFetchedImages(data) {
@@ -82,7 +91,7 @@
                 this.syncing = true;
                 axios.patch(`/admin/api/content/articles/${this.postId}/images/featured`, {image_id: img.id})
                         .then(() => this.setNewFeaturedImage(img))
-                        .catch(() => console.log('unable to save'));
+                        .catch(() => alertError('Unable to save title image'));
             },
 
             addUploadedFeaturedImage(img) {
@@ -94,7 +103,6 @@
                 this.clearPreviousFeaturedImages();
                 this.syncing = false;
                 image.is_feature = true;
-                this.$refs.uploader.setImage(image.url);
             },
 
             clearPreviousFeaturedImages() {

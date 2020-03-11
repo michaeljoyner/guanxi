@@ -1,7 +1,5 @@
-<style></style>
-
 <script type="text/babel">
-    module.exports = {
+    export default {
 
 
         data() {

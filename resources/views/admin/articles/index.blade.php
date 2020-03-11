@@ -1,32 +1,24 @@
 @extends('admin.base')
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Articles</h1>
-        <div class="header-actions pull-right">
-            <button type="button" class="btn dd-btn btn-dark" data-toggle="modal" data-target="#create-article-modal">
-                New Article
-            </button>
-        </div>
-    </section>
-    <section class="article-listing">
-        <table class="table">
-            <tbody>
+    <x-page-header title="Articles">
+        <new-article></new-article>
+    </x-page-header>
+
+    <section class="">
             @foreach($articles as $article)
-                <tr>
-                    <td><a href="/admin/content/articles/{{ $article->id }}">{{ $article->title }}</a></td>
-                    <td>{{ $article->author->name }}</td>
-                    <td>{{ $article->published ? 'Published' : 'Unpublished' }}</td>
-                </tr>
+                <div class="flex bg-gray-100 border-b py-2">
+                    <span class="flex-1 pl-4"><a class="text-lg hover:text-brand-purple" href="/admin/content/articles/{{ $article->id }}">{{ $article->title }}</a></span>
+                    <span class="w-40 truncate">{{ $article->author->name }}</span>
+                    <span class="w-40 truncate">{{ $article->published ? 'Published' : 'Unpublished' }}</span>
+                </div>
             @endforeach
-            </tbody>
-
-        </table>
-        {!! $articles->links() !!}
     </section>
-    @include('admin.forms.modals.createarticlemodal')
-@endsection
-
-@section('bodyscripts')
-
+    <div class="flex my-12">
+        <span class="mr-4">Pages:</span>
+        @foreach(range(1,$articles->lastPage()) as $page)
+            <a class="hover:underline text-brand-purple mr-4"
+               href="{{ $articles->url($page) }}">{{ $page }}</a>
+        @endforeach
+    </div>
 @endsection

@@ -51,7 +51,7 @@ class WeatherService
 
     protected function locationUrl($location)
     {
-        return sprintf('http://api.apixu.com/v1/current.json?key=%s&q=%s', $this->api_key, $location);
+        return sprintf('http://api.weatherstack.com/current?access_key=%s&query=%s', $this->api_key, $location);
     }
 
     protected function covertToArray($object)

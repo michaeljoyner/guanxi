@@ -1,5 +1,3 @@
-<style></style>
-
 <template>
     <div class="article-category-selector col-md-12 featured-article-selector">
         <p class="h6 text-uppercase component-title">Featured Article</p>

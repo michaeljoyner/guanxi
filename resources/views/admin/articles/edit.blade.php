@@ -4,13 +4,11 @@
 @endsection
 
 @section('content')
-    <section class="dd-page-header clearfix">
-        <h1 class="pull-left">Edit this Article's Info</h1>
-        <div class="header-actions pull-right">
-            <a href="/admin/content/articles/{{ $article->id }}" class="btn dd-btn btn-light">Back to Article</a>
-        </div>
-    </section>
-    <section class="edit-article-form-container">
+    <x-page-header :title="$article->title">
+        <a href="/admin/content/articles/{{ $article->id }}" class="btn dd-btn btn-light">Back to Article</a>
+    </x-page-header>
+
+    <section class="">
         @include('admin.forms.article')
     </section>
 @endsection
