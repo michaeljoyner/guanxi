@@ -13,5 +13,6 @@ return [
     'marketing'  => 'marketing',
     'events'     => 'events',
     'ourstory'   => 'our story',
-    'contribute' => 'contribute'
+    'contribute' => 'contribute',
+    'lang' => '中文',
 ];

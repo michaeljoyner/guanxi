@@ -23,8 +23,8 @@ class MediaRepository
 
     public function paginatedStaticMedia($request, $pageSize = 8)
     {
-        $photos = collect(Photo::get());
-        $artworks = collect(Artwork::get());
+        $photos = collect(Photo::published()->get());
+        $artworks = collect(Artwork::published()->get());
 
         return $this->makePaginator($request, $photos->merge($artworks)->sortByDesc('created_at'), $pageSize);
     }

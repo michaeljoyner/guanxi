@@ -67,7 +67,11 @@ class AboutPage extends Model
 
     public static function getContent()
     {
-        return ['page' => static::firstOrCreate([])];
+        return [
+            'page' => static::firstOrCreate([]),
+            'labels' => trans('about.contact.labels'),
+            'dialogs' => trans('about.contact.dialogs'),
+        ];
     }
 
     protected static function setSectionContent($section, $content)

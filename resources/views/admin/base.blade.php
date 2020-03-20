@@ -16,7 +16,7 @@
         }
     </script>
 </head>
-<body class="font-sans antialiased text-primary-dark">
+<body class="font-display antialiased text-primary-dark">
 <div id="app">
     @if(Auth::check())
         @include('admin.partials.navbar')

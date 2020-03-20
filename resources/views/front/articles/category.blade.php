@@ -19,12 +19,12 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header categories-articles-banner">
-        <h1 class="page-header-title heavy-heading">{{ $category->name }}</h1>
+    <header class="h-30-vw flex justify-center items-center categories-articles-banner">
+        <h1 class="text-white type-h1">{{ $category->name }}</h1>
     </header>
-    <section class="articles-listing">
-        <p class="page-intro">{{ $category->writeup }}</p>
-        <div class="bio-cards card-grid" id="articles">
+    <section class="py-20 px-6">
+        <p class="type-b4 max-w-3xl mx-auto text-center mb-20">{{ $category->writeup }}</p>
+        <div class="responsive-grid grid-item-64 max-w-4xl mx-auto" id="articles">
             @foreach($articles as $article)
                 @include('front.home.articlecard')
             @endforeach

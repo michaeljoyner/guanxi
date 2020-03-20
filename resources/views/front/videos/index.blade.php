@@ -13,12 +13,12 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header videos-banner">
-        <h1 class="page-header-title heavy-heading">{{ trans('videos.page.title') }}</h1>
+    <header class="h-30-vw flex justify-center items-center videos-banner">
+        <h1 class="text-white type-h1">{{ trans('videos.page.title') }}</h1>
     </header>
-    <section class="gallery-main-grid">
-        <p class="page-intro">{{ trans('videos.page.intro') }}</p>
-        <div class="galleries card-grid" id="videos-grid">
+    <section class="py-20 px-6">
+        <p class="max-w-3xl mx-auto text-center type-b4 mb-20">{{ trans('videos.page.intro') }}</p>
+        <div class="responsive-grid grid-item-96 w-full max-w-4xl mx-auto" id="videos-grid">
             @foreach($videos as $video)
                 @include('front.home.videocard')
             @endforeach

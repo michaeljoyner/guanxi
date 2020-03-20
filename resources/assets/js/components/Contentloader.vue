@@ -1,18 +1,21 @@
 <template>
     <div class="loaded-content">
-        <button @click="fetchContent" v-show="remaining" class="dd-btn block" :class="{'alt-state': fetching}">
-            <span v-show="!fetching">{{ buttonText }}</span>
-            <div class="spinner" v-show="fetching">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-        </button>
+        <div class="my-12 text-center">
+            <button @click="fetchContent" v-show="remaining" class="btn" :class="{'alt-state': fetching}">
+                <span v-show="!fetching">{{ buttonText }}</span>
+                <div class="spinner flex justify-center" v-show="fetching">
+                    <div class="w-3 h-3 bg-black rounded-full m-2"></div>
+                    <div class="w-3 h-3 bg-black rounded-full m-2"></div>
+                    <div class="w-3 h-3 bg-black rounded-full m-2"></div>
+                </div>
+            </button>
+        </div>
+
     </div>
 </template>
 
 <script type="text/babel">
-    export default  {
+    export default {
 
         props: ['url', 'page-size', 'has-more', 'container-id', 'button-text'],
 
@@ -33,8 +36,8 @@
             fetchContent() {
                 this.fetching = true;
                 axios.get(`${this.url}?page=${this.nextPage}`)
-                        .then(({data}) => this.onSuccess(data))
-                        .catch(err => this.onFailure(err));
+                     .then(({data}) => this.onSuccess(data))
+                     .catch(err => this.onFailure(err));
             },
 
             onSuccess(data) {
@@ -55,3 +58,36 @@
         }
     }
 </script>
+
+<style scoped>
+
+    .spinner > div {
+        animation-name: fadeInOut;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .spinner > div:nth-child(1) {
+        animation-delay: .2s;
+    }
+
+    .spinner > div:nth-child(2) {
+        animation-delay: .4s;
+    }
+
+    .spinner > div:nth-child(3) {
+        animation-delay: .6s;
+    }
+
+    @keyframes fadeInOut {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>

@@ -2,6 +2,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                black: "#27363b",
+
                 "primary-blue": "#81CDBC",
                 "primary-dark": "#40333E",
                 "soft-purple": "#645258",
@@ -17,19 +19,32 @@ module.exports = {
                 "brand-dark": "#27363B",
                 "text-grey": "#6A6C6E",
                 "light-grey": "#C3C6C9",
+                "opaque-purple": "rgba(128,62,160,0.8)",
 
                 'darkorange': 'darkorange',
                 'springgreen': 'springgreen',
             },
             spacing: {
                 '80': '20rem',
+                '96': '24rem',
+                '30-vw': '30vw',
+                'max-content': 'max-content',
+            },
+            maxHeight: {
+                '75vh': '75vh',
+            },
+            inset: {
+                '16': '4rem',
             },
           fontFamily: {
-            'sans': ['Oswald', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+                'display': ['Oswald', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+            'sans': ['"Noto Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
             'serif': ['Noto Serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif']
           },
         },
     },
-    variants: {},
+    variants: {
+        display: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
     plugins: [],
 };

@@ -13,12 +13,12 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header bios-banner">
-        <h1 class="page-header-title heavy-heading">{{ trans('bios.page.title') }}</h1>
+    <header class="h-30-vw flex justify-center items-center bios-banner">
+        <h1 class="text-white type-h1">{{ trans('bios.page.title') }}</h1>
     </header>
-    <section class="bios-listing">
-        <p class="page-intro">{{ trans('bios.page.intro') }}</p>
-        <div class="bio-cards card-grid">
+    <section class="py-20 px-6">
+        <p class="max-w-3xl mx-auto mb-20 text-center type-b4">{{ trans('bios.page.intro') }}</p>
+        <div class="responsive-grid grid-item-64 max-w-5xl mx-auto">
             @foreach($bios as $profile)
                 @include('front.home.biocard')
             @endforeach

@@ -1,17 +1,17 @@
-<div class="bio-card three-piece">
+<div class="w-64 mx-auto">
     <a href="/bios/{{ $profile->slug }}" class="bio-image-and-link">
-        <div class="card-image-holder rounded">
-            <img src="{{ $profile->avatar('thumb') }}" width="200" height="200" alt="">
-            <p class="hover-action-indicator">{{ trans('homepage.contributors.hover_text') }}</p>
+        <div class="group relative rounded-full overflow-hidden h-40 w-40 mx-auto">
+            <img src="{{ $profile->avatar('thumb') }}" class="w-full h-full object-cover" alt="{{ $profile->name }}">
+            <p class="hidden group-hover:flex justify-center items-center bg-opaque-purple text-white type-h3 absolute inset-0">{{ trans('homepage.contributors.hover_text') }}</p>
         </div>
     </a>
-    <p class="bio-card-name heavy-heading">{{ $profile->name }}</p>
-    <p class="bio-card-contributor-title purple-text light-heading">{{ $profile->title }}</p>
-    <p class="bio-card-bio">{{ trunc($profile->intro, 180) }}</p>
-    <div class="profile-social-links">
+    <p class="text-center md:text-left type-h3 mb-1 mt-4">{{ $profile->name }}</p>
+    <p class="text-center md:text-left type-b3 text-brand-purple">{{ $profile->title }}</p>
+    <p class="text-center md:text-left type-b1">{{ trunc($profile->intro, 180) }}</p>
+    <div class="flex justify-center md:justify-start mt-2">
         @foreach($profile->socialLinks as $link)
             <a href="{{ $link->link }}" class="social-link">
-                @include('svgicons.social.' . $link->platform)
+                @include('svgicons.social.' . $link->platform, ['classes' => 'h-6 mr-2 text-brand-purple'])
             </a>
         @endforeach
     </div>

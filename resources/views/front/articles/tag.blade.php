@@ -13,15 +13,16 @@
 @endsection
 
 @section('content')
-    {{--<header class="top-page-header tag-articles-banner">--}}
-        {{--<h1 class="page-header-title heavy-heading">#{{ $tag->name }}</h1>--}}
-    {{--</header>--}}
-    <section class="articles-listing">
-        <p class="page-intro">These are the articles tagged as "{{ $tag->name }}"</p>
-        <div class="bio-cards card-grid" id="articles">
+
+    <section class="py-20 px-6">
+        <p class="max-w-3xl mx-auto text-center type-b4">These are the articles tagged as "{{ $tag->name }}"</p>
+        <div class="responsive-grid grid-item-64 max-w-4xl mx-auto mt-20" id="articles">
             @foreach($articles as $article)
                 @include('front.home.articlecard')
             @endforeach
+            @if($articles->count() === 1)
+            <div></div>
+            @endif
         </div>
         <content-loader container-id="articles"
                         url="{{ localUrl('/api/content/articles/tags/' . $tag->slug) }}"

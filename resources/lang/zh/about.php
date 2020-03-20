@@ -24,6 +24,28 @@ return [
         'send_label' => '送出',
         'thanks' => '您的訊息我們收到了！謝謝您與我們聯繫, 我們會盡快回覆您',
         'reset' => '送出另一則訊息',
-        'sending' => '傳送中, 請稍候...'
+        'sending' => '傳送中, 請稍候...',
+
+        'labels' => [
+            'name'    => '姓名',
+            'email'   => '電子信箱',
+            'enquiry' => '您的訊息',
+            'submit' => '送出',
+        ],
+
+        'dialogs' => [
+
+            'success' => [
+                'heading' => 'Hey, ',
+                'text'    => 'Thanks for reaching out. We have received your message, and will deal with it as soon as possible.',
+                'button'  => 'okay',
+            ],
+
+            'error' => [
+                'heading' => 'Oh dear. Sorry ',
+                'text'    => 'There was a problem receiving your message. All we can recommend at this point is to refresh the page and try again, or reach out using the contact details provided on this page.',
+                'button'  => 'okay',
+            ]
+        ]
     ]
 ];

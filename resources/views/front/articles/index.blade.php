@@ -13,12 +13,12 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header articles-banner">
-        <h1 class="page-header-title heavy-heading">{{ trans('articles.page.title') }}</h1>
+    <header class="h-30-vw flex justify-center items-center articles-main-bg">
+        <h1 class="type-h1 text-white">{{ trans('articles.page.title') }}</h1>
     </header>
-    <section class="articles-listing">
-        <p class="page-intro">{{ trans('articles.page.intro') }}</p>
-        <div class="bio-cards card-grid" id="articles">
+    <section class="py-20 px-4">
+        <p class="type-b4 max-w-3xl mx-auto text-center mb-12">{{ trans('articles.page.intro') }}</p>
+        <div class="responsive-grid grid-item-64 max-w-4xl mx-auto" id="articles">
             @foreach($articles as $article)
                 @include('front.home.articlecard')
             @endforeach

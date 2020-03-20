@@ -18,14 +18,14 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#803EA0">
 </head>
-<body class="@yield('bodyclass', 'scripted')">
+<body class="pt-16 text-black font-sans antialiased @yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="main-container" id="app">
-    @include('front.partials.navbar')
+<div class="" id="app">
     @yield('content')
     @include('front.partials.footer')
+    @include('front.partials.navbar')
 </div>
 <script src="{{ mix('js/front.js') }}"></script>
 @yield('bodyscripts')

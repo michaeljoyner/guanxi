@@ -14,4 +14,5 @@ return [
     'events'     => '活動',
     'ourstory'   => '關係故事',
     'contribute' => '投稿',
+    'lang' => 'EN',
 ];

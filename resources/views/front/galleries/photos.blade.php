@@ -13,12 +13,12 @@
 @endsection
 
 @section('content')
-    <header class="top-page-header photos-banner">
-        <h1 class="page-header-title heavy-heading">{{ trans('galleries.photopage.title') }}</h1>
+    <header class="h-30-vw flex justify-center items-center photos-banner">
+        <h1 class="type-h1 text-white">{{ trans('galleries.photopage.title') }}</h1>
     </header>
-    <section class="gallery-main-grid">
-        <p class="page-intro">{{ trans('galleries.photopage.intro') }}</p>
-        <div class="galleries card-grid">
+    <section class="py-20 px-6">
+        <p class="type-b4 max-w-3xl mx-auto text-center mb-20">{{ trans('galleries.photopage.intro') }}</p>
+        <div class="responsive-grid grid-item-48 max-w-4xl mx-auto mt-20">
             @foreach($photos as $photo)
                 @include('front.home.mediaimagecard', ['media' => $photo])
             @endforeach

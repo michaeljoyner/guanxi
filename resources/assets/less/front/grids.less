@@ -1,0 +1,32 @@
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-w), 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 5rem;
+}
+
+.grid-item-64 {
+  --grid-item-w: 256px;
+}
+
+.grid-item-48 {
+  --grid-item-w: 12rem;
+}
+
+.grid-item-80 {
+  --grid-item-w: 320px;
+}
+
+.grid-item-96 {
+  --grid-item-w: 24rem;
+}
+
+@media screen and (max-width: 480px)  {
+  .grid-item-96 {
+    --grid-item-w: 20rem;
+  }
+
+  .grid-item-48 {
+    --grid-item-w: 9rem;
+  }
+}
