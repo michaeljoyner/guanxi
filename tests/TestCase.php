@@ -56,6 +56,13 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
         return $user;
     }
 
+    public function asSuperAdmin(): self
+    {
+        $this->asLoggedInUser();
+
+        return $this;
+    }
+
     public function asLoggedInContributor()
     {
         $user = factory(User::class)->create(['email' => 'mo@example.com', 'password' => 'password']);
@@ -64,5 +71,11 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
         $this->actingAs($user);
 
         return $this;
+    }
+
+    public function assertForbiddenResponse($response)
+    {
+        $response->assertStatus(302);
+        $this->assertEquals("Forbidden", $response->exception->getMessage());
     }
 }

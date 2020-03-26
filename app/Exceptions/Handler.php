@@ -40,14 +40,14 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception $exception
      * @return \Illuminate\Http\Response
+     * @throws Throwable
      */
     public function render($request, Throwable $exception)
     {
         if($exception instanceof HttpException && $exception->getStatusCode() === 403) {
-//            return Route::respondWithRoute('dashboard');
             return redirect('/admin');
         }
         return parent::render($request, $exception);

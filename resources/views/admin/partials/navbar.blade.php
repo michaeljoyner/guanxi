@@ -32,6 +32,7 @@
         </a>
         @if(Auth::user()->isSuperAdmin())
             <a href="/admin/pages/about" class="px-4">About Page</a>
+            <a href="/admin/testimonials" class="px-4">Testimonials</a>
         @endif
     </div>
 

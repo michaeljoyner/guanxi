@@ -185,6 +185,19 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::get('pages/about/contact/edit', 'AboutPageContactController@edit')->middleware('superadmin');
     Route::post('pages/about/contact', 'AboutPageContactController@update')->middleware('superadmin');
 
+    Route::get('testimonials', 'TestimonialsController@index')->middleware('superadmin');
+    Route::get('testimonials/{testimonial}', 'TestimonialsController@show')->middleware('superadmin');
+    Route::get('testimonials/{testimonial}/edit', 'TestimonialsController@edit')->middleware('superadmin');
+    Route::post('testimonials', 'TestimonialsController@store')->middleware('superadmin');
+    Route::post('testimonials/{testimonial}', 'TestimonialsController@update')->middleware('superadmin');
+    Route::delete('testimonials/{testimonial}', 'TestimonialsController@delete')->middleware('superadmin');
+
+    Route::post('published-testimonials', 'PublishedTestimonialsController@store')->middleware('superadmin');
+    Route::delete('published-testimonials/{testimonial}', 'PublishedTestimonialsController@destroy')
+         ->middleware('superadmin');
+
+    Route::post('testimonials/{testimonial}/avatar', 'TestimonialAvatarsController@store');
+
     Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         // admin api routes
         Route::get('content/categories', 'CategoriesController@index');
