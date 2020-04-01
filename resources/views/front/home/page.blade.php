@@ -10,6 +10,8 @@
 @endsection
 
 @section('content')
+    @include('front.home.featured-article')
+{{--    @include('front.home.testimonials')--}}
     @include('front.home.articles', ['artilces' => $articles])
     @include('front.home.photos-and-art')
     @include('front.home.videos', ['videos' => $videos])

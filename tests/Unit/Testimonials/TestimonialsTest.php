@@ -84,4 +84,31 @@ class TestimonialsTest extends TestCase
             $this->assertEquals('zh', $testimonial->language);
         });
     }
+
+    /**
+     *@test
+     */
+    public function scopeToLocale()
+    {
+        factory(Testimonial::class, 4)->create(['language' => 'en']);
+        factory(Testimonial::class, 3)->create(['language' => 'zh']);
+
+        app()->setLocale('zh');
+        $retrieved = Testimonial::forLocale()->get();
+
+        $this->assertCount(3, $retrieved);
+
+        $retrieved->each(function($testimonial) {
+            $this->assertEquals('zh', $testimonial->language);
+        });
+
+        app()->setLocale('en-US');
+        $retrieved = Testimonial::forLocale()->get();
+
+        $this->assertCount(4, $retrieved);
+
+        $retrieved->each(function($testimonial) {
+            $this->assertEquals('en', $testimonial->language);
+        });
+    }
 }

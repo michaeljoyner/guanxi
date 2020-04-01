@@ -10,6 +10,7 @@ import Lightbox from "./components/Lightbox";
 import Contentloader from "./components/Contentloader";
 import StaticMedialist from "./components/StaticMedialist";
 import Contactform from "./components/Contactform";
+import {handleLogos} from "./components/handleLogos";
 
 Vue.component('modal', Modal);
 Vue.component('dd-lightbox', Lightbox);
@@ -26,5 +27,8 @@ window.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', () => {
         const navbar = document.querySelector('.main-nav');
         navbar.classList.toggle('open');
-    })
+    });
+
+    handleLogos();
+
 });

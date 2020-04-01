@@ -4,6 +4,7 @@ namespace App\Testimonials;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -14,7 +15,10 @@ class Testimonial extends Model implements HasMedia
     use HasMediaTrait;
 
     const AVATARS = 'avatars';
-    const DEFAULT_AVATAR = '/public/images/default_testimonial_avatar.jpg';
+    const DEFAULT_AVATARS = [
+        '/images/testimonials/star-avatar.jpg',
+        '/images/testimonials/heart-avatar.jpg'
+    ];
 
     protected $fillable = ['name', 'language', 'content'];
 
@@ -30,6 +34,21 @@ class Testimonial extends Model implements HasMedia
     public function scopeEnglish($query)
     {
         $query->where('language', 'en');
+    }
+
+    public function scopeForLocale($query)
+    {
+        $query->where('language', $this->normalizedLocale());
+    }
+
+    private function normalizedLocale()
+    {
+        $locale = app()->getLocale();
+        if($locale === 'en' || $locale === 'en-US') {
+            return 'en';
+        }
+
+        return 'zh';
     }
 
     public function scopeChinese($query)
@@ -75,7 +94,7 @@ class Testimonial extends Model implements HasMedia
     {
         $avatar = $this->getFirstMedia(self::AVATARS);
 
-        return $avatar ? $avatar->getUrl('thumb') : self::DEFAULT_AVATAR;
+        return $avatar ? $avatar->getUrl('thumb') : Arr::random(self::DEFAULT_AVATARS);
     }
 
     public function toArray()

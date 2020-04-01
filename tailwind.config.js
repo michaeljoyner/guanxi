@@ -3,6 +3,7 @@ module.exports = {
         extend: {
             colors: {
                 black: "#27363b",
+                "opaque-black": "rgba(39,54,59,0.7)",
 
                 "primary-blue": "#81CDBC",
                 "primary-dark": "#40333E",

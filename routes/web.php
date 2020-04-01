@@ -20,6 +20,8 @@ Route::group(['prefix' => Localization::setLocale()], function()
 
     Route::get('about', 'PagesController@about');
 
+    Route::get('testimonials', 'TestimonialsController@index');
+
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/tags/{slug}', 'TagArticlesController@index');
     Route::get('articles/{slug}', 'ArticlesController@show');

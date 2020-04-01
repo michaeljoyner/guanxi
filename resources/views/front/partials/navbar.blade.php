@@ -1,6 +1,6 @@
-<div class="main-nav fixed top-0 w-full  h-16 flex justify-between items-center bg-brand-purple lg:bg-white lg:shadow text-white lg:text-black">
+<div class="main-nav fixed top-0 w-full  h-16 flex justify-between items-center bg-brand-purple lg:bg-white lg:shadow text-white lg:text-black z-50">
     <a class="relative h-16 pl-6 lg:pl-12" href="{{ localUrl('/') }}">
-        @include('svg.logo_purple', ['classes' => 'h-12 lg:h-16 absolute top-0 mt-2 z-50'])
+        @include('svg.logo_purple', ['classes' => 'h-12 lg:h-16 absolute top-0 mt-2 z-50 nav-logo'])
     </a>
     <div class="nav-links absolute top-16 w-full lg:static min-h-screen lg:min-h-0 bg-brand-soft-purple lg:bg-transparent flex flex-col lg:flex-row lg:justify-end lg:items-center lg:pr-12 pt-6 lg:pt-0">
         <div class="flex flex-col lg:flex-row lg:items-center px-6 nav-dropdown lg:h-16 relative group my-3 lg:my-0">
