@@ -92,8 +92,8 @@
                     <div v-for="slideshow in slideshows"
                          :key="slideshow.id"
                          @click="selected_slideshow = slideshow"
-                         class="p-2 flex items-center"
-                         :class="{'bg-brand-super-soft-purple border-2 border-brand-purple': slideshow.id === selected_slideshow}"
+                         class="p-2 flex items-center cursor-pointer"
+                         :class="{'bg-brand-super-soft-purple border-2 border-brand-purple': selected_slideshow && slideshow.id === selected_slideshow.id}"
                     >
                         <img :src="slideshow.thumb" class="w-20 mr-4">
                         <p class="w-80 truncate">{{ slideshow.title }}</p>
@@ -163,7 +163,7 @@
                 ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
                 ed.addButton('embed-video', this.makeButton('/images/assets/insert_video.svg', this.openVideoModal, ''));
                 ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
-                ed.addButton('insert-slideshow', this.makeButton('/images/assets/insert_video.svg', this.openSlideshowModal, ''));
+                ed.addButton('insert-slideshow', this.makeButton('/images/assets/slideshare.svg', this.openSlideshowModal, ''));
             };
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
