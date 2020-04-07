@@ -11,43 +11,11 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
 
-    return [
-        'name'           => $faker->name,
-        'email'          => $faker->unique()->safeEmail,
-        'password'       => $password ?: $password = bcrypt('secret'),
-        'remember_token' => \Illuminate\Support\Str::random(10),
-        'role_id' => 1
-    ];
-});
 
-$factory->define(App\People\Profile::class, function (Faker\Generator $faker) {
-//    $zh_faker = Faker\Factory::create('zh_TW');
-    return [
-        'name'      => $faker->name,
-        'title'     => ['en' => 'Contributor', 'zh' => 'zh'],
-        'intro'     => ['en' => $faker->paragraph, 'zh' => 'zh'],
-        'bio'       => ['en' => $faker->paragraphs(3, true), 'zh' => 'zh'],
-        'published' => false
-    ];
-});
 
-$factory->define(App\Content\Article::class, function (Faker\Generator $faker) {
-//    $zh_faker = Faker\Factory::create('zh_TW');
-    return [
-        'profile_id'   => function () {
-            return factory(\App\People\Profile::class)->create()->id;
-        },
-        'title'        => ['en' => $faker->sentence, 'zh' => ''],
-        'description'  => ['en' => $faker->paragraph, 'zh' => ''],
-        'body'         => ['en' => $faker->paragraph(20), 'zh' => ''],
-        'published_on' => null,
-        'published'    => false,
-        'is_featured'  => false
-    ];
-});
+
+
 
 $factory->define(App\Content\Category::class, function (Faker\Generator $faker) {
 //    $zh_faker = Faker\Factory::create('zh_TW');

@@ -28,6 +28,7 @@ import NewVideo from "./components/ModalForms/NewVideo";
 import NewCategory from "./components/ModalForms/NewCategory";
 import NewArticle from "./components/ModalForms/NewArticle";
 import NewTestimonial from "./components/ModalForms/NewTestimonial";
+import NewSlideshow from "./components/ModalForms/NewSlideshow";
 import TestimonialPublishSwitch from "./components/TestimonialPublishSwitch";
 
 Vue.component('editor', Editor);
@@ -53,6 +54,7 @@ Vue.component('new-video', NewVideo);
 Vue.component('new-category', NewCategory);
 Vue.component('new-article', NewArticle);
 Vue.component('new-testimonial', NewTestimonial);
+Vue.component('new-slideshow', NewSlideshow);
 Vue.component('testimonial-publish-switch', TestimonialPublishSwitch);
 
 

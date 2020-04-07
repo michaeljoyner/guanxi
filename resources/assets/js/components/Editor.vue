@@ -81,6 +81,40 @@
             </div>
 
         </modal>
+        <modal :show="showSlideshowsModal" @close="showSlideshowsModal = false">
+            <div class="p-4 w-screen max-w-xl">
+                <h5 class="text-lg text-brand-purple mb-6"><strong>Include a slideshow</strong></h5>
+                <div class="my-8" v-if="slideshows.length === 0">
+                    <p>There are no slideshows associated with this article.</p>
+                </div>
+                <div class="my-8" v-else>
+                    <p>Select the slideshow you would like to insert.</p>
+                    <div v-for="slideshow in slideshows"
+                         :key="slideshow.id"
+                         @click="selected_slideshow = slideshow"
+                         class="p-2 flex items-center"
+                         :class="{'bg-brand-super-soft-purple border-2 border-brand-purple': slideshow.id === selected_slideshow}"
+                    >
+                        <img :src="slideshow.thumb" class="w-20 mr-4">
+                        <p class="w-80 truncate">{{ slideshow.title }}</p>
+                        <p>{{ slideshow.count }}</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-end">
+                    <button class="btn dd-btn btn-grey"
+                            v-on:click="showSlideshowsModal = false">
+                        Cancel
+                    </button>
+                    <button class="btn dd-btn ml-4"
+                            v-on:click="insertSlideshow"
+                            :disabled="!selected_slideshow"
+                    >
+                        Insert
+                    </button>
+                </div>
+            </div>
+
+        </modal>
     </div>
 </template>
 
@@ -90,7 +124,7 @@
 
     export default {
 
-        props: ['post-id', 'post-content', 'content-lang'],
+        props: ['post-id', 'post-content', 'content-lang', 'slideshows'],
 
         data() {
             return {
@@ -107,7 +141,9 @@
                 is_dirty: false,
                 video_embed_code: '',
                 video_url: '',
-                embed_fetch_failed: false
+                embed_fetch_failed: false,
+                showSlideshowsModal: false,
+                selected_slideshow: null,
             }
         },
 
@@ -127,6 +163,7 @@
                 ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
                 ed.addButton('embed-video', this.makeButton('/images/assets/insert_video.svg', this.openVideoModal, ''));
                 ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
+                ed.addButton('insert-slideshow', this.makeButton('/images/assets/insert_video.svg', this.openSlideshowModal, ''));
             };
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
@@ -146,6 +183,15 @@
                 this.editor.insertContent(html);
                 this.resetImageInsert();
                 this.modalOpen = false;
+            },
+
+            insertSlideshow() {
+                const {id, slug} = this.selected_slideshow;
+                const shrtcode = `<div>[** sl:${id}:${slug} **]</div>`;
+                this.editor.insertContent(shrtcode);
+
+                this.selected_slideshow = null;
+                this.showSlideshowsModal = false;
             },
 
             resetImageInsert() {
@@ -284,6 +330,10 @@
 
             openVideoModal() {
                 this.videoModalOpen = true;
+            },
+
+            openSlideshowModal() {
+                this.showSlideshowsModal = true;
             }
         }
     }

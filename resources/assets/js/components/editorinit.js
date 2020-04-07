@@ -2,7 +2,7 @@ export default {
     selector: '#post-body',
     plugins: ['link', 'image', 'paste', 'fullscreen'],
     menubar: false,
-    toolbar: 'undo redo | styleselect | bold italic | bullist numlist | link insert-image-btn embed-video | fullscreen save_button',
+    toolbar: 'undo redo | styleselect | bold italic | bullist numlist | link insert-image-btn insert-slideshow embed-video | fullscreen save_button',
     paste_data_images: true,
     height: 700,
     body_class: 'article-body-content',

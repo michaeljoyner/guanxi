@@ -23,6 +23,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
        ]
    })
    .purgeCss({
+       globs: [path.join(__dirname, "node_modules/flickity/**/*.js")],
+
+       extensions: ["html", "js", "php", "vue"],
        whitelistPatterns: [/article-content/],
    })
    .version();

@@ -27,7 +27,7 @@ class UpdateTestimonialTest extends TestCase
             'content' => 'new content'
         ]);
 
-        $response->assertSuccessful();
+        $response->assertRedirect("/admin/testimonials/{$testimonial->id}");
 
         $this->assertDatabaseHas('testimonials', [
             'name' => 'new name',

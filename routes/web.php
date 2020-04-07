@@ -200,6 +200,16 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
     Route::post('testimonials/{testimonial}/avatar', 'TestimonialAvatarsController@store');
 
+    Route::post('articles/{article}/slideshows', 'SlideshowsController@store');
+    Route::delete('slideshows/{slideshow}', 'SlideshowsController@delete');
+
+    Route::get('slideshows/{slideshow}/images', 'SlideshowImagesController@index');
+    Route::post('slideshows/{slideshow}/images', 'SlideshowImagesController@store');
+
+    Route::get('slideshows/{slideshow}/edit', 'SlideshowsController@edit');
+
+    Route::delete('slideshow-images/{media}', 'SlideshowImagesController@destroy');
+
     Route::group(['namespace' => 'Api', 'prefix' => 'api'], function () {
         // admin api routes
         Route::get('content/categories', 'CategoriesController@index');
@@ -233,6 +243,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
         Route::delete('media/artworks/{artwork}/gallery/images/{media}', 'ArtworkGalleryImagesController@delete')->middleware('can:act,artwork');
 
         Route::post('video/embed', 'VideoEmbedCodeController@store');
+
+
     });
 
 });

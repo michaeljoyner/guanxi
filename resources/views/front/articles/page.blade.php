@@ -43,7 +43,7 @@
         </header>
 
         <section class="article-content max-w-3xl mx-auto type-b1 text-base lg:text-lg leading-relaxed">
-            {!! $article->getTranslation('body', Localization::getCurrentLocale()) !!}
+            {!! $article->parseBody(Localization::getCurrentLocale()) !!}
         </section>
 
         @if($article->tags->count())

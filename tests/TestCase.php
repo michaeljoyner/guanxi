@@ -5,6 +5,8 @@ namespace Tests;
 use App\Exceptions\Handler;
 use App\User;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
@@ -77,5 +79,15 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
     {
         $response->assertStatus(302);
         $this->assertEquals("Forbidden", $response->exception->getMessage());
+    }
+
+    public function assertMediaExists($image, $conversion = '')
+    {
+        Storage::disk('media')->assertExists(Str::after($image->getUrl($conversion), '/media/'));
+    }
+
+    public function assertMediaMissing($image, $conversion = '')
+    {
+        Storage::disk('media')->assertMissing(Str::after($image->getUrl($conversion), '/media/'));
     }
 }

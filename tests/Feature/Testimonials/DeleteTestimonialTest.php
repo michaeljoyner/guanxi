@@ -22,7 +22,7 @@ class DeleteTestimonialTest extends TestCase
         $testimonial = factory(Testimonial::class)->create();
 
         $response = $this->asSuperAdmin()->delete("/admin/testimonials/{$testimonial->id}");
-        $response->assertSuccessful();
+        $response->assertRedirect("/admin/testimonials");
 
         $this->assertDatabaseMissing('testimonials', ['id' => $testimonial->id]);
     }

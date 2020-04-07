@@ -14,6 +14,7 @@
     <editor post-id="{{ $article->id }}"
             post-content='{{ in_array($lang, $article->getTranslatedLocales('body')) ? $article->getTranslation('body', $lang) : "" }}'
             content-lang="{{ $lang }}"
+            :slideshows='@json($slideshows)'
     ></editor>
 @endsection
 

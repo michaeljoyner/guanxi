@@ -32,7 +32,7 @@ class UploadTestimonialAvatarTest extends TestCase
         $testimonial = factory(Testimonial::class)->create();
 
         $response = $this->asSuperAdmin()->postJson("/admin/testimonials/{$testimonial->id}/avatar", [
-            'image' => UploadedFile::fake()->image('testpic.png')
+            'file' => UploadedFile::fake()->image('testpic.png')
         ]);
 
         $response->assertSuccessful();

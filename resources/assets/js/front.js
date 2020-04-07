@@ -5,6 +5,8 @@ require('./frontbootstrap');
  * the body of the page. From here, you may begin adding components to
  * the application, or feel free to tweak this setup for your needs.
  */
+import Flickity from "flickity";
+import "flickity-imagesloaded";
 import Modal from "@dymantic/modal";
 import Lightbox from "./components/Lightbox";
 import Contentloader from "./components/Contentloader";
@@ -22,7 +24,7 @@ const app = new Vue({
     el: '#app',
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const trigger = document.querySelector('#nav-trigger');
     trigger.addEventListener('click', () => {
         const navbar = document.querySelector('.main-nav');
@@ -30,5 +32,16 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     handleLogos();
+
+    const slideshows = document.querySelectorAll('.guanxi-article-slideshow');
+
+    slideshows.forEach(slideshow => {
+        new Flickity(slideshow, {
+            contain: true,
+            freeScroll: true,
+            pageDots: false,
+            imagesLoaded: true,
+        });
+    })
 
 });

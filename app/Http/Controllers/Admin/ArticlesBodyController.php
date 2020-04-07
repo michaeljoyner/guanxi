@@ -16,7 +16,12 @@ class ArticlesBodyController extends Controller
             return abort(422, 'Locale code in url is not acceptable');
         }
 
-        return view('admin.articles.body.edit')->with(compact('article', 'lang'));
+        $slideshows = $article->slideshows->map->toArray();
+        return view('admin.articles.body.edit', [
+            'article' => $article,
+            'slideshows' => $slideshows,
+            'lang' => $lang
+        ]);
     }
 
     public function store(Request $request, Article $article, $lang)

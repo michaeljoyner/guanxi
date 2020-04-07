@@ -70,6 +70,19 @@
                           url-base="/admin/content/articles/{{ $article->id }}/author/"
     ></contributor-selector>
 
+    <div class="my-12 p-4 shadow">
+        <div class="flex justify-between">
+            <p class="text-sm uppercase text-brand-purple">Slideshows</p>
+            <new-slideshow :article-id="{{ $article->id }}"></new-slideshow>
+        </div>
+        @foreach($article->slideshows as $slideshow)
+        <p class="my-2">
+            <a class="hover:text-brand-purple" href="/admin/slideshows/{{ $slideshow->id }}/edit">{{ $slideshow->title }}</a>
+        </p>
+        @endforeach
+
+    </div>
+
     <div class="p-4 shadow my-12">
         <p class="text-sm uppercase text-brand-purple">Article Link</p>
         <p class="my-6">{{ url($article->slug) }}</p>

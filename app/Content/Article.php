@@ -219,6 +219,37 @@ class Article extends Model implements HasMedia
         return $this->is_featured;
     }
 
+    public function slideshows()
+    {
+        return $this->hasMany(Slideshow::class);
+    }
+
+
+    public function addSlideshow($title)
+    {
+        return $this->slideshows()->create(['title' => $title]);
+    }
+
+    public function parseBody($lang)
+    {
+        $exp = '/\[\*\* sl:([0-9]+):([a-z\-]+ \*\*\])/';
+        $unparsed = $this->getTranslation('body', $lang);
+
+        $parsed = preg_replace_callback($exp, function($matches) {
+            $slideshow = Slideshow::find(intval($matches[1]));
+            if(!$slideshow) {
+                return "";
+            }
+
+            return $slideshow->html();
+
+        }, $unparsed);
+
+        return $parsed;
+
+
+    }
+
 
 
 

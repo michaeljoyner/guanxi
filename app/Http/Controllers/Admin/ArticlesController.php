@@ -41,7 +41,9 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
-        return view('admin.articles.edit')->with(compact('article'));
+        return view('admin.articles.edit', [
+            'article' => $article,
+        ]);
     }
 
     public function store(Request $request)

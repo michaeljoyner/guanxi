@@ -85,13 +85,5 @@ class TestimonialAvatarTest extends TestCase
         $this->assertMediaExists($avatar, 'thumb');
     }
 
-    private function assertMediaExists($image, $conversion = '')
-    {
-        Storage::disk('media')->assertExists(Str::after($image->getUrl($conversion), '/media/'));
-    }
 
-    private function assertMediaMissing($image, $conversion = '')
-    {
-        Storage::disk('media')->assertMissing(Str::after($image->getUrl($conversion), '/media/'));
-    }
 }
