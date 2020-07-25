@@ -19,3 +19,9 @@ $factory->define(App\Content\Article::class, function (Faker $faker) {
         'is_featured'  => false
     ];
 });
+
+$factory->state(\App\Content\Article::class, 'published', [
+    'profile_id' => 1,
+    'published_on' => \Carbon\Carbon::yesterday(),
+    'published'    => true,
+]);

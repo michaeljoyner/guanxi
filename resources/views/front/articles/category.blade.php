@@ -30,7 +30,7 @@
             @endforeach
         </div>
         <content-loader container-id="articles"
-                        url="{{ localUrl('/api/content/articles') }}"
+                        url="{{ localUrl('/api/content/categories/' . $category->slug) }}"
                         :has-more="{{ $articles->hasMorePages() ? 'true' : 'false' }}"
                         button-text="{{ trans('buttons.more.articles') }}"
         ></content-loader>
