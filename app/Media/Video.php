@@ -69,6 +69,6 @@ class Video extends Model
 
     public function embedHtml()
     {
-        return sprintf('<iframe src="%s" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', $this->embed_url);
+        return sprintf('<iframe class="absolute inset w-full h-full" src="%s" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', $this->embed_url);
     }
 }

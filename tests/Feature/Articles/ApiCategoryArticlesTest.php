@@ -45,6 +45,6 @@ class ApiCategoryArticlesTest extends TestCase
 
         $this->assertNotEquals($responseA->decodeResponseJson('content_html'), $responseB->decodeResponseJson('content_html'));
 
-        
+
     }
 }

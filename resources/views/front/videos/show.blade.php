@@ -15,37 +15,40 @@
 @section('bodyclass') novue @endsection
 
 @section('content')
-    <div class="video-header article-header">
-        <h1 class="heavy-heading centered-text article-header-title">{{ $video->title }}</h1>
-        <p class="article-header-date-and-contributor centered-text">
+    <div class="py-20 px-6">
+        <h1 class="type-h1 text-center">{{ $video->title }}</h1>
+        <p class="type-b3  text-center">
             {{ $video->created_at->toFormattedDateString() }} &middot; {{ $video->contributor->name }}
         </p>
-        <div class="social-sharing-icons">
+        <div class="flex justify-center text-brand-purple mt-12">
             <a href="https://twitter.com/home?status={{ urlencode($video->title . ' ' . Request::url()) }}">
-                @include('svgicons.social.twitter')
+                @include('svgicons.social.twitter', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
-                @include('svgicons.social.facebook')
+                @include('svgicons.social.facebook', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
             </a>
             <a href="mailto:?&subject=Read&body={{ Request::url() }}">
-                @include('svgicons.social.email')
+                @include('svgicons.social.email', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
             </a>
         </div>
     </div>
-    <div class="video-show-main-block">
-        {!! $video->embedHtml() !!}
+    <div class="max-w-3xl mx-auto">
+        <div class="w-full relative" style="padding-bottom: 52.65%">
+            {!! $video->embedHtml() !!}
+        </div>
+
     </div>
-    <p class="body-text constrained-text video-description">{!! nl2br($video->description) !!}</p>
-    <div class="dd-block-btn-group">
-        <a href="{{ localUrl('/galleries/videos') }}" class="dd-btn">{{ trans('videos.show.back_button') }}</a>
-        <a href="{{ localUrl('/videos/' . $nextVideo->slug) }}" class="dd-btn">{{ trans('videos.show.next_button') }}</a>
+    <p class="type-b1 max-w-3xl mx-auto my-8 px-6">{!! nl2br($video->description) !!}</p>
+    <div class="my-12 flex justify-center">
+        <a href="{{ localUrl('/galleries/videos') }}" class="btn mr-4">{{ trans('videos.show.back_button') }}</a>
+        <a href="{{ localUrl('/videos/' . $nextVideo->slug) }}" class="ml-4 btn">{{ trans('videos.show.next_button') }}</a>
     </div>
     <section class="contributor-section">
         @include('front.partials.contributorcard', ['contributor' => $video->contributor])
     </section>
-    <section class="other-videos page-section">
-        <h3 class="centered-text heavy-heading">{{ trans('videos.show.other_videos') }}</h3>
-        <div class="card-grid">
+    <section class="py-12">
+        <h3 class="type-h3 text-center text-brand-purple">{{ trans('videos.show.other_videos') }}</h3>
+        <div class="flex justify-between flex-row flex-wrap mt-12">
             @foreach($otherVideos as $otherVideo)
                 @include('front.home.videocard', ['video' => $otherVideo])
             @endforeach
