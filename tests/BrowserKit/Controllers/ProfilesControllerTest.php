@@ -19,7 +19,8 @@ class ProfilesControllerTest extends BrowserKitTestCase
         $this->post('/admin/profiles', [
             'name'  => 'Mister Donut',
             'title' => 'Editor',
-            'intro' => 'Straight outa Nantun'
+            'intro' => 'Straight outa Nantun',
+            'bio' => 'bio'
         ])
             ->assertResponseStatus(302)
             ->seeInDatabase('profiles', [
@@ -27,7 +28,7 @@ class ProfilesControllerTest extends BrowserKitTestCase
                 'name'    => 'Mister Donut',
                 'title'   => json_encode(['en' => 'Editor', 'zh' => '']),
                 'intro'   => json_encode(['en' => 'Straight outa Nantun', 'zh' => '']),
-                'bio'     => json_encode(['en' => '', 'zh' => ''])
+                'bio'     => json_encode(['en' => 'bio', 'zh' => ''])
             ]);
     }
 

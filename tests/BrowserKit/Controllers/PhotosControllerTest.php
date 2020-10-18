@@ -17,11 +17,11 @@ class PhotosControllerTest extends BrowserKitTestCase
         $user = $this->asLoggedInUser();
 
         $this->post('/admin/media/photos', [
-            'title' => 'Acme photo'
+            'title' => 'Acme photo', 'description' => 'test desc'
         ])->assertResponseStatus(200)
             ->seeInDatabase('photos', [
                 'title'       => json_encode(['en' => 'Acme photo', 'zh' => '']),
-                'description' => json_encode(['en' => '', 'zh' => '']),
+                'description' => json_encode(['en' => 'test desc', 'zh' => '']),
                 'profile_id'  => $user->profile->id,
             ]);
     }

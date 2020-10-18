@@ -10,7 +10,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Tests\TestCase;
 
 class TestimonialAvatarTest extends TestCase
@@ -22,7 +22,7 @@ class TestimonialAvatarTest extends TestCase
         parent::setUp();
 
         Storage::fake('media');
-        config(['medialibrary.disk_name' => 'media']);
+        config(['media-library.disk_name' => 'media']);
     }
 
     /**

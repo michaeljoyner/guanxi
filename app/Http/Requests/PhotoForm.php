@@ -30,17 +30,11 @@ class PhotoForm extends FormRequest
 
     public function requiredFields()
     {
-        $defaults = [
-            'title' => '',
-            'zh_title' => '',
-            'description' => '',
-            'zh_description' => ''
+        return [
+            'title' => $this->title ?? '',
+            'zh_title' => $this->zh_title ?? '',
+            'description' => $this->description ?? '',
+            'zh_description' => $this->zh_description ?? '',
         ];
-
-        return array_merge(
-            $defaults,
-            collect($this->only(array_keys($defaults)))->reject(function($field) {
-                return is_null($field);
-            })->toArray());
     }
 }

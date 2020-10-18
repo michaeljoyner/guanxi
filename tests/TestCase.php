@@ -83,11 +83,11 @@ abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 
     public function assertMediaExists($image, $conversion = '')
     {
-        Storage::disk('media')->assertExists(Str::after($image->getUrl($conversion), '/media/'));
+        Storage::disk('media')->assertExists(Str::after($image->getUrl($conversion), '/storage/'));
     }
 
     public function assertMediaMissing($image, $conversion = '')
     {
-        Storage::disk('media')->assertMissing(Str::after($image->getUrl($conversion), '/media/'));
+        Storage::disk('media')->assertMissing(Str::after($image->getUrl($conversion), '/storage/'));
     }
 }

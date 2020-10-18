@@ -6,7 +6,7 @@ use App\Content\Slideshow;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Tests\TestCase;
 
 class SlideshowImagesTest extends TestCase
@@ -18,7 +18,7 @@ class SlideshowImagesTest extends TestCase
         parent::setUp();
 
         Storage::fake('media');
-        config(['medialibrary.disk_name' => 'media']);
+        config(['media-library.disk_name' => 'media']);
     }
 
     /**

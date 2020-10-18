@@ -6,14 +6,14 @@ use App\HasModelImage;
 use App\IsPublishable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
 class Artwork extends Model implements HasMedia
 {
-    use HasTranslations, HasContributor, HasMainImage, HasModelImage, HasMediaTrait, HasGalleryImages, IsPublishable;
+    use HasTranslations, HasContributor, HasMainImage, HasModelImage, InteractsWithMedia, HasGalleryImages, IsPublishable;
 
     const DEFAULT_IMG_SRC = '/images/defaults/default_500x400.jpg';
 
@@ -25,7 +25,7 @@ class Artwork extends Model implements HasMedia
 
     protected $casts = ['published' => 'boolean'];
 
-    public function registerMediaConversions(?Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
             ->fit(Manipulations::FIT_CROP, 250, 200)
@@ -52,7 +52,7 @@ class Artwork extends Model implements HasMedia
     {
         $artwork = static::create([
             'title'       => ['en' => $data['title'], 'zh' => $data['zh_title']],
-            'description' => ['en' => $data['description'], 'zh' => $data['zh_description']]
+            'description' => ['en' => $data['description'], 'zh' => $data['zh_description']],
         ]);
 
         if ($profile) {

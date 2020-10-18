@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Content\Slideshow;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class SlideshowImagesController extends Controller
 {

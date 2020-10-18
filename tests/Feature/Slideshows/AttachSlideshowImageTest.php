@@ -22,7 +22,7 @@ class AttachSlideshowImageTest extends TestCase
         parent::setUp();
 
         Storage::fake('media');
-        config(['medialibrary.disk_name' => 'media']);
+        config(['media-library.disk_name' => 'media']);
     }
 
     /**

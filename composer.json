@@ -8,7 +8,7 @@
         "php": ">=7.2.5",
         "laravel/framework": "^7.0",
         "spatie/laravel-translatable": "^4.0",
-        "spatie/laravel-medialibrary": "^7.0",
+        "spatie/laravel-medialibrary": "^8.0",
         "cviebrock/eloquent-sluggable": "^7.0",
         "spatie/laravel-backup": "^6.0",
         "guzzlehttp/guzzle": "^6.2",
