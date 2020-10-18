@@ -43,7 +43,7 @@ class ApiCategoryArticlesTest extends TestCase
         $responseC = $this->getJson("/api/content/categories/{$categoryA->slug}?page=3");
         $responseC->assertSuccessful();
 
-        $this->assertNotEquals($responseA->decodeResponseJson('content_html'), $responseB->decodeResponseJson('content_html'));
+        $this->assertNotEquals($responseA->json('content_html'), $responseB->json('content_html'));
 
 
     }

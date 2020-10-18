@@ -27,7 +27,7 @@ class FetchVideoEmbedCodeTest extends TestCase
 
         $response->assertStatus(200);
 
-        $this->assertEquals(['embed' => $expected_embed_code], $response->decodeResponseJson());
+        $this->assertEquals(['embed' => $expected_embed_code], $response->json());
     }
 
     /**
@@ -49,6 +49,6 @@ class FetchVideoEmbedCodeTest extends TestCase
 
         $response->assertStatus(200);
 
-        $this->assertEquals(['embed' => $expected_embed_code], $response->decodeResponseJson());
+        $this->assertEquals(['embed' => $expected_embed_code], $response->json());
     }
 }
