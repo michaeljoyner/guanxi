@@ -19,7 +19,7 @@ class FetchVideoEmbedCodeTest extends TestCase
 
         $youtube_url = "https://www.youtube.com/watch?v=dcc1VyGvaYk";
 
-        $expected_embed_code = '<iframe src="https://youtube.com/embed/dcc1VyGvaYk" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+        $expected_embed_code = '<iframe class="absolute inset w-full h-full" src="https://youtube.com/embed/dcc1VyGvaYk" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
         $response = $this->asLoggedInContributor()->json("POST", "/admin/api/video/embed", [
             'url' => $youtube_url
@@ -41,7 +41,7 @@ class FetchVideoEmbedCodeTest extends TestCase
         $vimeo_url = "https://vimeo.com/135819339";
 
 
-        $expected_embed_code = '<iframe src="https://player.vimeo.com/video/135819339" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+        $expected_embed_code = '<iframe class="absolute inset w-full h-full" src="https://player.vimeo.com/video/135819339" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
         $response = $this->asLoggedInContributor()->json("POST", "/admin/api/video/embed", [
             'url' => $vimeo_url
