@@ -25,7 +25,7 @@ class Video extends Model
 
     public $translatable = ['title', 'description'];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

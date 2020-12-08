@@ -33,7 +33,7 @@ class Affiliate extends Model implements HasMedia
 
     public $translatable = ['location', 'writeup'];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

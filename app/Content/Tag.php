@@ -13,7 +13,7 @@ class Tag extends Model
 
     protected $fillable = ['name'];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

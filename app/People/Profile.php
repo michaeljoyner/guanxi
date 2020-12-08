@@ -32,7 +32,7 @@ class Profile extends Model implements HasMedia
 
     protected $casts = ['published' => 'boolean'];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

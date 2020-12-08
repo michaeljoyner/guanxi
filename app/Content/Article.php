@@ -38,7 +38,7 @@ class Article extends Model implements HasMedia
         '/images/pizza.jpg'
     ];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

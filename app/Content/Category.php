@@ -30,7 +30,7 @@ class Category extends Model implements HasMedia
 
     public $translatable = ['name', 'description', 'writeup'];
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [

@@ -1,9 +1,12 @@
 require('./bootstrap');
 
-window.swal = require('sweetalert');
-window._ = require('lodash');
+import sweetalert from "sweetalert";
+import lodash from "lodash";
+import Vue from "Vue"
+window.swal = sweetalert;
+window._ = lodash;
 
-window.Vue = require('vue');
+window.Vue = Vue;
 
 import {Dropdown} from "@dymantic/vuetilities";
 import Modal from "@dymantic/modal";
