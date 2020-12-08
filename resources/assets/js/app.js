@@ -2,7 +2,7 @@ require('./bootstrap');
 
 import sweetalert from "sweetalert";
 import lodash from "lodash";
-import Vue from "Vue"
+import Vue from "vue"
 window.swal = sweetalert;
 window._ = lodash;
 
