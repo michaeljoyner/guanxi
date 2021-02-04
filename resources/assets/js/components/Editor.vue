@@ -160,10 +160,10 @@
                 editor.on('Change', (e) => this.markDirty());
             };
             config.setup = (ed) => {
-                ed.addButton('insert-image-btn', this.makeButton('/images/assets/insert_photo_black.png', this.openUploadModal, ''));
-                ed.addButton('embed-video', this.makeButton('/images/assets/insert_video.svg', this.openVideoModal, ''));
-                ed.addButton('save_button', this.makeButton('/images/assets/save_button_icon.png', () => this.saveContent(false), 'Save'));
-                ed.addButton('insert-slideshow', this.makeButton('/images/assets/slideshare.svg', this.openSlideshowModal, ''));
+                ed.ui.registry.addButton('insert-image-btn', this.makeButton('image', this.openUploadModal, ''));
+                ed.ui.registry.addButton('embed-video', this.makeButton('embed', this.openVideoModal, ''));
+                ed.ui.registry.addButton('save_button', this.makeButton('save', () => this.saveContent(false), 'Save'));
+                ed.ui.registry.addButton('insert-slideshow', this.makeButton('edit-image', this.openSlideshowModal, ''));
             };
             this.$nextTick(() => tinymce.init(config)
                     .then((editors) => this.editor = editors[0])
@@ -258,9 +258,10 @@
             makeButton(icon, click_fn, button_text) {
                 return {
                     text: button_text,
-                    icon: true,
-                    image: icon,
-                    onclick: click_fn
+                    tooltip: button_text,
+                    // icon: true,
+                    icon: icon,
+                    onAction: click_fn
                 }
             },
 
