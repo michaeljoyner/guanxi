@@ -85,10 +85,9 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function createArticle($title, $locale = 'en')
+    public function createArticle(array $title, string $designation)
     {
-        $articleTitle = $locale === 'en' ? ['en' => $title, 'zh' => ''] : ['en' => '', 'zh' => $title];
-        return $this->profile->articles()->create(['title' => $articleTitle]);
+        return $this->profile->articles()->create(['title' => $title, 'designation' => $designation]);
     }
 
 

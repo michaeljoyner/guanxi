@@ -1,5 +1,23 @@
 <form action="/admin/content/articles/{{ $article->id }}" method="POST" class="">
     {!! csrf_field() !!}
+    <div class="px-6">
+        <p class="uppercase mb-4">Taiwan or World?</p>
+        <div class="flex justify-between max-w-xs">
+            <div>
+                <label for="designation_taiwan">
+                    <span>Taiwan</span>
+                    <input @if($article->designation === 'taiwan') checked @endif name="designation" type="radio" value="taiwan" id="designation_taiwan">
+                </label>
+            </div>
+
+            <div>
+                <label for="designation_world">
+                    <span>World</span>
+                    <input @if($article->designation === 'world') checked @endif name="designation" type="radio" value="world" id="designation_world">
+                </label>
+            </div>
+        </div>
+    </div>
     <div class="flex justify-between">
         <div class="w-1/2 px-6">
             <div class="my-6{{ $errors->has('title') ? ' has-error' : '' }}">

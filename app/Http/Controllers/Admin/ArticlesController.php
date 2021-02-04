@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Content\Article;
 use App\Http\FlashMessaging\Flasher;
+use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleMetaInfoForm;
 use Illuminate\Http\Request;
 
@@ -46,14 +47,9 @@ class ArticlesController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CreateArticleRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255',
-            'lang' => 'required|in:en,zh'
-        ]);
-
-        $article = $request->user()->createArticle($request->title, $request->lang);
+        $article = $request->user()->createArticle($request->translatedTitle(), $request->designation);
 
         return ['redirect' => '/admin/content/articles/' . $article->id . '/body/' . $request->lang . '/edit'];
     }

@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Content\Article;
 use App\Model;
 use Faker\Generator as Faker;
 
@@ -16,11 +17,12 @@ $factory->define(App\Content\Article::class, function (Faker $faker) {
         'body'         => ['en' => $faker->paragraph(20), 'zh' => ''],
         'published_on' => null,
         'published'    => false,
-        'is_featured'  => false
+        'is_featured'  => false,
+        'designation' => $faker->randomElement([Article::WORLD, Article::TAIWAN])
     ];
 });
 
-$factory->state(\App\Content\Article::class, 'published', [
+$factory->state(Article::class, 'published', [
     'profile_id' => 1,
     'published_on' => \Carbon\Carbon::yesterday(),
     'published'    => true,

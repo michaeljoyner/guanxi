@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AssignDesignationToExistingArticles;
 use App\Console\Commands\CacheWeather;
 use App\Console\Commands\GenerateSiteMap;
 use App\Console\Commands\MergeLifestyleIntoCulture;
@@ -19,6 +20,7 @@ class Kernel extends ConsoleKernel
         CacheWeather::class,
         GenerateSiteMap::class,
         MergeLifestyleIntoCulture::class,
+        AssignDesignationToExistingArticles::class,
     ];
 
     /**

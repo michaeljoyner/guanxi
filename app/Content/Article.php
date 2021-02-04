@@ -19,6 +19,9 @@ class Article extends Model implements HasMedia
 {
     use Sluggable, HasTranslations, SoftDeletes, InteractsWithMedia, HasTags, CanHaveNullRelationships;
 
+    const TAIWAN = 'taiwan';
+    const WORLD = 'world';
+
     protected $table = 'articles';
 
     protected $fillable = [
@@ -26,6 +29,7 @@ class Article extends Model implements HasMedia
         'description',
         'body',
         'published_on',
+        'designation',
     ];
 
     protected $dates = ['published_on', 'deleted_at'];
@@ -191,7 +195,8 @@ class Article extends Model implements HasMedia
             'description' => [
                 'en' => $data['description'],
                 'zh' => $data['zh_description']
-            ]
+            ],
+            'designation' => $data['designation'] ?? static::TAIWAN
         ]);
     }
 

@@ -14,11 +14,11 @@ class UsersArticlesTest extends BrowserKitTestCase
     {
         $user = $this->asLoggedInUser();
 
-        $articleWithEnglishTitle = $user->createArticle('The Queens English');
+        $articleWithEnglishTitle = $user->createArticle(['en' => 'The Queens English', 'zh' => ''], \App\Content\Article::TAIWAN);
         $this->assertInstanceOf(\App\Content\Article::class, $articleWithEnglishTitle);
         $this->assertEquals('The Queens English', $articleWithEnglishTitle->getTranslation('title', 'en'));
 
-        $articleWithChineseTitle = $user->createArticle('The Emperors Decree', 'zh');
+        $articleWithChineseTitle = $user->createArticle(['en' => '', 'zh' => 'The Emperors Decree'], \App\Content\Article::TAIWAN);
         $this->assertInstanceOf(\App\Content\Article::class, $articleWithChineseTitle);
         $this->assertEquals('The Emperors Decree', $articleWithChineseTitle->getTranslation('title', 'zh'));
     }
@@ -29,7 +29,7 @@ class UsersArticlesTest extends BrowserKitTestCase
     public function a_article_belongs_to_a_profile_as_opposed_to_a_user()
     {
         $user = $this->asLoggedInUser();
-        $article= $user->createArticle('The Queens English');
+        $article= $user->createArticle(['en' => "test title", 'zh' => "zh test title"], \App\Content\Article::TAIWAN);
 
         $this->assertInstanceOf(\App\People\Profile::class, $article->author);
         $this->assertEquals($article->author->id, $user->profile->id);

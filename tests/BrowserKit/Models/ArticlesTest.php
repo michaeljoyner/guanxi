@@ -50,8 +50,8 @@ class ArticlesTest extends BrowserKitTestCase
     public function an_article_that_is_yet_to_be_published_will_have_its_slug_updated()
     {
         $user = $this->asLoggedInUser();
-        $article = $user->createArticle('Nice Slug Dude');
-        $this->assertEquals('nice-slug-dude', $article->slug);
+        $article = $user->createArticle(['en' => "test title", 'zh' => "zh test title"], Article::TAIWAN);
+        $this->assertEquals('test-title', $article->slug);
 
         $article->setTranslation('title', 'en', 'New Slug Dude');
         $article->save();
@@ -64,14 +64,14 @@ class ArticlesTest extends BrowserKitTestCase
     public function an_article_that_has_been_published_wont_have_its_slug_updated()
     {
         $user = $this->asLoggedInUser();
-        $article = $user->createArticle('Nice Slug Dude');
+        $article = $user->createArticle(['en' => "test title", 'zh' => "zh test title"], Article::TAIWAN);
         $article->publish();
 
-        $this->assertEquals('nice-slug-dude', $article->slug);
+        $this->assertEquals('test-title', $article->slug);
 
         $article->setTranslation('title', 'en', 'New Slug Dude');
         $article->save();
-        $this->assertEquals('nice-slug-dude', $article->slug, 'Should still be original slug');
+        $this->assertEquals('test-title', $article->slug, 'Should still be original slug');
     }
 
     /**
@@ -80,7 +80,7 @@ class ArticlesTest extends BrowserKitTestCase
     public function the_body_of_an_article_can_be_set()
     {
         $user = $this->asLoggedInUser();
-        $article = $user->createArticle('Acme Article');
+        $article = $user->createArticle(['en' => "test title", 'zh' => "zh test title"], Article::TAIWAN);
         $html = '<body><h1>Cool Title</h1><p>Sweet paragraph</p></body>';
 
         $article->setBody($html);

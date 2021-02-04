@@ -17,7 +17,8 @@ class ArticlesControllerTest extends BrowserKitTestCase
 
         $this->post('/admin/content/articles/', [
             'title' => 'Acme Article Title',
-            'lang' => 'en'
+            'lang' => 'en',
+            'designation' => Article::TAIWAN
         ]);
 
         $this->assertCount(1, $user->profile->articles);

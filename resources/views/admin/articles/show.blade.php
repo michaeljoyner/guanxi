@@ -28,6 +28,9 @@
     </x-page-header>
 
 
+    <div class="flex">
+        <p class="rounded border border-brand-purple bg-brand-soft-purple px-4 py-1 uppercase text-white">{{ $article->designation }}</p>
+    </div>
 
     <div class="my-12 py-4 shadow flex justify-between">
         <div class="w-1/2 px-6 flex flex-col justify-between">
