@@ -21,7 +21,8 @@ class ArticleAuthorizationTest extends BrowserKitTestCase
             'title' => 'TEST TITLE',
             'zh_title' => 'ZH TEST TITLE',
             'description' => 'TEST DESCRIPTION',
-            'zh_description' => 'ZH TEST DESCRIPTION'
+            'zh_description' => 'ZH TEST DESCRIPTION',
+            'designation' => Article::TAIWAN,
         ]);
         $this->assertResponseStatus(302);
         $this->seeInDatabase('articles', [
@@ -42,7 +43,8 @@ class ArticleAuthorizationTest extends BrowserKitTestCase
             'title' => 'TEST TITLE',
             'zh_title' => 'ZH TEST TITLE',
             'description' => 'TEST DESCRIPTION',
-            'zh_description' => 'ZH TEST DESCRIPTION'
+            'zh_description' => 'ZH TEST DESCRIPTION',
+            'designation' => Article::TAIWAN,
         ]);
         $this->assertResponseStatus(302);
         $this->seeInDatabase('articles', [

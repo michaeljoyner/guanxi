@@ -38,7 +38,8 @@ class ArticlesControllerTest extends BrowserKitTestCase
             'title' => 'Updated Acme Title',
             'zh_title' => 'Xinde Jiade Mingzi',
             'description' => 'A descriptive thing',
-            'zh_description' => 'I have forgotten how to say describe'
+            'zh_description' => 'I have forgotten how to say describe',
+            'designation' => Article::TAIWAN,
         ]);
 
         $this->seeInDatabase('articles', [
