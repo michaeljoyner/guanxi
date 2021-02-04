@@ -8,11 +8,5 @@
     <p class="text-center md:text-left type-h3 mb-1 mt-4">{{ $profile->name }}</p>
     <p class="text-center md:text-left type-b3 text-brand-purple">{{ $profile->title }}</p>
     <p class="text-center md:text-left type-b1">{{ trunc($profile->intro, 180) }}</p>
-    <div class="flex justify-center md:justify-start mt-2">
-        @foreach($profile->socialLinks as $link)
-            <a href="{{ $link->link }}" class="social-link">
-                @include('svgicons.social.' . $link->platform, ['classes' => 'h-6 mr-2 text-brand-purple'])
-            </a>
-        @endforeach
-    </div>
+
 </div>

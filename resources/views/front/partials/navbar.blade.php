@@ -32,7 +32,6 @@
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#contact') }}">{{ trans('navbar.contact') }}</a>
             </div>
         </div>
-        <a class="my-3 lg:my-0 mx-6 uppercase" href="{{ localUrl('/bios') }}">{{ trans('navbar.bios') }}</a>
         <a class="my-3 lg:my-0 mx-6 uppercase" href="{{ transUrl(Request::path()) }}">{{ trans('navbar.lang') }}</a>
     </div>
     <div class="lg:hidden pr-6">

@@ -15,5 +15,5 @@
     @include('front.home.articles', ['artilces' => $articles])
     @include('front.home.photos-and-art')
     @include('front.home.videos', ['videos' => $videos])
-    @include('front.home.contributors', ['profiles' => $profiles])
+{{--    @include('front.home.contributors', ['profiles' => $profiles])--}}
 @endsection

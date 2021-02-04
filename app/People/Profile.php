@@ -8,7 +8,6 @@ use App\IsPublishable;
 use App\Media\Artwork;
 use App\Media\Photo;
 use App\Media\Video;
-use App\Social\HasSocialLinks;
 use App\User;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +19,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Profile extends Model implements HasMedia
 {
-    use HasTranslations, InteractsWithMedia, HasModelImage, HasSocialLinks, Sluggable, IsPublishable;
+    use HasTranslations, InteractsWithMedia, HasModelImage, Sluggable, IsPublishable;
 
     const DEFAULT_AVATAR_SRC = '/images/defaults/default_500x500.jpg';
 
@@ -55,7 +54,6 @@ class Profile extends Model implements HasMedia
             'name' => $data['name'],
             'title' => ['en' => $data['title'], 'zh' => $data['zh_title']],
             'intro' => ['en' => $data['intro'], 'zh' => $data['zh_intro']],
-            'bio' => ['en' => $data['bio'], 'zh' => $data['zh_bio']]
         ]);
     }
 
@@ -101,7 +99,6 @@ class Profile extends Model implements HasMedia
             'name' => $data['name'],
             'title' => ['en' => $data['title'], 'zh' => $data['zh_title']],
             'intro' => ['en' => $data['intro'], 'zh' => $data['zh_intro']],
-            'bio' => ['en' => $data['bio'], 'zh' => $data['zh_bio']]
         ]);
     }
 

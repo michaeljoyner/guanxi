@@ -37,15 +37,6 @@
         </div>
 
     </section>
-    <div class="flex justify-between my-12">
-        <div class="w-1/2 px-6">
-            <p class="text-sm uppercase">Bio</p>
-            <p class="font-serif">{{ $profile->getTranslation('bio', 'en') }}</p>
-        </div>
-      <div class="w-1/2 px-6">
-            <p class="text-sm uppercase">Bio</p>
-            <p class="font-serif">{{ $profile->getTranslation('bio', 'zh') }}</p>
-        </div>
-    </div>
+
 
 @endsection

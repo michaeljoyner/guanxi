@@ -30,8 +30,6 @@ Route::group(['prefix' => Localization::setLocale()], function()
 
     Route::get('categories/{slug}', 'CategoriesController@show');
 
-    Route::get('bios', 'BiosController@index');
-    Route::get('bios/{slug}', 'BiosController@show');
 
     Route::get('galleries', 'GalleriesController@index');
     Route::get('galleries/photos', 'GalleriesController@photos');
@@ -79,10 +77,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::delete('users/{user}', 'UsersController@delete')->middleware('superadmin');
 
     Route::get('profiles', 'ProfilesController@index');
-    Route::post('profiles', 'ProfilesController@store')->middleware(['superadmin','url.reformatter']);
+    Route::post('profiles', 'ProfilesController@store')->middleware(['superadmin']);
     Route::get('profiles/{profile}', 'ProfilesController@show')->middleware('can:act,profile');
     Route::get('profiles/{profile}/edit', 'ProfilesController@edit')->middleware('can:act,profile');
-    Route::post('profiles/{profile}', 'ProfilesController@update')->middleware(['can:act,profile','url.reformatter']);
+    Route::post('profiles/{profile}', 'ProfilesController@update')->middleware(['can:act,profile']);
     Route::delete('profiles/{profile}', 'ProfilesController@delete')->middleware('superadmin');
 
     Route::post('profiles/{profile}/avatar', 'ProfileAvatarsController@store')->middleware('can:act,profile');

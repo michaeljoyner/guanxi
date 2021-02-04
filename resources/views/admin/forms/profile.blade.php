@@ -41,41 +41,10 @@
 
 
         </div>
-        <div class="w-1/2 px-6">
-            <h4 class="text-uppercase text-center">Social links</h4>
-            <small class="text-danger text-center">Only enter social links or your email if you want them to be public.</small>
-            @foreach($social_platforms as $platform)
-                <div class="my-6{{ $errors->has($platform) ? ' has-error' : '' }}">
-                    <label class="form-label" for="{{ $platform }}">{{ ucfirst($platform) }}: </label>
-                    @if($errors->has($platform))
-                    <span class="error-message">{{ $errors->first($platform) }}</span>
-                    @endif
-                    <input type="text" name="{{ $platform }}" value="{{ old($platform) ?? $profile->getSocialLink($platform) }}" class="input-text">
-                </div>
-            @endforeach
-        </div>
+
     </div>
     <hr>
-    <div class="flex justify-between">
-        <div class="w-1/2 px-6">
-            <div class="my-6{{ $errors->has('bio') ? ' has-error' : '' }}">
-                <label class="form-label" for="bio">Bio: </label>
-                @if($errors->has('bio'))
-                    <span class="error-message">{{ $errors->first('bio') }}</span>
-                @endif
-                <textarea name="bio" class="input-text h-64">{{ old('bio') ?? $profile->getTranslation('bio', 'en') }}</textarea>
-            </div>
-        </div>
-        <div class="w-1/2 px-6">
-            <div class="my-6{{ $errors->has('zh_bio') ? ' has-error' : '' }}">
-                <label class="form-label" for="zh_bio">Chinese bio: </label>
-                @if($errors->has('zh_bio'))
-                    <span class="error-message">{{ $errors->first('zh_bio') }}</span>
-                @endif
-                <textarea name="zh_bio" class="input-text h-64">{{ old('zh_bio') ?? $profile->getTranslation('bio', 'zh') }}</textarea>
-            </div>
-        </div>
-    </div>
+
     <div class="my-6 px-6 flex justify-end">
         <button type="submit" class="btn dd-btn">Save Changes</button>
     </div>

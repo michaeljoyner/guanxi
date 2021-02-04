@@ -32,8 +32,6 @@ class ProfilesTest extends BrowserKitTestCase
             'zh_title' => 'Xie Ren',
             'intro' => 'The one, the only',
             'zh_intro' => 'De yige ren',
-            'bio' => 'Born in the USA',
-            'zh_bio' => 'I have no idea'
         ]);
 
         $this->assertEquals('New Name', $profile->name);
@@ -41,8 +39,6 @@ class ProfilesTest extends BrowserKitTestCase
         $this->assertEquals('Xie Ren', $profile->getTranslation('title', 'zh'));
         $this->assertEquals('The one, the only', $profile->getTranslation('intro', 'en'));
         $this->assertEquals('De yige ren', $profile->getTranslation('intro', 'zh'));
-        $this->assertEquals('Born in the USA', $profile->getTranslation('bio', 'en'));
-        $this->assertEquals('I have no idea', $profile->getTranslation('bio', 'zh'));
     }
 
     /**
@@ -94,80 +90,7 @@ class ProfilesTest extends BrowserKitTestCase
         $this->assertFalse($profile->published);
     }
 
-    /**
-     *@test
-     */
-    public function a_profiles_social_links_can_be_mass_updated()
-    {
-        $links = [
-            'facebook' => 'https://facebook.com/my-profile',
-            'twitter' => 'https://twitter.com/i-am-a-twit',
-            'instagram' => 'https://instagram/hot-shots',
-            'email' => 'fake@example.com'
-        ];
 
-        $profile = factory(Profile::class)->create();
-        $profile->updateSocialLinks($links);
-        $profile = $profile->fresh();
-        $this->assertCount(4, $profile->socialLinks);
-        $this->assertEquals('https://facebook.com/my-profile', $profile->getSocialLink('facebook'));
-        $this->assertEquals('https://twitter.com/i-am-a-twit', $profile->getSocialLink('twitter'));
-        $this->assertEquals('https://instagram/hot-shots', $profile->getSocialLink('instagram'));
-        $this->assertEquals('fake@example.com', $profile->getSocialLink('email'));
-    }
-
-    /**
-     *@test
-     */
-    public function a_list_of_platforms_can_be_removed_from_the_profiles_social_links()
-    {
-        $links = [
-            'facebook' => 'https://facebook.com/my-profile',
-            'twitter' => 'https://twitter.com/i-am-a-twit',
-            'instagram' => 'https://instagram/hot-shots',
-            'email' => 'fake@example.com'
-        ];
-
-        $profile = factory(Profile::class)->create();
-        $profile->updateSocialLinks($links);
-        $profile = $profile->fresh();
-        $this->assertCount(4, $profile->socialLinks);
-
-        $profile->removeSocialLinks(['twitter', 'instagram']);
-
-        $profile = $profile->fresh();
-        $this->assertCount(2, $profile->socialLinks);
-        $this->assertNull($profile->getSocialLink('twitter'));
-        $this->assertNull($profile->getSocialLink('instagram'));
-    }
-
-    /**
-     *@test
-     */
-    public function updating_social_links_will_remove_links_not_passed_to_method()
-    {
-        $links = [
-            'facebook' => 'https://facebook.com/my-profile',
-            'twitter' => 'https://twitter.com/i-am-a-twit',
-            'instagram' => 'https://instagram/hot-shots',
-            'email' => 'fake@example.com'
-        ];
-
-        $profile = factory(Profile::class)->create();
-        $profile->updateSocialLinks($links);
-        $profile = Profile::find($profile->id);
-        $this->assertCount(4, $profile->socialLinks);
-
-        $newLinks = [
-            'facebook' => 'https://facebook.com/my-new-profile',
-            'twitter' => 'https://twitter.com/i-am-not-a-twit',
-        ];
-        $profile->updateSocialLinks($newLinks);
-        $profile = Profile::find($profile->id);
-        $this->assertCount(2, $profile->socialLinks);
-        $this->assertNull($profile->getSocialLink('instagram'));
-        $this->assertNull($profile->getSocialLink('email'));
-    }
 
     /**
      *@test

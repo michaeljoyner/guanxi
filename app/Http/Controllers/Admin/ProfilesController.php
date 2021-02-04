@@ -45,8 +45,7 @@ class ProfilesController extends Controller
 
     public function edit(Profile $profile)
     {
-        $social_platforms = config('social.allowed_platforms');
-        return view('admin.profiles.edit')->with(compact('profile', 'social_platforms'));
+        return view('admin.profiles.edit', ['profile' => $profile]);
     }
 
     public function store(UpdateProfileForm $request)
@@ -61,8 +60,6 @@ class ProfilesController extends Controller
     public function update(UpdateProfileForm $request, Profile $profile)
     {
         $profile->updateWithTranslations($request->requiredFields());
-
-        $profile->updateSocialLinks($request->socialLinkFields());
 
         $this->flasher->success('Info Updated', 'Changes have been saved');
 
