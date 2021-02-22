@@ -5,6 +5,7 @@
         <new-article></new-article>
     </x-page-header>
 
+
     <section class="">
             @foreach($articles as $article)
                 <div class="flex bg-gray-100 border-b py-2">

@@ -11,6 +11,7 @@
                 <a class="block mb-2 hover:underline text-brand-purple" href="/admin/content/articles">Articles</a>
                 @if(Auth::user()->isSuperAdmin())
                     <a class="block mb-2 hover:underline text-brand-purple" href="/admin/content/categories">Categories</a>
+                    <a class="block mb-2 hover:underline text-brand-purple" href="/admin/content/banner/features">Banner</a>
                     <a class="block mb-2 hover:underline text-brand-purple" href="/admin/content/tags">Tags</a>
                 @endif
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Affiliates\Affiliate;
 use App\Content\ArticlesRepository;
+use App\Content\BannerFeature;
 use App\Media\MediaRepository;
 use App\Pages\AboutPage;
 use App\People\Profile;
@@ -21,6 +22,7 @@ class PagesController extends Controller
           'testimonials' =>   Testimonial::forLocale()->public()->latest()->limit(3)->get()->map->toArray(),
             'articles' => $articles->homePageArticles(),
             'videos' => $media->latestVideos(),
+            'feature' => BannerFeature::current()->presentForLang(app()->getLocale()),
         ]);
     }
 

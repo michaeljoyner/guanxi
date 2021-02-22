@@ -2,6 +2,8 @@
 
 namespace App\Media;
 
+use App\Content\BannerFeature;
+use App\Content\CanBeFeatured;
 use App\IsPublishable;
 use App\People\Profile;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Translatable\HasTranslations;
 
-class Video extends Model
+class Video extends Model implements CanBeFeatured
 {
     use Sluggable, HasTranslations, IsPublishable, HasContributor;
 
@@ -70,5 +72,30 @@ class Video extends Model
     public function embedHtml()
     {
         return sprintf('<iframe class="absolute inset w-full h-full" src="%s" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>', $this->embed_url);
+    }
+
+    public function feature(): BannerFeature
+    {
+        return BannerFeature::fromVideo($this);
+    }
+
+    public function bannerTitle($locale): string
+    {
+        return $this->getTranslation('title', 'en');
+    }
+
+    public function fullSLug(): string
+    {
+        return sprintf("videos/%s", $this->slug);
+    }
+
+    public function featureImage(): string
+    {
+        return $this->thumbnail;
+    }
+
+    public function viewable(): bool
+    {
+        return true;
     }
 }

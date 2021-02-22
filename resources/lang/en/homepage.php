@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'banner' => [
+        'article' => 'Read Article',
+        'video' => 'Watch Video',
+    ],
     'splash'       => [
         'featured_article' => 'Featured Article',
         'button' => 'Read Article'

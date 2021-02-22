@@ -15,7 +15,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
-class Article extends Model implements HasMedia
+class Article extends Model implements HasMedia, CanBeFeatured
 {
     use Sluggable, HasTranslations, SoftDeletes, InteractsWithMedia, HasTags, CanHaveNullRelationships;
 
@@ -200,29 +200,12 @@ class Article extends Model implements HasMedia
         ]);
     }
 
-    public function feature()
+    public function feature(): BannerFeature
     {
-        $this->clearAllFeaturedArticles();
-        $this->is_featured = true;
-        $this->save();
-
-        return $this->is_featured;
+        return BannerFeature::fromArticle($this);
     }
 
-    protected function clearAllFeaturedArticles()
-    {
-        static::where('is_featured', 1)->get()->each(function($article) {
-            $article->unfeature();
-        });
-    }
 
-    public function unfeature()
-    {
-        $this->is_featured = false;
-        $this->save();
-
-        return $this->is_featured;
-    }
 
     public function slideshows()
     {
@@ -256,6 +239,23 @@ class Article extends Model implements HasMedia
     }
 
 
+    public function bannerTitle($locale): string
+    {
+        return $this->getTranslation('title', 'en');
+    }
 
+    public function fullSLug(): string
+    {
+        return sprintf("/articles/%s", $this->slug);
+    }
 
+    public function featureImage(): string
+    {
+        return $this->titleImg();
+    }
+
+    public function viewable(): bool
+    {
+        return $this->published;
+    }
 }

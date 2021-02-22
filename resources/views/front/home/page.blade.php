@@ -10,10 +10,10 @@
 @endsection
 
 @section('content')
-{{--    @include('front.home.featured-article')--}}
-    @include('front.home.testimonials')
+    @include('front.home.feature-banner')
     @include('front.home.articles', ['artilces' => $articles])
-    @include('front.home.photos-and-art')
+{{--    @include('front.home.photos-and-art')--}}
     @include('front.home.videos', ['videos' => $videos])
+    @include('front.home.testimonials')
 {{--    @include('front.home.contributors', ['profiles' => $profiles])--}}
 @endsection

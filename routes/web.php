@@ -115,6 +115,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('content/articles/{article}/tags', 'ArticleTagsController@store')->middleware('can:update,article');
     Route::put('content/articles/{article}/tags', 'ArticleTagsController@update')->middleware('can:update,article');
 
+    Route::get('content/search/articles', 'ArticlesSearchController@index');
+
     Route::get('content/articles/{article}/images/featured/edit', 'ArticleFeaturedImagesController@edit')->middleware('can:update,article');
 
 
@@ -130,6 +132,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
     Route::get('content/tags', 'TagsController@index')->middleware('superadmin');
 
+    Route::get('content/banner/features', 'BannerFeaturesController@index');
+    Route::post('content/banner/feature-article', 'ArticleBannerFeatureController@store');
+    Route::post('content/banner/feature-video', 'VideoBannerFeatureController@store');
+    Route::post('content/banner/features/{feature}/image', 'BannerFeatureImagesController@store');
+
     Route::get('media/videos', 'VideosController@index');
     Route::get('media/videos/{video}', 'VideosController@show')->middleware('can:act,video');
     Route::post('media/videos/{video}', 'VideosController@update')->middleware('can:act,video');
@@ -140,6 +147,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('media/videos/{video}/publish', 'VideoPublishingController@update')->middleware('can:act,video');
 
     Route::post('media/videos/{video}/contributors/{profile}', 'VideoContributorsController@update')->middleware('can:act,video');
+
+    Route::get('media/search/videos', 'VideosSearchController@index');
 
     Route::get('media/photos', 'PhotosController@index');
     Route::get('media/photos/{photo}', 'PhotosController@show')->middleware('can:act,photo');
