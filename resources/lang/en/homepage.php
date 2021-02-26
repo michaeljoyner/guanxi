@@ -34,5 +34,8 @@ return [
         'heading'    => 'Associates',
         'button'     => 'View All Associates',
         'hover_text' => 'View'
+    ],
+    'testimonials' => [
+        'title' => 'What People Are Saying',
     ]
 ];
