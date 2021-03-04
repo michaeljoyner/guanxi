@@ -6,6 +6,10 @@
         <div>
             <p class="type-h4" style="margin: .5rem;">{{ $member['name'] }}</p>
             <p class="type-b3" style="margin: .5rem;">{{ $member['title'] }}</p>
+            <div class="w-40 h-40 rounded-full overflow-hidden mx-auto mb-3">
+                <img src="{{ $member['profile'] }}"
+                     alt="{{ $member['name'] }}" class="w-full h-full object-cover">
+            </div>
             <div class="flex justify-center">
                 <a class="mr-3" href="{{ $member['facebook'] }}">@include('svgicons.social.facebook', ['classes' => 'h-6 text-brand-purple hover:text-brand-soft-purple'])</a>
                 <a class="ml-3" href="mailto:{{ $member['email'] }}" target="_blank" rel="nofollow">

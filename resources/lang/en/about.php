@@ -57,28 +57,32 @@ return [
                 'title'    => 'Editor-in-chief',
                 'bio'      => 'Michael is an explorer and wears many hats: teacher and student, writer and reader, entrepreneur, activist, philanthropist....A refined roughneck who often prefers the company of animals.',
                 'email'    => 'mike.guanxi@gmail.com',
-                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+                'facebook' => 'https://www.facebook.com/GuanXiMedia',
+                'profile' => '/images/team/mike.jpg',
             ],
             [
                 'name'     => 'Kelly Cheng',
                 'title'    => 'Senior Translator',
                 'bio'      => 'Life experiencer',
                 'email'    => 'chunicheng@gmail.com',
-                'facebook' => 'https://www.facebook.com/groups/206686419350784'
+                'facebook' => 'https://www.facebook.com/groups/206686419350784',
+                'profile' => '/images/team/kellyprofile.jpg',
             ],
             [
                 'name'     => 'David Johnson',
                 'title'    => 'Host/Research Specialist',
                 'bio'      => 'Business owner, session drummer, photographer, explorer, aviator, avid storm chaser, and anonymous contributor to several publications.',
                 'email'    => 'david.guanxi@gmail.com',
-                'facebook' => 'https://www.facebook.com/traxtaiwan'
+                'facebook' => 'https://www.facebook.com/traxtaiwan',
+                'profile' => '/images/team/dave.jpg',
             ],
             [
                 'name'     => 'Colin Phoenix',
                 'title'    => 'Video Director',
                 'bio'      => 'Colin Phoenix, from Scotland,  works tirelessly in the studio, and enjoys adventuring out in the field.   He’s committed to constant improvement, experimentation, and growth, with video.  He loves his dog, blazing fires at Guan Xi mountain,  and dabbles with music',
                 'email'    => 'guanxivideo@gmail.com',
-                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+                'facebook' => 'https://www.facebook.com/GuanXiMedia',
+                'profile' => '/images/team/colin.jpg',
             ],
         ]
     ]
