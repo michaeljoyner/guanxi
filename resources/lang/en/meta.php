@@ -9,6 +9,10 @@ return [
         'title' => 'All About Guanxi Media',
         'description' => 'Discover our story, our mission, and our vision. Also, stay connected to what’s happening in Taiwan, and find out how to contact us.'
     ],
+    'contact' => [
+        'title' => 'Contact Us',
+        'description' => 'Whether you to contribute, or just get in touch, we are always happy to hear from you.',
+    ],
     'articles' => [
         'title' => 'Articles | Guanxi Media',
         'description' => 'Read articles on lifestyle, culture, and politics, in Taiwan and globally, written by a diverse mix of talented journalists and storytellers.'

@@ -13,6 +13,7 @@ return [
     'marketing'  => 'marketing',
     'events'     => 'events',
     'ourstory'   => 'our story',
+    'team'       => 'team',
     'contribute' => 'contribute',
     'lang' => '中文',
 ];

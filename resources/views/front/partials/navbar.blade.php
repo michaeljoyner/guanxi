@@ -28,10 +28,11 @@
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#marketing') }}">{{ trans('navbar.marketing') }}</a>
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#events') }}">{{ trans('navbar.events') }}</a>
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#story') }}">{{ trans('navbar.ourstory') }}</a>
-                <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#contribute') }}">{{ trans('navbar.contribute') }}</a>
-                <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#contact') }}">{{ trans('navbar.contact') }}</a>
+                <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#team') }}">{{ trans('navbar.team') }}</a>
+
             </div>
         </div>
+        <a class="lg:mx-4 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/contact') }}">{{ trans('navbar.contact') }}</a>
         <a class="my-3 lg:my-0 mx-6 uppercase" href="{{ transUrl(Request::path()) }}">{{ trans('navbar.lang') }}</a>
     </div>
     <div class="lg:hidden pr-6">

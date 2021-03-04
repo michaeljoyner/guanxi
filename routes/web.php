@@ -38,6 +38,8 @@ Route::group(['prefix' => Localization::setLocale()], function()
     Route::get('galleries/videos', 'VideosController@index');
     Route::get('videos/{slug}', 'VideosController@show');
 
+    Route::get('contact', 'ContactPageController@show');
+
     Route::post('contact', 'ContactController@sendMessage');
 
     Route::get('api/content/articles', 'Api\ArticlesController@index');

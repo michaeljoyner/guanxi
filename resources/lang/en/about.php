@@ -30,7 +30,7 @@ return [
             'name'    => 'Name',
             'email'   => 'Email',
             'enquiry' => 'Your message',
-            'submit' => 'Send message',
+            'submit'  => 'Send message',
         ],
 
         'dialogs' => [
@@ -46,6 +46,40 @@ return [
                 'text'    => 'There was a problem receiving your message. All we can recommend at this point is to refresh the page and try again, or reach out using the contact details provided on this page.',
                 'button'  => 'okay',
             ]
+        ]
+    ],
+    'team'       => [
+        'heading' => 'The Guanxi Team',
+
+        'members' => [
+            [
+                'name'     => 'Michael Schram',
+                'title'    => 'Editor-in-chief',
+                'bio'      => 'Michael is an explorer and wears many hats: teacher and student, writer and reader, entrepreneur, activist, philanthropist....A refined roughneck who often prefers the company of animals.',
+                'email'    => 'mike.guanxi@gmail.com',
+                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+            ],
+            [
+                'name'     => 'Kelly Cheng',
+                'title'    => 'Senior Translator',
+                'bio'      => 'Life experiencer',
+                'email'    => 'chunicheng@gmail.com',
+                'facebook' => 'https://www.facebook.com/groups/206686419350784'
+            ],
+            [
+                'name'     => 'David Johnson',
+                'title'    => 'Host/Research Specialist',
+                'bio'      => 'Business owner, session drummer, photographer, explorer, aviator, avid storm chaser, and anonymous contributor to several publications.',
+                'email'    => 'david.guanxi@gmail.com',
+                'facebook' => 'https://www.facebook.com/traxtaiwan'
+            ],
+            [
+                'name'     => 'Colin Phoenix',
+                'title'    => 'Video Director',
+                'bio'      => 'Colin Phoenix, from Scotland,  works tirelessly in the studio, and enjoys adventuring out in the field.   He’s committed to constant improvement, experimentation, and growth, with video.  He loves his dog, blazing fires at Guan Xi mountain,  and dabbles with music',
+                'email'    => 'guanxivideo@gmail.com',
+                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+            ],
         ]
     ]
 ];

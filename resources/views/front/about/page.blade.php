@@ -23,9 +23,7 @@
         <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
         @include('front.about.story')
         <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
-        @include('front.about.contribute')
-        <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
-        @include('front.about.contact')
+        @include('front.about.team')
     </div>
 
 

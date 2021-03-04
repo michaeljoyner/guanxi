@@ -47,5 +47,40 @@ return [
                 'button'  => 'okay',
             ]
         ]
+    ],
+
+    'team'       => [
+        'heading' => '我們的隊伍',
+
+        'members' => [
+            [
+                'name'     => '薛龍熙',
+                'title'    => '主編',
+                'bio'      => 'Michael是位身兼數職的探險家: 是老師也是學生，是作家也是讀者，創業家，行動主義者，慈善家....一個喜歡動物陪伴的柔情鐵漢。',
+                'email'    => 'mike.guanxi@gmail.com',
+                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+            ],
+            [
+                'name'     => '鄭安閑',
+                'title'    => '資深翻譯',
+                'bio'      => '生活體驗家',
+                'email'    => 'chunicheng@gmail.com',
+                'facebook' => 'https://www.facebook.com/groups/206686419350784'
+            ],
+            [
+                'name'     => '森東甯',
+                'title'    => '主持人/研究專家',
+                'bio'      => '企業所有者，會議鼓手，攝影師，資源管理器，飛行員，狂熱追逐者和一些出版物的匿名撰稿人',
+                'email'    => 'david.guanxi@gmail.com',
+                'facebook' => 'https://www.facebook.com/traxtaiwan'
+            ],
+            [
+                'name'     => '林火生',
+                'title'    => '影像總監',
+                'bio'      => 'Colin致力於製作“關係”頻道的影片。 如果他不是在外冒險，那他就是在工作室裡，追求製作卓越的影片並不斷精進。 他愛他的狗，喜歡音樂。',
+                'email'    => 'guanxivideo@gmail.com',
+                'facebook' => 'https://www.facebook.com/GuanXiMedia'
+            ],
+        ]
     ]
 ];

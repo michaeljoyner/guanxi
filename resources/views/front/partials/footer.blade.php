@@ -23,6 +23,7 @@
                         <li><a href="{{ localUrl('/about') }}">About</a></li>
                         <li><a href="{{ localUrl('/galleries') }}">Gallery</a></li>
                         <li><a href="{{ localUrl('/bios') }}">Contributors</a></li>
+                        <li><a href="{{ localUrl('/contact') }}">Contact</a></li>
                     </ul>
 
                 </div>
