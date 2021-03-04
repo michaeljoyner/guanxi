@@ -18,8 +18,8 @@
     </header>
     <div class="about-page-content type-b1 text-center">
         @include('front.about.marketing')
-        <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
-        @include('front.about.events')
+{{--        <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>--}}
+{{--        @include('front.about.events')--}}
         <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
         @include('front.about.story')
         <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>

@@ -26,7 +26,7 @@
             <span class="nav-caret"> @include('svgicons.downcaret', ['classes' => 'hidden lg:block'])</span>
             <div class="w-max-content lg:hidden my-2 lg:my-0 flex flex-col group-hover:flex lg:justify-center items-start lg:items-center lg:bg-white static lg:absolute top-16 left-0 lg:shadow">
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#marketing') }}">{{ trans('navbar.marketing') }}</a>
-                <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#events') }}">{{ trans('navbar.events') }}</a>
+{{--                <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#events') }}">{{ trans('navbar.events') }}</a>--}}
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#story') }}">{{ trans('navbar.ourstory') }}</a>
                 <a class="lg:mx-6 uppercase lg:py-1 px-2 lg:px-6 lg:my-1" href="{{ localUrl('/about#team') }}">{{ trans('navbar.team') }}</a>
 
