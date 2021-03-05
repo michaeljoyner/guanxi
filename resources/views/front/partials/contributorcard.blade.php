@@ -5,7 +5,7 @@
         </div>
         <div class="px-4">
             <p class="type-h3">{{ $contributor->name }}</p>
-            <p class="type-b3 text-brand-purple">{{ $contributor->getTranslation('title', Localization::getCurrentLocale()) }}</p>
+            <p class="type-b3 text-text-grey">{{ $contributor->getTranslation('title', Localization::getCurrentLocale()) }}</p>
         </div>
     </div>
 

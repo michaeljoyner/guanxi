@@ -241,7 +241,7 @@ class Article extends Model implements HasMedia, CanBeFeatured
 
     public function bannerTitle($locale): string
     {
-        return $this->getTranslation('title', 'en');
+        return $this->getTranslation('title', $locale);
     }
 
     public function fullSLug(): string

@@ -3,9 +3,9 @@
         <img src="{{ $video->thumbnail }}" alt="{{ $video->title }}" class="w-full">
     </a>
     <p class="type-h3 my-1">{{ $video->title }}</p>
-    <p class="type-b3 text-brand-purple">
+    <p class="type-b3 text-text-grey">
         @if($video->contributor)
-        <a href="{{ localUrl("/bios/" . $video->contributor->slug) }}">{{ $video->contributor->name }}</a>
+        {{ $video->contributor->name }}
         @endif
     </p>
 </div>

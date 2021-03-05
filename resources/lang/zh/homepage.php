@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'banner' => [
+        'article' => '閱讀文章',
+        'video' => '看視頻',
+    ],
     'splash' => [
         'featured_article' => '精選文章',
         'button' => '閱覽本文'

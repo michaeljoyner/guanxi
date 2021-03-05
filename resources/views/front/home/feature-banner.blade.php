@@ -6,7 +6,7 @@
                 {{ $feature['title'] }}
             </p>
             <div class="flex justify-start  mt-8">
-                <a href="{{ $feature['link'] }}" class="border-4 border-white text-white type-h3 px-6 py-2">{{ $feature['button_text'] }}</a>
+                <a href="{{ $feature['link'] }}" class="border-4 border-white text-white hover:text-mid-grey hover:border-mid-grey type-h3 px-6 py-2">{{ $feature['button_text'] }}</a>
             </div>
         </div>
 

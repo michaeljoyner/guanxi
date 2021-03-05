@@ -16,7 +16,7 @@
     <article class="px-6 max-w-4xl mx-auto">
         <header class="py-20">
             @if($article->categories->count())
-            <p class="type-h3 text-brand-purple text-center">
+            <p class="type-h3 text-text-grey text-center">
                 {{ $article->categories()->first()->getTranslation('name', Localization::getCurrentLocale()) }}
             </p>
             @endif
@@ -26,18 +26,18 @@
             <p class="type-b3 my-4 text-center">
                 {{ $article->created_at->toFormattedDateString() }} &middot; {{ $article->author->name }}
             </p>
-            <div class="flex justify-center text-brand-purple">
+            <div class="flex justify-center text-brand-dark">
                 <a target="_blank" href="https://twitter.com/home?status={{ urlencode($article->title . ' ' . Request::url()) }}">
-                    @include('svgicons.social.twitter', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
+                    @include('svgicons.social.twitter', ['classes' => 'h-8 mx-2 hover:text-text-grey'])
                 </a>
                 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::url()) }}">
-                    @include('svgicons.social.facebook', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
+                    @include('svgicons.social.facebook', ['classes' => 'h-8 mx-2 hover:text-text-grey'])
                 </a>
                 <a target="_blank" href="mailto:?&subject=Read&body={{ Request::url() }}">
-                    @include('svgicons.social.email', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
+                    @include('svgicons.social.email', ['classes' => 'h-8 mx-2 hover:text-text-grey'])
                 </a>
                 <a target="_blank" href="http://line.me/R/msg/text/?{{ urlencode(Request::url()) }}">
-                    @include('svgicons.social.line', ['classes' => 'h-8 mx-2 hover:text-brand-soft-purple'])
+                    @include('svgicons.social.line', ['classes' => 'h-8 mx-2 hover:text-text-grey'])
                 </a>
             </div>
         </header>
@@ -48,9 +48,9 @@
 
         @if($article->tags->count())
         <section class="mt-20 flex flex-wrap text-brand-purple type-b1">
-            @include('svgicons.tags', ['classes' => 'h-6 text-brand-purple transform -rotate-45 mr-4'])
+            @include('svgicons.tags', ['classes' => 'h-6 text-brand-dark transform -rotate-45 mr-4'])
             @foreach($article->tags as $tag)
-            <a class="hover:text-brand-soft-purple mr-4 mb-4" href="{{ localUrl('/articles/tags/' . $tag->slug) }}">{{ $tag->name }}</a>
+            <a class="text-text-grey hover:text-brand-dark mr-4 mb-4" href="{{ localUrl('/articles/tags/' . $tag->slug) }}">{{ $tag->name }}</a>
             @endforeach
         </section>
         @endif

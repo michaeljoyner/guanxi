@@ -11,9 +11,9 @@
                      alt="{{ $member['name'] }}" class="w-full h-full object-cover">
             </div>
             <div class="flex justify-center">
-                <a class="mr-3" href="{{ $member['facebook'] }}">@include('svgicons.social.facebook', ['classes' => 'h-6 text-brand-purple hover:text-brand-soft-purple'])</a>
+                <a class="mr-3" href="{{ $member['facebook'] }}">@include('svgicons.social.facebook', ['classes' => 'h-6 text-brand-dark hover:text-text-grey'])</a>
                 <a class="ml-3" href="mailto:{{ $member['email'] }}" target="_blank" rel="nofollow">
-                    @include('svgicons.social.email', ['classes' => 'h-6 text-brand-purple hover:text-brand-soft-purple'])
+                    @include('svgicons.social.email', ['classes' => 'h-6 text-brand-dark hover:text-text-grey'])
                 </a>
             </div>
             <p class="lg:w-80 mx-auto">{{ $member['bio'] }}</p>

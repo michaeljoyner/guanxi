@@ -22,6 +22,8 @@ module.exports = {
         "light-grey": "#C3C6C9",
         "opaque-purple": "rgba(128,62,160,0.8)",
 
+        "mid-grey": "#a2a2a2",
+
         darkorange: "darkorange",
         springgreen: "springgreen",
       },

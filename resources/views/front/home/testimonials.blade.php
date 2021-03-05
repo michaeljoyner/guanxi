@@ -7,7 +7,7 @@
             @endforeach
         </div>
         <div class="text-center">
-            <a href="{{ localUrl("/testimonials") }}" class="btn-purple">More testimonials</a>
+            <a href="{{ localUrl("/testimonials") }}" class="btn">More testimonials</a>
         </div>
     </div>
 </section>
