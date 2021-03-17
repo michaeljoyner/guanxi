@@ -1,5 +1,5 @@
 <section class="home-testimonials border-b-2 border-black">
-    <p class="type-h1 text-center mt-20 mb-8 px-6">{{ trans('homepage.testimonials.title') }}</p>
+    <p class="type-h1 text-center mt-20 mb-8 px-6">{{ trans('testimonials.home.title') }}</p>
     <div class="w-full  py-12 px-6">
         <div class="my-12 max-w-2xl mx-auto">
             @foreach($testimonials as $testimonial)
@@ -7,7 +7,7 @@
             @endforeach
         </div>
         <div class="text-center">
-            <a href="{{ localUrl("/testimonials") }}" class="btn">More testimonials</a>
+            <a href="{{ localUrl("/testimonials") }}" class="btn">{{ trans('testimonials.home.button') }}</a>
         </div>
     </div>
 </section>

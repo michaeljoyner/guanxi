@@ -10,11 +10,15 @@ use App\Http\Requests;
 
 class CategoriesController extends Controller
 {
-    public function show($slug, ArticlesRepository $repository)
+    public function show(Category $category, ArticlesRepository $repository)
     {
-        $category = Category::where('slug', $slug)->firstOrFail();
-        $articles = $repository->paginatedCategoryArticles($category);
+        $designation = request('designation', '');
+        $articles = $repository->withDesignation($designation)->paginatedCategoryArticles($category);
 
-        return view('front.articles.category')->with(compact('articles', 'category'));
+        return view('front.articles.category', [
+            'articles' => $articles,
+            'category' => $category,
+            'designation' => $designation,
+        ]);
     }
 }

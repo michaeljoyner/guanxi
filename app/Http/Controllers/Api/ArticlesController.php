@@ -15,8 +15,8 @@ class ArticlesController extends Controller
     public function index(Request $request, ArticlesRepository $repository)
     {
         $page = intval($request->page ?? 1);
-
-        $articles = $repository->paginatedArticles();
+        $designation = request('designation', '');
+        $articles = $repository->withDesignation($designation)->paginatedArticles();
 
         $html = View::make('front.articles.loader', ['articles' => $articles])->render();
 

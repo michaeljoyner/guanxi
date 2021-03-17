@@ -58,7 +58,7 @@ return [
                 'bio'      => 'Michael is an explorer and wears many hats: teacher and student, writer and reader, entrepreneur, activist, philanthropist....A refined roughneck who often prefers the company of animals.',
                 'email'    => 'mike.guanxi@gmail.com',
                 'facebook' => 'https://www.facebook.com/GuanXiMedia',
-                'profile' => '/images/team/mike.jpg',
+                'profile'  => '/images/team/mike.jpg',
             ],
             [
                 'name'     => 'Kelly Cheng',
@@ -66,7 +66,7 @@ return [
                 'bio'      => 'Life experiencer',
                 'email'    => 'chunicheng@gmail.com',
                 'facebook' => 'https://www.facebook.com/groups/206686419350784',
-                'profile' => '/images/team/kellyprofile.jpg',
+                'profile'  => '/images/team/kellyprofile.jpg',
             ],
             [
                 'name'     => 'David Johnson',
@@ -74,7 +74,7 @@ return [
                 'bio'      => 'Business owner, session drummer, photographer, explorer, aviator, avid storm chaser, and anonymous contributor to several publications.',
                 'email'    => 'david.guanxi@gmail.com',
                 'facebook' => 'https://www.facebook.com/traxtaiwan',
-                'profile' => '/images/team/dave.jpg',
+                'profile'  => '/images/team/dave.jpg',
             ],
             [
                 'name'     => 'Colin Phoenix',
@@ -82,9 +82,17 @@ return [
                 'bio'      => 'Colin Phoenix, from Scotland,  works tirelessly in the studio, and enjoys adventuring out in the field.   He’s committed to constant improvement, experimentation, and growth, with video.  He loves his dog, blazing fires at Guan Xi mountain,  and dabbles with music',
                 'email'    => 'guanxivideo@gmail.com',
                 'facebook' => 'https://www.facebook.com/GuanXiMedia',
-                'profile' => '/images/team/colin.jpg',
+                'profile'  => '/images/team/colin.jpg',
             ],
         ]
+    ],
+
+    'credentials' => [
+        'title'                     => 'Credentials',
+        'members_of'                => 'We are members of',
+        'reporters_without_borders' => 'Reporters without Borders',
+        'taiwan_journalists'        => 'Association of Taiwan Journalists',
+        'international_press_fed'   => 'International Press Federation',
     ]
 ];
 

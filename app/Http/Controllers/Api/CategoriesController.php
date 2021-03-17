@@ -14,7 +14,8 @@ class CategoriesController extends Controller
     {
         $page = intval(request('page', 1));
 
-        $articles = $repository->paginatedCategoryArticles($category);
+        $designation = request('designation', '');
+        $articles = $repository->withDesignation($designation)->paginatedCategoryArticles($category);
 
         $html = View::make('front.articles.loader', ['articles' => $articles])->render();
 

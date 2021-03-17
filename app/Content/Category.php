@@ -4,6 +4,7 @@ namespace App\Content;
 
 use App\HasModelImage;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Image\Manipulations;
@@ -37,6 +38,27 @@ class Category extends Model implements HasMedia
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function scopeForWorld(Builder $query)
+    {
+        return $query->whereHas('articles', function ($q) {
+            return $q->where('published', true)->where('designation', Article::WORLD);
+        });
+    }
+
+    public function scopeForTaiwan(Builder $query)
+    {
+        return $query->whereHas('articles', function ($q) {
+            return $q->where('published', true)->where('designation', Article::TAIWAN);
+        });
+    }
+
+    public function scopeHasPublishedArticles(Builder $query)
+    {
+        return $query->whereHas('articles', function ($q) {
+            return $q->where('published', true);
+        });
     }
 
     public function registerMediaConversions(Media $media = null): void

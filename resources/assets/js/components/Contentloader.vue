@@ -38,9 +38,15 @@ export default {
     fetchContent() {
       this.fetching = true;
       axios
-        .get(`${this.url}?page=${this.nextPage}`)
+        .get(this.makeUrl())
         .then(({ data }) => this.onSuccess(data))
         .catch((err) => this.onFailure(err));
+    },
+
+    makeUrl() {
+      return this.url.includes("?")
+        ? `${this.url}&page=${this.nextPage}`
+        : `${this.url}?page=${this.nextPage}`;
     },
 
     onSuccess(data) {

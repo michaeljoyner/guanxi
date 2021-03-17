@@ -27,3 +27,11 @@ $factory->state(Article::class, 'published', [
     'published_on' => \Carbon\Carbon::yesterday(),
     'published'    => true,
 ]);
+
+$factory->state(Article::class, 'world', [
+    'designation'    => Article::WORLD,
+]);
+
+$factory->state(Article::class, 'taiwan', [
+    'designation'    => Article::TAIWAN,
+]);

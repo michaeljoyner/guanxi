@@ -86,5 +86,13 @@ return [
                 'profile' => '/images/team/colin.jpg',
             ],
         ]
+    ],
+
+    'credentials' => [
+        'title'                     => '證件',
+        'members_of'                => '的成員',
+        'reporters_without_borders' => '无国界记者',
+        'taiwan_journalists'        => '台灣新聞記者協會',
+        'international_press_fed'   => '国际新闻联合会',
     ]
 ];

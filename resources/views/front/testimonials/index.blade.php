@@ -1,5 +1,17 @@
 @extends('front.base')
 
+@section('title')
+    {{ trans('testimonials.meta.title') }}
+@endsection
+
+@section('head')
+    @include('front.partials.ogmeta', [
+        'ogImage' => url('/images/facebook_image.jpg'),
+        'ogTitle' => trans('testimonials.meta.title'),
+        'ogDescription' => trans('testimonials.meta.description')
+    ])
+@endsection
+
 @section('content')
     <header class="h-30-vw flex justify-center items-center testimonials-banner">
         <h1 class="text-white type-h1">{{ trans('testimonials.intro.heading') }}</h1>

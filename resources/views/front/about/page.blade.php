@@ -25,6 +25,10 @@
         <div class="max-w-3xl mx-auto border-b border-brand-super-soft-purple"></div>
         @include('front.about.team')
     </div>
+    <div class="type-b1 text-center">
+        @include('front.about.credentials')
+    </div>
+
 
 
 

@@ -22,6 +22,10 @@ class Article extends Model implements HasMedia, CanBeFeatured
     const TAIWAN = 'taiwan';
     const WORLD = 'world';
 
+    const BANNER_TAIWAN = '/images/banners/taiwan.jpg';
+    const BANNER_WORLD = '/images/banners/world.jpg';
+    const BANNER_GENERAL = '/images/banners/articles.jpg';
+
     protected $table = 'articles';
 
     protected $fillable = [
@@ -257,5 +261,18 @@ class Article extends Model implements HasMedia, CanBeFeatured
     public function viewable(): bool
     {
         return $this->published;
+    }
+
+    public static function bannerFor($designation)
+    {
+        if($designation === static::TAIWAN) {
+            return static::BANNER_TAIWAN;
+        }
+
+        if($designation === static::WORLD) {
+            return static::BANNER_WORLD;
+        }
+
+        return static::BANNER_GENERAL;
     }
 }

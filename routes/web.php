@@ -28,7 +28,7 @@ Route::group(['prefix' => Localization::setLocale()], function()
 
     Route::get('admin/preview/articles/{article}', 'Admin\ArticlesPreviewController@show')->middleware('auth');
 
-    Route::get('categories/{slug}', 'CategoriesController@show');
+    Route::get('categories/{category:slug}', 'CategoriesController@show');
 
 
     Route::get('galleries', 'GalleriesController@index');
