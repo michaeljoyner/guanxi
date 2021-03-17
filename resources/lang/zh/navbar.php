@@ -2,8 +2,8 @@
 
 return [
     'articles'   => '文章',
-    'world'      => 'World',
-    'taiwan'     => 'Taiwan',
+    'world'      => '全球',
+    'taiwan'     => '台灣',
     'gallery'    => '藝廊',
     'bios'       => '人物簡介',
     'affiliates' => '關係協力商家',
