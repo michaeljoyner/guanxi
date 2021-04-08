@@ -35,6 +35,7 @@
                             <li class="text-center"><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/articles/' . $trending->slug) }}">{{ $trending->title }}</a></li>
                         @endforeach
                     </ul>
+                    <x-buy-a-coffee mode="light" :useSupportMessage="false"></x-buy-a-coffee>
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col items-center mb-12 md:mb-0">
                     <p class="type-h4 text-mid-grey">Categories</p>

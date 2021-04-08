@@ -26,6 +26,7 @@
             </div>
         </div>
         <a class="lg:mx-4 uppercase lg:py-1 lg:px-2 px-6 lg:my-1 hover:text-text-grey" href="{{ localUrl('/contact') }}">{{ trans('navbar.contact') }}</a>
+{{--        @include('front.partials.buy-me-coffee')--}}
         <a class="my-3 lg:my-0 mx-6 uppercase" href="{{ transUrl(Request::path()) }}">{{ trans('navbar.lang') }}</a>
     </div>
     <div class="lg:hidden pr-6">
@@ -33,5 +34,6 @@
             <svg class="h-12 text-white fill-current menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M16.4 9H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1zm0 4H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1zM3.6 7h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1z"/></svg>
             <svg class="h-8 text-white fill-current close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/></svg>
         </button>
+
     </div>
 </div>

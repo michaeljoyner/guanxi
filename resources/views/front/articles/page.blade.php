@@ -46,6 +46,8 @@
             {!! $article->parseBody(Localization::getCurrentLocale()) !!}
         </section>
 
+        <x-buy-a-coffee></x-buy-a-coffee>
+
         @if($article->tags->count())
         <section class="mt-20 flex flex-wrap text-brand-purple type-b1">
             @include('svgicons.tags', ['classes' => 'h-6 text-brand-dark transform -rotate-45 mr-4'])

@@ -39,6 +39,9 @@
 
     </div>
     <p class="type-b1 max-w-3xl mx-auto my-8 px-6">{!! nl2br($video->description) !!}</p>
+
+    @include('front.partials.buy-me-coffee')
+
     <div class="my-12 flex justify-center">
         <a href="{{ localUrl('/galleries/videos') }}" class="btn mr-4">{{ trans('videos.show.back_button') }}</a>
         <a href="{{ localUrl('/videos/' . $nextVideo->slug) }}" class="ml-4 btn">{{ trans('videos.show.next_button') }}</a>
