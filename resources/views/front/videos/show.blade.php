@@ -40,7 +40,7 @@
     </div>
     <p class="type-b1 max-w-3xl mx-auto my-8 px-6">{!! nl2br($video->description) !!}</p>
 
-    @include('front.partials.buy-me-coffee')
+    <x-buy-a-coffee></x-buy-a-coffee>
 
     <div class="my-12 flex justify-center">
         <a href="{{ localUrl('/galleries/videos') }}" class="btn mr-4">{{ trans('videos.show.back_button') }}</a>
