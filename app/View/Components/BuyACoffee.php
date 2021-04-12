@@ -18,7 +18,7 @@ class BuyACoffee extends Component
 
     public function buttonType(): string
     {
-        return $this->mode === 'dark' ? 'btn bg-sunny-yellow hover:bg-yellow-400' : 'btn-white';
+        return $this->mode === 'dark' ? 'type-h3 rounded border-2 border-black text-black px-4 py-2 transition-transform duration-300 ease-in-out transform inline-block text-center bg-sunny-yellow hover:bg-yellow-400' : 'btn-white';
     }
 
     public function svgColour(): string
