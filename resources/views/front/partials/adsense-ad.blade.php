@@ -1,4 +1,4 @@
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Manualtest-multimedia -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -6,4 +6,6 @@
      data-ad-slot="4392284698"
      data-ad-format="display"
      data-full-width-responsive="true"></ins>
-
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
