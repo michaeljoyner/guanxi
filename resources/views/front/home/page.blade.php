@@ -12,7 +12,9 @@
 @section('content')
     @include('front.home.feature-banner')
     @include('front.home.articles', ['artilces' => $articles])
-    @include('front.partials.adsense-ad')
+    <div>
+        @include('front.partials.adsense-ad')
+    </div>
     @include('front.home.videos', ['videos' => $videos])
     @include('front.home.testimonials')
 @endsection
