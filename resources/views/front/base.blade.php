@@ -21,6 +21,7 @@
 {{--    @production--}}
 {{--        <script data-ad-client="ca-pub-9642330358282954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
 {{--    @endproduction--}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body class="pt-16 text-black font-sans antialiased @yield('bodyclass', 'scripted')">
 <!--[if lt IE 8]>
@@ -39,5 +40,8 @@
     ga('create','UA-51468211-11','auto');ga('send','pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </body>
 </html>
