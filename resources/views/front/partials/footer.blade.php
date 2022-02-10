@@ -21,7 +21,6 @@
                     <ul class="text-center">
                         <li><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/') }}">Home</a></li>
                         <li><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/about') }}">About</a></li>
-                        <li><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/galleries') }}">Gallery</a></li>
                         <li><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/contact') }}">Contact</a></li>
                     </ul>
 
