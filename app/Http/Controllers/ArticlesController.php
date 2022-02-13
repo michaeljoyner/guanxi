@@ -29,6 +29,11 @@ class ArticlesController extends Controller
     public function show($slug, ArticlesRepository $repository)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
+
+        if(!$article->published) {
+            return abort(404);
+        }
+        
         $nextArticle = $repository->nextInLineAfter($article);
 
         return view('front.articles.page')->with(compact('article', 'nextArticle'));
