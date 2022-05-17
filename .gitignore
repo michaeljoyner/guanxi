@@ -16,4 +16,5 @@ workspace.xml
 /public/build
 /public/sitemap.xml
 /public/mix-manifest.json
+/public/test_media/**/*
 .smithy.yaml
