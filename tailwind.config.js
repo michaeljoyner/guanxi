@@ -12,7 +12,8 @@ module.exports = {
         white: "#ffffff",
         danger: "#ff4850",
         eggshell: "#edf0f2",
-	"sunny-yellow": "#FFB121",
+        "sunny-yellow": "#FFB121",
+        "patreon-red": "#ff424d",
 
         "brand-purple": "#803EA0",
         "brand-soft-purple": "#B574D5",

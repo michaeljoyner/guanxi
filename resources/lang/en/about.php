@@ -93,6 +93,7 @@ return [
         'reporters_without_borders' => 'Reporters without Borders',
         'taiwan_journalists'        => 'Association of Taiwan Journalists',
         'international_press_fed'   => 'International Press Federation',
+        'ifj'                       => 'International Federation of Journalists',
     ]
 ];
 

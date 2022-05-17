@@ -94,5 +94,6 @@ return [
         'reporters_without_borders' => '无国界记者',
         'taiwan_journalists'        => '台灣新聞記者協會',
         'international_press_fed'   => '国际新闻联合会',
+        'ifj'                       => '國際記者聯盟'
     ]
 ];

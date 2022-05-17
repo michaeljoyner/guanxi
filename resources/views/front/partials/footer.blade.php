@@ -34,7 +34,7 @@
                             <li class="text-center"><a class="hover:text-mid-grey type-b5" href="{{ localUrl('/articles/' . $trending->slug) }}">{{ $trending->title }}</a></li>
                         @endforeach
                     </ul>
-                    <x-buy-a-coffee mode="light" :useSupportMessage="false"></x-buy-a-coffee>
+
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col items-center mb-12 md:mb-0">
                     <p class="type-h4 text-mid-grey">Categories</p>
@@ -46,6 +46,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <x-buy-a-coffee mode="light"
+                        :useSupportMessage="false"></x-buy-a-coffee>
     </div>
     <p class="mt-12 text-center text-sm">&copy; {{ \Illuminate\Support\Carbon::now()->year }}. Beautifully built by <a target="_blank" rel="noopener noreferrer" class="hover:text-primary-blue" href="https://dymanticdesign.com">Dymantic Design</a>.</p>
 </footer>

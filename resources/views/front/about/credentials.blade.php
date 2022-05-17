@@ -6,6 +6,7 @@
         <p class="mb-1">{{ trans('about.credentials.reporters_without_borders') }}</p>
         <p class="mb-1">{{ trans('about.credentials.taiwan_journalists') }}</p>
         <p class="mb-1">{{ trans('about.credentials.international_press_fed') }}</p>
+        <p class="mb-1">{{ trans('about.credentials.ifj') }}</p>
     </div>
 
 

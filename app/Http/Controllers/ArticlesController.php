@@ -33,7 +33,7 @@ class ArticlesController extends Controller
         if(!$article->published) {
             return abort(404);
         }
-        
+
         $nextArticle = $repository->nextInLineAfter($article);
 
         return view('front.articles.page')->with(compact('article', 'nextArticle'));
