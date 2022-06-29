@@ -19,4 +19,5 @@ return [
     'credentials' => 'credentials',
     'contribute'  => 'contribute',
     'lang'        => '中文',
+    'shop'        => 'Shop'
 ];

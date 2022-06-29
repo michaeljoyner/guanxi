@@ -26,8 +26,10 @@
             </div>
         </div>
         <a class="lg:mx-4 uppercase lg:py-1 lg:px-2 px-6 lg:my-1 hover:text-text-grey" href="{{ localUrl('/contact') }}">{{ trans('navbar.contact') }}</a>
+        <a class="lg:mx-4 uppercase lg:py-1 lg:px-2 px-6 lg:my-1 hover:text-text-grey mt-4 md:mt-0" href="https://taimai.easy.co/">{{ trans('navbar.shop') }}</a>
 {{--        @include('front.partials.buy-me-coffee')--}}
         <a class="my-3 lg:my-0 mx-6 uppercase" href="{{ transUrl(Request::path()) }}">{{ trans('navbar.lang') }}</a>
+
     </div>
     <div class="lg:hidden pr-6">
         <button id="nav-trigger" class="focus:outline-none">
