@@ -9,7 +9,7 @@
                 <div class="w-full md:w-1/2 flex flex-col items-center">
                     <p class="type-h4 text-mid-grey">Contact</p>
                     <p class="type-b5 contact-detail">+886 (0) 958 715 550</p>
-                    <p class="type-b5 contact-detail">email@guanxi.com</p>
+                    <p class="type-b5 contact-detail">mike.guanxi@gmail.com</p>
                     <div class="text-center">
                         <a href="https://www.facebook.com/GuanXiMedia/">
                             @include('svgicons.social.facebook', ['classes' => 'h-8 my-6  text-mid-grey hover:text-white'])
