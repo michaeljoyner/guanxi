@@ -18,6 +18,16 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#803EA0">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKM9CYN4J2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YKM9CYN4J2');
+    </script>
+
 {{--    @production--}}
 {{--        <script data-ad-client="ca-pub-9642330358282954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
 {{--    @endproduction--}}
@@ -35,11 +45,7 @@
 <script src="{{ mix('js/front.js') }}"></script>
 @yield('bodyscripts')
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script>
-    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','UA-51468211-11','auto');ga('send','pageview')
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
 
 </body>
 </html>
